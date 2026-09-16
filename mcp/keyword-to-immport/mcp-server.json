@@ -1,0 +1,5 @@
+{
+  "command": "uv",
+  "args": ["run", "--directory", "${dir}", "server.py"],
+  "directTools": true
+}

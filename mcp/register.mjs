@@ -7,46 +7,85 @@
 // keys, and writes the whole object back, leaving foreign keys alone. So we just
 // add ours there.
 //
+// A server opts in by dropping an `mcp-server.json` next to its code. That file
+// IS the mcp.json entry -- no invented schema -- with two placeholders:
+//
+//   ${dir}   the directory holding the manifest
+//   ${root}  the repo root
+//
+// plus an optional "name" (defaults to the manifest's directory name) that sets
+// the mcp.json key, which pi-mcp-adapter turns into the tool prefix. Any other
+// ${VAR} is left alone for pi-mcp-adapter to interpolate from the environment at
+// spawn time. Servers therefore live wherever they like -- a self-contained
+// PEP-723 script and a package sharing the repo's pyproject both work.
+//
 // Usage: node register.mjs [--remove] [--dry-run] [--self-test]
 
 import { readdirSync, existsSync, readFileSync, writeFileSync, mkdirSync, chmodSync, statSync, rmSync } from "node:fs";
-import { join, dirname, resolve } from "node:path";
+import { join, dirname, basename, resolve, relative } from "node:path";
 import { fileURLToPath } from "node:url";
 import { homedir, tmpdir } from "node:os";
 import assert from "node:assert/strict";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = dirname(HERE); // mcp/register.mjs -> repo root
+const MANIFEST = "mcp-server.json";
+const SKIP = new Set([".git", "node_modules", "__pycache__", ".venv", "venv", ".mypy_cache", ".pytest_cache"]);
 
 /** Same resolution as loom/bin/loom.js:157 -- must not drift from it. */
 function mcpConfigPath() {
   return join(process.env.PI_CODING_AGENT_DIR || join(homedir(), ".pi", "agent"), "mcp.json");
 }
 
-/** Every sibling directory holding a server.py. The directory name becomes the
- * mcp.json key, which pi-mcp-adapter turns into the tool prefix (hyphens ->
- * underscores). New servers in this repo need no edit here. */
-function discover(root = HERE) {
-  return readdirSync(root, { withFileTypes: true })
-    .filter((e) => e.isDirectory() && existsSync(join(root, e.name, "server.py")))
-    .map((e) => e.name)
-    .sort();
-}
-
-/** --directory is load-bearing: without it uv resolves server.py against whatever
- * cwd the agent spawned in. directTools mirrors loom's own galaxy entry. */
-function entry(root, name) {
-  return {
-    command: "uv",
-    args: ["run", "--directory", resolve(root, name), "server.py"],
-    directTools: true,
+/** Every mcp-server.json in the repo, as {name, dir, entry}. */
+function discover(root = ROOT) {
+  const found = [];
+  const walk = (dir) => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) {
+        if (!SKIP.has(e.name) && !e.name.startsWith(".")) walk(join(dir, e.name));
+      } else if (e.name === MANIFEST) {
+        found.push(load(dir, root));
+      }
+    }
   };
+  walk(root);
+  return found.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-function apply(cfg, names, root, remove) {
+function load(dir, root) {
+  const path = join(dir, MANIFEST);
+  let raw;
+  try {
+    raw = JSON.parse(readFileSync(path, "utf-8"));
+  } catch (err) {
+    throw new Error(`${relative(root, path)}: ${err.message}`);
+  }
+  const { name = basename(dir), ...entry } = raw;
+  if (!entry.command && !entry.url) {
+    throw new Error(`${relative(root, path)}: needs a "command" (stdio) or "url" (http)`);
+  }
+  return { name, dir, entry: substitute(entry, { dir, root }) };
+}
+
+/** Replace only ${dir} and ${root}; any other ${VAR} belongs to pi-mcp-adapter,
+ * which interpolates it from the live process env when it spawns the server. */
+function substitute(value, vars) {
+  if (typeof value === "string") {
+    return value.replace(/\$\{(dir|root)\}/g, (_, k) => resolve(vars[k]));
+  }
+  if (Array.isArray(value)) return value.map((v) => substitute(v, vars));
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, substitute(v, vars)]));
+  }
+  return value;
+}
+
+function apply(cfg, servers, remove) {
   cfg.mcpServers ??= {};
-  for (const name of names) {
-    if (remove) delete cfg.mcpServers[name];
-    else cfg.mcpServers[name] = entry(root, name);
+  for (const s of servers) {
+    if (remove) delete cfg.mcpServers[s.name];
+    else cfg.mcpServers[s.name] = s.entry;
   }
   return cfg;
 }
@@ -71,14 +110,14 @@ function main(argv) {
   const remove = argv.includes("--remove");
   const dryRun = argv.includes("--dry-run");
   const path = mcpConfigPath();
-  const names = discover();
+  const servers = discover();
 
-  if (!names.length) {
-    console.error(`No server.py found under ${HERE} -- nothing to register.`);
+  if (!servers.length) {
+    console.error(`No ${MANIFEST} found under ${ROOT} -- nothing to register.`);
     process.exit(1);
   }
 
-  const cfg = apply(read(path), names, HERE, remove);
+  const cfg = apply(read(path), servers, remove);
 
   if (dryRun) {
     console.log(`# would write ${path}`);
@@ -88,12 +127,25 @@ function main(argv) {
 
   write(path, cfg);
   console.log(`${remove ? "Removed from" : "Registered in"} ${path}:`);
-  for (const n of names) console.log(`  ${n}  ->  ${n.replace(/-/g, "_")}_*`);
-  if (!remove) console.log("\nRestart loom (or Orbit), then run /mcp to confirm.");
+  for (const s of servers) {
+    console.log(`  ${s.name.padEnd(20)} ${s.name.replace(/-/g, "_")}_*   (${relative(ROOT, s.dir) || "."})`);
+  }
+  if (remove) return;
+
+  console.log("\nRestart loom (or Orbit), then run /mcp to confirm.");
+  // A server sharing the repo's pyproject pulls the full scientific stack on its
+  // first launch. That easily outruns pi-mcp-adapter's startup window, and the
+  // server just looks broken -- so pre-warm the environment out of band.
+  if (existsSync(join(ROOT, "pyproject.toml"))) {
+    console.log(`\nFirst launch installs this repo's Python environment, which is large enough`);
+    console.log(`to time out the agent's MCP startup. Warm it once, ahead of time:`);
+    console.log(`\n  uv sync --directory ${ROOT}\n`);
+  }
 }
 
-// The one thing worth checking: that we merge into loom's file rather than stomp
-// it, and that install/remove round-trips exactly.
+// The things worth checking: that we merge into loom's file rather than stomp it,
+// that install/remove round-trips, and that placeholders resolve the way the two
+// very different servers in this repo need them to.
 function selfTest() {
   const dir = join(tmpdir(), `h2o-mcp-test-${process.pid}`);
   mkdirSync(dir, { recursive: true });
@@ -107,30 +159,40 @@ function selfTest() {
   write(path, seed);
   const before = readFileSync(path, "utf-8");
 
-  const names = discover();
-  assert.ok(names.length > 0, "discover() found no servers");
+  const servers = discover();
+  assert.ok(servers.length >= 2, `expected >=2 servers, found ${servers.length}`);
 
-  write(path, apply(read(path), names, HERE, false));
+  write(path, apply(read(path), servers, false));
   const after = read(path);
   assert.deepEqual(after.mcpServers.galaxy, seed.mcpServers.galaxy, "loom's galaxy entry was clobbered");
   assert.deepEqual(after.mcpServers["brc-analytics"], seed.mcpServers["brc-analytics"], "brc-analytics clobbered");
-  for (const n of names) {
-    assert.equal(after.mcpServers[n].command, "uv");
-    assert.ok(existsSync(join(after.mcpServers[n].args[2], "server.py")), `${n}: --directory points nowhere`);
+
+  for (const s of servers) {
+    const e = after.mcpServers[s.name];
+    assert.ok(e, `${s.name} missing from mcp.json`);
+    assert.ok(e.command || e.url, `${s.name}: neither command nor url`);
+    for (const a of e.args ?? []) {
+      assert.ok(!/\$\{(dir|root)\}/.test(a), `${s.name}: unresolved placeholder in ${a}`);
+      if (a.startsWith("/")) assert.ok(existsSync(a), `${s.name}: path arg does not exist: ${a}`);
+    }
   }
 
+  // ${IMMPORT_API_KEY} must survive untouched -- pi-mcp-adapter resolves it at spawn.
+  const h2o = after.mcpServers["hypothesis2omics"];
+  assert.equal(h2o?.env?.IMMPORT_API_KEY, "${IMMPORT_API_KEY}", "env placeholder was substituted too early");
+
   const once = readFileSync(path, "utf-8");
-  write(path, apply(read(path), names, HERE, false));
+  write(path, apply(read(path), servers, false));
   assert.equal(readFileSync(path, "utf-8"), once, "not idempotent");
 
-  write(path, apply(read(path), names, HERE, true));
+  write(path, apply(read(path), servers, true));
   assert.equal(readFileSync(path, "utf-8"), before, "--remove did not restore the original");
 
   if (process.platform !== "win32") {
     assert.equal(statSync(path).mode & 0o777, 0o600, "mcp.json is not 0600");
   }
   rmSync(dir, { recursive: true, force: true });
-  console.log(`ok  ${names.length} server(s): ${names.join(", ")}`);
+  console.log(`ok  ${servers.length} server(s): ${servers.map((s) => s.name).join(", ")}`);
 }
 
 if (process.argv.includes("--self-test")) selfTest();
