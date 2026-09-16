@@ -1,0 +1,137 @@
+{
+  "dataset_id": "SDY1264",
+  "repository": "ImmPort",
+  "criteria": {
+    "human_study": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "112 parsed ImmPort experimental-sample rows are annotated as Homo sapiens.",
+      "sources": [
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ]
+    },
+    "yf17d_vaccination": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "YF17D/yellow-fever terminology is present in the ImmPort experiment metadata.",
+      "sources": [
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ]
+    },
+    "transcriptomics_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "87 transcriptomic experimental samples were identified in the parsed ImmPort manifest.",
+      "sources": [
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ]
+    },
+    "eif2ak4_measurable": {
+      "value": "unknown",
+      "confidence": "medium",
+      "evidence": "Transcriptomic predictor data are available and linked to GEO, but EIF2AK4/GCN2 feature coverage has not yet been verified directly from the GEO platform or expression matrix.",
+      "sources": [
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ]
+    },
+    "quantitative_cd8_response_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "25 participant-level quantitative CD8 response measurements with numeric values were found in ImmPort lab_test.txt.",
+      "sources": [
+        "ImmPort:SDY1264:lab_test.txt"
+      ]
+    },
+    "appropriate_timepoints": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Early transcriptomic measurements at days [0, 1, 3, 7] are linked to later quantitative CD8 measurements at days [15].",
+      "sources": [
+        "ImmPort:SDY1264:sample_manifest.tsv",
+        "ImmPort:SDY1264:biosample.txt",
+        "ImmPort:SDY1264:lab_test.txt"
+      ]
+    },
+    "participant_level_linkage": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "All 25 subjects with quantitative CD8 outcomes also have early transcriptomic measurements; overlap=25 subjects.",
+      "sources": [
+        "ImmPort:SDY1264:sample_manifest.tsv",
+        "ImmPort:SDY1264:biosample.txt",
+        "ImmPort:SDY1264:lab_test.txt"
+      ]
+    },
+    "predictor_data_accessible": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Transcriptomic samples are linked to 87 GEO GSM accessions.",
+      "sources": [
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ]
+    },
+    "outcome_data_accessible": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "25 numeric CD8 outcome values are directly available in ImmPort lab_test.txt and all map to participant biosamples.",
+      "sources": [
+        "ImmPort:SDY1264:lab_test.txt",
+        "ImmPort:SDY1264:biosample.txt"
+      ]
+    }
+  },
+  "assay_context": {
+    "assays_detected": {
+      "transcriptomics": {
+        "detected": true,
+        "matched_terms": [
+          "Transcription profiling by array"
+        ]
+      },
+      "quantitative_cd8_lab_test": {
+        "detected": true,
+        "matched_terms": [
+          " Act CD8 T Cell Response"
+        ]
+      }
+    },
+    "response_modalities": {
+      "cellular_response": true,
+      "quantitative_cd8_response": true
+    },
+    "timepoints_detected": [
+      0,
+      1,
+      3,
+      7,
+      15,
+      21,
+      60,
+      90
+    ]
+  },
+  "data_summary": {
+    "manifest_rows": 112,
+    "transcriptomic_rows": 87,
+    "early_transcriptomic_subjects": 25,
+    "geo_gsm_accessions": 87,
+    "quantitative_cd8_rows": 25,
+    "quantitative_cd8_subjects": 25,
+    "cd8_subjects_with_early_transcriptomics": 25,
+    "all_cd8_subjects_have_early_transcriptomics": true,
+    "early_transcriptomic_days": [
+      0,
+      1,
+      3,
+      7
+    ],
+    "cd8_outcome_days": [
+      15
+    ]
+  },
+  "adapter_notes": [
+    "Evidence was derived from the team's parsed sample_manifest.tsv plus raw ImmPort Tab tables.",
+    "Quantitative CD8 outcome accessibility is based on numeric lab_test.txt records linked through biosample.txt.",
+    "EIF2AK4/GCN2 measurability remains unresolved until the GEO expression platform or matrix is inspected."
+  ]
+}

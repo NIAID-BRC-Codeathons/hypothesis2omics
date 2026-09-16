@@ -1,0 +1,20 @@
+{
+  "study_accession": "SDY1529",
+  "brief_title": "Transcriptional profiling of yellow fever vaccine-naive participants before and after vaccination against yellow fever.",
+  "brief_description": "Yellow fever-naive adults were vaccinated with YF-17D (Stamaril). Transcriptomic profiling of blood collected pre-vaccination and post-vaccination at days 3, 7, 14 and 84 was performed.",
+  "description": "Post-vaccination transcriptomic profiling at days 3, 7, 14 and 84 and other immune parameters were investigated in association with the immune response at day 80 following YF-17D vaccination.",
+  "endpoints": "Correlation of patterns of cellular and gene expression with antibody levels measured after vaccination.",
+  "hypothesis": "Identify cellular and transcriptional responses that correlate with different antibody responses to vaccination.",
+  "intervention_agent": "yellow fever vaccine YF-17D vaccine Stamaril",
+  "actual_enrollment": 36,
+  "minimum_age": 19,
+  "maximum_age": 49,
+  "assay_types": [
+    "DNA microarray",
+    "Neutralizing Antibody Titer Assay"
+  ],
+  "linked_geo": [
+    "GSE125921",
+    "GSE136163"
+  ]
+}

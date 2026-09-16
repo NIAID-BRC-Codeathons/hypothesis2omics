@@ -1,0 +1,137 @@
+{
+  "dataset_id": "GSE13485",
+  "repository": "GEO",
+  "criteria": {
+    "human_study": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Human study terminology detected in GEO metadata.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    },
+    "yf17d_vaccination": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "YF-17D/yellow fever vaccination terminology detected.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    },
+    "transcriptomics_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Transcriptomic/gene-expression assay detected in GEO metadata.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    },
+    "eif2ak4_measurable": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "EIF2AK4 is represented by feature Hs.412102_at in the GEO platform annotation and the same feature has numeric expression values in the downloaded series matrix.",
+      "sources": [
+        "GEO:GSE13485:Hs.412102_at"
+      ]
+    },
+    "quantitative_cd8_response_available": {
+      "value": "unknown",
+      "confidence": "low",
+      "evidence": "CD8 terminology is present, but the exact quantitative CD8 response endpoint has not been established.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    },
+    "appropriate_timepoints": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Both baseline/pre-vaccination and post-vaccination timepoints are represented in GEO metadata.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    },
+    "participant_level_linkage": {
+      "value": "unknown",
+      "confidence": "low",
+      "evidence": "GEO samples may contain subject identifiers, but participant-level linkage between transcriptomic predictor and quantitative immune outcome must be verified explicitly.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    },
+    "predictor_data_accessible": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "GEO transcriptomic data are represented in the study metadata.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    },
+    "outcome_data_accessible": {
+      "value": "unknown",
+      "confidence": "low",
+      "evidence": "Exact participant-level quantitative CD8 outcome values have not yet been verified in GEO. A linked source such as ImmPort may provide complementary immune phenotype data.",
+      "sources": [
+        "GEO:GSE13485"
+      ]
+    }
+  },
+  "assay_context": {
+    "assays_detected": {
+      "transcriptomics": {
+        "detected": true,
+        "matched_terms": [
+          "expression profiling",
+          "gene expression"
+        ]
+      },
+      "flow_cytometry": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "antibody_response": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "neutralization_assay": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "elisa": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "cytokine_assay": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "proteomics": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "single_cell": {
+        "detected": false,
+        "matched_terms": []
+      }
+    },
+    "response_modalities": {
+      "cellular_response": false,
+      "antibody_response": false,
+      "neutralization_response": false,
+      "elisa": false
+    }
+  },
+  "adapter_notes": [
+    "Assay detection is metadata-based and does not prove availability of participant-level numeric outcome values.",
+    "Unknown values should be resolved using linked repositories such as ImmPort, publications, supplementary files, or assay tables."
+  ],
+  "feature_verification": {
+    "gene": "EIF2AK4",
+    "feature_id": "Hs.412102_at",
+    "annotation_id": "BM978043",
+    "platform_annotation_found": true,
+    "expression_matrix_feature_found": true,
+    "measurable": true,
+    "annotation_match_count": 88,
+    "matrix_match_count": 1
+  }
+}

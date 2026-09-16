@@ -1,0 +1,3 @@
+data/geo_cache/
+data/immport_cache/
+**/immport-key-*.json

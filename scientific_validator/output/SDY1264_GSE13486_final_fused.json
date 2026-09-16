@@ -1,0 +1,355 @@
+{
+  "dataset_id": "SDY1264_GSE13486",
+  "repository": "fused",
+  "linked_datasets": [
+    {
+      "dataset_id": "GSE13485",
+      "repository": "GEO"
+    },
+    {
+      "dataset_id": "SDY1264",
+      "repository": "ImmPort"
+    }
+  ],
+  "cross_repository_linkage_verified": true,
+  "linkage_record": {
+    "group_id": "SDY1264_GSE13486",
+    "immport_accession": "SDY1264",
+    "geo_accession": "GSE13486",
+    "geo_subseries": [
+      "GSE13485"
+    ],
+    "relationship": "same_study_with_geo_subseries",
+    "pmid": "19029902",
+    "notes": "SDY1264 is mapped to GEO SuperSeries GSE13486. GSE13485 contains the YF-17D vaccinee expression series."
+  },
+  "criteria": {
+    "appropriate_timepoints": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Both baseline/pre-vaccination and post-vaccination timepoints are represented in GEO metadata. | Early transcriptomic measurements at days [0, 1, 3, 7] are linked to later quantitative CD8 measurements at days [15].",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:sample_manifest.tsv",
+        "ImmPort:SDY1264:biosample.txt",
+        "ImmPort:SDY1264:lab_test.txt"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:sample_manifest.tsv",
+            "ImmPort:SDY1264:biosample.txt",
+            "ImmPort:SDY1264:lab_test.txt"
+          ]
+        }
+      ]
+    },
+    "eif2ak4_measurable": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "EIF2AK4 is represented by feature Hs.412102_at in the GEO platform annotation and the same feature has numeric expression values in the downloaded series matrix. | Transcriptomic predictor data are available and linked to GEO, but EIF2AK4/GCN2 feature coverage has not yet been verified directly from the GEO platform or expression matrix.",
+      "sources": [
+        "GEO:GSE13485:Hs.412102_at",
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "GEO:GSE13485:Hs.412102_at"
+          ]
+        },
+        {
+          "value": "unknown",
+          "confidence": "medium",
+          "sources": [
+            "ImmPort:SDY1264:sample_manifest.tsv"
+          ]
+        }
+      ]
+    },
+    "human_study": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Human study terminology detected in GEO metadata. | 112 parsed ImmPort experimental-sample rows are annotated as Homo sapiens.",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:sample_manifest.tsv"
+          ]
+        }
+      ]
+    },
+    "outcome_data_accessible": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Exact participant-level quantitative CD8 outcome values have not yet been verified in GEO. A linked source such as ImmPort may provide complementary immune phenotype data. | 25 numeric CD8 outcome values are directly available in ImmPort lab_test.txt and all map to participant biosamples.",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:lab_test.txt",
+        "ImmPort:SDY1264:biosample.txt"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "unknown",
+          "confidence": "low",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:lab_test.txt",
+            "ImmPort:SDY1264:biosample.txt"
+          ]
+        }
+      ]
+    },
+    "participant_level_linkage": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "GEO samples may contain subject identifiers, but participant-level linkage between transcriptomic predictor and quantitative immune outcome must be verified explicitly. | All 25 subjects with quantitative CD8 outcomes also have early transcriptomic measurements; overlap=25 subjects.",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:sample_manifest.tsv",
+        "ImmPort:SDY1264:biosample.txt",
+        "ImmPort:SDY1264:lab_test.txt"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "unknown",
+          "confidence": "low",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:sample_manifest.tsv",
+            "ImmPort:SDY1264:biosample.txt",
+            "ImmPort:SDY1264:lab_test.txt"
+          ]
+        }
+      ]
+    },
+    "predictor_data_accessible": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "GEO transcriptomic data are represented in the study metadata. | Transcriptomic samples are linked to 87 GEO GSM accessions.",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:sample_manifest.tsv"
+          ]
+        }
+      ]
+    },
+    "quantitative_cd8_response_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "CD8 terminology is present, but the exact quantitative CD8 response endpoint has not been established. | 25 participant-level quantitative CD8 response measurements with numeric values were found in ImmPort lab_test.txt.",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:lab_test.txt"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "unknown",
+          "confidence": "low",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:lab_test.txt"
+          ]
+        }
+      ]
+    },
+    "transcriptomics_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Transcriptomic/gene-expression assay detected in GEO metadata. | 87 transcriptomic experimental samples were identified in the parsed ImmPort manifest.",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:sample_manifest.tsv"
+          ]
+        }
+      ]
+    },
+    "yf17d_vaccination": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "YF-17D/yellow fever vaccination terminology detected. | YF17D/yellow-fever terminology is present in the ImmPort experiment metadata.",
+      "sources": [
+        "GEO:GSE13485",
+        "ImmPort:SDY1264:sample_manifest.tsv"
+      ],
+      "conflict": false,
+      "fusion_note": "At least one source positively establishes this criterion and no source contradicts it.",
+      "source_values": [
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "GEO:GSE13485"
+          ]
+        },
+        {
+          "value": "true",
+          "confidence": "high",
+          "sources": [
+            "ImmPort:SDY1264:sample_manifest.tsv"
+          ]
+        }
+      ]
+    }
+  },
+  "assay_context": {
+    "assays_detected": {
+      "transcriptomics": {
+        "detected": true,
+        "matched_terms": [
+          "expression profiling",
+          "gene expression",
+          "Transcription profiling by array"
+        ]
+      },
+      "flow_cytometry": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "antibody_response": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "neutralization_assay": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "elisa": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "cytokine_assay": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "proteomics": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "single_cell": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "quantitative_cd8_lab_test": {
+        "detected": true,
+        "matched_terms": [
+          " Act CD8 T Cell Response"
+        ]
+      }
+    },
+    "response_modalities": {
+      "cellular_response": true,
+      "antibody_response": false,
+      "neutralization_response": false,
+      "elisa": false,
+      "quantitative_cd8_response": true
+    },
+    "timepoints_detected": [
+      0,
+      1,
+      3,
+      7,
+      15,
+      21,
+      60,
+      90
+    ]
+  },
+  "fusion_summary": {
+    "n_sources": 2,
+    "n_criteria": 9,
+    "conflicting_criteria": []
+  },
+  "fusion_notes": [
+    "Evidence was fused only after the supplied accessions matched a verified cross-repository linkage record.",
+    "A GEO subseries may be used when that subseries is explicitly listed under the linked GEO SuperSeries.",
+    "Positive evidence can resolve an unknown criterion, but explicit contradictory evidence creates a conflict that remains unresolved.",
+    "Cross-repository evidence fusion does not itself prove participant-level predictor/outcome linkage."
+  ]
+}
