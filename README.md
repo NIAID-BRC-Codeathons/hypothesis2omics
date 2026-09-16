@@ -28,6 +28,11 @@ Use one predefined hypothesis, for example, “A specified pathway or biomarker 
 
 A microbiome causal-inference branch could expose HUMAnN, differential abundance, sensitivity analysis, protein-language-model annotation, and SHAP interpretation as MCP tools.
 
+## 3. Architecture (proposed)
+
+<img width="1385" height="1136" alt="architecture_readme" src="https://github.com/user-attachments/assets/ea78f896-a349-4f1f-b268-236a15b2c728" />
+
+
 ## Evaluation (proposed)
 
 Dataset-retrieval recall, workflow success, consistency with published findings, robustness across datasets, and expert assessment of the final evidence report.
