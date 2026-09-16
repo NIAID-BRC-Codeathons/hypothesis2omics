@@ -1,3 +1,5 @@
 data/geo_cache/
 data/immport_cache/
+data/__pycache__/
 **/immport-key-*.json
+.venv
