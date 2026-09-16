@@ -30,7 +30,8 @@ A microbiome causal-inference branch could expose HUMAnN, differential abundance
 
 ## 3. Architecture (proposed)
 
-<img width="1536" height="1024" alt="ChatGPT Image Sep 16, 2026, 11_07_42 AM" src="https://github.com/user-attachments/assets/e527dcb0-4f5d-4b80-b9af-104e7ad1d0ee" />
+<img width="1536" height="1024" alt="ChatGPT Image Sep 16, 2026, 11_36_29 AM" src="https://github.com/user-attachments/assets/87c40a8e-767e-42f6-a9ca-02c393795b10" />
+
 
 
 ## Evaluation (proposed)
