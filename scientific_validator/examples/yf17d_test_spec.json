@@ -1,0 +1,25 @@
+{
+  "hypothesis_id": "HYP001",
+  "hypothesis_text": "GCN2/EIF2AK4 activity is associated with the magnitude of the CD8+ T-cell response following YF-17D vaccination.",
+  "analysis_intent": "association",
+  "eligibility": {
+    "scientific_criteria": [
+      {"id": "human_study", "description": "Study includes human participants."},
+      {"id": "yf17d_vaccination", "description": "Participants received YF-17D vaccination."},
+      {"id": "transcriptomics_available", "description": "Transcriptomic measurements are available."},
+      {"id": "eif2ak4_measurable", "description": "EIF2AK4 expression or a defensible GCN2 proxy can be measured."},
+      {"id": "quantitative_cd8_response_available", "description": "A quantitative CD8+ T-cell response is measured."},
+      {"id": "appropriate_timepoints", "description": "Predictor precedes or is contemporaneous with an appropriate post-vaccination outcome."},
+      {"id": "participant_level_linkage", "description": "Predictor and outcome can be linked within participants."}
+    ],
+    "operational_criteria": [
+      {"id": "predictor_data_accessible", "description": "Predictor data can currently be retrieved."},
+      {"id": "outcome_data_accessible", "description": "Outcome data can currently be retrieved."}
+    ]
+  },
+  "recommended_analysis": {
+    "predictor": "EIF2AK4 day-7 vs day-0 expression change",
+    "outcome": "day-15 quantitative CD8+ T-cell activation",
+    "model": "CD8_response ~ EIF2AK4_change + trial"
+  }
+}
