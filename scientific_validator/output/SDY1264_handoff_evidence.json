@@ -1,0 +1,100 @@
+{
+  "dataset_id": "SDY1264",
+  "repository": "GEO+ImmPort normalized handoff",
+  "criteria": {
+    "human_study": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "112 study rows inspected; Homo sapiens detected=True.",
+      "sources": [
+        "data\\validator_immport\\sample_manifest.tsv"
+      ]
+    },
+    "yf17d_vaccination": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "YF-17D/yellow-fever terminology detected=True.",
+      "sources": [
+        "data\\validator_immport\\sample_manifest.tsv"
+      ]
+    },
+    "transcriptomics_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "87 transcriptomic experimental-sample rows detected.",
+      "sources": [
+        "data\\validator_immport\\sample_manifest.tsv"
+      ]
+    },
+    "eif2ak4_measurable": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "87 numeric EIF2AK4 feature-expression measurements detected.",
+      "sources": [
+        "data\\validator_geo\\feature_expression.tsv"
+      ]
+    },
+    "quantitative_cd8_response_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "25 numeric CD8 response measurements detected.",
+      "sources": [
+        "data\\validator_immport\\quantitative_outcome.tsv"
+      ]
+    },
+    "appropriate_timepoints": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "25/25 outcome subjects have earlier predictor measurements.",
+      "sources": [
+        "data\\validator_immport\\sample_manifest.tsv",
+        "data\\validator_geo\\feature_expression.tsv",
+        "data\\validator_immport\\quantitative_outcome.tsv"
+      ]
+    },
+    "participant_level_linkage": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "25/25 quantitative outcome subjects link to early transcriptomic EIF2AK4 measurements.",
+      "sources": [
+        "data\\validator_immport\\sample_manifest.tsv",
+        "data\\validator_geo\\feature_expression.tsv",
+        "data\\validator_immport\\quantitative_outcome.tsv"
+      ]
+    },
+    "predictor_data_accessible": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "81 early transcriptomic samples have numeric EIF2AK4 measurements.",
+      "sources": [
+        "data\\validator_immport\\sample_manifest.tsv",
+        "data\\validator_geo\\feature_expression.tsv"
+      ]
+    },
+    "outcome_data_accessible": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "25 directly accessible numeric CD8 outcome measurements.",
+      "sources": [
+        "data\\validator_immport\\quantitative_outcome.tsv"
+      ]
+    }
+  },
+  "assay_context": {
+    "gene": "EIF2AK4",
+    "transcriptomic_rows": 87,
+    "feature_expression_rows": 87,
+    "quantitative_cd8_rows": 25,
+    "predictor_subjects": 25,
+    "outcome_subjects": 25,
+    "participant_overlap": 25
+  },
+  "data_summary": {
+    "manifest_rows": 112,
+    "early_transcriptomic_rows": 81,
+    "geo_feature_rows": 87,
+    "cd8_outcome_rows": 25,
+    "all_outcome_subjects_linked": true,
+    "all_outcome_subjects_have_earlier_predictor": true
+  }
+}

@@ -2,5 +2,6 @@ data/geo_cache/
 data/immport_cache/
 **/immport-key-*.json
 __pycache__/
-*.pyc
+*.py[cod]
 .DS_Store
+.venv

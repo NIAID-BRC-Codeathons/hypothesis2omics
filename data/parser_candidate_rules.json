@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "exclude_directories": [
+    "__pycache__",
+    "file_inventory",
+    "parsed",
+    "plan"
+  ],
+  "exclude_filename_regexes": [
+    "^\\.DS_Store$",
+    "(?i)^immport-key-.*\\.json$",
+    "(?i)\\.(?:part|tmp)$"
+  ],
+  "rules": [
+    {
+      "id": "immport_tab_archive",
+      "repositories": ["ImmPort"],
+      "filename_regex": "(?i)_Tab\\.zip$",
+      "parser_support": "supported",
+      "suggested_parser": "immport_parse_module",
+      "reason": "ImmPort Tab archives are supported sample-link parser inputs."
+    },
+    {
+      "id": "geo_series_matrix",
+      "repositories": ["GEO"],
+      "filename_regex": "(?i)_series_matrix\\.txt\\.gz$",
+      "parser_support": "supported",
+      "suggested_parser": "geo_matrix_parse_module",
+      "reason": "GEO series matrices are supported expression parser inputs."
+    },
+    {
+      "id": "geo_family_soft",
+      "repositories": ["GEO"],
+      "filename_regex": "(?i)_family\\.soft\\.gz$",
+      "parser_support": "supported",
+      "suggested_parser": "geo_feature_verifier",
+      "reason": "GEO family SOFT files provide platform and feature annotation metadata."
+    },
+    {
+      "id": "tabular_supplement",
+      "repositories": ["*"],
+      "filename_regex": "(?i)\\.(?:csv|tsv|txt|xlsx|xls)(?:\\.gz)?$",
+      "parser_support": "potential",
+      "suggested_parser": "",
+      "reason": "Tabular content may be useful, but no automatic parser is assigned."
+    },
+    {
+      "id": "omics_binary_or_object",
+      "repositories": ["*"],
+      "filename_regex": "(?i)\\.(?:h5|h5ad|rds|cel|idat)(?:\\.gz)?$",
+      "parser_support": "potential",
+      "suggested_parser": "",
+      "reason": "The file may contain omics data, but no automatic parser is assigned."
+    }
+  ]
+}
