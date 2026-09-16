@@ -1,6 +1,6 @@
 """Recover cohort structure that lives only in GEO sample titles.
 
-    python cohorts.py        # worked example on GSE13485, 18 self-tests
+    python cohorts.py        # worked example on GSE13485 and self-tests
 
 Depends on nothing but the standard library.
 
@@ -35,6 +35,11 @@ What it does not do
 It does not invent cohorts. If no pattern matches, `cohort` is None and the
 samples form one unit, which is the honest default. A split has to be visible
 in the data to be made.
+
+Parsing a cohort label does not, by itself, establish independent replication.
+Callers must provide an explicit cohort-to-group mapping before separate cohorts
+count as separate independence groups. Without that mapping, every cohort in an
+accession remains in the same accession-level independence group.
 """
 
 from __future__ import annotations
@@ -89,9 +94,12 @@ DAY_PATTERNS: tuple[Pattern[str], ...] = (
 )
 
 HOUR_PATTERNS: tuple[Pattern[str], ...] = (
-    # "time 3hr", "3 hr", "72h"
-    re.compile(r"\btime[\s_-]*(-?\d+)\s*(?:hr|hour|h)\b", re.I),
-    re.compile(r"\b(-?\d+)\s*(?:hr|hours|h)\b", re.I),
+    # "time -3hr" is negative; "time-3hr" uses a hyphen as a separator.
+    # Keep signed patterns first so a later unsigned pattern cannot eat the sign.
+    re.compile(r"\btime[\s_]+(-\d+)\s*(?:hr|hours?|h)\b", re.I),
+    re.compile(r"(?<!\w)(-\d+)\s*(?:hr|hours?|h)\b", re.I),
+    re.compile(r"\btime[\s_-]*(\d+)\s*(?:hr|hours?|h)\b", re.I),
+    re.compile(r"\b(\d+)\s*(?:hr|hours?|h)\b", re.I),
 )
 
 TIMEPOINT_PATTERNS: tuple[Pattern[str], ...] = DAY_PATTERNS + HOUR_PATTERNS
@@ -111,8 +119,9 @@ def parse_sample_title(title: str) -> dict[str, Optional[str]]:
     Every field is optional. A field that does not match is None rather than
     a guess.
 
-        >>> parse_sample_title("Trial1 Subject ID 1901 Day 0")
-        {'cohort': 'Trial 1', 'subject': '1901', 'timepoint': 'Day 0', ...}
+        >>> parsed = parse_sample_title("Trial1 Subject ID 1901 Day 0")
+        >>> parsed["cohort"], parsed["subject"], parsed["timepoint"]
+        ('Trial 1', '1901', 'Day 0')
     """
     text = (title or "").strip()
 
@@ -164,6 +173,7 @@ def analysis_units_from_samples(
     gse_id: str,
     platform: Optional[str] = None,
     min_subjects: int = 2,
+    independence_groups: Optional[dict[str, str]] = None,
 ) -> list[dict[str, Any]]:
     """Group parsed samples into analysis units, one per cohort.
 
@@ -173,10 +183,20 @@ def analysis_units_from_samples(
     sample ids behind it.
 
     A cohort with fewer than `min_subjects` subjects is not treated as its own
-    unit. One or two people is not a replication cohort, and letting a stray
-    label create one would manufacture independence rather than find it. Those
-    samples fold into the unsplit unit and the reason is recorded.
+    unit. A single person is not a replication cohort, and letting a stray
+    label create one would manufacture structure rather than find it.
+
+    `independence_groups` is an explicit cohort label -> independence group
+    mapping. It must cover every usable cohort or be omitted. Without it,
+    cohort-specific units remain in the same accession-level group. This keeps
+    technical batches and treatment arms from silently becoming independent
+    biological replications.
+
+    When at least two usable cohorts exist, samples without a usable cohort
+    label are excluded from cohort-specific units and the exclusion is recorded
+    in each unit's note. They are never emitted as a third replication group.
     """
+    independence_groups = dict(independence_groups or {})
     parsed = []
     for s in samples:
         rec = parse_sample_title(s.get("title", ""))
@@ -196,6 +216,19 @@ def analysis_units_from_samples(
     }
     usable = {c: rows for c, rows in named.items() if c not in too_small}
 
+    if independence_groups:
+        declared = set(independence_groups)
+        observed = set(usable)
+        if declared != observed:
+            missing = sorted(observed - declared)
+            unknown = sorted(declared - observed)
+            raise ValueError(
+                "independence_groups must cover every usable cohort exactly; "
+                f"missing={missing}, unknown={unknown}"
+            )
+        if any(not str(group).strip() for group in independence_groups.values()):
+            raise ValueError("independence group ids must be non-empty strings")
+
     folded: list[dict[str, Any]] = list(by_cohort.get(None, []))
     for c in too_small:
         folded.extend(named[c])
@@ -203,21 +236,31 @@ def analysis_units_from_samples(
     units: list[dict[str, Any]] = []
 
     if len(usable) >= 2:
+        unresolved_note = None
+        if folded:
+            unresolved_note = (
+                f"{len(folded)} sample(s) had no usable cohort label and were "
+                "excluded from cohort-specific units"
+            )
         for cohort in sorted(usable):
             rows = usable[cohort]
-            units.append(
-                _unit(gse_id, cohort, rows, platform, folded_note=None)
-            )
-        if folded:
+            group = independence_groups.get(cohort, f"accession:{gse_id}")
+            notes = []
+            if not independence_groups:
+                notes.append(
+                    "cohort parsed, but independence was not explicitly declared; "
+                    "counted at accession level"
+                )
+            if unresolved_note:
+                notes.append(unresolved_note)
             units.append(
                 _unit(
                     gse_id,
-                    None,
-                    folded,
+                    cohort,
+                    rows,
                     platform,
-                    folded_note=(
-                        f"{len(folded)} sample(s) carried no usable cohort label"
-                    ),
+                    independence_group=group,
+                    folded_note="; ".join(notes) or None,
                 )
             )
     else:
@@ -236,7 +279,16 @@ def analysis_units_from_samples(
         if not named:
             reasons.append("no cohort labels found in the sample titles")
         note = "; ".join(reasons) or None
-        units.append(_unit(gse_id, None, parsed, platform, folded_note=note))
+        units.append(
+            _unit(
+                gse_id,
+                None,
+                parsed,
+                platform,
+                independence_group=f"accession:{gse_id}",
+                folded_note=note,
+            )
+        )
 
     return units
 
@@ -246,6 +298,7 @@ def _unit(
     cohort: Optional[str],
     rows: list[dict[str, Any]],
     platform: Optional[str],
+    independence_group: str,
     folded_note: Optional[str],
 ) -> dict[str, Any]:
     subjects = sorted({r["subject"] for r in rows if r["subject"]})
@@ -259,7 +312,7 @@ def _unit(
         "gse_id": gse_id,
         "cohort": cohort,
         "platform": platform,
-        "independence_group": f"{gse_id}|{slug}",
+        "independence_group": independence_group,
         "n_samples": len(rows),
         "n_subjects": len(subjects),
         "subjects": subjects,
@@ -335,9 +388,26 @@ def _demo() -> None:
     for s in samples[:2] + samples[-2:]:
         print(f"  {s['gsm']}  {s['title']}")
 
-    print("\nParsed:")
-    units = analysis_units_from_samples(samples, "GSE13485", platform="GPL7567")
-    print(summarize_cohorts(units))
+    print("\nParsed (conservative default):")
+    parsed_units = analysis_units_from_samples(
+        samples, "GSE13485", platform="GPL7567"
+    )
+    print(summarize_cohorts(parsed_units))
+    print("  Both cohorts remain one independence group until explicitly curated.")
+
+    # GEO's Overall design documents two trials run a year apart with different
+    # vaccine lots. That external design evidence, not the title parser alone,
+    # authorizes two independence groups for this accession.
+    independence_groups = {
+        "Trial 1": "GSE13485|trial1",
+        "Trial 2": "GSE13485|trial2",
+    }
+    units = analysis_units_from_samples(
+        samples,
+        "GSE13485",
+        platform="GPL7567",
+        independence_groups=independence_groups,
+    )
 
     print("\nThis is what changes downstream:")
     print("  without the split -> 1 group, cannot meet a two group bar")
@@ -356,7 +426,10 @@ def _demo() -> None:
     ))
 
     print("\nHanding these to synthesis:")
-    print("  units = analysis_units_from_samples(samples, 'GSE13485', 'GPL7567')")
+    print("  groups = {'Trial 1': 'GSE13485|trial1',")
+    print("            'Trial 2': 'GSE13485|trial2'}")
+    print("  units = analysis_units_from_samples(")
+    print("      samples, 'GSE13485', 'GPL7567', independence_groups=groups)")
     print("  doc   = synthesize([{**u, **results[u['analysis_unit_id']]}")
     print("                      for u in units], rule)")
 
@@ -386,6 +459,9 @@ def _self_test() -> None:
     # A genuine pre-vaccination timepoint is written with a space.
     assert parse_sample_title("batch_3 participant P07 day-14")["timepoint"] == "Day 14"
     assert parse_sample_title("Subject 4 day -14")["timepoint"] == "Day -14"
+    assert parse_sample_title("Subject 4 time -3hr")["timepoint"] == "Hour -3"
+    assert parse_sample_title("Subject 4 -3 hr")["timepoint"] == "Hour -3"
+    assert parse_sample_title("Subject 4 time-3hr")["timepoint"] == "Hour 3"
 
     # Nothing to find is None, never a guess.
     blank = parse_sample_title("")
@@ -393,8 +469,25 @@ def _self_test() -> None:
     assert blank["timepoint"] is None
     assert parse_sample_title("PBMC replicate 2")["cohort"] is None
 
-    # The real case: two trials become two units.
-    units = analysis_units_from_samples(_gse13485_samples(), "GSE13485", "GPL7567")
+    # Parsing finds two units but does not claim independent replication.
+    parsed_units = analysis_units_from_samples(
+        _gse13485_samples(), "GSE13485", "GPL7567"
+    )
+    assert len(parsed_units) == 2
+    assert len({u["independence_group"] for u in parsed_units}) == 1
+    assert all("not explicitly declared" in u["note"] for u in parsed_units)
+
+    # GSE13485's external study design explicitly authorizes the trial split.
+    declared_groups = {
+        "Trial 1": "GSE13485|trial1",
+        "Trial 2": "GSE13485|trial2",
+    }
+    units = analysis_units_from_samples(
+        _gse13485_samples(),
+        "GSE13485",
+        "GPL7567",
+        independence_groups=declared_groups,
+    )
     assert len(units) == 2, units
     by_cohort = {u["cohort"]: u for u in units}
     assert by_cohort["Trial 1"]["n_subjects"] == 15
@@ -406,6 +499,17 @@ def _self_test() -> None:
     assert by_cohort["Trial 1"]["independence_group"] != \
         by_cohort["Trial 2"]["independence_group"]
     assert by_cohort["Trial 1"]["platform"] == "GPL7567"
+
+    # A partial declaration is ambiguous and rejected rather than guessed.
+    try:
+        analysis_units_from_samples(
+            _gse13485_samples(),
+            "GSE13485",
+            independence_groups={"Trial 1": "GSE13485|trial1"},
+        )
+        raise AssertionError("partial independence mapping should fail")
+    except ValueError as exc:
+        assert "cover every usable cohort" in str(exc)
 
     # No labels means one unit, not a manufactured split.
     plain = [{"gsm": f"G{i}", "title": f"Subject {i} day 7"} for i in range(8)]
@@ -428,14 +532,41 @@ def _self_test() -> None:
     assert len(lop) == 1, lop
     assert "fewer than 2 subjects" in lop[0]["note"]
 
+    # Batch labels are parsed but never promoted to independent replication.
+    batches = []
+    for batch in (1, 2):
+        for subject in (1, 2):
+            batches.append(
+                {
+                    "gsm": f"B{batch}{subject}",
+                    "title": f"Batch {batch} Subject {batch}{subject} Day 0",
+                }
+            )
+    batch_units = analysis_units_from_samples(batches, "GSE3")
+    assert len(batch_units) == 2
+    assert len({u["independence_group"] for u in batch_units}) == 1
+
+    # Unresolved samples are recorded but cannot become a third group.
+    with_unlabelled = _gse13485_samples() + [
+        {"gsm": "GSM_UNKNOWN", "title": "Subject X Day 0"}
+    ]
+    resolved = analysis_units_from_samples(
+        with_unlabelled,
+        "GSE13485",
+        independence_groups=declared_groups,
+    )
+    assert len(resolved) == 2
+    assert all("excluded from cohort-specific units" in u["note"] for u in resolved)
+
     # Units are shaped for synthesize().
     for u in units:
         assert set(("analysis_unit_id", "gse_id", "cohort", "platform",
                     "independence_group")) <= set(u)
 
-    print("\nself-tests: 18 groups of assertions passed")
+    print("\nself-tests: all assertions passed")
 
 
 if __name__ == "__main__":
     _demo()
     _self_test()
+
