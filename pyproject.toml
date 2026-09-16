@@ -1,0 +1,26 @@
+[project]
+name = "codeathon"
+version = "0.1.0"
+requires-python = "==3.12.13"
+dependencies = [
+    "numpy==2.5.3",
+    "pandas==3.0.5",
+    "scipy==1.18.1",
+    "matplotlib==3.11.1",
+    "seaborn==0.13.2",
+    "ipykernel==7.3.0",
+    "ipython==9.17.1",
+    "ipywidgets==8.1.9",
+    "jupyter-client==8.10.0",
+    "jupyter-core==5.9.1",
+    "jupyterlab-widgets==3.0.17",
+    "widgetsnbextension==4.0.16",
+    "ipyfilechooser==0.6.0",
+    "nest-asyncio2==1.7.2",
+    "openpyxl==3.1.5",
+    "requests==2.34.2",
+    "tqdm==4.70.0",
+    "GEOparse==2.0.4",
+    "jsonschema==4.25.1",
+    "fastmcp==4.0.4",
+]

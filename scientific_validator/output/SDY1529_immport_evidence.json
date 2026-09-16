@@ -1,0 +1,143 @@
+{
+  "dataset_id": "SDY1529",
+  "repository": "ImmPort",
+  "criteria": {
+    "human_study": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Human participants are described.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "yf17d_vaccination": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "YF-17D/yellow fever vaccination is described.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "transcriptomics_available": {
+      "value": "true",
+      "confidence": "high",
+      "evidence": "Transcriptomic assay detected in ImmPort metadata.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "eif2ak4_measurable": {
+      "value": "unknown",
+      "confidence": "medium",
+      "evidence": "Transcriptomic data are described, but EIF2AK4 feature coverage has not yet been verified.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "quantitative_cd8_response_available": {
+      "value": "unknown",
+      "confidence": "low",
+      "evidence": "No explicit quantitative CD8+ T-cell endpoint was identified in the supplied ImmPort metadata.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "appropriate_timepoints": {
+      "value": "unknown",
+      "confidence": "medium",
+      "evidence": "Early and later study timepoints are present, but the later timepoint has not yet been verified as the required quantitative CD8 outcome.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "participant_level_linkage": {
+      "value": "unknown",
+      "confidence": "low",
+      "evidence": "Participant-level linkage between transcriptomic predictor and immune outcome has not yet been explicitly verified.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "predictor_data_accessible": {
+      "value": "true",
+      "confidence": "medium",
+      "evidence": "Transcriptomic data are described in ImmPort study metadata.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    },
+    "outcome_data_accessible": {
+      "value": "unknown",
+      "confidence": "low",
+      "evidence": "Presence of an immune-response assay does not by itself prove that participant-level numeric outcome values are accessible.",
+      "sources": [
+        "ImmPort:SDY1529"
+      ]
+    }
+  },
+  "assay_context": {
+    "assays_detected": {
+      "transcriptomics": {
+        "detected": true,
+        "matched_terms": [
+          "dna microarray",
+          "microarray",
+          "gene expression",
+          "transcriptomic"
+        ]
+      },
+      "flow_cytometry": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "antibody_response": {
+        "detected": true,
+        "matched_terms": [
+          "antibody"
+        ]
+      },
+      "neutralization_assay": {
+        "detected": true,
+        "matched_terms": [
+          "neutralizing antibody",
+          "neutralizing antibody titer"
+        ]
+      },
+      "elisa": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "cytokine_assay": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "elispot": {
+        "detected": false,
+        "matched_terms": []
+      },
+      "proteomics": {
+        "detected": false,
+        "matched_terms": []
+      }
+    },
+    "response_modalities": {
+      "cellular_response": false,
+      "antibody_response": true,
+      "neutralization_response": true,
+      "elisa": false,
+      "cytokine_response": false
+    },
+    "timepoints_detected": [
+      3,
+      7,
+      14,
+      80,
+      84
+    ]
+  },
+  "adapter_notes": [
+    "ImmPort assay detection is metadata-based.",
+    "Antibody and neutralization responses are kept separate from CD8 cellular-response evidence.",
+    "Unknown fields should remain unresolved until participant-level data or assay tables are verified."
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "group_id": "SDY1264_GSE13486",
+      "immport_accession": "SDY1264",
+      "geo_accession": "GSE13486",
+      "geo_subseries": [
+        "GSE13485"
+      ],
+      "relationship": "same_study_with_geo_subseries",
+      "pmid": "19029902",
+      "notes": "SDY1264 is mapped to GEO SuperSeries GSE13486. GSE13485 contains the YF-17D vaccinee expression series."
+    },
+    {
+      "group_id": "SDY1529_GEO",
+      "immport_accession": "SDY1529",
+      "geo_subseries": [
+        "GSE125921",
+        "GSE136163"
+      ],
+      "relationship": "linked_study"
+    }
+  ]
+}

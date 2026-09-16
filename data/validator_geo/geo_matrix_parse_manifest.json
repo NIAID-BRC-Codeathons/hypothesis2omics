@@ -1,0 +1,282 @@
+{
+  "counts": {
+    "download_units": 6,
+    "parsed_samples": 518,
+    "plan_rows": 7,
+    "requested_samples": 518,
+    "skipped_plan_rows": 1,
+    "units_failed": 0,
+    "units_succeeded": 6
+  },
+  "duration_sec": 22.293,
+  "geo_cache_root": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache",
+  "inputs": [
+    {
+      "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/plan/geo_download_plan.tsv",
+      "sha256": "e650768de9d675807798c908bde286e8080e8aabc56d585fe720c6bbd3e5960b",
+      "size_bytes": 8241,
+      "type": "geo_download_plan"
+    },
+    {
+      "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/immport_cache/parsed/sample_manifest.tsv",
+      "sha256": "0d5df41f315aed71e7c6c0f9f843c82bc7b3d998e162df78695e2d1ffee7dd44",
+      "size_bytes": 335958,
+      "type": "immport_sample_manifest"
+    }
+  ],
+  "output_directory": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed",
+  "pandas_version": "3.0.5",
+  "parser": "geo_matrix_parse_module",
+  "parser_version": "0.1.0",
+  "python_version": "3.12.13",
+  "run_started_at_utc": "2026-09-16T18:18:55.269114+00:00",
+  "status": "success",
+  "units": [
+    {
+      "counts": {
+        "geo_metadata_rows": 3045,
+        "probes": 20077,
+        "samples": 87
+      },
+      "duration_sec": 2.58,
+      "experiment_accession": "EXP16736",
+      "gpl_accession": "GPL7567",
+      "gse_accession": "GSE13485",
+      "output_directory": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1264/EXP16736/GSE13485_GPL7567",
+      "outputs": [
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1264/EXP16736/GSE13485_GPL7567/expression.tsv.gz",
+          "sha256": "46806c1688f976e56ae075014efaae610178015cd38f938d71b32e4589f70a39",
+          "size_bytes": 9576193,
+          "type": "expression"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1264/EXP16736/GSE13485_GPL7567/samples.tsv",
+          "sha256": "6ec988412c29d2c44f6dc37cc0ca755cada069a1270ae3ae5248da4efc6e958a",
+          "size_bytes": 42578,
+          "type": "samples"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1264/EXP16736/GSE13485_GPL7567/geo_sample_metadata_long.tsv",
+          "sha256": "7c99a537d26e0d2f8a005fa527aafc5be538ae59a439f05e817cf955ee30ad8a",
+          "size_bytes": 276143,
+          "type": "geo_sample_metadata"
+        }
+      ],
+      "requested_samples": 87,
+      "run_started_at_utc": "2026-09-16T18:18:55.328420+00:00",
+      "source_matrix": {
+        "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/GSE13485/GSE13485_series_matrix.txt.gz",
+        "sha256": "8399d88306b13d5a6f23cc5d4227c59da561fd9b97ab2840e22279d4046d546b",
+        "size_bytes": 9627893
+      },
+      "status": "success",
+      "study_accession": "SDY1264"
+    },
+    {
+      "counts": {
+        "geo_metadata_rows": 4158,
+        "probes": 22184,
+        "samples": 126
+      },
+      "duration_sec": 2.142,
+      "experiment_accession": "EXP15293",
+      "gpl_accession": "GPL6104",
+      "gse_accession": "GSE13699",
+      "output_directory": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP15293/GSE13699_GPL6104",
+      "outputs": [
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP15293/GSE13699_GPL6104/expression.tsv.gz",
+          "sha256": "814dfaeadb3f28f613272696d9e6e350cc061bdaf2c2ccbe0aea90ce9731c9b7",
+          "size_bytes": 1593089,
+          "type": "expression"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP15293/GSE13699_GPL6104/samples.tsv",
+          "sha256": "fec8eb67a9edf424d1cdf4d71dba29ea18c16aa2e04721d4a5e4eeeb7001f3fd",
+          "size_bytes": 78034,
+          "type": "samples"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP15293/GSE13699_GPL6104/geo_sample_metadata_long.tsv",
+          "sha256": "f17861b271abb4493784e2b6581f4872a377b4c486dca993038883264919c013",
+          "size_bytes": 367731,
+          "type": "geo_sample_metadata"
+        }
+      ],
+      "requested_samples": 126,
+      "run_started_at_utc": "2026-09-16T18:18:57.919672+00:00",
+      "source_matrix": {
+        "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/GSE13699/GSE13699-GPL6104_series_matrix.txt.gz",
+        "sha256": "225186833a128ddb8f8a3641d847c36a83ee91ae25878bc13589029e1fbbe115",
+        "size_bytes": 1666331
+      },
+      "status": "success",
+      "study_accession": "SDY1289"
+    },
+    {
+      "counts": {
+        "geo_metadata_rows": 544,
+        "probes": 24526,
+        "samples": 16
+      },
+      "duration_sec": 0.266,
+      "experiment_accession": "EXP20685",
+      "gpl_accession": "GPL6883",
+      "gse_accession": "GSE13699",
+      "output_directory": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883",
+      "outputs": [
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883/expression.tsv.gz",
+          "sha256": "425bdc5a1eb98366b126ea59dfba03be9398bed27d7430ebff757b4ad25bb403",
+          "size_bytes": 210846,
+          "type": "expression"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883/samples.tsv",
+          "sha256": "222253498f2a083a43177f2e715102130d3acfd5692c368611bdf37be51ee271",
+          "size_bytes": 10387,
+          "type": "samples"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883/geo_sample_metadata_long.tsv",
+          "sha256": "8e1960068715d61fa17e614887eca807073aa73ddeff4ec0714e65c1588f0888",
+          "size_bytes": 61337,
+          "type": "geo_sample_metadata"
+        }
+      ],
+      "requested_samples": 16,
+      "run_started_at_utc": "2026-09-16T18:19:00.073509+00:00",
+      "source_matrix": {
+        "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/GSE13699/GSE13699-GPL6883_series_matrix.txt.gz",
+        "sha256": "3319b4c0cdb2c6b4429166a31f8cba469d8f1f55010ba8e3e3ba57e875b436cf",
+        "size_bytes": 227905
+      },
+      "status": "success",
+      "study_accession": "SDY1289"
+    },
+    {
+      "counts": {
+        "geo_metadata_rows": 3597,
+        "probes": 18563,
+        "samples": 109
+      },
+      "duration_sec": 2.666,
+      "experiment_accession": "EXP16733",
+      "gpl_accession": "GPL21975",
+      "gse_accession": "GSE82152",
+      "output_directory": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1294/EXP16733/GSE82152_GPL21975",
+      "outputs": [
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1294/EXP16733/GSE82152_GPL21975/expression.tsv.gz",
+          "sha256": "049daecddc389233162280bc7b225e6810b3919b84409898a0c2dfa737cda2ce",
+          "size_bytes": 10991847,
+          "type": "expression"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1294/EXP16733/GSE82152_GPL21975/samples.tsv",
+          "sha256": "f95c54fe89202af20f4983a620ad28949ac28fdcd867eda517358ca49f3ed4c5",
+          "size_bytes": 63369,
+          "type": "samples"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1294/EXP16733/GSE82152_GPL21975/geo_sample_metadata_long.tsv",
+          "sha256": "8f4b0ecd4e31770590dc4ec3930b28ff5f37d7f716d2650ea1e8d9a77070be33",
+          "size_bytes": 437842,
+          "type": "geo_sample_metadata"
+        }
+      ],
+      "requested_samples": 109,
+      "run_started_at_utc": "2026-09-16T18:19:00.341600+00:00",
+      "source_matrix": {
+        "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/GSE82152/GSE82152_series_matrix.txt.gz",
+        "sha256": "355ec5fb4d9f88800a7edda137c33cfe6bfb81f3af5ed3e244ee48ae013d9c7e",
+        "size_bytes": 11035457
+      },
+      "status": "success",
+      "study_accession": "SDY1294"
+    },
+    {
+      "counts": {
+        "geo_metadata_rows": 1332,
+        "probes": 47231,
+        "samples": 36
+      },
+      "duration_sec": 2.207,
+      "experiment_accession": "EXP28323",
+      "gpl_accession": "GPL10558",
+      "gse_accession": "GSE125921",
+      "output_directory": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE125921_GPL10558",
+      "outputs": [
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE125921_GPL10558/expression.tsv.gz",
+          "sha256": "7d41eb5be98794870796c484b378112786af7844250e4b61c7dee86ac37a3d28",
+          "size_bytes": 6196945,
+          "type": "expression"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE125921_GPL10558/samples.tsv",
+          "sha256": "a7896e39172cbf776c4ff328cceb640ce275969f0945faf6b900e46af4201030",
+          "size_bytes": 18812,
+          "type": "samples"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE125921_GPL10558/geo_sample_metadata_long.tsv",
+          "sha256": "d2961a9afed7895da12c3709e2885f2846cec4f0637c595da7ba1ef9b515e5a8",
+          "size_bytes": 110921,
+          "type": "geo_sample_metadata"
+        }
+      ],
+      "requested_samples": 36,
+      "run_started_at_utc": "2026-09-16T18:19:03.020690+00:00",
+      "source_matrix": {
+        "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/GSE125921/GSE125921_series_matrix.txt.gz",
+        "sha256": "ff40749ad6bdd628f6d41b8777517f9d774b8edfd172a47a290c84e9fce6e755",
+        "size_bytes": 6350460
+      },
+      "status": "success",
+      "study_accession": "SDY1529"
+    },
+    {
+      "counts": {
+        "geo_metadata_rows": 5184,
+        "probes": 47323,
+        "samples": 144
+      },
+      "duration_sec": 12.31,
+      "experiment_accession": "EXP28323",
+      "gpl_accession": "GPL10558",
+      "gse_accession": "GSE136163",
+      "output_directory": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE136163_GPL10558",
+      "outputs": [
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE136163_GPL10558/expression.tsv.gz",
+          "sha256": "d55742c5fa408808d472215b8cc81fcf0aa1e9403ba295ffcaeb3ca57d3b74dd",
+          "size_bytes": 29237109,
+          "type": "expression"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE136163_GPL10558/samples.tsv",
+          "sha256": "41c0f548a30bfa543053b40a7dd0effaaea70e998e84e47bdec1c25edaae40f2",
+          "size_bytes": 73406,
+          "type": "samples"
+        },
+        {
+          "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/parsed/SDY1529/EXP28323/GSE136163_GPL10558/geo_sample_metadata_long.tsv",
+          "sha256": "06dc6541587bbfee607bcc268585c94f29100433579637234962f31eb1e85bf8",
+          "size_bytes": 431921,
+          "type": "geo_sample_metadata"
+        }
+      ],
+      "requested_samples": 144,
+      "run_started_at_utc": "2026-09-16T18:19:05.232424+00:00",
+      "source_matrix": {
+        "path": "/Users/zhouy25/Documents/GitHub/projects_personal/codeathon/data/geo_cache/GSE136163/GSE136163_series_matrix.txt.gz",
+        "sha256": "c64467f5e2725be0ae3ddfcbd3cc6538e70d66b1ec928422e7d737898b10da81",
+        "size_bytes": 29985491
+      },
+      "status": "success",
+      "study_accession": "SDY1529"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "accession": "GSE13485",
+  "title": "YF-17D vaccination transcriptional profiling",
+  "organism": "Homo sapiens",
+  "experiment_type": "Expression profiling by array",
+  "summary": "Human subjects received YF-17D yellow fever vaccine. PBMC gene expression was profiled before vaccination and at post-vaccination timepoints. Cellular immune responses including CD8 T-cell responses were investigated.",
+  "overall_design": "Samples collected at baseline, day 3 and day 7 after YF-17D vaccination.",
+  "sample_type": "PBMC"
+}
