@@ -1,0 +1,9 @@
+{
+  "name": "hypothesis2omics",
+  "command": "uv",
+  "args": ["run", "--directory", "${root}", "python", "-m", "mcp_server.server"],
+  "directTools": true,
+  "env": {
+    "IMMPORT_API_KEY": "${IMMPORT_API_KEY}"
+  }
+}
