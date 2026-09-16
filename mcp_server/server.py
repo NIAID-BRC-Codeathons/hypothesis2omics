@@ -94,6 +94,11 @@ def create_server(
         return pipeline.parse_immport_studies()
 
     @server.tool
+    def inventory_downloaded_files() -> dict[str, Any]:
+        """List cached downloads and expose files supported or potentially useful to parsers."""
+        return pipeline.inventory_downloaded_files()
+
+    @server.tool
     def plan_geo_retrieval(batch_size: int = 100, timeout: int = 60) -> dict[str, Any]:
         """Resolve linked GSM accessions and write the cached GEO retrieval plan."""
         return pipeline.plan_geo_retrieval(batch_size=batch_size, timeout=timeout)

@@ -19,6 +19,7 @@ from data.geo_matrix_parse_module import parse_geo_matrices as run_geo_matrix_pa
 from data.geo_plan_module import plan_geo_downloads
 from data.immport_batch_parse import run_batch as run_immport_batch_parser
 from data.immport_fetch_module import fetch_immport_datasets
+from data.list_directory import build_file_inventory
 
 DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[1] / "data"
 SDY_PATTERN = re.compile(r"^SDY\d+$", re.IGNORECASE)
@@ -26,6 +27,7 @@ GSE_PATTERN = re.compile(r"^GSE\d+$", re.IGNORECASE)
 PLAN_FILENAME = "geo_download_plan.tsv"
 IMMPORT_MANIFEST_FILENAME = "sample_manifest.tsv"
 GEO_PARSE_MANIFEST_FILENAME = "geo_matrix_parse_manifest.json"
+MAX_INVENTORY_CANDIDATES = 100
 
 
 class PipelineToolError(RuntimeError):
@@ -77,6 +79,7 @@ class PipelineTools:
         self.geo_plan = self.geo_cache / "plan"
         self.geo_plan_path = self.geo_plan / PLAN_FILENAME
         self.geo_parsed = self.geo_cache / "parsed"
+        self.file_inventory = self.data_root / "file_inventory"
 
     def fetch_immport_studies(
         self,
@@ -128,6 +131,38 @@ class PipelineTools:
             "studies": provenance["studies"],
             "combined_output": provenance["combined_output"],
             "manifest_path": str(self.immport_parsed / "batch_manifest.json"),
+            "duration_sec": provenance["duration_sec"],
+        }
+
+    def inventory_downloaded_files(self) -> dict[str, Any]:
+        """Inventory cached downloads and expose configured parser candidates."""
+        provenance = build_file_inventory(
+            data_root=self.data_root,
+            output_dir=self.file_inventory,
+        )
+        candidate_output = next(
+            item for item in provenance["outputs"] if item["type"] == "parser_candidates"
+        )
+        try:
+            candidates = pd.read_csv(
+                candidate_output["path"],
+                sep="\t",
+                dtype=str,
+                keep_default_na=False,
+            )
+        except (OSError, UnicodeError, pd.errors.ParserError) as exc:
+            raise PipelineToolError(f"Could not read parser candidate inventory: {exc}") from exc
+        supported = candidates.loc[candidates["parser_support"].eq("supported")]
+        exposed = supported.head(MAX_INVENTORY_CANDIDATES).to_dict(orient="records")
+        return {
+            "operation": "inventory_downloaded_files",
+            "status": provenance["status"],
+            "counts": provenance["counts"],
+            "inventory_path": provenance["outputs"][0]["path"],
+            "candidate_path": candidate_output["path"],
+            "provenance_path": provenance["provenance_path"],
+            "supported_candidates": exposed,
+            "supported_candidates_truncated": len(supported) > len(exposed),
             "duration_sec": provenance["duration_sec"],
         }
 
