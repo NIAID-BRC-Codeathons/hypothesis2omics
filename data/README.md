@@ -86,6 +86,14 @@ uv run python data/geo_fetch_module.py
 uv run python data/geo_fetch_module.py GSE13699 GSE125921
 ```
 
+## List file directory
+
+Run `list_directory.py` from the directory containing the extracted ImmPort folders to create a sorted `directory_listing.txt` of relative file paths and sizes. The script scans the configured `Tab`, `MySQL`, `SDY1529-DR58_Tab`, and `SDY1529-DR58_MySQL` folders and skips any that are absent.
+
+```bash
+uv run python /path/to/hypothesis2omics/data/list_directory.py
+```
+
 ## Parse planned GEO matrices
 
 Parse cached matrices for plan rows marked `download`:
