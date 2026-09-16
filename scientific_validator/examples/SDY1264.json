@@ -1,0 +1,15 @@
+{
+  "dataset_id": "SDY1264",
+  "linked_expression_dataset": "GSE13485",
+  "criteria": {
+    "human_study": {"value": "true", "confidence": "high", "evidence": "Human YF-17D vaccine recipients are described.", "sources": ["PMID:19029902"]},
+    "yf17d_vaccination": {"value": "true", "confidence": "high", "evidence": "Participants received YF-17D.", "sources": ["PMID:19029902"]},
+    "transcriptomics_available": {"value": "true", "confidence": "high", "evidence": "PBMC expression profiling is available as GSE13485.", "sources": ["GEO:GSE13485"]},
+    "eif2ak4_measurable": {"value": "true", "confidence": "high", "evidence": "EIF2AK4 day-7 expression appears in predictive signatures.", "sources": ["PMID:19029902"]},
+    "quantitative_cd8_response_available": {"value": "true", "confidence": "high", "evidence": "The study measured activated CD8+ T-cell responses and related them to early expression.", "sources": ["PMID:19029902"]},
+    "appropriate_timepoints": {"value": "true", "confidence": "high", "evidence": "Early day-3/day-7 expression was related to later day-15 CD8 response.", "sources": ["PMID:19029902"]},
+    "participant_level_linkage": {"value": "true", "confidence": "high", "evidence": "The primary analysis correlates individual-level expression with later CD8 response.", "sources": ["PMID:19029902"]},
+    "predictor_data_accessible": {"value": "true", "confidence": "high", "evidence": "Expression data are public in GEO.", "sources": ["GEO:GSE13485"]},
+    "outcome_data_accessible": {"value": "unknown", "confidence": "medium", "evidence": "Participant-level CD8 outcome values have not yet been located in an accessible machine-readable source.", "sources": ["ImmPort:SDY1264", "PMID:19029902"]}
+  }
+}

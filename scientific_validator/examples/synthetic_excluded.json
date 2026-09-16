@@ -1,0 +1,14 @@
+{
+  "dataset_id": "SYNTHETIC_NON_YF17D",
+  "criteria": {
+    "human_study": {"value": "true"},
+    "yf17d_vaccination": {"value": "false"},
+    "transcriptomics_available": {"value": "true"},
+    "eif2ak4_measurable": {"value": "true"},
+    "quantitative_cd8_response_available": {"value": "true"},
+    "appropriate_timepoints": {"value": "true"},
+    "participant_level_linkage": {"value": "true"},
+    "predictor_data_accessible": {"value": "true"},
+    "outcome_data_accessible": {"value": "true"}
+  }
+}

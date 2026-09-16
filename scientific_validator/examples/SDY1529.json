@@ -1,0 +1,14 @@
+{
+  "dataset_id": "SDY1529",
+  "criteria": {
+    "human_study": {"value": "true", "confidence": "high", "evidence": "Human vaccine study."},
+    "yf17d_vaccination": {"value": "true", "confidence": "high", "evidence": "YF-17D study."},
+    "transcriptomics_available": {"value": "true", "confidence": "high", "evidence": "Transcriptomic data are reported."},
+    "eif2ak4_measurable": {"value": "unknown", "confidence": "low", "evidence": "Feature-level coverage not yet checked."},
+    "quantitative_cd8_response_available": {"value": "unknown", "confidence": "low", "evidence": "Exact quantitative CD8 endpoint not yet established."},
+    "appropriate_timepoints": {"value": "unknown", "confidence": "low", "evidence": "Required predictor/outcome timepoints not yet established."},
+    "participant_level_linkage": {"value": "unknown", "confidence": "low", "evidence": "Subject-level linkage not yet established."},
+    "predictor_data_accessible": {"value": "true", "confidence": "medium", "evidence": "Transcriptomic study is discoverable."},
+    "outcome_data_accessible": {"value": "unknown", "confidence": "low", "evidence": "Outcome access not yet established."}
+  }
+}
