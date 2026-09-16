@@ -72,6 +72,42 @@ directory Claude Code happens to start the process in.
 Same JSON works for any other MCP client (Claude Desktop, Cursor, ...); only the
 file it goes in differs.
 
+## Add it to Loom
+
+Loom has no user-installable extensions -- the ones in its README are Pi.dev
+modules hardcoded into `bin/loom.js`. It does pick up MCP servers, though: it
+merges `~/.pi/agent/mcp.json` on every launch and leaves keys it doesn't own
+alone. One line registers every server in this repo there:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/loom-mcp-install/mcp/install.sh | bash
+```
+
+It clones this repo to `~/.loom/mcp/hypothesis2omics` and registers the servers;
+re-run it to update. Override the location with `$H2O_MCP_DIR` and the branch
+with `$H2O_MCP_BRANCH`. Flags pass through:
+
+```bash
+... | bash -s -- --dry-run   # print the resulting mcp.json, write nothing
+... | bash -s -- --remove    # unregister
+```
+
+Restart `loom` (or Orbit) and run `/mcp` to confirm. The tools appear prefixed
+with the directory name: `keyword_to_immport_search_spec`,
+`keyword_to_immport_search_studies`, `keyword_to_immport_list_facet_values`.
+
+Already have the repo cloned? Skip the curl and run the registration step
+directly:
+
+```bash
+node mcp/register.mjs           # also takes --dry-run / --remove / --self-test
+```
+
+Two caveats: `uv` must be on Loom's PATH at launch (Orbit bundles its own, the
+CLI uses yours), and Loom's **web/remote shell won't expose these tools** -- its
+`web-mode-gate` is default-deny with an allowlist that covers only Galaxy, BRC
+Analytics, GTN, and notebook tools. CLI and Orbit are unaffected.
+
 ## Tools
 
 ### `search_spec(spec)` — the main one
