@@ -77,7 +77,7 @@ file it goes in differs.
 This server registers into Loom along with every other MCP server in the repo:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/loom-mcp-install/mcp/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/main/mcp/install.sh | bash
 ```
 
 Its tools show up as `keyword_to_immport_search_spec`, `keyword_to_immport_search_studies`

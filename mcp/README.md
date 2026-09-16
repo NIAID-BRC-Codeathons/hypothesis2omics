@@ -18,7 +18,7 @@ hardcoded into `bin/loom.js`. It does pick up MCP servers, though: it merges
 line registers every server in this repo there:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/loom-mcp-install/mcp/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/main/mcp/install.sh | bash
 ```
 
 It clones this repo to `~/.loom/mcp/hypothesis2omics` and registers the servers;
