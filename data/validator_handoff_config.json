@@ -1,0 +1,23 @@
+{
+  "geo": {
+    "study_accession": "SDY1264",
+    "gse_accession": "GSE13485",
+    "gpl_accession": "GPL7567",
+    "gene": "EIF2AK4",
+    "feature_id": "Hs.412102_at",
+    "source_matrix": "data/geo_cache/GSE13485/GSE13485_series_matrix.txt.gz",
+    "output": "data/validator_geo/feature_expression.tsv",
+    "provenance": "data/validator_geo/feature_expression.provenance.json"
+  },
+  "immport": {
+    "study_accession": "SDY1264",
+    "outcome_names": [
+      "Act CD8 T Cell Response"
+    ],
+    "timepoint_source_unit": "Days",
+    "field_precedence": "preferred_then_reported",
+    "source_tab_zip": "data/immport_cache/SDY1264/SDY1264-DR58_Tab.zip",
+    "output": "data/validator_immport/quantitative_outcome.tsv",
+    "provenance": "data/validator_immport/quantitative_outcome.provenance.json"
+  }
+}
