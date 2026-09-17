@@ -3,7 +3,6 @@ data/geo_cache/
 data/immport_cache/
 data/file_inventory/
 data/validator_input/
-data/__pycache__/
 temp
 
 # API keys
@@ -11,3 +10,10 @@ temp
 
 # Virtual environment
 .venv
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# macOS
+.DS_Store

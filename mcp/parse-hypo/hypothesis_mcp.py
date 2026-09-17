@@ -38,10 +38,14 @@ Install:
     pip install mcp openai httpx pyyaml
 
 Run:
-    ARGO_USER=ac.yourname python3 hypothesis_mcp.py --check   # smoke test, no client
-    ARGO_USER=ac.yourname python3 hypothesis_mcp.py           # serve over stdio
+    OPENAI_API_KEY=... python3 hypothesis_mcp.py --check   # smoke test, no client
+    OPENAI_API_KEY=... python3 hypothesis_mcp.py           # serve over stdio
 
-Requires a connection to the Argonne-auth network.
+Calls go to OPENAI_BASE_URL, which defaults to Argo -- on Argo the "key" is your
+ac.yourname username and ARGO_USER still works. Point OPENAI_BASE_URL somewhere
+else and set OPENAI_MODEL, since the default model id is Argo's.
+
+With the default gateway this requires a connection to the Argonne-auth network.
 """
 from __future__ import annotations
 
@@ -61,13 +65,16 @@ from mcp.server.mcpserver import MCPServer
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import parse_hypothesis as step1  # noqa: E402
-from h2o_common import ARGO_BASE_URL, ARGO_USER, DEFAULT_MODEL  # noqa: E402
+from h2o_common import DEFAULT_MODEL, OPENAI_API_KEY, OPENAI_BASE_URL  # noqa: E402
 
-server = MCPServer("hypothesis2omics")
+# Matches the mcp.json key in mcp-server.json. Not "hypothesis2omics" -- that is
+# the pipeline server in mcp_server/, and two servers reporting one name makes
+# a client's server list ambiguous.
+server = MCPServer("hypothesis-parser")
 
-# Per-attempt ceiling on an Argo call. Step 2 is normally 30-90s; the OpenAI client
-# retries on its own, so a hard hang costs a small multiple of this.
-ARGO_TIMEOUT_S = float(os.environ.get("H2O_TIMEOUT_S", "100"))
+# Per-attempt ceiling on a gateway call. Step 2 is normally 30-90s; the OpenAI
+# client retries on its own, so a hard hang costs a small multiple of this.
+LLM_TIMEOUT_S = float(os.environ.get("H2O_TIMEOUT_S", "100"))
 
 DEFAULT_MAX_TOKENS = 4000
 
@@ -80,11 +87,11 @@ STEP3_HEADER = {
 }
 
 
-def _argo() -> Any:
-    """An Argo client with a timeout. h2o_common.client() does not take one."""
+def _llm() -> Any:
+    """A gateway client with a timeout. h2o_common.client() does not take one."""
     from openai import OpenAI
 
-    return OpenAI(api_key=ARGO_USER, base_url=ARGO_BASE_URL, timeout=ARGO_TIMEOUT_S)
+    return OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL, timeout=LLM_TIMEOUT_S)
 
 
 def _step2() -> Any:
@@ -144,7 +151,7 @@ def parse_hypothesis(
         the model cannot produce a parse the validator accepts.
     """
     out = _outdir(outdir)
-    parsed, provenance = step1.parse_hypothesis(_argo(), hypothesis_text, model, max_tokens)
+    parsed, provenance = step1.parse_hypothesis(_llm(), hypothesis_text, model, max_tokens)
     text = step1.parsed_to_yaml(parsed, hypothesis_text, provenance)
     path = out / "01_parsed.yaml"
     path.write_text(text)
@@ -193,7 +200,7 @@ def build_test_spec(
     step2 = _step2()
     parsed, hypothesis = step1.load_parsed(src)
 
-    spec, provenance = step2.build_test_spec(_argo(), hypothesis, parsed, model, max_tokens)
+    spec, provenance = step2.build_test_spec(_llm(), hypothesis, parsed, model, max_tokens)
     if hypothesis_id:
         spec["hypothesis_id"] = hypothesis_id
     # Which bytes step 2 actually read. Not a claim that anyone reviewed them.

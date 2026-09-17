@@ -18,12 +18,12 @@ Install:
     pip install openai pyyaml
 
 Run:
-    ARGO_USER=ac.msadecki python3 parse_hypothesis.py \
+    OPENAI_API_KEY=... python3 parse_hypothesis.py \
         --hypothesis "GCN2/EIF2AK4 activity is associated with the magnitude of the
                       CD8+ T-cell response following YF-17D vaccination." \
         --outdir runs/HYP001
 
-Requires a connection to the Argonne-auth network.
+With the default gateway this requires a connection to the Argonne-auth network.
 """
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ from h2o_common import (
     _header,
     _provenance,
     _scalar,
-    client as argo_client,
+    client as llm_client,
 )
 
 GENERATOR = "parse_hypothesis.py"
@@ -181,7 +181,7 @@ def main() -> int:
     parser.add_argument("--outdir", type=Path, default=Path("."),
                         help="directory to write 01_parsed.yaml into")
     parser.add_argument("--model", default=DEFAULT_MODEL,
-                        help=f"Argo model (default: {DEFAULT_MODEL})")
+                        help=f"model id on the configured gateway (default: {DEFAULT_MODEL})")
     parser.add_argument("--no-provenance", action="store_true",
                         help="omit the comment header")
     parser.add_argument("--stdout", action="store_true",
@@ -192,7 +192,7 @@ def main() -> int:
     hypothesis = args.hypothesis or args.hypothesis_file.read_text()
 
     try:
-        parsed, prov = parse_hypothesis(argo_client(), hypothesis, args.model, args.max_tokens)
+        parsed, prov = parse_hypothesis(llm_client(), hypothesis, args.model, args.max_tokens)
     except EmptyCompletion as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 2

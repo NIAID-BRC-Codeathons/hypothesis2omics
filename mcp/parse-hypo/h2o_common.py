@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """Shared machinery for the hypothesis -> spec pipeline.
 
-Everything here is repository-agnostic: it talks to Argo and renders YAML, and it
-imports nothing from server.py. That is deliberate -- it lets parse_hypothesis.py
-run and be tested with no ImmPort dependency at all.
+Everything here is repository-agnostic: it talks to an OpenAI-compatible gateway
+and renders YAML, and it imports nothing from the ImmPort layer. That is deliberate
+-- it lets parse_hypothesis.py run and be tested with no ImmPort dependency at all.
 
-    h2o_common.py          <- this file: Argo calls, JSON extraction, YAML scalars
+    h2o_common.py          <- this file: LLM calls, JSON extraction, YAML scalars
         ^         ^
         |         |
     parse_hypothesis.py    step 1, offline-testable
         ^
         |
-    build_test_spec.py     steps 2-3, imports server.py
+    build_test_spec.py     steps 2-3, imports the ImmPort layer
 
 Install:
     pip install openai httpx pyyaml
@@ -28,15 +28,31 @@ import sys
 from datetime import datetime, timezone
 from typing import Any
 
-# An identifier, not a secret -- but it lands in shell history, so keep it in a
-# per-project file you source, not in ~/.bashrc or a committed config.
-ARGO_USER = os.environ.get("ARGO_USER", "ac.jdoe")
+# Any OpenAI-compatible gateway. The default is Argo, so an existing ARGO_USER
+# setup keeps working untouched; point OPENAI_BASE_URL at something else and this
+# is an ordinary OpenAI client. OPENAI_URL is accepted as an alias for it.
 ARGO_BASE_URL = "https://apps.inside.anl.gov/argoapi/v1"
-DEFAULT_MODEL = "claudeopus5"
+OPENAI_BASE_URL = (
+    os.environ.get("OPENAI_BASE_URL") or os.environ.get("OPENAI_URL") or ARGO_BASE_URL
+)
+# On Argo this is a username rather than a secret, which is why ARGO_USER still
+# works. Either way it lands in shell history, so keep it in a per-project file
+# you source, not in ~/.bashrc or a committed config.
+OPENAI_API_KEY = (
+    os.environ.get("OPENAI_API_KEY") or os.environ.get("ARGO_USER") or "ac.jdoe"
+)
+# `or`, never a get() default: an MCP client that forwards an unset variable hands
+# us "" rather than leaving it absent, and "" is a value get() would hand straight
+# back. Every lookup here treats empty as missing for that reason.
+DEFAULT_MODEL = os.environ.get("OPENAI_MODEL") or "claudeopus5"
 # claudeopus5 returns empty completions on some ordinary biomedical inputs (see
 # _complete). Anything it drops is retried here, and provenance records which
-# model actually produced the artifact.
-FALLBACK_MODEL = "claudesonnet5"
+# model actually produced the artifact. That quirk is Argo's, and "claudesonnet5"
+# is not a model id anywhere else, so the retry turns itself off as soon as you
+# name your own model. Set OPENAI_FALLBACK_MODEL to pick a different second try.
+FALLBACK_MODEL = os.environ.get("OPENAI_FALLBACK_MODEL") or (
+    "claudesonnet5" if not os.environ.get("OPENAI_MODEL") else None
+)
 # Ceiling for the automatic budget growth in _complete_json. Kept under the
 # 21000 cap Argo imposes on streaming Anthropic requests, so the same number
 # stays valid if this ever streams.
@@ -47,10 +63,10 @@ YAML_BOOLEANS = frozenset("y n yes no true false on off".split())
 
 
 def client() -> Any:
-    """An OpenAI client pointed at Argo. Imported lazily so --help works offline."""
+    """An OpenAI client for the configured gateway. Lazy, so --help works offline."""
     from openai import OpenAI
 
-    return OpenAI(api_key=ARGO_USER, base_url=ARGO_BASE_URL)
+    return OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL)
 
 
 # ------------------------------------------------------------------------ LLM

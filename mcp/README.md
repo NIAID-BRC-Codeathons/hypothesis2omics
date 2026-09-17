@@ -7,8 +7,12 @@ self-contained script, another is a package that shares the repo's `pyproject.to
 
 | Server | Manifest | What it does |
 |---|---|---|
-| `keyword-to-immport` | `mcp/keyword-to-immport/` | keywords → ImmPort study accessions (public API, no credentials) |
+| `hypothesis-parser` | `mcp/parse-hypo/` | a plain-text hypothesis → a test spec and an ImmPort search spec (needs an LLM gateway) |
+| `keyword-to-immport` | `mcp/keyword-to-immport/` | keywords or a search spec → ImmPort study accessions (public API, no credentials) |
 | `hypothesis2omics` | `mcp_server/` | run the ingestion pipeline and inspect parsed GEO units |
+
+Together they chain: parse a hypothesis into a search spec, run that spec against
+ImmPort for accessions, then ingest and inspect them.
 
 ## Install into Loom
 
@@ -54,6 +58,11 @@ server name, hyphens becoming underscores — `keyword_to_immport_search_spec`,
 
 - **`IMMPORT_API_KEY`** must be exported in the environment you start Loom from if you
   want `hypothesis2omics_fetch_immport_studies`. Everything else works without it.
+- **`OPENAI_API_KEY`** likewise, for `hypothesis_parser_*` — those two steps call an
+  LLM. It defaults to Argo, where the "key" is your `ac.yourname` username (`ARGO_USER`
+  still works) and you need the Argonne-auth network. To use anything else, export
+  `OPENAI_BASE_URL` **and** `OPENAI_MODEL` before starting Loom; the default model id
+  is Argo's and means nothing elsewhere. The other servers need none of this.
 - **Loom's web/remote shell will not expose these tools.** Its `web-mode-gate` is
   default-deny with an allowlist covering only `galaxy_`, `brc_analytics_`, `gtn_`
   and `notebook_`. CLI and Orbit are unaffected.
