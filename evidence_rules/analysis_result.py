@@ -47,8 +47,10 @@ from typing import Any, Optional, Sequence
 __all__ = [
     "ANALYSIS_TYPES",
     "EFFECT_TYPES",
+    "EVIDENCE_ROLES",
     "AnalysisResult",
     "comparability",
+    "estimand_of",
     "from_group_contrast",
     "from_regression",
     "oriented_effect",
@@ -58,6 +60,16 @@ __all__ = [
 
 
 ANALYSIS_TYPES = ("group_contrast", "regression", "correlation")
+
+# What a result is FOR. Controls prove the pipeline works; they are not
+# evidence about the hypothesis and must never enter an evidence table.
+EVIDENCE_ROLES = {
+    "primary":          True,   # counts toward the verdict
+    "secondary":        True,
+    "sensitivity":      True,
+    "positive_control": False,  # known-true answer, checks the machinery
+    "negative_control": False,  # known-unanswerable, checks the refusal
+}
 
 # effect_type -> (needs a declared contrast, human label)
 EFFECT_TYPES = {
@@ -91,6 +103,13 @@ class AnalysisResult:
     p_value: Optional[float] = None
     fdr: Optional[float] = None
 
+    # What question this answers, and what it is for. Two results may only be
+    # compared when they estimate the same thing; `estimand_of` derives a key
+    # from predictor and outcome when `estimand_id` is not set explicitly.
+    hypothesis_id: Optional[str] = None
+    estimand_id: Optional[str] = None
+    role: str = "primary"
+
     cohort: Optional[str] = None
     platform: Optional[str] = None
     independence_group: Optional[str] = None
@@ -110,6 +129,21 @@ class AnalysisResult:
 # ---------------------------------------------------------------------------
 # Orientation
 # ---------------------------------------------------------------------------
+
+
+def estimand_of(result: AnalysisResult) -> str:
+    """What this result estimates, as a comparison key.
+
+    Explicit `estimand_id` wins. Otherwise it is derived from the predictor
+    and outcome names, because two effects on different predictors or
+    different outcomes are not estimates of the same quantity no matter how
+    similar their units look.
+    """
+    if result.estimand_id:
+        return str(result.estimand_id)
+    p = str(result.predictor.get("name", "?"))
+    o = str(result.outcome.get("name", "?"))
+    return f"{p}->{o}"
 
 
 def oriented_effect(result: AnalysisResult) -> float:
@@ -132,6 +166,11 @@ def oriented_effect(result: AnalysisResult) -> float:
             "sign of the effect is not interpretable."
         )
     higher = result.contrast["test_is_higher_outcome"]
+    if type(higher) is not bool:
+        raise TypeError(
+            f"{result.analysis_unit_id}: test_is_higher_outcome is "
+            f"{higher!r}, not a bool. Refusing to guess its truth value."
+        )
     return float(result.effect) if higher else -float(result.effect)
 
 
@@ -155,9 +194,19 @@ def from_group_contrast(
 ) -> AnalysisResult:
     """The Galaxy limma branch: an effect between two groups.
 
-    `test_is_higher_outcome` is not optional and has no default, because a
-    wrong value silently flips every conclusion drawn from this result.
+    `test_is_higher_outcome` is not optional, has no default, and is not
+    coerced. A wrong value silently flips every conclusion drawn from this
+    result, and `bool("False")` is True, so a string read from JSON or a
+    config file would orient the effect backwards while passing validation.
+    Only a real bool is accepted.
     """
+    if type(test_is_higher_outcome) is not bool:
+        raise TypeError(
+            "test_is_higher_outcome must be a real bool, got "
+            f"{type(test_is_higher_outcome).__name__} {test_is_higher_outcome!r}. "
+            'Not coerced on purpose: bool("False") is True, and getting this '
+            "wrong inverts the direction of the result without any error."
+        )
     outcome = dict(outcome)
     outcome.setdefault("dichotomised", True)
     return AnalysisResult(
@@ -172,7 +221,7 @@ def from_group_contrast(
         contrast={
             "test_group": test_group,
             "reference_group": reference_group,
-            "test_is_higher_outcome": bool(test_is_higher_outcome),
+            "test_is_higher_outcome": test_is_higher_outcome,
         },
         **kw,
     )
@@ -243,6 +292,16 @@ def validate_result(r: AnalysisResult) -> list[str]:
         if not (-1.0 <= float(r.effect) <= 1.0):
             errs.append(f"{r.effect_type} of {r.effect} is outside [-1, 1]")
 
+    if r.role not in EVIDENCE_ROLES:
+        errs.append(f"role {r.role!r} not in {tuple(EVIDENCE_ROLES)}")
+
+    if r.contrast is not None and "test_is_higher_outcome" in r.contrast:
+        if type(r.contrast["test_is_higher_outcome"]) is not bool:
+            errs.append(
+                "contrast.test_is_higher_outcome is "
+                f"{r.contrast['test_is_higher_outcome']!r}, not a bool"
+            )
+
     needs_contrast, _ = EFFECT_TYPES.get(r.effect_type, (False, ""))
     if needs_contrast:
         if not r.contrast:
@@ -278,21 +337,47 @@ POOLING_NOTE = (
 def comparability(results: Sequence[AnalysisResult]) -> dict[str, Any]:
     """Can these results be pooled, and if not, what can still be done.
 
-    Returns what it found plus a note fit to print in a report. It never
-    silently harmonises anything.
-    """
-    types = sorted({r.effect_type for r in results})
-    dich = sorted({bool(r.outcome.get("dichotomised")) for r in results})
-    predictors = sorted({r.predictor.get("name", "?") for r in results})
-    outcomes = sorted({r.outcome.get("name", "?") for r in results})
+    Pooling requires the same estimand AND the same effect type. Sharing a
+    unit is not enough: two logFCs, one for EIF2AK4 against CD8 response and
+    one for UTY against sex, are both log2 fold changes and are not estimates
+    of the same thing. Direction comparison needs the same estimand too, for
+    the same reason.
 
-    can_pool = len(types) == 1
+    Controls are reported separately. They are evidence that the machinery
+    works, not evidence about the hypothesis.
+    """
+    scoring = [r for r in results if EVIDENCE_ROLES.get(r.role, True)]
+    controls = [r for r in results if not EVIDENCE_ROLES.get(r.role, True)]
+
+    types = sorted({r.effect_type for r in scoring})
+    dich = sorted({bool(r.outcome.get("dichotomised")) for r in scoring})
+    predictors = sorted({r.predictor.get("name", "?") for r in scoring})
+    outcomes = sorted({r.outcome.get("name", "?") for r in scoring})
+    estimands = sorted({estimand_of(r) for r in scoring})
+
+    one_estimand = len(estimands) <= 1
+    one_type = len(types) <= 1
+    can_pool = one_estimand and one_type
+
     notes: list[str] = []
 
-    if not can_pool:
+    if not one_estimand:
+        notes.append(
+            f"{len(estimands)} different estimands present ({', '.join(estimands)}). "
+            "These results do not estimate the same quantity, so neither their "
+            "magnitudes nor their directions can be combined. Group them by "
+            "estimand before synthesising."
+        )
+    if not one_type:
         notes.append(
             f"{len(types)} different effect types present ({', '.join(types)}). "
             + POOLING_NOTE
+        )
+    if controls:
+        notes.append(
+            f"{len(controls)} result(s) carry a control role "
+            f"({', '.join(sorted({r.role for r in controls}))}) and are excluded "
+            "from the evidence table. They test the pipeline, not the hypothesis."
         )
     if len(dich) > 1:
         notes.append(
@@ -308,13 +393,16 @@ def comparability(results: Sequence[AnalysisResult]) -> dict[str, Any]:
 
     return {
         "n_results": len(results),
+        "n_scoring": len(scoring),
+        "n_controls": len(controls),
+        "estimands": estimands,
         "effect_types": types,
         "can_pool_magnitudes": can_pool,
-        "directions_comparable": True,
+        "directions_comparable": one_estimand,
         "predictors": predictors,
         "outcomes": outcomes,
-        "notes": notes or ["All results share one effect type and one predictor "
-                           "and outcome definition."],
+        "notes": notes or ["All scoring results estimate the same quantity on "
+                           "one effect type."],
     }
 
 
@@ -333,6 +421,13 @@ def to_synthesis_unit(result: AnalysisResult) -> dict[str, Any]:
     if errs:
         raise ValueError(f"{result.analysis_unit_id}: " + "; ".join(errs))
 
+    if not EVIDENCE_ROLES.get(result.role, True):
+        raise ValueError(
+            f"{result.analysis_unit_id} has role {result.role!r} and cannot enter "
+            "an evidence table. A control tests whether the pipeline works; it is "
+            "not evidence for or against the hypothesis."
+        )
+
     unit: dict[str, Any] = {
         "analysis_unit_id": result.analysis_unit_id,
         "gse_id": result.gse_id,
@@ -341,6 +436,7 @@ def to_synthesis_unit(result: AnalysisResult) -> dict[str, Any]:
         "effect": oriented_effect(result),
         "n": result.n,
         "effect_type": result.effect_type,
+        "estimand_id": estimand_of(result),
     }
     if result.independence_group:
         unit["independence_group"] = result.independence_group
@@ -381,21 +477,25 @@ def _demo() -> None:
         software={"tool": "scipy.stats", "version": "1.18.1"},
     )
 
-    # The Galaxy branch: GSE125921, outcome split at the median.
+    # The Galaxy branch. These numbers are real, from the M vs F sex contrast
+    # that the pipeline runs as a positive control, so they are labelled as
+    # exactly that. The nAb high-versus-low contrast has not been run yet, and
+    # putting these values under that label would be false provenance in the
+    # one module whose job is to prevent it.
     grp = from_group_contrast(
-        analysis_unit_id="GSE125921_all",
+        analysis_unit_id="GSE125921_sexcheck",
         gse_id="GSE125921",
         effect=0.229,
         fdr=4.70e-03,
         n=36,
         effect_type="logFC",
-        test_group="high",
-        reference_group="low",
+        test_group="M",
+        reference_group="F",
         test_is_higher_outcome=True,
+        role="positive_control",
         predictor={"name": "UTY", "feature_id": "ILMN_1739587",
                    "timepoint": "baseline", "transform": "log2 quantile"},
-        outcome={"name": "day-84 neutralising antibody", "timepoint": "day 84",
-                 "scale": "median split at 1280"},
+        outcome={"name": "sex", "scale": "M vs F"},
         platform="GPL10558",
         independence_group="SDY1529_GEO",
         software={"tool": "limma", "version": "3.58.1+galaxy0"},
@@ -403,19 +503,26 @@ def _demo() -> None:
 
     for r in (reg, grp):
         errs = validate_result(r)
-        print(f"\n{r.analysis_unit_id}")
+        print(f"\n{r.analysis_unit_id}   [{r.role}]")
         print(f"  {r.analysis_type:<15} {r.effect_type:<13} effect {r.effect:+.3f}  n={r.n}")
+        print(f"  estimand: {estimand_of(r)}")
         print(f"  oriented effect: {oriented_effect(r):+.3f}")
-        print(f"  dichotomised outcome: {bool(r.outcome.get('dichotomised'))}")
         print(f"  valid: {'yes' if not errs else errs}")
 
     print("\nComparability across the two:")
     c = comparability([reg, grp])
+    print(f"  estimands           {c['estimands']}")
     print(f"  effect types        {c['effect_types']}")
     print(f"  pool magnitudes     {c['can_pool_magnitudes']}")
     print(f"  compare directions  {c['directions_comparable']}")
     for note in c["notes"]:
         print(f"  - {note}")
+
+    print("\nA control cannot enter an evidence table:")
+    try:
+        to_synthesis_unit(grp)
+    except ValueError as e:
+        print(f"  refused: {str(e)[:96]}...")
 
     print("\n" + "-" * 74)
     print("The failure this prevents: a contrast written the other way round.")
@@ -492,15 +599,95 @@ def _self_test() -> None:
     assert any("partial_r without any covariates" in e for e in validate_result(
         from_regression(effect=0.1, p_value=0.1, effect_type="partial_r", **base)))
 
+    # A string is never coerced into a direction. bool("False") is True, and
+    # accepting it would invert the result while passing validation.
+    for bad_flag in ("False", "false", 0, 1, None):
+        try:
+            from_group_contrast(effect=1.0, fdr=0.01, test_group="a",
+                                reference_group="b",
+                                test_is_higher_outcome=bad_flag, **base)
+            raise AssertionError(f"should refuse {bad_flag!r}")
+        except TypeError as e:
+            assert "must be a real bool" in str(e)
+
+    hand_built = AnalysisResult(
+        analysis_unit_id="u", gse_id="GSE1", analysis_type="group_contrast",
+        effect=1.0, effect_type="logFC", n=5, fdr=0.01,
+        predictor={"name": "G"}, outcome={"name": "O"},
+        contrast={"test_group": "a", "reference_group": "b",
+                  "test_is_higher_outcome": "False"})
+    assert any("not a bool" in e for e in validate_result(hand_built))
+    try:
+        oriented_effect(hand_built)
+        raise AssertionError("should refuse a non-bool orientation")
+    except TypeError:
+        pass
+
+    # Comparability needs the SAME ESTIMAND, not merely the same unit.
+    # Two logFCs for different predictors and outcomes are not comparable.
+    eif = from_group_contrast(
+        effect=-0.21, fdr=0.47, test_group="high", reference_group="low",
+        test_is_higher_outcome=True,
+        **{**base, "analysis_unit_id": "eif",
+           "predictor": {"name": "EIF2AK4"}, "outcome": {"name": "CD8 response"}})
+    # Same effect type, different estimand, both scoring: not comparable.
+    tnf = from_group_contrast(
+        effect=0.30, fdr=0.02, test_group="high", reference_group="low",
+        test_is_higher_outcome=True,
+        **{**base, "analysis_unit_id": "tnf",
+           "predictor": {"name": "TNFRSF17"}, "outcome": {"name": "nAb titre"}})
+    c2 = comparability([eif, tnf])
+    assert c2["effect_types"] == ["logFC"]          # same unit
+    assert c2["can_pool_magnitudes"] is False, c2   # different question
+    assert c2["directions_comparable"] is False, c2
+    assert any("different estimands" in n for n in c2["notes"])
+
+    # A control is excluded from scoring and reported separately.
+    uty = from_group_contrast(
+        effect=0.229, fdr=0.005, test_group="M", reference_group="F",
+        test_is_higher_outcome=True, role="positive_control",
+        **{**base, "analysis_unit_id": "uty",
+           "predictor": {"name": "UTY"}, "outcome": {"name": "sex"}})
+    c3 = comparability([eif, uty])
+    assert c3["n_controls"] == 1 and c3["n_scoring"] == 1
+    assert c3["estimands"] == ["EIF2AK4->CD8 response"]   # control not counted
+    assert any("control role" in n for n in c3["notes"])
+
+    # Same estimand, same type, different cohorts: poolable.
+    same = [from_regression(effect=e, p_value=0.01,
+                            **{**base, "analysis_unit_id": f"s{i}"})
+            for i, e in enumerate((0.4, 0.5))]
+    cs = comparability(same)
+    assert cs["can_pool_magnitudes"] is True and cs["directions_comparable"] is True
+    assert cs["estimands"] == ["GENE->OUT"]
+
+    # An explicit estimand_id overrides the derived one.
+    assert estimand_of(from_regression(effect=0.1, p_value=0.1,
+                                       estimand_id="H1_primary", **base)) == "H1_primary"
+
+    # Mixed effect types on ONE estimand: directions still comparable.
+    mixed = comparability([
+        from_regression(effect=0.4, p_value=0.01, **{**base, "analysis_unit_id": "m1"}),
+        from_regression(effect=0.5, p_value=0.01, effect_type="beta",
+                        **{**base, "analysis_unit_id": "m2"})])
+    assert mixed["can_pool_magnitudes"] is False
+    assert mixed["directions_comparable"] is True
+
     # Comparability refuses to pool across types but keeps directions usable.
     c = comparability([r, g])
     assert c["can_pool_magnitudes"] is False
-    assert c["directions_comparable"] is True
-    assert any("different effect types" in n for n in c["notes"])
     assert any("dichotomised" in n for n in c["notes"])
-    assert comparability([r, from_regression(effect=0.4, p_value=0.02,
-                                             **{**base, "analysis_unit_id": "u2"})]
-                         )["can_pool_magnitudes"] is True
+
+    # A control is not evidence and cannot reach synthesis.
+    assert validate_result(uty) == []
+    try:
+        to_synthesis_unit(uty)
+        raise AssertionError("a positive control must not enter an evidence table")
+    except ValueError as e:
+        assert "cannot enter an evidence table" in str(e)
+    assert any("not in" in e for e in
+               validate_result(from_regression(effect=0.1, p_value=0.1,
+                                               role="nonsense", **base)))
 
     # Handoff carries the oriented effect, not the raw one.
     u = to_synthesis_unit(gf)
@@ -522,7 +709,7 @@ def _self_test() -> None:
 
     assert json.loads(r.to_json())["effect_type"] == "pearson_r"
 
-    print("\nself-tests: 14 groups of assertions passed")
+    print("\nself-tests: 20 groups of assertions passed")
 
 
 if __name__ == "__main__":

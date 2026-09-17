@@ -350,7 +350,12 @@ def to_analysis_result(
     Pass `scale` from `scale_check()` and it is stored in provenance, so a
     table analysed off the log scale carries that fact with it.
     """
-    from analysis_result import from_group_contrast  # local: keeps the import optional
+    # Works both as a script run from this directory and as
+    # `evidence_rules.limma_adapter` imported as part of a package.
+    try:
+        from .analysis_result import from_group_contrast
+    except ImportError:
+        from analysis_result import from_group_contrast
 
     software: dict[str, Any] = {"tool": "limma"}
     if limma_version:
@@ -416,13 +421,26 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     print(f"{len(rows):,} features from {Path(args.table).name}")
 
     chk = scale_check(rows)
-    lo, hi = chk["mean_expression_range"]
-    print(f"\nmean expression   {lo:,.1f} to {hi:,.1f}")
-    print(f"median |effect|   {chk['median_abs_effect']:,.3f}")
-    print(f"|effect| vs mean  r = {chk['effect_mean_correlation']:+.3f}")
-    print(f"\n{'OK' if chk['looks_log_transformed'] else 'CHECK'}: {chk['note']}")
+    # Every one of these is None on some real table: no mean column, too few
+    # rows to correlate, or a constant column. Formatting None with :.3f
+    # raises, so each is printed only when it exists.
+    rng = chk["mean_expression_range"]
+    print(f"\nmean expression   {rng[0]:,.1f} to {rng[1]:,.1f}" if rng
+          else "\nmean expression   not reported")
+    med = chk["median_abs_effect"]
+    print(f"median |effect|   {med:,.3f}" if med is not None
+          else "median |effect|   not reported")
+    corr = chk["effect_mean_correlation"]
+    print(f"|effect| vs mean  r = {corr:+.3f}" if corr is not None
+          else "|effect| vs mean  too few rows to say")
 
-    sig = [r for r in rows if (r["fdr"] or 1) < args.alpha]
+    verdict = chk["looks_log_transformed"]
+    label = "OK" if verdict else ("CHECK" if verdict is False else "UNKNOWN")
+    print(f"\n{label}: {chk['note']}")
+
+    # `r["fdr"] or 1` would turn an FDR of exactly 0.0 into 1 and drop the
+    # most significant features from the count.
+    sig = [r for r in rows if r["fdr"] is not None and r["fdr"] < args.alpha]
     print(f"\n{len(sig)} feature(s) at fdr < {args.alpha}")
 
     if args.features:
@@ -556,6 +574,21 @@ def _self_test() -> None:
         rp = fh.name
     assert load_limma(rp)[0]["feature"] == "ILMN_9"
 
+    # An FDR of exactly 0.0 is the most significant value there is, and
+    # `r["fdr"] or 1` would have turned it into 1 and dropped it.
+    zero = [{"feature": "P1", "effect": 3.0, "fdr": 0.0, "p_value": 0.0,
+             "mean_expression": 8.0, "t": None, "raw": {}}]
+    assert [r for r in zero if r["fdr"] is not None and r["fdr"] < 0.05]
+    assert not [r for r in zero if (r["fdr"] or 1) < 0.05]     # the old bug
+
+    # scale_check returns None for what it cannot compute; nothing may assume
+    # a number is there. Two rows is too few to correlate.
+    thin = scale_check(zero)
+    assert thin["effect_mean_correlation"] is None
+    assert scale_check([{"feature": "x", "effect": 1.0, "mean_expression": None,
+                         "t": None, "p_value": 0.1, "fdr": 0.1,
+                         "raw": {}}])["looks_log_transformed"] is None
+
     # An unrecognised named id column is refused, not silently numbered.
     with tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False) as fh:
         fh.write("weird_name\tlogFC\tP.Value\nILMN_9\t1.0\t0.01\n")
@@ -566,7 +599,7 @@ def _self_test() -> None:
     except ValueError as e:
         assert "no feature identifier column" in str(e)
 
-    print("self-tests: 15 groups of assertions passed")
+    print("self-tests: 17 groups of assertions passed")
 
 
 if __name__ == "__main__":
