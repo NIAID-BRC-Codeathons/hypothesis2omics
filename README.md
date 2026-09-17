@@ -24,58 +24,115 @@ conclude when refusing is correct.
 
 ```text
 Hypothesis
-    → Test specification              mcp/parse-hypo
-    → ImmPort dataset discovery       mcp/keyword-to-immport
-    → ImmPort and GEO retrieval       data/, mcp/data_normalizer
-    → Normalized validator input      data/validator_input
-    → Scientific eligibility          scientific_validator
-    → Analysis                        Galaxy / limma, or a per-subject regression
-    → Evidence synthesis and report   evidence_rules
+    -> Test specification              mcp/parse-hypo
+    -> ImmPort dataset discovery       mcp/keyword-to-immport
+    -> ImmPort and GEO retrieval       data/, mcp/data_normalizer
+    -> Normalized validator input      data/validator_input
+    -> Scientific eligibility          scientific_validator
+    -> Analysis                        Galaxy / limma, or a per-subject regression
+    -> Evidence synthesis and report   evidence_rules
 ```
 
 A human reads and corrects the parsed hypothesis before anything proceeds. Nothing in this
 pipeline runs unattended from end to end, by design.
 
-| Stage | Where | Owner |
-|---|---|---|
-| Hypothesis → test spec → search spec | `mcp/parse-hypo` | Melanie Sadecki |
-| Keyword and spec search over ImmPort | `mcp/keyword-to-immport` | Yaphet Kebede |
-| MCP registration and installer | `mcp/` | Yaphet Kebede |
-| Retrieval, parsing, normalization | `data/`, `mcp/data_normalizer` | Yijun Zhou |
-| Scientific eligibility and evidence fusion | `scientific_validator/` | Amar Kumar |
-| Analysis execution | Galaxy, limma | Archit Vasan, Slim Fourati |
-| Decision rules, independence, synthesis, report | `evidence_rules/` | Rushikesh Lagad |
+| Stage                                           | Where                          | Owner                      |
+| ----------------------------------------------- | ------------------------------ | -------------------------- |
+| Hypothesis -> test spec -> search spec          | `mcp/parse-hypo`               | Melanie Sadecki            |
+| Keyword and spec search over ImmPort            | `mcp/keyword-to-immport`       | Yaphet Kebede              |
+| MCP registration and installer                  | `mcp/`                         | Yaphet Kebede              |
+| Retrieval, parsing, normalization               | `data/`, `mcp/data_normalizer` | Yijun Zhou                 |
+| Scientific eligibility and evidence fusion      | `scientific_validator/`        | Amar Kumar                 |
+| Analysis execution                              | Galaxy, limma                  | Archit Vasan, Slim Fourati |
+| Decision rules, independence, synthesis, report | `evidence_rules/`              | Rushikesh Lagad            |
 
 ### Current limitation, stated plainly
 
 The step between "this dataset is eligible" and "the analysis has run" is only partly
-automated. `data/extract_series_matrix.py` produces the expression matrix from a GEO
-series-matrix file. The design file naming each sample's group is still prepared per dataset
-by hand, and limma needs both. The stages on either side are scripted and provenance-backed.
+automated. `data/extract_series_matrix.py` scans one or more `GSE*` dataset folders, reads
+GEO series-matrix files directly from `.txt` or `.txt.gz` format, and generates Galaxy-ready
+intensity CSV files in `data/galaxy_file_input/`. The design file naming each sample's group
+is still prepared per dataset by hand, and limma needs both. The stages on either side are
+scripted and provenance-backed.
 
 ## Folder layout
 
 ```text
 hypothesis2omics/
-├── mcp/
-│   ├── parse-hypo/          # Hypothesis → test specification
-│   ├── keyword-to-immport/  # Search terms → ImmPort studies
-│   └── data_normalizer/     # Fetch, parse, and inspect datasets
-│
-├── data/
-│   ├── immport_cache/       # Downloaded and normalized ImmPort data
-│   ├── geo_cache/           # Downloaded and parsed GEO data
-│   └── validator_input/     # Validator-ready tables and provenance
-│
-├── scientific_validator/    # Dataset eligibility assessment
-│
-├── evidence_rules/          # Decision rules, independence, synthesis, report
-│
-└── docs/                    # Ground truth and benchmark documentation
+|-- mcp/
+|   |-- parse-hypo/               # Hypothesis -> test specification
+|   |-- keyword-to-immport/       # Search terms -> ImmPort studies
+|   `-- data_normalizer/          # Fetch, parse, and inspect datasets
+|
+|-- data/
+|   |-- immport_cache/            # Downloaded and normalized ImmPort data
+|   |-- geo_cache/                # Downloaded and parsed GEO data
+|   |-- validator_input/          # Validator-ready tables and provenance
+|   |-- galaxy_file_input/        # Galaxy-ready intensity matrices
+|   `-- extract_series_matrix.py  # GEO series-matrix -> intensity CSV
+|
+|-- scientific_validator/         # Dataset eligibility assessment
+|
+|-- evidence_rules/               # Decision rules, independence, synthesis, report
+|
+`-- docs/                         # Ground truth and benchmark documentation
 ```
 
 Detailed data commands and MCP setup are in `data/README.md` and `mcp/README.md`.
 The evidence layer is documented in `evidence_rules/README.md`.
+
+### GEO intensity matrix extraction
+
+`data/extract_series_matrix.py` converts GEO series-matrix files into Galaxy-ready intensity
+CSV files.
+
+In directory mode, the extractor:
+
+* identifies folders whose names begin with `GSE`
+* searches recursively within each GSE dataset folder
+* finds GEO series-matrix files
+* reads both `.txt` and compressed `.txt.gz` files directly
+* extracts the table between `!series_matrix_table_begin` and `!series_matrix_table_end`
+* renames the GEO `ID_REF` column to `probe_id`
+* writes the resulting intensity matrices to `data/galaxy_file_input/`
+
+No manual decompression of `.txt.gz` files is required.
+
+Example:
+
+```bash
+python data/extract_series_matrix.py --input-dir /path/to/GEO/datasets
+```
+
+For example, given:
+
+```text
+GEO_datasets/
+|-- GSE13485/
+|   `-- GSE13485_series_matrix.txt.gz
+|
+`-- GSE13699/
+    `-- GSE13699-GPL6104_series_matrix.txt.gz
+```
+
+the extractor generates:
+
+```text
+data/galaxy_file_input/
+|-- GSE13485_intensities.csv
+`-- GSE13699_GPL6104_intensities.csv
+```
+
+The extractor can also be called directly from another Python workflow:
+
+```python
+from data.extract_series_matrix import extract_geo_matrices
+
+extract_geo_matrices("/path/to/GEO/datasets")
+```
+
+This allows GEO retrieval code to trigger intensity-matrix generation immediately after
+datasets are downloaded.
 
 ## The benchmark
 
@@ -84,12 +141,12 @@ of the CD8+ T-cell response following YF-17D vaccination. ImmPort supplies study
 sample linkage, and immune-response measurements; linked GEO series supply transcriptomic
 measurements.
 
-| ImmPort study | GEO series | Platform | Linked samples |
-|---|---|---|---:|
-| `SDY1264` | `GSE13485` | `GPL7567` | 87 |
-| `SDY1289` | `GSE13699` | `GPL6104`, `GPL6883` | 126 + 16 |
-| `SDY1294` | `GSE82152` | `GPL21975` | 109 |
-| `SDY1529` | `GSE125921`, `GSE136163` | `GPL10558` | 36 + 144 |
+| ImmPort study | GEO series               | Platform             | Linked samples |
+| ------------- | ------------------------ | -------------------- | -------------: |
+| `SDY1264`     | `GSE13485`               | `GPL7567`            |             87 |
+| `SDY1289`     | `GSE13699`               | `GPL6104`, `GPL6883` |       126 + 16 |
+| `SDY1294`     | `GSE82152`               | `GPL21975`           |            109 |
+| `SDY1529`     | `GSE125921`, `GSE136163` | `GPL10558`           |       36 + 144 |
 
 The retrieval plan also resolves `GSE13486`, the SuperSeries containing `GSE13485`, but marks
 it `skip_superseries` to avoid duplicate expression data. `SDY1291` is fetched and parsed but
@@ -98,8 +155,11 @@ does not currently produce a GEO analysis unit.
 The parser run creates six study/experiment/GSE/platform analysis units containing 518 linked
 samples. The `SDY1264` validator handoff extracts 87 expression values for the EIF2AK4 feature
 `Hs.412102_at` and 25 quantitative `Act CD8 T Cell Response` measurements, and returns
-`scientific_status: eligible`, `execution_status: ready`. Downloaded data and generated outputs
-are excluded from Git; the steps in `data/README.md` recreate them with provenance.
+`scientific_status: eligible`, `execution_status: ready`.
+
+Raw downloaded repository data and cache files are excluded from Git. Selected normalized
+and Galaxy-ready outputs used by the codeathon workflow may be retained in the repository,
+while the steps in `data/README.md` document how they are regenerated with provenance.
 
 Expected direction, predictor timepoint and cohort structure are documented in
 `docs/ground_truth.md`, taken from Querec et al. 2009 and Ravindran et al. 2014 and checked
@@ -107,11 +167,11 @@ against the GEO records.
 
 ## What the benchmark found
 
-```
-python evidence_rules/run_yf17d.py --repo . --report evidence_report.md
+```bash
+python evidence_rules/run_yf17d.py --repo . --report docs/evidence_report_yf17d.md
 ```
 
-That prints the run and writes the evidence report, plus `evidence_report.md.json` for
+That prints the run and writes the evidence report, plus `docs/evidence_report_yf17d.md.json` for
 anything downstream.
 
 **The headline verdict is `inconclusive`.** The pre-registered predictor is EIF2AK4 at day 7
@@ -163,10 +223,10 @@ question went unasked, and saying otherwise would be a false claim about the bio
 
 Never commit or share an API key. Each person generates their own.
 
-- **ImmPort**: create a key at the ImmPort API Keys page and pass the downloaded JSON with
+* **ImmPort**: create a key at the ImmPort API Keys page and pass the downloaded JSON with
   `--api-key-file`, or set `IMMPORT_API_KEY` in the environment you launch from for the MCP
   server. `.gitignore` blocks `**/immport-key-*.json`.
-- **LLM gateway**: `OPENAI_API_KEY` for the hypothesis parser, defaulting to Argo. See
+* **LLM gateway**: `OPENAI_API_KEY` for the hypothesis parser, defaulting to Argo. See
   `mcp/README.md`.
 
 ## Evaluation
@@ -176,8 +236,8 @@ across datasets, and expert assessment of the final evidence report.
 
 ## Leads
 
-- Slim Fourati
-- Rushikesh Lagad
+* Slim Fourati
+* Rushikesh Lagad
 
 ## Working here
 

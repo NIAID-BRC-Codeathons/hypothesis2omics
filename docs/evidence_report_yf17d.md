@@ -8,7 +8,7 @@
 | Primary specification | `day7_raw`: EIF2AK4 at day 7, as measured |
 | Prepared by | evidence_rules/report.py |
 | Prepared on | 2026-09-17 |
-| Pipeline commit | `1f75eb9` |
+| Pipeline commit | `2ba6aaf` |
 
 ## Verdict
 
