@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Add this repo's MCP servers to an already-installed Loom.
 #
-#   curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/loom-mcp-install/mcp/install.sh | bash
+#   curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/main/mcp/install.sh | bash
 #
 # Clones (or updates) the repo, then hands off to mcp/register.mjs, which merges
 # the servers into loom's ~/.pi/agent/mcp.json. Flags are passed through:
@@ -12,7 +12,7 @@
 set -euo pipefail
 
 REPO="https://github.com/NIAID-BRC-Codeathons/hypothesis2omics.git"
-BRANCH="${H2O_MCP_BRANCH:-loom-mcp-install}"
+BRANCH="${H2O_MCP_BRANCH:-main}"
 DIR="${H2O_MCP_DIR:-$HOME/.loom/mcp/hypothesis2omics}"
 
 need() {
