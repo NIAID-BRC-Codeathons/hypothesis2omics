@@ -76,7 +76,7 @@ server = MCPServer("hypothesis-parser")
 # client retries on its own, so a hard hang costs a small multiple of this.
 LLM_TIMEOUT_S = float(os.environ.get("H2O_TIMEOUT_S", "100"))
 
-DEFAULT_MAX_TOKENS = 4000
+DEFAULT_MAX_TOKENS = 200_000
 
 # What build_test_spec.py writes into the step 3 header. Repeated here so
 # derive_search_spec produces a byte-identical file when it re-derives one.
