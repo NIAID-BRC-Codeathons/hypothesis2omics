@@ -70,6 +70,25 @@ With no positional accessions, the fetcher reads
 `--links-file` to select a different structured link table. Each run writes
 `geo_fetch_selection.provenance.json` alongside the existing GEO manifest and provenance log.
 
+## Parse linked GEO datasets
+
+After downloading GEO, parse the cached matrices using the combined ImmPort manifest and
+structured GSE links:
+
+```bash
+uv run python data/geo_matrix_parse_module.py
+```
+
+The parser derives study/experiment/GSE/GPL units by matching each ImmPort-linked GSM to exactly
+one cached series matrix and its submitted platform metadata. Missing and ambiguous matches fail
+before parsing. The derived selection is saved as `geo_matrix_parse_selection.tsv` under
+`data/geo_cache/parsed/`. A legacy `geo_download_plan.tsv` can still be supplied as the optional
+positional argument.
+
+Each study/experiment/GSE/GPL unit receives a compressed probe-by-sample expression matrix,
+linked ImmPort sample rows, lossless long-form GEO sample metadata, and provenance. Values are
+preserved as submitted; this step performs no normalization, annotation, or eligibility filtering.
+
 ## Build the validator input bundle
 
 After the configured ImmPort and GEO inputs are available, create the scientific-validator input
@@ -137,35 +156,6 @@ Tested on `GSE13485` (20,077 probes x 87 samples) and `GSE13699` (22,184 probes 
 
 The matrix is one of the two files limma needs. The design file naming each sample's group is still
 prepared per dataset by hand.
-
-## Optional: plan and parse linked GEO datasets
-
-To resolve every GEO sample linked from the combined ImmPort manifest, first create a reusable
-download plan:
-
-```bash
-uv run python data/geo_plan_module.py \
-  data/immport_cache/parsed/sample_manifest.tsv \
-  --output-dir data/geo_cache/plan
-```
-
-This metadata-only step writes `geo_download_plan.tsv`, a GSM resolution cache, and provenance.
-Unresolved accessions remain visible, and explicit SuperSeries records are marked
-`skip_superseries`. Use `--force` only when cached metadata needs refreshing.
-
-After acquiring the planned GEO series, parse cached matrices for plan rows marked `download`:
-
-```bash
-uv run python data/geo_matrix_parse_module.py \
-  data/geo_cache/plan/geo_download_plan.tsv \
-  --immport-manifest data/immport_cache/parsed/sample_manifest.tsv \
-  --geo-cache-root data/geo_cache \
-  --output-dir data/geo_cache/parsed
-```
-
-Each study/experiment/GSE/GPL unit receives a compressed probe-by-sample expression matrix,
-linked ImmPort sample rows, lossless long-form GEO sample metadata, and provenance. Values are
-preserved as submitted; this step performs no normalization, annotation, or eligibility filtering.
 
 ## Build the validator handoff tables
 
