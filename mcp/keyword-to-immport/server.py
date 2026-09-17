@@ -211,4 +211,10 @@ def check() -> None:
 
 
 if __name__ == "__main__":
-    check() if "--check" in sys.argv else server.run()
+    if "--check" in sys.argv:
+        check()
+    elif "--spec" in sys.argv:  # --spec file.yaml | --spec - (stdin)
+        path = sys.argv[sys.argv.index("--spec") + 1]
+        print("\n".join(search_spec(sys.stdin.read() if path == "-" else open(path).read())))
+    else:
+        server.run()
