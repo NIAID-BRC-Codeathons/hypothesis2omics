@@ -48,9 +48,10 @@ pipeline runs unattended from end to end, by design.
 
 ### Current limitation, stated plainly
 
-The step between "this dataset is eligible" and "the analysis has run" is not automated. An
-analysis-ready matrix and design file is still prepared per dataset by hand. The stages on
-either side are scripted and provenance-backed; this one is not yet.
+The step between "this dataset is eligible" and "the analysis has run" is only partly
+automated. `data/extract_series_matrix.py` produces the expression matrix from a GEO
+series-matrix file. The design file naming each sample's group is still prepared per dataset
+by hand, and limma needs both. The stages on either side are scripted and provenance-backed.
 
 ## Folder layout
 
