@@ -4,6 +4,9 @@
   "args": ["run", "--directory", "${dir}", "hypothesis_mcp.py"],
   "directTools": true,
   "env": {
+    "OPENAI_API_KEY": "${OPENAI_API_KEY}",
+    "OPENAI_BASE_URL": "${OPENAI_BASE_URL}",
+    "OPENAI_MODEL": "${OPENAI_MODEL}",
     "ARGO_USER": "${ARGO_USER}"
   }
 }

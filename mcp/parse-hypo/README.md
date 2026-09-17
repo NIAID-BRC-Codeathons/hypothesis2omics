@@ -7,7 +7,7 @@ out, with a reviewable artifact at every step.
 "GCN2/EIF2AK4 activity is associated with the magnitude of the
  CD8+ T-cell response following YF-17D vaccination."
         |
-        |  STEP 1  (Argo)   decompose into named components
+        |  STEP 1  (LLM)    decompose into named components
         v
   01_parsed.yaml        intervention / predictor / cell_type / outcome /
         |               relationship_type / directionality + warnings
@@ -15,7 +15,7 @@ out, with a reviewable artifact at every step.
         |  <-- THE HUMAN GATE: a person reads this file and fixes what
         |      the parser got wrong. Nothing proceeds on its own.
         v
-        |  STEP 2  (Argo)   expand each component into synonyms, candidate
+        |  STEP 2  (LLM)    expand each component into synonyms, candidate
         |                   measurements, and checkable eligibility criteria
         v
   02_test_spec.json     also consumed by scientific_validator/eligibility_engine.py
@@ -35,7 +35,26 @@ owns them in step 2, so every term traces back to a named part of the specificat
 
 ```sh
 pip install mcp openai httpx pyyaml
-export ARGO_USER=ac.yourname          # an identifier, not a secret - see below
+export OPENAI_API_KEY=...             # see the credential note below
+```
+
+Steps 1 and 2 call an **OpenAI-compatible gateway**, configured the way any OpenAI
+SDK user would expect:
+
+| variable | default | |
+|---|---|---|
+| `OPENAI_API_KEY` | `ac.jdoe` | key, or an Argo username. `ARGO_USER` still works as a fallback. |
+| `OPENAI_BASE_URL` | Argo | `OPENAI_URL` is accepted as an alias. |
+| `OPENAI_MODEL` | `claudeopus5` | **Set this whenever you change the base URL** — the default is an Argo model id. |
+| `OPENAI_FALLBACK_MODEL` | `claudesonnet5`, off once `OPENAI_MODEL` is set | second try when the first model returns nothing. |
+
+The default is Argo, so an existing `ARGO_USER` setup needs no change. Against
+the real thing:
+
+```sh
+export OPENAI_API_KEY=sk-...
+export OPENAI_BASE_URL=https://api.openai.com/v1
+export OPENAI_MODEL=gpt-4o
 ```
 
 Two front doors onto the same code.
@@ -78,7 +97,7 @@ parse_hypothesis.py   |            <- step 1, no ImmPort dependency at all
 
 | file | role |
 |---|---|
-| `h2o_common.py` | Argo calls, JSON extraction, YAML scalars, provenance. Repository-agnostic. |
+| `h2o_common.py` | Gateway calls, JSON extraction, YAML scalars, provenance. Repository-agnostic. |
 | `parse_hypothesis.py` | Step 1. Imports nothing from the ImmPort layer, so it runs and tests with ImmPort unreachable. |
 | `build_test_spec.py` | Steps 2 and 3. Grounds filters in ImmPort's controlled vocabulary. |
 | `hypothesis_mcp.py` | Steps 1-3 as MCP tools. No logic of its own; it imports the modules above. |
@@ -94,7 +113,7 @@ Shared machinery. Nothing here knows what a hypothesis is.
 
 | | |
 |---|---|
-| `client()` | An OpenAI client pointed at Argo. Imported lazily so `--help` works offline. |
+| `client()` | An OpenAI client for the configured gateway. Imported lazily so `--help` works offline. |
 | `extract_json(text)` | Pull one JSON object out of a model response, fenced or not. |
 | `EmptyCompletion` | Raised when the gateway returns success with no content. Carries `completion_tokens`, which separates the two failure modes below. |
 | `_complete(...)` | One chat completion. Raises `EmptyCompletion` rather than returning `""`. |
@@ -145,8 +164,8 @@ twice.
 
 | tool | cost |
 |---|---|
-| `parse_hypothesis(hypothesis_text, outdir)` | 1 Argo call |
-| `build_test_spec(parsed_path, outdir=None)` | 1 Argo call + an ImmPort vocabulary read |
+| `parse_hypothesis(hypothesis_text, outdir)` | 1 gateway call |
+| `build_test_spec(parsed_path, outdir=None)` | 1 gateway call + an ImmPort vocabulary read |
 | `derive_search_spec(test_spec_path)` | none — re-runs step 3 after a hand edit |
 | `audit_search_terms(search_spec_path)` | 1 ImmPort query per term |
 
@@ -155,7 +174,7 @@ leaves the same trail on disk as a CLI run. Errors raise: an empty completion, a
 broken hand edit, or a spec the validator rejects surfaces as a failed tool call,
 never as a plausible-looking empty result.
 
-`H2O_TIMEOUT_S` caps a single Argo attempt (default 100s; the SDK retries, so a hard
+`H2O_TIMEOUT_S` caps a single gateway attempt (default 100s; the SDK retries, so a hard
 hang costs a small multiple).
 
 **On the gate.** `build_test_spec` takes a filesystem path, never an inline object,
@@ -173,7 +192,9 @@ Removing one reintroduces a failure that has already happened.
   `claudesonnet5` and the gpt5 family, and the SDK injects a default when the
   argument is absent. Omitting it is not the same as not sending it.
 - **Argo model IDs are Argo's, not the vendor's** — `claudeopus5`, not
-  `claude-opus-5`. `GET /v1/models` is the only source of truth.
+  `claude-opus-5`. `GET /v1/models` is the only source of truth. This is why
+  `OPENAI_MODEL` has to be set whenever `OPENAI_BASE_URL` points somewhere else:
+  the default id is meaningless off Argo.
 - **ImmPort ANDs every word of a query and has no OR operator.** The pipeline runs
   one query per term and unions the results, which is why terms are grouped.
 - **Never decompose a compound identifier.** Measured 2026-09-16: `17D` alone
@@ -185,8 +206,8 @@ Removing one reintroduces a failure that has already happened.
   symbol returned zero studies. Predictor terms are still populated (they cost
   nothing and document intent) but `predictor` must never appear in
   `search.require`, which `validate_spec` enforces.
-- **`ARGO_USER` is an identifier, not a secret** — but it is a credential and it
-  lands in shell history. Keep it in a file you `source`, not in `~/.bashrc` and not
+- **On Argo the key is an identifier, not a secret** — but it is a credential and
+  it lands in shell history. Keep it in a file you `source`, not in `~/.bashrc` and not
   in anything committed. The network password is network-only and belongs in no
   script.
 
@@ -335,7 +356,7 @@ Access paths to compare: EBI OLS (no key), BioPortal (free key required), UMLS
   doors, slightly different provenance. Worth aligning.
 - **`hypothesis_mcp.py` has never run under a real MCP client** — only via `--check`
   and direct calls. Its tool registration is inferred from `keyword-to-immport/server.py`'s idiom.
-- **`audit_search_terms` has no overall timeout.** `H2O_TIMEOUT_S` covers Argo only;
+- **`audit_search_terms` has no overall timeout.** `H2O_TIMEOUT_S` covers gateway calls only;
   ImmPort calls use `keyword-to-immport/server.py`'s httpx defaults.
 - **Modules use `print` to stderr, not `logging`.** Safe for MCP (the protocol owns
   stdout) but not what AGENTS.md asks for.

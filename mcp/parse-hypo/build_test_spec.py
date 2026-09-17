@@ -21,10 +21,10 @@ Install:
     pip install openai httpx pyyaml mcp
 
 Run:
-    ARGO_USER=ac.yourname python3 build_test_spec.py runs/HYP001/01_parsed.yaml \
+    OPENAI_API_KEY=... python3 build_test_spec.py runs/HYP001/01_parsed.yaml \
         --audit --search
 
-Requires a connection to the Argonne-auth network.
+With the default gateway this requires a connection to the Argonne-auth network.
 """
 from __future__ import annotations
 
@@ -42,7 +42,7 @@ from h2o_common import (
     _header,
     _provenance,
     _scalar,
-    client as argo_client,
+    client as llm_client,
 )
 from parse_hypothesis import load_parsed
 
@@ -494,7 +494,7 @@ def main() -> int:
     parser.add_argument("--outdir", type=Path,
                         help="where to write 02/03 (default: alongside the parsed file)")
     parser.add_argument("--model", default=DEFAULT_MODEL,
-                        help=f"Argo model (default: {DEFAULT_MODEL})")
+                        help=f"model id on the configured gateway (default: {DEFAULT_MODEL})")
     parser.add_argument("--hypothesis-id", help="override the generated hypothesis_id")
     parser.add_argument("--stop-after-spec", action="store_true",
                         help="stop after 02_test_spec.json")
@@ -518,7 +518,7 @@ def main() -> int:
 
     # ---- step 2
     try:
-        spec, prov = build_test_spec(argo_client(), hypothesis, parsed,
+        spec, prov = build_test_spec(llm_client(), hypothesis, parsed,
                                      args.model, args.max_tokens)
     except EmptyCompletion as exc:
         print(f"error: {exc}", file=sys.stderr)
