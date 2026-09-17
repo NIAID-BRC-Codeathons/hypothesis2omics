@@ -1,0 +1,93 @@
+{
+  "counts": {
+    "rows": 320,
+    "studies": 4,
+    "value_preferred_blank": 25,
+    "value_preferred_populated": 295
+  },
+  "duration_sec": 0.035,
+  "exporter": "immport_neut_ab_export",
+  "exporter_version": "0.1.0",
+  "inputs": [
+    {
+      "data_release": 58,
+      "member": "SDY1264-DR58_Tab/Tab/neut_ab_titer_result.txt",
+      "member_crc32": "4a4bed0e",
+      "member_size_bytes": 3926,
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1264/SDY1264-DR58_Tab.zip",
+      "rows": 25,
+      "sha256": "0744a1a9501dca5f19a3b3285a0858b1961010573291c4cc3dde7552ac46c74b",
+      "size_bytes": 661355,
+      "source_type": "zip_member",
+      "study_accession": "SDY1264"
+    },
+    {
+      "data_release": 58,
+      "member": "SDY1289-DR58_Tab/Tab/neut_ab_titer_result.txt",
+      "member_crc32": "c4c459c8",
+      "member_size_bytes": 23152,
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1289/SDY1289-DR58_Tab.zip",
+      "rows": 160,
+      "sha256": "492d3dc11002658b68548db4586e7e0a52ce75d0371e2de936404bfc1c684723",
+      "size_bytes": 421034,
+      "source_type": "zip_member",
+      "study_accession": "SDY1289"
+    },
+    {
+      "data_release": 58,
+      "member": "SDY1294-DR58_Tab/Tab/neut_ab_titer_result.txt",
+      "member_crc32": "7b2c53c0",
+      "member_size_bytes": 11475,
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1294/SDY1294-DR58_Tab.zip",
+      "rows": 63,
+      "sha256": "681a07f779027a06495db2646b790316e2420edfa6927c37ad2cc6c86b35b7d2",
+      "size_bytes": 414899,
+      "source_type": "zip_member",
+      "study_accession": "SDY1294"
+    },
+    {
+      "data_release": 58,
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1529/SDY1529-DR58_Tab/Tab/neut_ab_titer_result.txt",
+      "rows": 72,
+      "sha256": "6b86b7b69d1eda2826c73f6d42db1c3c37ef752d8338fc7dab804132243c4f6d",
+      "size_bytes": 10792,
+      "source_type": "directory_table",
+      "study_accession": "SDY1529"
+    }
+  ],
+  "output": {
+    "columns": [
+      "result_id",
+      "arm_accession",
+      "biosample_accession",
+      "comments",
+      "experiment_accession",
+      "expsample_accession",
+      "repository_accession",
+      "repository_name",
+      "study_accession",
+      "study_time_collected",
+      "study_time_collected_unit",
+      "subject_accession",
+      "unit_preferred",
+      "unit_reported",
+      "value_preferred",
+      "value_reported",
+      "virus_strain_preferred",
+      "virus_strain_reported",
+      "workspace_id"
+    ],
+    "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/galaxy_file_input/ImmPort_neut_ab_titer_results.tsv",
+    "rows": 320,
+    "sha256": "90b45a54b13dde71f4dbcc97d383712e5eca09d518d0ee8f11981f44fe8a17f1",
+    "size_bytes": 48355
+  },
+  "python_version": "3.12.13",
+  "run_started_at_utc": "2026-09-17T18:48:18.959593+00:00",
+  "selection": {
+    "cache_root": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache",
+    "mode": "highest_release_tab_source_per_study",
+    "table": "neut_ab_titer_result.txt"
+  },
+  "status": "success"
+}

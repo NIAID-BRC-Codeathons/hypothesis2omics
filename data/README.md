@@ -62,6 +62,19 @@ also read required tables directly from a ZIP without extracting it and does not
 Per-study outputs remain under `<SDY_ID>/parsed/`. A combined
 `sample_manifest.tsv` and `batch_manifest.json` are written under `immport_cache/parsed/`.
 
+## Export neutralizing-antibody results for Galaxy
+
+Export the raw `neut_ab_titer_result.txt` rows from each discovered study's newest Tab source:
+
+```bash
+uv run python data/immport_neut_ab_export.py
+```
+
+This writes `ImmPort_neut_ab_titer_results.tsv` and its provenance JSON under
+`data/galaxy_file_input/`. Source columns are retained with lowercase headers. Preferred and
+reported values remain separate, so censored values such as `<10` are not substituted for blank
+`value_preferred` fields.
+
 ## Plan GEO retrieval from ImmPort links
 
 Resolve the combined GSM list into parent GEO series and platforms before downloading data:
