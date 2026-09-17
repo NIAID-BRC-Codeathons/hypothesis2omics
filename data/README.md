@@ -29,8 +29,8 @@ uv run python data/immport_fetch_module.py SDY1529 \
   --max-files-per-study 1
 ```
 
-You may instead set `IMMPORT_API_KEY_FILE` to the JSON path or `IMMPORT_API_KEY` to the raw key.
-Avoid placing a raw key in a command because shell history may retain it.
+Always pass the downloaded JSON file with `--api-key-file`, as shown above. Replace
+`immport-key-REPLACE_ME.json` with the downloaded filename; do not paste the raw key into a command.
 
 ## Parse ImmPort sample links
 
