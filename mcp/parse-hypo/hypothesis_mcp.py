@@ -63,7 +63,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import parse_hypothesis as step1  # noqa: E402
 from h2o_common import ARGO_BASE_URL, ARGO_USER, DEFAULT_MODEL  # noqa: E402
 
-server = MCPServer("hypothesis2omics")
+# Matches the mcp.json key in mcp-server.json. Not "hypothesis2omics" -- that is
+# the pipeline server in mcp_server/, and two servers reporting one name makes
+# a client's server list ambiguous.
+server = MCPServer("hypothesis-parser")
 
 # Per-attempt ceiling on an Argo call. Step 2 is normally 30-90s; the OpenAI client
 # retries on its own, so a hard hang costs a small multiple of this.
