@@ -138,9 +138,15 @@ TNFRSF17 = FeatureIdentity(
     platform=PLATFORM,
     confirmed_by=None,
     evidence=(
-        "A gene-database lookup gives TNFRSF17 the UniGene cluster Hs.2556, "
-        "and GPL7567 is a UniGene-based Custom CDF, so Hs.2556_at is the "
-        "expected probe name.",
+        "GPL7567 is a UniGene-based Custom CDF, so its probe names are UniGene "
+        "cluster ids with an _at suffix. A gene-database lookup gives TNFRSF17 "
+        "the cluster Hs.2556, which makes Hs.2556_at the expected probe. That "
+        "lookup could not be corroborated against a second source.",
+        "UniProt Q02223 gives TNFRSF17 GeneID 608, and Q9P2K8 gives EIF2AK4 "
+        "GeneID 440275. Neither entry carries a UniGene cross-reference, "
+        "because UniGene was retired in 2019 and UniProt dropped those links. "
+        "So the identifier this platform uses has outlived the database that "
+        "issued it, which is the root of this whole problem.",
         "Hs.2556_at is ranked 114 of 20077 probes by mean day-7-minus-day-0 "
         "change (+0.63 log2, 1.55x, top 0.57%), which is how a plasmablast "
         "marker should behave at the day-7 plasmablast peak after YF-17D. "
@@ -148,6 +154,32 @@ TNFRSF17 = FeatureIdentity(
         "identification rather than proof of it.",
     ),
 )
+
+
+# Routes already tried for the annotation, so nobody spends the hour again:
+#
+#   GEO acc.cgi?acc=GPL7567          reCAPTCHA
+#   GEO FTP over HTTPS               robots disallowed
+#   PMC and Europe PMC, Querec 2009  reCAPTCHA / robots disallowed
+#   mygene.info REST                 robots disallowed
+#   two UniGene mapping tables       robots / connect timeout
+#   CRAN + Bioconductor              proxy denies cloud.r-project.org
+#
+# What closes it, in rough order of effort:
+#
+#   1. A browser. Open the GPL7567 record on GEO, answer the CAPTCHA, download
+#      the SOFT or annotation file, and look up Hs.2556 and Hs.412102. Two
+#      minutes for a human, impossible for anything without a browser.
+#   2. R with network access to Bioconductor:
+#          BiocManager::install("org.Hs.eg.db")
+#          library(org.Hs.eg.db)
+#          as.list(org.Hs.egUNIGENE[c("608", "440275")])
+#      608 is TNFRSF17 and 440275 is EIF2AK4, both from UniProt. If that
+#      returns Hs.2556 and Hs.412102 the pairings are confirmed, and both
+#      FeatureIdentity records here can name it.
+#   3. data/geo_matrix_parse_module.py already fetches from GEO through a path
+#      that works. Pulling the platform table alongside the series matrix would
+#      put the annotation in the repo permanently, which is the real fix.
 
 # Kept here for contrast, and because it turns out not to be the contrast it
 # looks like. `feature_expression.tsv` has a `gene` column reading EIF2AK4
