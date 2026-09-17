@@ -58,42 +58,33 @@ steps below recreate them with provenance.
 
 ## Pipeline
 
+General pipeline flow
 ```text
-ImmPort fetch
-    -> ImmPort sample-link parsing
-    -> GEO retrieval planning
-    -> GEO fetch
-    -> GEO matrix parsing
-    -> configured validator handoff
-    -> scientific eligibility assessment
+Hypothesis
+    → ImmPort dataset discovery
+    → ImmPort and GEO normalization
+    → Validator input
+    → Scientific eligibility assessment
 ```
 
-| Stage | Implementation | Principal output |
-|---|---|---|
-| Fetch ImmPort studies | `data/immport_fetch_module.py` | Cached files and fetch provenance |
-| Parse ImmPort links | `data/immport_batch_parse.py` | Combined `sample_manifest.tsv` |
-| Plan GEO retrieval | `data/geo_plan_module.py` | `geo_download_plan.tsv` |
-| Fetch linked GEO series | `data/geo_fetch_module.py` | Family SOFT and series matrices |
-| Parse GEO matrices | `data/geo_matrix_parse_module.py` | Analysis units and provenance |
-| Build validator handoff | `data/validator_handoff_parse_module.py` | Feature and outcome TSVs |
-| Assess eligibility | `scientific_validator/eligibility_engine.py` | Eligibility decision |
-
-The FastMCP server exposes the executable ingestion sequence as:
-
+Folder layout
 ```text
-fetch_immport_studies
-    -> parse_immport_studies
-    -> plan_geo_retrieval
-    -> fetch_planned_geo
-    -> parse_geo_matrices
+hypothesis2omics/
+├── mcp/
+│   ├── parse-hypo/          # Hypothesis → test specification
+│   ├── keyword-to-immport/  # Search terms → ImmPort studies
+│   └── data_normalizer/     # Fetch, parse, and inspect datasets
+│
+├── data/
+│   ├── immport_cache/       # Downloaded and normalized ImmPort data
+│   ├── geo_cache/           # Downloaded and parsed GEO data
+│   └── validator_input/     # Validator-ready tables and provenance
+│
+└── scientific_validator/    # Dataset eligibility assessment
 ```
 
-The server also provides four bounded, read-only inspection tools: `list_analysis_units`,
-`get_analysis_unit`, `get_sample_metadata`, and `get_expression_info`.
 
-As an extension effort, `inventory_downloaded_files` can list cached files and identify supported
-or potentially useful parser inputs. Its classifications are advisory, it does not start parsers,
-and it is not required by the current fixed ImmPort-to-GEO workflow.
+Detailed data commands and MCP setup are documented in `data/README.md` and `mcp/README.md`.
 
 
 ## Evaluation (proposed)
