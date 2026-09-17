@@ -24,6 +24,21 @@ uv run server.py --check
 # ok SDY1411 ['SDY1264', 'SDY1289', 'SDY271', ...]
 ```
 
+## Run a spec from the CLI
+
+No MCP client needed — `--spec` takes a YAML file path, or `-` to read stdin, and
+prints one accession per line:
+
+```bash
+uv run server.py --spec spec.yaml
+printf 'search_terms:\n  i: [YF-17D]\nlimit: 3\n' | uv run server.py --spec -
+# SDY1294
+# SDY1264
+# SDY1529
+```
+
+Same spec format as the `search_spec` tool below.
+
 ## Add it to Claude Code
 
 From this directory:
