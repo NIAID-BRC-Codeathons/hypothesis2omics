@@ -1,7 +1,9 @@
-"""Parse planned GEO series matrices into bounded analysis units.
+"""Parse linked GEO series matrices into bounded analysis units.
 
-This module reads plan rows marked ``download``, finds the cached series matrix that
-contains each requested GSM/GPL set, and writes a filtered probe-by-sample matrix.
+By default, this module derives parse units from the combined ImmPort sample manifest,
+structured ImmPort-to-GSE links, and cached GEO matrix headers. It can also read legacy
+plan rows marked ``download``. It finds the cached series matrix that contains each
+requested GSM/GPL set and writes a filtered probe-by-sample matrix.
 It preserves submitted expression values and performs no normalization, annotation,
 eligibility filtering, or interpretation of sample characteristics.
 
@@ -13,26 +15,20 @@ How to run this program
 ------------------------------------------------------------------------------
 
 Command-line usage:
-    uv run python data/geo_matrix_parse_module.py \
-        data/geo_cache/plan/geo_download_plan.tsv \
-        --immport-manifest data/immport_cache/parsed/sample_manifest.tsv \
-        --geo-cache-root data/geo_cache \
-        --output-dir data/geo_cache/parsed
+    uv run python data/geo_matrix_parse_module.py
+
+    A legacy ``geo_download_plan.tsv`` may still be passed as the positional argument.
 
 Python usage:
-    from data.geo_matrix_parse_module import parse_geo_matrices
+    from data.geo_matrix_parse_module import parse_linked_geo_matrices
 
-    provenance = parse_geo_matrices(
-        "data/geo_cache/plan/geo_download_plan.tsv",
-        "data/immport_cache/parsed/sample_manifest.tsv",
-        "data/geo_cache",
-        "data/geo_cache/parsed",
-    )
+    provenance = parse_linked_geo_matrices()
 
 Input:
-    ``geo_download_plan.tsv`` is written by ``geo_plan_module.py``. The ImmPort
-    manifest supplies subject, biosample, cohort, and timepoint fields for each GSM.
-    The GEO cache must contain downloaded ``*_series_matrix.txt.gz`` files.
+    The ImmPort manifest supplies subject, biosample, cohort, and timepoint fields for
+    each GSM. ``geo_series_links.tsv`` maps ImmPort studies to downloaded GSEs. The GEO
+    cache must contain downloaded ``*_series_matrix.txt.gz`` files. A legacy
+    ``geo_download_plan.tsv`` can be supplied instead of deriving these selections.
 
 Output:
     Each study/experiment/GSE/GPL unit receives ``expression.tsv.gz``, ``samples.tsv``,
@@ -67,12 +63,18 @@ import pandas as pd
 
 logger = logging.getLogger("geo_matrix_parser")
 
-PARSER_VERSION = "0.1.0"
+PARSER_VERSION = "0.2.0"
+DATA_DIR = Path(__file__).resolve().parent
+DEFAULT_IMMPORT_MANIFEST = DATA_DIR / "immport_cache" / "parsed" / "sample_manifest.tsv"
+DEFAULT_GEO_SERIES_LINKS = DATA_DIR / "immport_cache" / "parsed" / "geo_series_links.tsv"
+DEFAULT_GEO_CACHE_ROOT = DATA_DIR / "geo_cache"
+DEFAULT_OUTPUT_DIR = DEFAULT_GEO_CACHE_ROOT / "parsed"
 EXPRESSION_FILENAME = "expression.tsv.gz"
 SAMPLES_FILENAME = "samples.tsv"
 GEO_METADATA_FILENAME = "geo_sample_metadata_long.tsv"
 UNIT_PROVENANCE_FILENAME = "provenance.json"
 RUN_MANIFEST_FILENAME = "geo_matrix_parse_manifest.json"
+DERIVED_SELECTION_FILENAME = "geo_matrix_parse_selection.tsv"
 
 GSM_PATTERN = re.compile(r"^GSM\d+$", re.IGNORECASE)
 GSE_PATTERN = re.compile(r"^GSE\d+$", re.IGNORECASE)
@@ -95,6 +97,7 @@ REQUIRED_MANIFEST_COLUMNS = [
     "repository_name",
     "repository_accession",
 ]
+REQUIRED_LINK_COLUMNS = ["study_accession", "gse_accession"]
 UNIT_KEY_COLUMNS = [
     "study_accession",
     "experiment_accession",
@@ -293,6 +296,168 @@ def _find_matrix(
     return matches[0]
 
 
+def _sample_platform(header: MatrixHeader, gsm_accession: str, matrix_path: Path) -> str:
+    values = {
+        str(value).strip().upper()
+        for value in header.sample_metadata.loc[
+            header.sample_metadata["gsm_accession"].eq(gsm_accession)
+            & header.sample_metadata["attribute"].eq("platform_id"),
+            "value",
+        ]
+        if str(value).strip()
+    }
+    if len(values) != 1:
+        raise GeoMatrixParseError(
+            f"GSM {gsm_accession} must have one platform in matrix {matrix_path}; "
+            f"found {sorted(values)}"
+        )
+    platform = next(iter(values))
+    if not GPL_PATTERN.fullmatch(platform):
+        raise GeoMatrixParseError(
+            f"GSM {gsm_accession} has invalid platform {platform!r} in {matrix_path}"
+        )
+    return platform
+
+
+def _derive_download_plan(
+    links: pd.DataFrame,
+    manifest: pd.DataFrame,
+    geo_cache_root: Path,
+) -> pd.DataFrame:
+    """Derive deterministic study/experiment/GSE/GPL units from cached matrices."""
+
+    normalized_links = links.loc[:, REQUIRED_LINK_COLUMNS].copy()
+    normalized_links["study_accession"] = normalized_links["study_accession"].str.upper()
+    normalized_links["gse_accession"] = normalized_links["gse_accession"].str.upper()
+    normalized_links = normalized_links.drop_duplicates().sort_values(REQUIRED_LINK_COLUMNS)
+    for link in normalized_links.to_dict(orient="records"):
+        if not SDY_PATTERN.fullmatch(link["study_accession"]):
+            raise GeoMatrixParseError(
+                f"GEO series links contain invalid study_accession: "
+                f"{link['study_accession']!r}"
+            )
+        if not GSE_PATTERN.fullmatch(link["gse_accession"]):
+            raise GeoMatrixParseError(
+                f"GEO series links contain invalid gse_accession: {link['gse_accession']!r}"
+            )
+
+    geo_manifest = manifest.loc[
+        manifest["repository_name"].str.casefold().eq("geo")
+    ].copy()
+    if geo_manifest.empty:
+        raise GeoMatrixParseError("ImmPort sample manifest has no GEO-linked samples")
+    geo_manifest["study_accession"] = geo_manifest["study_accession"].str.upper()
+    geo_manifest["experiment_accession"] = geo_manifest["experiment_accession"].str.upper()
+    geo_manifest["repository_accession"] = geo_manifest["repository_accession"].str.upper()
+    invalid_gsms = sorted(
+        {
+            value
+            for value in geo_manifest["repository_accession"]
+            if not GSM_PATTERN.fullmatch(value)
+        }
+    )
+    if invalid_gsms:
+        raise GeoMatrixParseError(
+            f"ImmPort sample manifest contains invalid GEO accessions: {invalid_gsms[:5]}"
+        )
+
+    linked_studies = set(normalized_links["study_accession"])
+    manifest_studies = set(geo_manifest["study_accession"])
+    missing_links = sorted(manifest_studies - linked_studies)
+    if missing_links:
+        raise GeoMatrixParseError(
+            "GEO-linked ImmPort studies have no structured GSE link: "
+            + ", ".join(missing_links)
+        )
+
+    headers_by_gse: dict[str, list[tuple[Path, MatrixHeader]]] = {}
+    for gse_accession in sorted(set(normalized_links["gse_accession"])):
+        matrix_paths = sorted(
+            (geo_cache_root / gse_accession).glob("*_series_matrix.txt.gz")
+        )
+        if not matrix_paths:
+            raise GeoMatrixParseError(
+                f"No cached series matrix found for linked accession {gse_accession}"
+            )
+        headers = []
+        for matrix_path in matrix_paths:
+            header = _read_matrix_header(matrix_path)
+            if header.gse_accession != gse_accession:
+                raise GeoMatrixParseError(
+                    f"Matrix {matrix_path} reports {header.gse_accession}, expected {gse_accession}"
+                )
+            headers.append((matrix_path, header))
+        headers_by_gse[gse_accession] = headers
+
+    plan_rows: list[dict[str, str]] = []
+    group_columns = ["study_accession", "experiment_accession"]
+    for (study_accession, experiment_accession), group in geo_manifest.groupby(
+        group_columns,
+        sort=True,
+    ):
+        requested = list(group["repository_accession"])
+        duplicated = sorted(
+            group.loc[group["repository_accession"].duplicated(), "repository_accession"].unique()
+        )
+        if duplicated:
+            raise GeoMatrixParseError(
+                f"ImmPort manifest repeats GSMs in {study_accession}/{experiment_accession}: "
+                f"{duplicated[:5]}"
+            )
+        linked_gses = list(
+            normalized_links.loc[
+                normalized_links["study_accession"].eq(study_accession),
+                "gse_accession",
+            ]
+        )
+        assignments: dict[str, list[tuple[str, str, Path]]] = {
+            gsm_accession: [] for gsm_accession in requested
+        }
+        for gse_accession in linked_gses:
+            for matrix_path, header in headers_by_gse[gse_accession]:
+                matrix_samples = set(header.gsm_accessions)
+                for gsm_accession in requested:
+                    if gsm_accession in matrix_samples:
+                        assignments[gsm_accession].append(
+                            (
+                                gse_accession,
+                                _sample_platform(header, gsm_accession, matrix_path),
+                                matrix_path,
+                            )
+                        )
+
+        missing = sorted(gsm for gsm, matches in assignments.items() if not matches)
+        ambiguous = sorted(gsm for gsm, matches in assignments.items() if len(matches) > 1)
+        if missing or ambiguous:
+            raise GeoMatrixParseError(
+                f"Cached matrix coverage mismatch for {study_accession}/{experiment_accession}; "
+                f"missing={missing[:5]}, ambiguous={ambiguous[:5]}"
+            )
+
+        unit_samples: dict[tuple[str, str, Path], list[str]] = {}
+        for gsm_accession in requested:
+            unit = assignments[gsm_accession][0]
+            unit_samples.setdefault(unit, []).append(gsm_accession)
+        for (gse_accession, gpl_accession, _), gsm_accessions in sorted(
+            unit_samples.items(), key=lambda item: tuple(str(value) for value in item[0])
+        ):
+            plan_rows.append(
+                {
+                    "study_accession": study_accession,
+                    "experiment_accession": experiment_accession,
+                    "gse_accession": gse_accession,
+                    "gpl_accession": gpl_accession,
+                    "download_recommendation": "download",
+                    "requested_sample_count": str(len(gsm_accessions)),
+                    "gsm_accessions": ";".join(gsm_accessions),
+                }
+            )
+
+    if not plan_rows:
+        raise GeoMatrixParseError("No GEO matrix parse units could be derived")
+    return pd.DataFrame(plan_rows, columns=REQUIRED_PLAN_COLUMNS)
+
+
 def _write_tsv(frame: pd.DataFrame, path: Path) -> None:
     frame.to_csv(path, sep="\t", index=False, lineterminator="\n")
 
@@ -456,26 +621,50 @@ def _parse_unit(
 
 
 def parse_geo_matrices(
-    plan_path: str | Path,
+    plan_path: str | Path | None,
     immport_manifest_path: str | Path,
     geo_cache_root: str | Path,
     output_dir: str | Path,
+    geo_series_links_path: str | Path | None = None,
 ) -> dict[str, Any]:
-    """Parse all plan rows marked download and return run-level provenance."""
+    """Parse explicit or derived GEO matrix units and return run-level provenance."""
     started = time.monotonic()
     started_at = _utc_now()
-    plan_source = Path(plan_path).expanduser().resolve()
     manifest_source = Path(immport_manifest_path).expanduser().resolve()
     cache_root = Path(geo_cache_root).expanduser().resolve()
     output_root = Path(output_dir).expanduser().resolve()
     output_root.mkdir(parents=True, exist_ok=True)
 
-    plan = _read_tsv(plan_source, REQUIRED_PLAN_COLUMNS, "GEO download plan")
     manifest = _read_tsv(
         manifest_source,
         REQUIRED_MANIFEST_COLUMNS,
         "ImmPort sample manifest",
     )
+    input_sources: list[tuple[str, Path]] = [
+        ("immport_sample_manifest", manifest_source)
+    ]
+    if plan_path is None:
+        links_source = Path(
+            geo_series_links_path or DEFAULT_GEO_SERIES_LINKS
+        ).expanduser().resolve()
+        links = _read_tsv(links_source, REQUIRED_LINK_COLUMNS, "GEO series links")
+        plan = _derive_download_plan(links, manifest, cache_root)
+        selection_path = output_root / DERIVED_SELECTION_FILENAME
+        _write_tsv(plan, selection_path)
+        selection_mode = "derived_from_parsed_immport_links"
+        input_sources.extend(
+            [
+                ("geo_series_links", links_source),
+                ("derived_geo_parse_selection", selection_path),
+            ]
+        )
+    else:
+        plan_source = Path(plan_path).expanduser().resolve()
+        plan = _read_tsv(plan_source, REQUIRED_PLAN_COLUMNS, "GEO download plan")
+        selection_path = plan_source
+        selection_mode = "explicit_geo_download_plan"
+        input_sources.insert(0, ("geo_download_plan", plan_source))
+
     selected = plan.loc[plan["download_recommendation"].eq("download")].copy()
     if selected.empty:
         raise GeoMatrixParseError("GEO download plan has no rows marked download")
@@ -506,6 +695,8 @@ def parse_geo_matrices(
         "parser_version": PARSER_VERSION,
         "python_version": platform.python_version(),
         "pandas_version": pd.__version__,
+        "selection_mode": selection_mode,
+        "selection_path": str(selection_path),
         "inputs": [
             {
                 "type": input_type,
@@ -513,10 +704,7 @@ def parse_geo_matrices(
                 "size_bytes": path.stat().st_size,
                 "sha256": _sha256(path),
             }
-            for input_type, path in [
-                ("geo_download_plan", plan_source),
-                ("immport_sample_manifest", manifest_source),
-            ]
+            for input_type, path in input_sources
         ],
         "geo_cache_root": str(cache_root),
         "output_directory": str(output_root),
@@ -538,14 +726,43 @@ def parse_geo_matrices(
     return provenance
 
 
+def parse_linked_geo_matrices(
+    immport_manifest_path: str | Path = DEFAULT_IMMPORT_MANIFEST,
+    geo_series_links_path: str | Path = DEFAULT_GEO_SERIES_LINKS,
+    geo_cache_root: str | Path = DEFAULT_GEO_CACHE_ROOT,
+    output_dir: str | Path = DEFAULT_OUTPUT_DIR,
+) -> dict[str, Any]:
+    """Derive units from parsed ImmPort links and parse all cached GEO matrices."""
+
+    return parse_geo_matrices(
+        None,
+        immport_manifest_path,
+        geo_cache_root,
+        output_dir,
+        geo_series_links_path=geo_series_links_path,
+    )
+
+
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Parse planned cached GEO matrices without normalization."
+        description="Parse linked cached GEO matrices without normalization."
     )
-    parser.add_argument("plan", help="Path to geo_download_plan.tsv")
-    parser.add_argument("--immport-manifest", required=True)
-    parser.add_argument("--geo-cache-root", required=True)
-    parser.add_argument("--output-dir", required=True)
+    parser.add_argument(
+        "plan",
+        nargs="?",
+        help="Optional legacy geo_download_plan.tsv; omit to derive selections.",
+    )
+    parser.add_argument(
+        "--immport-manifest",
+        default=str(DEFAULT_IMMPORT_MANIFEST),
+    )
+    parser.add_argument(
+        "--geo-series-links",
+        default=str(DEFAULT_GEO_SERIES_LINKS),
+        help="Structured ImmPort-to-GSE links used when no legacy plan is supplied.",
+    )
+    parser.add_argument("--geo-cache-root", default=str(DEFAULT_GEO_CACHE_ROOT))
+    parser.add_argument("--output-dir", default=str(DEFAULT_OUTPUT_DIR))
     return parser
 
 
@@ -558,6 +775,7 @@ def main() -> int:
             args.immport_manifest,
             args.geo_cache_root,
             args.output_dir,
+            geo_series_links_path=args.geo_series_links,
         )
     except (GeoMatrixParseError, OSError, ValueError) as exc:
         logger.error("GEO matrix parsing failed: %s", exc)
