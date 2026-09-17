@@ -108,6 +108,7 @@ DRS_DOWNLOAD_ENDPOINT = f"{QUERY_BASE_URL}/drs/download"
 
 USER_AGENT = "Hypothesis2Omics/0.1 (ImmPort dataset retrieval)"
 DOWNLOAD_CHUNK_SIZE = 1024 * 1024
+PROGRESS_LOG_INTERVAL_SEC = 5.0
 MAX_ERROR_BODY_CHARS = 500
 SOURCE_MISSING_MARKERS = ("nosuchkey", "specified key does not exist")
 CANDIDATE_SDY_IDS = ["SDY1529", "SDY1264", "SDY1294", "SDY1289"]
@@ -225,6 +226,22 @@ def _sha256_of_file(path: Path, chunk_size: int = 65536) -> str:
     return digest.hexdigest()
 
 
+def _format_bytes(size_bytes: int) -> str:
+    value = float(size_bytes)
+    for unit in ("B", "KiB", "MiB", "GiB", "TiB"):
+        if value < 1024 or unit == "TiB":
+            return f"{int(value)} B" if unit == "B" else f"{value:.1f} {unit}"
+        value /= 1024
+    raise AssertionError("Byte-size formatter exhausted its units")
+
+
+def _download_progress(downloaded_bytes: int, expected_size: Optional[int]) -> str:
+    downloaded = _format_bytes(downloaded_bytes)
+    if expected_size is None:
+        return downloaded
+    return f"{downloaded}/{_format_bytes(expected_size)}"
+
+
 def _http_error_detail(exc: HTTPError, *secrets: Optional[str]) -> str:
     """Return bounded HTTP diagnostics without exposing credentials or signed URLs."""
     detail = f"HTTP {exc.code}: {exc.reason}"
@@ -328,6 +345,7 @@ def _download_file(
     force: bool,
     artifact_type: str,
     expected_size: Optional[int] = None,
+    progress_label: Optional[str] = None,
 ) -> ArtifactRecord:
     """Resolve a DRS ID to a signed S3 URL and download one ImmPort file."""
     cached_size_is_valid = (
@@ -386,12 +404,23 @@ def _download_file(
     try:
         destination.parent.mkdir(parents=True, exist_ok=True)
         request = Request(download_url, headers={"User-Agent": USER_AGENT})
+        downloaded_bytes = 0
+        last_progress_at = time.monotonic()
         with urlopen(request, timeout=120) as response, temporary_path.open("wb") as output:
             while True:
                 chunk = response.read(DOWNLOAD_CHUNK_SIZE)
                 if not chunk:
                     break
                 output.write(chunk)
+                downloaded_bytes += len(chunk)
+                progress_at = time.monotonic()
+                if progress_label and progress_at - last_progress_at >= PROGRESS_LOG_INTERVAL_SEC:
+                    logger.info(
+                        "%s %s downloaded",
+                        progress_label,
+                        _download_progress(downloaded_bytes, expected_size),
+                    )
+                    last_progress_at = progress_at
 
         if not temporary_path.is_file() or temporary_path.stat().st_size == 0:
             raise ValueError("Downloaded file is missing or empty")
@@ -484,6 +513,7 @@ def fetch_one(
     try:
         normalized_id = _normalize_sdy_id(sdy_id)
     except ValueError as exc:
+        logger.error("Invalid ImmPort study accession %r: %s", sdy_id, exc)
         return FetchRecord(
             sdy_id=sdy_id,
             status="failed",
@@ -498,10 +528,13 @@ def fetch_one(
     sdy_dir = destdir / normalized_id
     sdy_dir.mkdir(parents=True, exist_ok=True)
     manifest_url = f"{STUDY_MANIFEST_ENDPOINT}/{normalized_id}?fileType=all&format=json"
+    logger.info("[%s] Fetching file manifest", normalized_id)
 
     try:
         manifest_entries = _fetch_filepath_manifest(normalized_id, session)
     except (HTTPError, URLError, ValueError, json.JSONDecodeError) as exc:
+        error = f"filePath manifest retrieval failed: {_exception_detail(exc, session.api_key)}"
+        logger.error("[%s] %s", normalized_id, error)
         return FetchRecord(
             sdy_id=normalized_id,
             status="failed",
@@ -509,7 +542,7 @@ def fetch_one(
             destdir=str(sdy_dir),
             api_base_url=QUERY_BASE_URL,
             filepath_manifest_url=manifest_url,
-            error=f"filePath manifest retrieval failed: {exc}",
+            error=error,
             duration_sec=round(time.time() - start, 3),
         )
 
@@ -533,20 +566,40 @@ def fetch_one(
 
     entries_to_fetch = manifest_entries[:max_files] if max_files is not None else manifest_entries
     errors: list[str] = []
+    total_files = len(entries_to_fetch)
+    logger.info(
+        "[%s] Manifest lists %s files; processing %s",
+        normalized_id,
+        len(manifest_entries),
+        total_files,
+    )
 
-    for entry in entries_to_fetch:
+    for index, entry in enumerate(entries_to_fetch, start=1):
         file_path = entry.get("path")
         file_uuid = entry.get("fileUUID")
         if not file_path or not file_uuid:
-            errors.append(f"Manifest entry is missing path or fileUUID: {entry!r}")
+            error = f"Manifest entry {index}/{total_files} is missing path or fileUUID"
+            logger.error("[%s] %s", normalized_id, error)
+            errors.append(error)
             continue
         relative_parts = PurePosixPath(file_path.lstrip("/")).parts
         if relative_parts and relative_parts[0] == normalized_id:
             relative_parts = relative_parts[1:]
         if not relative_parts or ".." in relative_parts:
-            errors.append(f"Manifest entry has an unsafe path: {file_path!r}")
+            error = f"Manifest entry {index}/{total_files} has an unsafe path: {file_path!r}"
+            logger.error("[%s] %s", normalized_id, error)
+            errors.append(error)
             continue
         destination = sdy_dir.joinpath(*relative_parts)
+        filename = Path(file_path).name
+        expected_size = entry.get("filesizeBytes")
+        size_text = (
+            _format_bytes(expected_size)
+            if isinstance(expected_size, int) and expected_size >= 0
+            else "unknown size"
+        )
+        progress_label = f"[{normalized_id}] [{index}/{total_files}] {filename}:"
+        logger.info("%s processing (%s)", progress_label, size_text)
         artifact = _download_file(
             file_path,
             file_uuid,
@@ -554,11 +607,22 @@ def fetch_one(
             session,
             force,
             artifact_type=entry.get("fileType") or "study_file",
-            expected_size=entry.get("filesizeBytes"),
+            expected_size=expected_size,
+            progress_label=progress_label,
         )
         artifacts.append(artifact)
         if artifact.status in {"failed", "source_missing"}:
-            errors.append(f"{Path(file_path).name}: {artifact.error}")
+            error = f"{filename}: {artifact.error}"
+            logger.error("%s %s: %s", progress_label, artifact.status, artifact.error)
+            errors.append(error)
+        elif artifact.status == "cached":
+            logger.info("%s cached (%s)", progress_label, _format_bytes(artifact.size_bytes or 0))
+        else:
+            logger.info(
+                "%s downloaded (%s)",
+                progress_label,
+                _format_bytes(artifact.size_bytes or 0),
+            )
 
     n_downloaded = sum(
         1
@@ -634,7 +698,7 @@ def _print_summary(records: Sequence[FetchRecord]) -> None:
             record.duration_sec,
         )
         if record.error:
-            logger.info("    %s", record.error)
+            logger.error("    %s", record.error)
     available = sum(1 for record in records if record.status in {"success", "cached"})
     logger.info("%s/%s studies completely available in cache.", available, len(records))
 
@@ -695,6 +759,12 @@ def main() -> None:
     with manifest_path.open("w", encoding="utf-8") as handle:
         json.dump([record.to_dict() for record in results], handle, indent=2)
     logger.info("Manifest written to %s", manifest_path)
+    unsuccessful = [
+        record.sdy_id for record in results if record.status not in {"success", "cached"}
+    ]
+    if unsuccessful:
+        logger.error("Fetch incomplete for: %s", ", ".join(unsuccessful))
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":
