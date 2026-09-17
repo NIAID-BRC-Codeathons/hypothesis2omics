@@ -4,6 +4,8 @@ from pathlib import Path
 
 import pandas as pd
 
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_VALIDATOR_INPUT_DIR = PROJECT_ROOT / "data" / "validator_input"
 VALIDATOR_INPUT_FILENAMES = {
     "manifest": "sample_manifest.tsv",
     "feature_expression": "feature_expression.tsv",
@@ -18,16 +20,15 @@ def resolve_input_paths(
     outcome: str | None,
 ) -> tuple[str, str, str]:
     """Resolve explicit input paths, falling back to canonical bundle filenames."""
-    base = Path(input_dir) if input_dir else None
+    base = Path(input_dir) if input_dir else DEFAULT_VALIDATOR_INPUT_DIR
     resolved = {
         "manifest": manifest,
         "feature_expression": feature_expression,
         "outcome": outcome,
     }
-    if base is not None:
-        for name, filename in VALIDATOR_INPUT_FILENAMES.items():
-            if resolved[name] is None:
-                resolved[name] = str(base / filename)
+    for name, filename in VALIDATOR_INPUT_FILENAMES.items():
+        if resolved[name] is None:
+            resolved[name] = str(base / filename)
     missing = [name for name, path in resolved.items() if path is None]
     if missing:
         options = ", ".join(name.replace("_", "-") for name in missing)
@@ -57,7 +58,10 @@ def main():
     )
     parser.add_argument(
         "--input-dir",
-        help="Directory containing the canonical validator-input bundle",
+        help=(
+            "Directory containing the canonical validator-input bundle "
+            f"(default: {DEFAULT_VALIDATOR_INPUT_DIR})"
+        ),
     )
     parser.add_argument("--manifest")
     parser.add_argument("--feature-expression")

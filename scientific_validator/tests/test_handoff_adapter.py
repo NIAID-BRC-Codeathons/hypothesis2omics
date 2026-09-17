@@ -3,10 +3,25 @@
 from pathlib import Path
 import unittest
 
-from scientific_validator.handoff_adapter import resolve_input_paths
+from scientific_validator.handoff_adapter import (
+    DEFAULT_VALIDATOR_INPUT_DIR,
+    resolve_input_paths,
+)
 
 
 class HandoffAdapterTests(unittest.TestCase):
+    def test_defaults_to_repository_validator_input(self) -> None:
+        paths = resolve_input_paths(None, None, None, None)
+
+        self.assertEqual(
+            paths,
+            (
+                str(DEFAULT_VALIDATOR_INPUT_DIR / "sample_manifest.tsv"),
+                str(DEFAULT_VALIDATOR_INPUT_DIR / "feature_expression.tsv"),
+                str(DEFAULT_VALIDATOR_INPUT_DIR / "quantitative_outcome.tsv"),
+            ),
+        )
+
     def test_resolves_canonical_bundle_paths(self) -> None:
         paths = resolve_input_paths("data/validator_input", None, None, None)
 
