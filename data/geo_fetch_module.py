@@ -14,8 +14,8 @@ How to run this program
 ------------------------------------------------------------------------------
 
 Command-line usage:
-    CANDIDATE_GSE_IDS is the default study list. Running the script without GSE
-    arguments fetches those candidates:
+    Running the script without GSE arguments reads accessions from the structured
+    ImmPort links produced by ``immport_batch_parse.py``:
 
     python data/geo_fetch_module.py
 
@@ -47,6 +47,7 @@ Output:
 from __future__ import annotations
 
 import argparse
+import csv
 import gzip
 import hashlib
 import importlib.metadata
@@ -79,11 +80,17 @@ logger = logging.getLogger("geo_fetcher")
 
 DATA_DIR = Path(__file__).resolve().parent
 DEFAULT_CACHE_DIR = DATA_DIR / "geo_cache"
+DEFAULT_GEO_LINKS_PATH = DATA_DIR / "immport_cache" / "parsed" / "geo_series_links.tsv"
+SELECTION_PROVENANCE_FILENAME = "geo_fetch_selection.provenance.json"
+FETCHER_VERSION = "0.2.0"
 NCBI_GEO_BASE_URL = "https://ftp.ncbi.nlm.nih.gov/geo/series"
 USER_AGENT = "Hypothesis2Omics/0.1 (GEO dataset retrieval)"
 DOWNLOAD_CHUNK_SIZE = 1024 * 1024
 GSE_PATTERN = re.compile(r"^GSE\d+$", re.IGNORECASE)
-CANDIDATE_GSE_IDS = ["GSE125921", "GSE136163", "GSE13485", "GSE82152", "GSE13699"]
+
+
+class GeoSelectionError(RuntimeError):
+    """Raised when GEO accessions cannot be selected from parsed ImmPort links."""
 
 
 @dataclass
@@ -140,6 +147,53 @@ def _normalize_gse_id(gse_id: str) -> str:
     if not GSE_PATTERN.fullmatch(normalized_id):
         raise ValueError(f"Invalid GEO Series accession: {gse_id!r}")
     return normalized_id
+
+
+def load_gse_ids_from_parsed_links(path: str | Path) -> list[str]:
+    """Load unique GSE accessions from an ImmPort ``geo_series_links.tsv`` file."""
+
+    links_path = Path(path)
+    if not links_path.is_file():
+        raise GeoSelectionError(
+            f"Parsed GEO links file does not exist: {links_path}. "
+            "Run data/immport_batch_parse.py first."
+        )
+
+    try:
+        with links_path.open("r", encoding="utf-8", newline="") as handle:
+            reader = csv.DictReader(handle, delimiter="\t")
+            if reader.fieldnames is None:
+                raise GeoSelectionError(f"Parsed GEO links file is empty: {links_path}")
+            normalized_headers = [header.strip().lower() for header in reader.fieldnames]
+            if len(normalized_headers) != len(set(normalized_headers)):
+                raise GeoSelectionError(
+                    f"Parsed GEO links file has duplicate normalized columns: {links_path}"
+                )
+            if "gse_accession" not in normalized_headers:
+                raise GeoSelectionError(
+                    f"Parsed GEO links file is missing gse_accession: {links_path}"
+                )
+            accession_header = reader.fieldnames[normalized_headers.index("gse_accession")]
+            raw_accessions = [row.get(accession_header, "") for row in reader]
+    except (OSError, UnicodeError, csv.Error) as exc:
+        raise GeoSelectionError(
+            f"Could not read parsed GEO links file {links_path}: {exc}"
+        ) from exc
+
+    accessions: list[str] = []
+    seen: set[str] = set()
+    for raw_accession in raw_accessions:
+        try:
+            accession = _normalize_gse_id(raw_accession or "")
+        except ValueError as exc:
+            raise GeoSelectionError(f"Invalid gse_accession in {links_path}: {exc}") from exc
+        if accession not in seen:
+            seen.add(accession)
+            accessions.append(accession)
+
+    if not accessions:
+        raise GeoSelectionError(f"Parsed GEO links file contains no GSE accessions: {links_path}")
+    return accessions
 
 
 def _gse_range_subdir(gse_id: str) -> str:
@@ -442,8 +496,18 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument(
         "gse_ids",
         nargs="*",
-        default=CANDIDATE_GSE_IDS,
-        help="GSE accessions; defaults to the project candidate list.",
+        help=(
+            "GSE accessions; when omitted, accessions are read from "
+            "data/immport_cache/parsed/geo_series_links.tsv."
+        ),
+    )
+    parser.add_argument(
+        "--links-file",
+        default=str(DEFAULT_GEO_LINKS_PATH),
+        help=(
+            "Parsed ImmPort GEO-series link table used when no GSE accessions are given "
+            "(default: data/immport_cache/parsed/geo_series_links.tsv)."
+        ),
     )
     parser.add_argument(
         "--destdir",
@@ -461,9 +525,23 @@ def _parse_args() -> argparse.Namespace:
 def main() -> None:
     args = _parse_args()
     cache_dir = Path(args.destdir)
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    if args.gse_ids:
+        selected_gse_ids = [_normalize_gse_id(gse_id) for gse_id in args.gse_ids]
+        selection_mode = "command_line"
+        selection_input = {"gse_ids": args.gse_ids}
+    else:
+        links_path = Path(args.links_file)
+        selected_gse_ids = load_gse_ids_from_parsed_links(links_path)
+        selection_mode = "parsed_immport_geo_series_links"
+        selection_input = {
+            "path": str(links_path),
+            "sha256": _sha256_of_file(links_path),
+        }
+
     provenance_path = cache_dir / "provenance_log.jsonl"
     results = fetch_geo_datasets(
-        args.gse_ids,
+        selected_gse_ids,
         destdir=str(cache_dir),
         force=args.force,
         provenance_log_path=str(provenance_path),
@@ -473,6 +551,31 @@ def main() -> None:
     with manifest_path.open("w", encoding="utf-8") as handle:
         json.dump([record.to_dict() for record in results], handle, indent=2)
     logger.info("Manifest written to %s", manifest_path)
+
+    status_counts: dict[str, int] = {}
+    for record in results:
+        status_counts[record.status] = status_counts.get(record.status, 0) + 1
+    selection_provenance = {
+        "schema_version": 1,
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "tool": "data.geo_fetch_module",
+        "tool_version": FETCHER_VERSION,
+        "selection_mode": selection_mode,
+        "input": selection_input,
+        "selected_gse_ids": selected_gse_ids,
+        "force": args.force,
+        "outputs": {
+            "cache_directory": str(cache_dir),
+            "manifest": str(manifest_path),
+            "provenance_log": str(provenance_path),
+        },
+        "result_status_counts": status_counts,
+    }
+    selection_provenance_path = cache_dir / SELECTION_PROVENANCE_FILENAME
+    with selection_provenance_path.open("w", encoding="utf-8") as handle:
+        json.dump(selection_provenance, handle, indent=2)
+        handle.write("\n")
+    logger.info("Selection provenance written to %s", selection_provenance_path)
 
 
 if __name__ == "__main__":
