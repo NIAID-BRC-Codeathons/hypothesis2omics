@@ -8,66 +8,52 @@ Project page: https://niaid-brc-codeathons.github.io/projects/hypothesis2omics/
 
 ---
 
-> **This is a draft pitch, not a plan.**
->
-> What follows is a one-slide proposal from the organizing team. It exists
-> to seed a team, not to constrain one. Scope, methods, target organism,
-> and success criteria are all still open — expect them to change
-> substantially. Turning this into a real plan is the team's first job, and
-> it lands in the project charter due August 28, 2026.
+## What this does
 
----
+A plain-English hypothesis goes in. A search over public repositories, an eligibility
+judgment on every candidate dataset, a real analysis on the eligible ones, and an evidence
+report come out. Every stage records its provenance, and the report says what would have
+counted as an answer before any numbers existed.
 
-## Goal (proposed)
-
-Translate a biological hypothesis into a reproducible search and analysis of public transcriptomic, proteomic, metabolomic, microbiome, or immune-system datasets.
-
-## Three-Day MVP (proposed)
-
-Use one predefined hypothesis, for example, “A specified pathway or biomarker is associated with protection following vaccination.” The agent should discover appropriate datasets, assess eligibility, configure workflows, execute analyses through BRC Analytics or Galaxy, integrate results across datasets, and produce an evidence table.
-
-A microbiome causal-inference branch could expose HUMAnN, differential abundance, sensitivity analysis, protein-language-model annotation, and SHAP interpretation as MCP tools.
-
-## Example datasets
-
-The MVP evaluates the hypothesis that GCN2/EIF2AK4 activity is associated with the magnitude of
-the CD8+ T-cell response following YF-17D vaccination. ImmPort supplies study design, sample
-linkage, and immune-response measurements; linked GEO series supply transcriptomic measurements.
-
-| ImmPort study | GEO series | Platform | Linked samples |
-|---|---|---|---:|
-| `SDY1264` | `GSE13485` | `GPL7567` | 87 |
-| `SDY1289` | `GSE13699` | `GPL6104`, `GPL6883` | 126 + 16 |
-| `SDY1294` | `GSE82152` | `GPL21975` | 109 |
-| `SDY1529` | `GSE125921`, `GSE136163` | `GPL10558` | 36 + 144 |
-
-The current retrieval plan also resolves `GSE13486`, the SuperSeries containing `GSE13485`, but
-marks it `skip_superseries` to avoid downloading duplicate expression data. `SDY1291` is fetched
-and parsed successfully but does not currently produce a GEO analysis unit.
-
-The reproducible parser run creates six study/experiment/GSE/platform analysis units containing
-518 linked samples. The configured `SDY1264` validator handoff extracts 87 expression values for
-the EIF2AK4 feature `Hs.412102_at` and 25 quantitative `Act CD8 T Cell Response` measurements.
-Downloaded datasets and generated outputs are excluded from Git; the acquisition and parsing
-steps below recreate them with provenance.
-
-
-## Architecture (proposed)
-
-<img width="1536" height="1024" alt="ChatGPT Image Sep 16, 2026, 11_36_29 AM" src="https://github.com/user-attachments/assets/87c40a8e-767e-42f6-a9ca-02c393795b10" />
+The design goal is not to find a new result. It is to be honest about what the data can and
+cannot show. A pipeline that says `supports` when handed a hypothesis its datasets cannot
+test is worse than useless, so the components below are built to refuse rather than to
+conclude when refusing is correct.
 
 ## Pipeline
 
-General pipeline flow
 ```text
 Hypothesis
-    → ImmPort dataset discovery
-    → ImmPort and GEO normalization
-    → Validator input
-    → Scientific eligibility assessment
+    → Test specification              mcp/parse-hypo
+    → ImmPort dataset discovery       mcp/keyword-to-immport
+    → ImmPort and GEO retrieval       data/, mcp/data_normalizer
+    → Normalized validator input      data/validator_input
+    → Scientific eligibility          scientific_validator
+    → Analysis                        Galaxy / limma, or a per-subject regression
+    → Evidence synthesis and report   evidence_rules
 ```
 
-Folder layout
+A human reads and corrects the parsed hypothesis before anything proceeds. Nothing in this
+pipeline runs unattended from end to end, by design.
+
+| Stage | Where | Owner |
+|---|---|---|
+| Hypothesis → test spec → search spec | `mcp/parse-hypo` | Melanie Sadecki |
+| Keyword and spec search over ImmPort | `mcp/keyword-to-immport` | Yaphet Kebede |
+| MCP registration and installer | `mcp/` | Yaphet Kebede |
+| Retrieval, parsing, normalization | `data/`, `mcp/data_normalizer` | Yijun Zhou |
+| Scientific eligibility and evidence fusion | `scientific_validator/` | Amar Kumar |
+| Analysis execution | Galaxy, limma | Archit Vasan, Slim Fourati |
+| Decision rules, independence, synthesis | `evidence_rules/` | Rushikesh Lagad |
+
+### Current limitation, stated plainly
+
+The step between "this dataset is eligible" and "the analysis has run" is not automated. An
+analysis-ready matrix and design file is still prepared per dataset by hand. The stages on
+either side are scripted and provenance-backed; this one is not yet.
+
+## Folder layout
+
 ```text
 hypothesis2omics/
 ├── mcp/
@@ -80,24 +66,103 @@ hypothesis2omics/
 │   ├── geo_cache/           # Downloaded and parsed GEO data
 │   └── validator_input/     # Validator-ready tables and provenance
 │
-└── scientific_validator/    # Dataset eligibility assessment
+├── scientific_validator/    # Dataset eligibility assessment
+│
+├── evidence_rules/          # Decision rules, independence, synthesis
+│
+└── docs/                    # Ground truth and benchmark documentation
 ```
 
+Detailed data commands and MCP setup are in `data/README.md` and `mcp/README.md`.
+The evidence layer is documented in `evidence_rules/README.md`.
 
-Detailed data commands and MCP setup are documented in `data/README.md` and `mcp/README.md`.
+## The benchmark
 
+The MVP evaluates the hypothesis that GCN2/EIF2AK4 activity is associated with the magnitude
+of the CD8+ T-cell response following YF-17D vaccination. ImmPort supplies study design,
+sample linkage, and immune-response measurements; linked GEO series supply transcriptomic
+measurements.
 
-## Evaluation (proposed)
+| ImmPort study | GEO series | Platform | Linked samples |
+|---|---|---|---:|
+| `SDY1264` | `GSE13485` | `GPL7567` | 87 |
+| `SDY1289` | `GSE13699` | `GPL6104`, `GPL6883` | 126 + 16 |
+| `SDY1294` | `GSE82152` | `GPL21975` | 109 |
+| `SDY1529` | `GSE125921`, `GSE136163` | `GPL10558` | 36 + 144 |
 
-Dataset-retrieval recall, workflow success, consistency with published findings, robustness across datasets, and expert assessment of the final evidence report.
+The retrieval plan also resolves `GSE13486`, the SuperSeries containing `GSE13485`, but marks
+it `skip_superseries` to avoid duplicate expression data. `SDY1291` is fetched and parsed but
+does not currently produce a GEO analysis unit.
+
+The parser run creates six study/experiment/GSE/platform analysis units containing 518 linked
+samples. The `SDY1264` validator handoff extracts 87 expression values for the EIF2AK4 feature
+`Hs.412102_at` and 25 quantitative `Act CD8 T Cell Response` measurements, and returns
+`scientific_status: eligible`, `execution_status: ready`. Downloaded data and generated outputs
+are excluded from Git; the steps in `data/README.md` recreate them with provenance.
+
+Expected direction, predictor timepoint and cohort structure are documented in
+`docs/ground_truth.md`, taken from Querec et al. 2009 and Ravindran et al. 2014 and checked
+against the GEO records.
+
+## What the benchmark found
+
+```
+python evidence_rules/run_yf17d.py --repo .
+```
+
+Using day 7 minus day 0 as the predictor, both trials in `GSE13485` are positive and
+significant, which reads as a replication. Baseline EIF2AK4 is itself correlated with the
+outcome, so a difference score inherits that; holding baseline constant, the second trial is
+null. Three predictor specifications give three different overall verdicts on the same 25
+subjects.
+
+That is the pipeline working. The result is specification-sensitive, not a definitive
+replication, and the report says so rather than picking the flattering specification.
+
+## Design commitments
+
+**The decision rule is frozen before results exist.** Alpha, expected direction, minimum
+effect and the replication threshold are set during planning and printed in the report, so a
+reader can check that what was promised is what was applied.
+
+**Independence is counted in groups, not rows.** `GSE125921` and `GSE136163` are both
+`SDY1529`. `GSE13485` is one accession holding two trials run a year apart. Treating related
+accessions as independent replication is the easiest way to overstate a result.
+
+**A result records what it is, not only what it equals.** A Galaxy limma run returns a log
+fold change; a per-subject regression returns a correlation. `AnalysisResult` carries the
+effect type, the estimand and the contrast direction so the two can sit in one evidence table
+without being averaged.
+
+**Controls are not evidence.** A sex-marker contrast with a known answer proves the machinery
+works. It carries `role="positive_control"` and is refused entry to any evidence table about
+the hypothesis.
+
+**Inconclusive is a real verdict.** A hypothesis whose predictor was never measured, or whose
+timepoint does not exist in the data, returns `inconclusive` rather than `refutes`. The
+question went unasked, and saying otherwise would be a false claim about the biology.
+
+## Credentials
+
+Never commit or share an API key. Each person generates their own.
+
+- **ImmPort**: create a key at the ImmPort API Keys page and pass the downloaded JSON with
+  `--api-key-file`, or set `IMMPORT_API_KEY` in the environment you launch from for the MCP
+  server. `.gitignore` blocks `**/immport-key-*.json`.
+- **LLM gateway**: `OPENAI_API_KEY` for the hypothesis parser, defaulting to Argo. See
+  `mcp/README.md`.
+
+## Evaluation
+
+Dataset-retrieval recall, workflow success, consistency with published findings, robustness
+across datasets, and expert assessment of the final evidence report.
 
 ## Leads
 
 - Slim Fourati
 - Rushikesh Lagad
 
-Team assignments are still being finalized. Participants can review their project, and request a reassignment, in the participant spreadsheet circulated by the organizing team.
-
 ## Working here
 
-This repository is the team's working space for the codeathon — code, notebooks, data pointers, and notes. Replace this README with the real thing once the charter is written. Team members get access through the [NIAID-BRC-Codeathons](https://github.com/NIAID-BRC-Codeathons) organization; accept the invitation if you have not already.
+This repository is the team's working space for the codeathon. Team members get access
+through the [NIAID-BRC-Codeathons](https://github.com/NIAID-BRC-Codeathons) organization.
