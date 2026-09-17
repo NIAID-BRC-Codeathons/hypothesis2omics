@@ -1,16 +1,14 @@
-"""Extract the expression matrix from a GEO series-matrix TXT file.
+"""Extract GEO series-matrix expression tables for Galaxy input.
 
-The script extracts everything between:
+Supports:
+1. A single GEO series-matrix TXT file with --input
+2. All *_series_matrix.txt files in a folder with --input-dir
 
-    !series_matrix_table_begin
-    !series_matrix_table_end
-
-The marker lines themselves are excluded.
-
-Output is saved as CSV in:
+Outputs are written to:
     data/galaxy_file_input/
 
-The GEO first-column name ID_REF is renamed to probe_id.
+Example output:
+    GSE13699_GPL6104_intensities.csv
 """
 
 import argparse
@@ -21,7 +19,22 @@ from pathlib import Path
 DEFAULT_OUTPUT_DIR = Path("data/galaxy_file_input")
 
 
+def make_output_name(input_file: Path) -> str:
+    """Create a Galaxy-friendly output filename."""
+
+    name = input_file.name
+
+    if name.endswith("_series_matrix.txt"):
+        name = name[: -len("_series_matrix.txt")]
+
+    name = name.replace("-", "_")
+
+    return f"{name}_intensities.csv"
+
+
 def extract_matrix(input_file: Path, output_file: Path) -> None:
+    """Extract the table between GEO series-matrix begin/end markers."""
+
     inside_matrix = False
     found_end = False
     rows_written = 0
@@ -71,50 +84,130 @@ def extract_matrix(input_file: Path, output_file: Path) -> None:
 
     if not inside_matrix:
         raise RuntimeError(
-            "Could not find !series_matrix_table_begin in the input file."
+            f"Could not find !series_matrix_table_begin in {input_file}"
         )
 
     if not found_end:
         raise RuntimeError(
-            "Could not find !series_matrix_table_end in the input file."
+            f"Could not find !series_matrix_table_end in {input_file}"
         )
 
     if rows_written == 0:
-        raise RuntimeError("No matrix rows were extracted.")
+        raise RuntimeError(
+            f"No matrix rows were extracted from {input_file}"
+        )
 
+    print()
     print("Matrix extraction complete")
     print(f"Input:  {input_file}")
     print(f"Output: {output_file}")
     print(f"Rows written including header: {rows_written}")
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Extract a GEO series matrix for Galaxy input."
-    )
-
-    parser.add_argument(
-        "--input",
-        required=True,
-        help="Path to GEO series_matrix.txt file",
-    )
-
-    parser.add_argument(
-        "--output-name",
-        required=True,
-        help="Output CSV filename",
-    )
-
-    args = parser.parse_args()
-
-    input_file = Path(args.input)
+def process_single_file(
+    input_file: Path,
+    output_dir: Path,
+    output_name: str | None = None,
+) -> None:
 
     if not input_file.exists():
         raise FileNotFoundError(f"Input file not found: {input_file}")
 
-    output_file = DEFAULT_OUTPUT_DIR / args.output_name
+    if output_name is None:
+        output_name = make_output_name(input_file)
+
+    output_file = output_dir / output_name
 
     extract_matrix(input_file, output_file)
+
+
+def process_directory(input_dir: Path, output_dir: Path) -> None:
+    """Process every GEO series-matrix TXT file in a directory."""
+
+    if not input_dir.exists():
+        raise FileNotFoundError(
+            f"Input directory not found: {input_dir}"
+        )
+
+    matrix_files = sorted(
+        input_dir.glob("*_series_matrix.txt")
+    )
+
+    if not matrix_files:
+        raise RuntimeError(
+            f"No *_series_matrix.txt files found in {input_dir}"
+        )
+
+    print(f"Found {len(matrix_files)} series matrix file(s).")
+
+    successful = 0
+    failed = 0
+
+    for input_file in matrix_files:
+        try:
+            process_single_file(
+                input_file=input_file,
+                output_dir=output_dir,
+            )
+            successful += 1
+
+        except Exception as exc:
+            failed += 1
+            print()
+            print(f"FAILED: {input_file}")
+            print(f"Reason: {exc}")
+
+    print()
+    print("Batch extraction finished")
+    print(f"Successful: {successful}")
+    print(f"Failed:     {failed}")
+    print(f"Output directory: {output_dir}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Extract GEO series matrices for Galaxy input."
+    )
+
+    group = parser.add_mutually_exclusive_group(required=True)
+
+    group.add_argument(
+        "--input",
+        help="Single GEO series_matrix.txt file",
+    )
+
+    group.add_argument(
+        "--input-dir",
+        help="Directory containing *_series_matrix.txt files",
+    )
+
+    parser.add_argument(
+        "--output-name",
+        help="Optional output filename when processing one file",
+    )
+
+    parser.add_argument(
+        "--output-dir",
+        default=str(DEFAULT_OUTPUT_DIR),
+        help="Output directory",
+    )
+
+    args = parser.parse_args()
+
+    output_dir = Path(args.output_dir)
+
+    if args.input:
+        process_single_file(
+            input_file=Path(args.input),
+            output_dir=output_dir,
+            output_name=args.output_name,
+        )
+
+    else:
+        process_directory(
+            input_dir=Path(args.input_dir),
+            output_dir=output_dir,
+        )
 
 
 if __name__ == "__main__":
