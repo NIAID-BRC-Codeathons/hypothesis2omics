@@ -46,7 +46,10 @@ from h2o_common import (
 )
 from parse_hypothesis import load_parsed
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
+# The ImmPort search layer lives in its own server directory -- this file used to
+# sit beside a verbatim copy of it. One copy, imported by path, so a change to the
+# facet list or the spec search cannot drift between the two.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "keyword-to-immport"))
 from server import FACETS, list_facet_values, search_spec  # noqa: E402
 
 GENERATOR = "build_test_spec.py"

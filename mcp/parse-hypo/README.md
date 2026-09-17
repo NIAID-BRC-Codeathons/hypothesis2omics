@@ -22,7 +22,7 @@ out, with a reviewable artifact at every step.
         |
         |  STEP 3  (deterministic, no model)   collect per-component search_terms
         v
-  03_search_spec.yaml   consumed by server.py:search_spec
+  03_search_spec.yaml   consumed by keyword-to-immport's search_spec
         |
         v
   ["SDY1264", "SDY1289", "SDY1294", ...]
@@ -56,16 +56,18 @@ python3 hypothesis_mcp.py --check     # live smoke test, no client needed
 python3 hypothesis_mcp.py             # serve over stdio
 ```
 
-`server.py` is a second, independent MCP server for ImmPort search alone. Register
-both and a client can go from hypothesis to accessions without leaving the session.
+ImmPort search itself lives in [`../keyword-to-immport/`](../keyword-to-immport/),
+a separate server registered alongside this one, so a client can go from hypothesis
+to accessions without leaving the session. Steps 2-3 import that module directly by
+path -- there is one copy of the facet list and the spec search, not two.
 
 Step 1 needs only `openai` and `pyyaml`. Steps 2-3 additionally need `httpx` and
-`mcp`, because they import `server.py`.
+`mcp`, because they import `keyword-to-immport/server.py`.
 
-## The five files
+## The four files
 
 ```
-h2o_common.py   server.py          <- leaves: import nothing local
+h2o_common.py   ../keyword-to-immport/server.py   <- leaves: import nothing local
       |          |    |
 parse_hypothesis.py   |            <- step 1, no ImmPort dependency at all
       |     |         |
@@ -77,9 +79,8 @@ parse_hypothesis.py   |            <- step 1, no ImmPort dependency at all
 | file | role |
 |---|---|
 | `h2o_common.py` | Argo calls, JSON extraction, YAML scalars, provenance. Repository-agnostic. |
-| `parse_hypothesis.py` | Step 1. Imports nothing from `server.py`, so it runs and tests with ImmPort unreachable. |
+| `parse_hypothesis.py` | Step 1. Imports nothing from the ImmPort layer, so it runs and tests with ImmPort unreachable. |
 | `build_test_spec.py` | Steps 2 and 3. Grounds filters in ImmPort's controlled vocabulary. |
-| `server.py` | ImmPort search: keywords or a search spec to accessions. |
 | `hypothesis_mcp.py` | Steps 1-3 as MCP tools. No logic of its own; it imports the modules above. |
 
 That `parse_hypothesis.py` has no ImmPort dependency is a property worth keeping. It
@@ -270,7 +271,7 @@ question, and neither A nor B should be chosen on intuition.
 plausible-looking accession here is the exact failure this section exists to
 prevent.)
 
-`03_search_spec.yaml` stays **flat lists of strings**, so `server.py:search_spec`
+`03_search_spec.yaml` stays **flat lists of strings**, so `keyword-to-immport`'s `search_spec`
 is unchanged. Step 3 flattens; provenance lives in step 2's artifact. This keeps the
 search layer untouched by the change.
 
@@ -310,7 +311,7 @@ Access paths to compare: EBI OLS (no key), BioPortal (free key required), UMLS
 - `audit_search_terms` shows no loss of relevant studies against the current
   baseline for the YF-17D hypothesis (7 accessions: SDY1264, SDY1289, SDY1294,
   SDY1291, SDY1529, SDY271, SDY15).
-- `server.py` and the `03_search_spec.yaml` schema are unchanged.
+- The ImmPort layer and the `03_search_spec.yaml` schema are unchanged.
 - Lookups are cached; the pipeline does not re-query an authority per run.
 
 ## Not included here
@@ -333,8 +334,8 @@ Access paths to compare: EBI OLS (no key), BioPortal (free key required), UMLS
 - **The CLI does not record the parsed file's sha256; the MCP does.** Two front
   doors, slightly different provenance. Worth aligning.
 - **`hypothesis_mcp.py` has never run under a real MCP client** — only via `--check`
-  and direct calls. Its tool registration is inferred from `server.py`'s idiom.
+  and direct calls. Its tool registration is inferred from `keyword-to-immport/server.py`'s idiom.
 - **`audit_search_terms` has no overall timeout.** `H2O_TIMEOUT_S` covers Argo only;
-  ImmPort calls use `server.py`'s httpx defaults.
+  ImmPort calls use `keyword-to-immport/server.py`'s httpx defaults.
 - **Modules use `print` to stderr, not `logging`.** Safe for MCP (the protocol owns
   stdout) but not what AGENTS.md asks for.

@@ -1,0 +1,9 @@
+{
+  "name": "hypothesis-parser",
+  "command": "uv",
+  "args": ["run", "--directory", "${dir}", "hypothesis_mcp.py"],
+  "directTools": true,
+  "env": {
+    "ARGO_USER": "${ARGO_USER}"
+  }
+}
