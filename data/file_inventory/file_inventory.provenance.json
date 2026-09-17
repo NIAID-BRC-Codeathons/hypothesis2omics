@@ -1,0 +1,54 @@
+{
+  "counts": {
+    "candidate_types": {
+      "geo_family_soft": 5,
+      "geo_series_matrix": 6,
+      "immport_tab_archive": 4,
+      "tabular_supplement": 94
+    },
+    "files": 207,
+    "manifest_recorded": 117,
+    "parser_candidates": 109,
+    "parser_support": {
+      "potential": 94,
+      "supported": 15,
+      "unsupported": 98
+    },
+    "skipped": {
+      "directory": 2,
+      "filename": 6
+    }
+  },
+  "data_root": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data",
+  "duration_sec": 0.089,
+  "inventory_tool": "list_directory",
+  "inventory_version": "0.1.0",
+  "outputs": [
+    {
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/file_inventory/downloaded_files.tsv",
+      "rows": 207,
+      "sha256": "23eeaef9dfe094b2fc00ad8701a836e557fc32b89c5a760611eff76c1c059cc7",
+      "size_bytes": 52156,
+      "type": "downloaded_file_inventory"
+    },
+    {
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/file_inventory/parser_candidates.tsv",
+      "rows": 109,
+      "sha256": "55f46cb62254e2bfe6f08a4547f4637f43de8beb708d9731f8ccc5f04f91191d",
+      "size_bytes": 26219,
+      "type": "parser_candidates"
+    }
+  ],
+  "python_version": "3.12.13",
+  "rules": {
+    "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/parser_candidate_rules.json",
+    "sha256": "96ebd7fa106e8f19132d3c80ac8dc3bd7aef78b7a9ab066ffbb7d1324b70d60f",
+    "version": "0.1.0"
+  },
+  "run_started_at_utc": "2026-09-17T18:43:05.142751+00:00",
+  "scanned_roots": [
+    "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache",
+    "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache"
+  ],
+  "status": "success"
+}
