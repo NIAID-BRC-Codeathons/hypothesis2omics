@@ -1,0 +1,37 @@
+{
+  "duration_sec": 0.008,
+  "input": {
+    "path": "data/immport_cache/SDY1264/SDY1264-DR58_Tab.zip",
+    "sha256": "0744a1a9501dca5f19a3b3285a0858b1961010573291c4cc3dde7552ac46c74b",
+    "size_bytes": 661355,
+    "type": "immport_tab_zip"
+  },
+  "output": {
+    "columns": [
+      "study_accession",
+      "subject_accession",
+      "biosample_accession",
+      "timepoint_day",
+      "outcome_name",
+      "result_value",
+      "result_unit"
+    ],
+    "path": "data/validator_input/quantitative_outcome.tsv",
+    "rows": 25,
+    "sha256": "664dc40b2fc075889c98e01f75ee2550630609d1f0076e9aa655afe88b34980b",
+    "size_bytes": 1856
+  },
+  "parser": "validator_handoff_parse_module",
+  "parser_version": "0.2.0",
+  "python_version": "3.12.13",
+  "run_started_at_utc": "2026-09-17T13:49:27.759087+00:00",
+  "selection": {
+    "field_precedence": "preferred_then_reported",
+    "outcome_names": [
+      "Act CD8 T Cell Response"
+    ],
+    "study_accession": "SDY1264",
+    "timepoint_source_unit": "Days"
+  },
+  "status": "success"
+}

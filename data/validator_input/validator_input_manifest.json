@@ -1,0 +1,105 @@
+{
+  "artifacts": {
+    "feature_expression": {
+      "columns": [
+        "study_accession",
+        "gse_accession",
+        "gpl_accession",
+        "gene",
+        "feature_id",
+        "sample_accession",
+        "expression_value"
+      ],
+      "path": "data/validator_input/feature_expression.tsv",
+      "provenance": {
+        "path": "data/validator_input/feature_expression.provenance.json",
+        "sha256": "0661796b9ae97448af72b665df54192413e1e912da48deb04dde41646411fa92",
+        "size_bytes": 1001
+      },
+      "rows": 87,
+      "sha256": "8477be12aaf5ed8fe269bf3aa2db4b395cda84f72309bb45526db6a36f521db8",
+      "size_bytes": 6002
+    },
+    "quantitative_outcome": {
+      "columns": [
+        "study_accession",
+        "subject_accession",
+        "biosample_accession",
+        "timepoint_day",
+        "outcome_name",
+        "result_value",
+        "result_unit"
+      ],
+      "path": "data/validator_input/quantitative_outcome.tsv",
+      "provenance": {
+        "path": "data/validator_input/quantitative_outcome.provenance.json",
+        "sha256": "d60fbc076e22b2f8a3f6c5fd5aa7debb1b7937cf9ffa940e20f6a3a69b972653",
+        "size_bytes": 1034
+      },
+      "rows": 25,
+      "sha256": "664dc40b2fc075889c98e01f75ee2550630609d1f0076e9aa655afe88b34980b",
+      "size_bytes": 1856
+    },
+    "sample_manifest": {
+      "columns": [
+        "study_accession",
+        "experiment_accession",
+        "experiment_name",
+        "measurement_technique",
+        "expsample_accession",
+        "result_schema",
+        "upload_result_status",
+        "repository_name",
+        "repository_accession",
+        "biosample_accession",
+        "planned_visit_accession",
+        "subject_accession",
+        "study_time_collected",
+        "study_time_collected_unit",
+        "study_time_t0_event",
+        "biosample_type",
+        "biosample_subtype",
+        "arm_accession",
+        "arm_name",
+        "arm_type_reported",
+        "arm_type_preferred",
+        "age_event",
+        "age_unit",
+        "min_subject_age",
+        "max_subject_age",
+        "min_subject_age_in_years",
+        "max_subject_age_in_years",
+        "subject_phenotype",
+        "subject_location",
+        "ancestral_population",
+        "ethnicity",
+        "gender",
+        "race",
+        "race_specify",
+        "species",
+        "strain"
+      ],
+      "path": "data/validator_input/sample_manifest.tsv",
+      "provenance": {
+        "path": "data/validator_input/sample_manifest.provenance.json",
+        "sha256": "25e3663f01f994a10f179adcb0925cc0de6202f7d73c153df95c59e047100bf2",
+        "size_bytes": 1645
+      },
+      "rows": 888,
+      "sha256": "a42854a6ef461671c891bb9f9d06272ceb4704bf0d667e08f5a199820d20a781",
+      "size_bytes": 356388
+    }
+  },
+  "configuration": {
+    "path": "data/validator_handoff_config.json",
+    "sha256": "813af3313f93e004d8b62d0a08765846ce729137d8786ab1ca947afd4249b58f",
+    "size_bytes": 651
+  },
+  "output_dir": "data/validator_input",
+  "parser": "validator_handoff_parse_module",
+  "parser_version": "0.2.0",
+  "python_version": "3.12.13",
+  "run_completed_at_utc": "2026-09-17T13:49:27.780402+00:00",
+  "run_started_at_utc": "2026-09-17T13:49:27.530243+00:00",
+  "status": "success"
+}

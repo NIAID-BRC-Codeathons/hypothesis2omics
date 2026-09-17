@@ -1,7 +1,20 @@
+# archive folder
 data/geo_cache/
 data/immport_cache/
+data/file_inventory/
+data/__pycache__/
+temp
+
+# API keys
 **/immport-key-*.json
+
+# Virtual environment
+.venv
+.vscode
+
+# Python bytecode
 __pycache__/
 *.py[cod]
+
+# macOS
 .DS_Store
-.venv

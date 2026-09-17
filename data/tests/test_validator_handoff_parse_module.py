@@ -58,9 +58,17 @@ class ValidatorHandoffParserTests(unittest.TestCase):
                     + "\nBS1\tSDY1264\t15\tDays\tSUB1\n",
                 )
 
-            geo_output = root / "geo.tsv"
-            immport_output = root / "immport.tsv"
+            manifest = root / "sample_manifest.tsv"
+            manifest.write_text(
+                "study_accession\tsubject_accession\nSDY1264\tSUB1\n",
+                encoding="utf-8",
+            )
+            output_dir = root / "validator_input"
+            geo_output = output_dir / "feature_expression.tsv"
+            immport_output = output_dir / "quantitative_outcome.tsv"
             config = {
+                "output_dir": str(output_dir),
+                "manifest": {"source": str(manifest)},
                 "geo": {
                     "study_accession": "SDY1264",
                     "gse_accession": "GSE13485",
@@ -68,8 +76,6 @@ class ValidatorHandoffParserTests(unittest.TestCase):
                     "gene": "EIF2AK4",
                     "feature_id": "Hs.412102_at",
                     "source_matrix": str(matrix),
-                    "output": str(geo_output),
-                    "provenance": str(root / "geo.json"),
                 },
                 "immport": {
                     "study_accession": "SDY1264",
@@ -77,8 +83,6 @@ class ValidatorHandoffParserTests(unittest.TestCase):
                     "timepoint_source_unit": "Days",
                     "field_precedence": "preferred_then_reported",
                     "source_tab_zip": str(archive),
-                    "output": str(immport_output),
-                    "provenance": str(root / "immport.json"),
                 },
             }
             config_path = root / "config.json"
@@ -86,10 +90,13 @@ class ValidatorHandoffParserTests(unittest.TestCase):
 
             result = run_parser(config_path)
 
+            manifest_output = output_dir / "sample_manifest.tsv"
             with geo_output.open(encoding="utf-8", newline="") as handle:
                 geo_rows = list(csv.DictReader(handle, delimiter="\t"))
             with immport_output.open(encoding="utf-8", newline="") as handle:
                 immport_rows = list(csv.DictReader(handle, delimiter="\t"))
+            self.assertEqual(manifest_output.read_bytes(), manifest.read_bytes())
+            self.assertEqual(result["manifest"]["selection"]["mode"], "verbatim_copy")
             self.assertEqual(result["geo"]["output"]["rows"], 2)
             self.assertEqual(geo_rows[0]["sample_accession"], "GSM1")
             self.assertEqual(geo_rows[0]["expression_value"], "8.049598656")
@@ -97,6 +104,15 @@ class ValidatorHandoffParserTests(unittest.TestCase):
             self.assertEqual(immport_rows[0]["subject_accession"], "SUB1")
             self.assertEqual(immport_rows[0]["timepoint_day"], "15")
             self.assertEqual(immport_rows[0]["result_unit"], "percentage")
+            self.assertTrue((output_dir / "sample_manifest.provenance.json").is_file())
+            self.assertTrue((output_dir / "feature_expression.provenance.json").is_file())
+            self.assertTrue((output_dir / "quantitative_outcome.provenance.json").is_file())
+            bundle_path = output_dir / "validator_input_manifest.json"
+            bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
+            self.assertEqual(
+                set(bundle["artifacts"]),
+                {"sample_manifest", "feature_expression", "quantitative_outcome"},
+            )
 
 
 if __name__ == "__main__":

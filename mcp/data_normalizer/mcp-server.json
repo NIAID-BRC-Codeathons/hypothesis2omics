@@ -1,0 +1,15 @@
+{
+  "name": "hypothesis2omics",
+  "command": "uv",
+  "args": [
+    "run",
+    "--directory",
+    "${root}",
+    "python",
+    "${root}/mcp/data_normalizer/server.py"
+  ],
+  "directTools": true,
+  "env": {
+    "IMMPORT_API_KEY": "${IMMPORT_API_KEY}"
+  }
+}
