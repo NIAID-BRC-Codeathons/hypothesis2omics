@@ -2,11 +2,7 @@
 data/geo_cache/
 data/immport_cache/
 data/file_inventory/
-<<<<<<< Updated upstream
-data/validator_input/
-=======
 data/__pycache__/
->>>>>>> Stashed changes
 temp
 
 # API keys
