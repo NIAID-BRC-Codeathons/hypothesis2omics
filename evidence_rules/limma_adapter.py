@@ -49,13 +49,15 @@ __all__ = [
     "load_limma",
     "scale_check",
     "select_feature",
+    "to_analysis_result",
     "to_analysis_unit",
 ]
 
 
 # limma's column names, plus the variants that turn up in the wild.
 _COLUMNS = {
-    "feature": ("probe_id", "ID", "PROBEID", "probe", "gene", "Gene.symbol", ""),
+    "feature": ("probe_id", "GeneID", "ID", "PROBEID", "probe", "gene",
+                "Gene.symbol", "gene_id", "feature", "feature_id", "row_id"),
     "effect": ("logFC", "log2FoldChange", "coef", "estimate"),
     "mean": ("AveExpr", "baseMean", "aveexpr"),
     "t": ("t", "stat", "statistic"),
@@ -103,11 +105,32 @@ def load_limma(path: str | Path) -> list[dict[str, Any]]:
                 f"no effect column in {path.name}; looked for {_COLUMNS['effect']}, "
                 f"found {fields}"
             )
+        # No recognised identifier column. limma writes row names into an
+        # unnamed first column, so that case is fine. Anything else is not:
+        # inventing row0, row1, row2 would silently discard every feature id
+        # and turn `select_feature` into a lookup that can never succeed.
+        if cols["feature"] is None:
+            first = fields[0] if fields else None
+            if first is not None and first.strip() == "":
+                cols["feature"] = first
+            else:
+                raise ValueError(
+                    f"no feature identifier column in {path.name}. Looked for "
+                    f"{_COLUMNS['feature']} and for an unnamed first column; the "
+                    f"columns present are {fields}. Add the right name to "
+                    "_COLUMNS['feature'] rather than letting rows be numbered."
+                )
+
         rows = []
         for i, r in enumerate(reader):
-            feature = r.get(cols["feature"]) if cols["feature"] else None
+            feature = (r.get(cols["feature"]) or "").strip()
+            if not feature:
+                raise ValueError(
+                    f"{path.name} row {i + 2}: empty value in the feature column "
+                    f"{cols['feature']!r}. Refusing to number it instead."
+                )
             rows.append({
-                "feature": (feature or f"row{i}").strip(),
+                "feature": feature,
                 "effect": _as_float(r.get(cols["effect"])),
                 "mean_expression": _as_float(r.get(cols["mean"])) if cols["mean"] else None,
                 "t": _as_float(r.get(cols["t"])) if cols["t"] else None,
@@ -297,6 +320,83 @@ def to_analysis_unit(
     return unit
 
 
+def to_analysis_result(
+    row: dict[str, Any],
+    analysis_unit_id: str,
+    gse_id: str,
+    n: int,
+    outcome: dict[str, Any],
+    test_group: str,
+    reference_group: str,
+    test_is_higher_outcome: bool,
+    predictor_timepoint: Optional[str] = None,
+    predictor_transform: Optional[str] = None,
+    cohort: Optional[str] = None,
+    platform: Optional[str] = None,
+    independence_group: Optional[str] = None,
+    limma_version: Optional[str] = None,
+    scale: Optional[dict[str, Any]] = None,
+) -> Any:
+    """Emit the canonical `AnalysisResult` for the group-contrast branch.
+
+    `to_analysis_unit` above is the older, flatter handoff. This is the one to
+    use when a run has to sit in the same evidence table as a regression,
+    because it records what the number is rather than only what it equals.
+
+    `test_is_higher_outcome` has no default. A limma factors file can name its
+    groups in either order, and a wrong answer here flips the conclusion while
+    leaving every number identical.
+
+    Pass `scale` from `scale_check()` and it is stored in provenance, so a
+    table analysed off the log scale carries that fact with it.
+    """
+    from analysis_result import from_group_contrast  # local: keeps the import optional
+
+    software: dict[str, Any] = {"tool": "limma"}
+    if limma_version:
+        software["version"] = limma_version
+
+    provenance: dict[str, Any] = {}
+    if scale is not None:
+        provenance["scale_check"] = {
+            "looks_log_transformed": scale.get("looks_log_transformed"),
+            "mean_expression_range": scale.get("mean_expression_range"),
+            "effect_mean_correlation": scale.get("effect_mean_correlation"),
+            "note": scale.get("note"),
+        }
+    if row.get("aggregation"):
+        provenance["probe_aggregation"] = {
+            "rule": row["aggregation"],
+            "n_features": row.get("n_features"),
+        }
+
+    predictor = {"name": row["feature"], "feature_id": row["feature"]}
+    if predictor_timepoint:
+        predictor["timepoint"] = predictor_timepoint
+    if predictor_transform:
+        predictor["transform"] = predictor_transform
+
+    return from_group_contrast(
+        analysis_unit_id=analysis_unit_id,
+        gse_id=gse_id,
+        effect=row["effect"],
+        n=n,
+        predictor=predictor,
+        outcome=outcome,
+        test_group=test_group,
+        reference_group=reference_group,
+        test_is_higher_outcome=test_is_higher_outcome,
+        effect_type="logFC",
+        p_value=row.get("p_value"),
+        fdr=row.get("fdr"),
+        cohort=cohort,
+        platform=platform,
+        independence_group=independence_group,
+        software=software,
+        provenance=provenance,
+    )
+
+
 # ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
@@ -406,7 +506,67 @@ def _self_test() -> None:
     except ValueError:
         pass
 
-    print("self-tests: 9 groups of assertions passed")
+    # The canonical contract, with the scale check carried in provenance.
+    from analysis_result import oriented_effect, to_synthesis_unit, validate_result
+
+    res = to_analysis_result(
+        rows[0], "GSE1_all", "GSE1", n=36,
+        outcome={"name": "day-84 nAb", "timepoint": "day 84",
+                 "scale": "median split"},
+        test_group="high", reference_group="low", test_is_higher_outcome=True,
+        predictor_timepoint="baseline", predictor_transform="log2 quantile",
+        platform="GPL10558", limma_version="3.58.1+galaxy0",
+        scale=scale_check(rows),
+    )
+    assert validate_result(res) == [], validate_result(res)
+    assert res.effect_type == "logFC"
+    assert res.outcome["dichotomised"] is True
+    assert res.provenance["scale_check"]["looks_log_transformed"] is True
+    assert res.software["version"] == "3.58.1+galaxy0"
+    assert oriented_effect(res) == 2.5
+    assert to_synthesis_unit(res)["effect"] == 2.5
+
+    # Reversed factors file, same numbers, opposite meaning.
+    flipped = to_analysis_result(
+        rows[0], "GSE1_all", "GSE1", n=36,
+        outcome={"name": "day-84 nAb"},
+        test_group="low", reference_group="high", test_is_higher_outcome=False,
+    )
+    assert oriented_effect(flipped) == -2.5
+
+    # An aggregated probe set records how it was combined.
+    agg_res = to_analysis_result(
+        agg, "GSE1_all", "GSE1", n=36, outcome={"name": "out"},
+        test_group="high", reference_group="low", test_is_higher_outcome=True,
+    )
+    assert agg_res.provenance["probe_aggregation"]["rule"] == "mean_effect"
+    assert agg_res.provenance["probe_aggregation"]["n_features"] == 2
+
+    # Galaxy's limma names the id column GeneID, not probe_id.
+    gx = ("GeneID\tlogFC\tAveExpr\tt\tP.Value\tadj.P.Val\tB\n"
+          "ILMN_1\t3.6\t5.7\t49.0\t1.9e-44\t5.1e-40\t54.9\n")
+    with tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False) as fh:
+        fh.write(gx)
+        gp = fh.name
+    assert load_limma(gp)[0]["feature"] == "ILMN_1"
+
+    # An unnamed first column is limma's row-name convention and is accepted.
+    with tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False) as fh:
+        fh.write("\tlogFC\tP.Value\nILMN_9\t1.0\t0.01\n")
+        rp = fh.name
+    assert load_limma(rp)[0]["feature"] == "ILMN_9"
+
+    # An unrecognised named id column is refused, not silently numbered.
+    with tempfile.NamedTemporaryFile("w", suffix=".tsv", delete=False) as fh:
+        fh.write("weird_name\tlogFC\tP.Value\nILMN_9\t1.0\t0.01\n")
+        wp = fh.name
+    try:
+        load_limma(wp)
+        raise AssertionError("should refuse a table with no known feature column")
+    except ValueError as e:
+        assert "no feature identifier column" in str(e)
+
+    print("self-tests: 15 groups of assertions passed")
 
 
 if __name__ == "__main__":
