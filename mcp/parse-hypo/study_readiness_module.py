@@ -1,5 +1,5 @@
-"""Prototype: per-study GEO-readiness gate, run after ImmPort search and before
-full retrieval (hypothesis2omics's "step 4", immport_fetch_module.fetch_immport_datasets).
+"""Step 4: per-study GEO-readiness gate, run after ImmPort search (keyword-to-immport's
+search_spec) and before full retrieval (data/immport_fetch_module.fetch_immport_datasets).
 
 For each candidate SDY accession, downloads only the small *_Tab.zip release file
 (a few MB, not the full study) and inspects its contents:
@@ -13,14 +13,12 @@ links to *any* external resource, not GEO-specific, and a study can have one wit
 having GEO-linked sample data (SDY1479), or have GEO-linked sample data without one
 (SDY63).
 
-This is a PROTOTYPE living outside hypothesis2omics on purpose. It imports the real
-manifest/download functions from that repo's data/immport_fetch_module.py rather than
-reimplementing them, so there is one source of truth for how ImmPort is queried; it
-writes nothing back into that repo.
+Imports the real manifest/download functions from ../../data/immport_fetch_module.py
+by path, rather than reimplementing them, so there is one source of truth for how
+ImmPort is queried.
 
 Run:
     python3 study_readiness_module.py SDY63 SDY1479 \
-        --hypothesis2omics-root ~/Desktop/hypothesis2omics \
         --api-key-file ~/Desktop/h2o-scratch/.secrets/immport-key.json \
         --output-dir runs/READINESS01
 """
@@ -74,9 +72,11 @@ ROW_FIELDS = [
 ]
 
 
-def _load_immport_fetch_module(hypothesis2omics_root: Path):
-    """Import the real fetch module from the repo by path, without editing it."""
-    data_dir = str((hypothesis2omics_root / "data").resolve())
+def _load_immport_fetch_module():
+    """Import the real fetch module by path, the way build_test_spec.py imports
+    keyword-to-immport/server.py -- one copy, resolved from this file's location
+    rather than asked for on the command line."""
+    data_dir = str(Path(__file__).resolve().parents[2] / "data")
     if data_dir not in sys.path:
         sys.path.insert(0, data_dir)
     import immport_fetch_module as m  # noqa: PLC0415
@@ -192,13 +192,12 @@ def check_study_readiness(sdy_id: str, session, cache_dir: Path, fetch_module) -
 
 def assess_studies(
     sdy_ids: list[str],
-    hypothesis2omics_root: Path,
     output_dir: Path,
     api_key_file: str | None = None,
     cache_dir: Path | None = None,
 ) -> dict[str, Any]:
     started = time.monotonic()
-    fetch_module = _load_immport_fetch_module(hypothesis2omics_root)
+    fetch_module = _load_immport_fetch_module()
     session = fetch_module.ImmportSession(api_key_file=api_key_file)
     cache = cache_dir or (output_dir / "immport_cache")
     cache.mkdir(parents=True, exist_ok=True)
@@ -250,8 +249,6 @@ def _build_parser() -> argparse.ArgumentParser:
         description="Gate ImmPort study accessions on GEO-linked sample data before retrieval."
     )
     parser.add_argument("sdy_ids", nargs="+", help="ImmPort study accessions to check")
-    parser.add_argument("--hypothesis2omics-root", type=Path, required=True,
-                        help="Path to a checkout of the hypothesis2omics repo (read-only import)")
     parser.add_argument("--api-key-file", required=True, help="ImmPort API key JSON file")
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--cache-dir", type=Path, default=None,
@@ -264,7 +261,6 @@ def main() -> int:
     args = _build_parser().parse_args()
     result = assess_studies(
         args.sdy_ids,
-        hypothesis2omics_root=args.hypothesis2omics_root,
         output_dir=args.output_dir,
         api_key_file=args.api_key_file,
         cache_dir=args.cache_dir,

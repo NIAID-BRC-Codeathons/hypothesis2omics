@@ -26,6 +26,15 @@ out, with a reviewable artifact at every step.
         |
         v
   ["SDY1264", "SDY1289", "SDY1294", ...]
+        |
+        |  STEP 4  (ImmPort, no model)   per-study GEO-readiness gate
+        v
+  study_readiness.tsv
+        |         \
+        v          v
+  ready_studies.txt   excluded_studies.tsv
+  -> data retrieval    -> kept for later review
+     (immport_fetch_module.py)
 ```
 
 Search terms are never invented in step 3. They are lifted from the component that
@@ -182,6 +191,54 @@ so `01_parsed.yaml` has to exist before step 2 can run. That is a speed bump, no
 fence — an agent can write the file and call step 2 in the same turn. Provenance
 records the input's sha256 and makes no claim that anybody read it. Evidence of
 review has to come from outside this package.
+
+## Step 4: study_readiness_module.py
+
+Step 3 returns accessions ImmPort will hand back for a keyword match; it says
+nothing about whether a study has the specific linkage data this pipeline needs
+downstream. `study_readiness_module.py` checks, per accession, before the full
+(multi-GB) retrieval runs:
+
+- Downloads only the study's small `*_Tab.zip` release file (a few MB, not the full
+  archive) and looks inside it.
+- **`ready`** = it contains `expsample_public_repository.txt` with at least one row
+  where `REPOSITORY_NAME == GEO` — i.e. the study has sample-level data actually
+  linked to a GEO accession, not just a topical keyword match.
+- `study_link.txt`, where present, is recorded (its links to ClinicalTrials.gov, a
+  publication, GEO, etc.) but never gates the verdict: it is a study-level table of
+  links to *any* external resource, and a study can have GEO-linked sample data
+  without one (SDY63) or have one pointing somewhere else entirely, like
+  ClinicalTrials.gov, while having no GEO-linked samples at all (SDY1479).
+
+Measured 2026-09-17 against the 7 accessions `03_search_spec.yaml` returns for the
+YF-17D hypothesis: the 4 hand-curated candidates (SDY1264, SDY1289, SDY1294,
+SDY1529) plus SDY1291 came back ready; SDY15 and SDY271 — the 2 keyword-only hits
+noted elsewhere as having no recall denominator — came back not ready, with no
+`expsample_public_repository.txt` in either Tab archive at all. That's a partial
+answer to that open question: those two extras are not usable by this pipeline
+regardless of topical relevance.
+
+```sh
+python3 study_readiness_module.py SDY63 SDY1479 \
+    --api-key-file /path/to/immport-key.json \
+    --output-dir runs/READINESS01
+```
+
+Requires its own ImmPort API key (`--api-key-file`, with `browse` scope) — separate
+from the LLM gateway credential steps 1-2 use, and from `keyword-to-immport`'s
+public, keyless search API. Imports `../../data/immport_fetch_module.py` by path,
+the same way `build_test_spec.py` imports `keyword-to-immport/server.py`, so there
+is one source of truth for how ImmPort's manifest and download endpoints are
+called.
+
+Outputs: `study_readiness.tsv` (one row per study checked), `ready_studies.txt`
+(plain accession list, the intended input to
+`immport_fetch_module.fetch_immport_datasets`), `excluded_studies.tsv` (not-ready
+studies with a reason, kept rather than discarded), and a provenance JSON.
+
+**Not yet wired into `hypothesis_mcp.py`.** It is a standalone CLI script with its
+own `argparse`, not an MCP tool — a client currently has to shell out to it rather
+than call it alongside the three tools above.
 
 ## Rules that are load-bearing
 

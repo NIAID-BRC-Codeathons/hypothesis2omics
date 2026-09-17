@@ -30,7 +30,7 @@ from typing import Any
 
 logger = logging.getLogger("validator_handoff_parser")
 
-PARSER_VERSION = "0.2.0"
+PARSER_VERSION = "0.3.0"
 SAMPLE_MANIFEST_FILENAME = "sample_manifest.tsv"
 FEATURE_EXPRESSION_FILENAME = "feature_expression.tsv"
 QUANTITATIVE_OUTCOME_FILENAME = "quantitative_outcome.tsv"
@@ -423,9 +423,162 @@ def _provenance(
         "duration_sec": round(duration_sec, 3),
     }
 
+def _configured_dataset_jobs(config: dict[str, Any]) -> list[dict[str, Any]]:
+    """Return validator handoff jobs in a backward-compatible form.
+
+    Supported configuration styles:
+
+    Legacy single-dataset mode::
+
+        {
+          "manifest": {...},
+          "geo": {...},
+          "immport": {...}
+        }
+
+    Multi-dataset mode::
+
+        {
+          "manifest": {...},
+          "datasets": [
+            {"name": "...", "geo": {...}, "immport": {...}},
+            ...
+          ]
+        }
+
+    Each dataset entry may contain GEO, ImmPort, or both. At least one section
+    must be present. Exact duplicate output records are removed when jobs share
+    an ImmPort study/outcome or otherwise overlap.
+    """
+    datasets = config.get("datasets")
+    legacy_geo = config.get("geo")
+    legacy_immport = config.get("immport")
+
+    if datasets is None:
+        if not isinstance(legacy_geo, dict) or not isinstance(legacy_immport, dict):
+            raise ValidatorHandoffParseError(
+                "Configuration requires either a non-empty datasets list or legacy geo and immport objects"
+            )
+        return [
+            {
+                "name": "legacy_single_dataset",
+                "geo": legacy_geo,
+                "immport": legacy_immport,
+            }
+        ]
+
+    if legacy_geo is not None or legacy_immport is not None:
+        raise ValidatorHandoffParseError(
+            "Configuration must use either datasets or top-level geo/immport, not both"
+        )
+    if not isinstance(datasets, list) or not datasets:
+        raise ValidatorHandoffParseError(
+            "Configuration datasets must be a non-empty list"
+        )
+
+    jobs: list[dict[str, Any]] = []
+    for index, dataset in enumerate(datasets):
+        section = f"datasets[{index}]"
+        if not isinstance(dataset, dict):
+            raise ValidatorHandoffParseError(f"Configuration {section} must be an object")
+        geo = dataset.get("geo")
+        immport = dataset.get("immport")
+        if geo is not None and not isinstance(geo, dict):
+            raise ValidatorHandoffParseError(f"Configuration {section}.geo must be an object")
+        if immport is not None and not isinstance(immport, dict):
+            raise ValidatorHandoffParseError(f"Configuration {section}.immport must be an object")
+        if geo is None and immport is None:
+            raise ValidatorHandoffParseError(
+                f"Configuration {section} must contain geo, immport, or both"
+            )
+        name = dataset.get("name")
+        if name is None:
+            name = f"dataset_{index + 1}"
+        elif not isinstance(name, str) or not name.strip():
+            raise ValidatorHandoffParseError(
+                f"Configuration {section}.name must be a non-empty string when provided"
+            )
+        jobs.append({"name": str(name).strip(), "geo": geo, "immport": immport})
+    return jobs
+
+
+def _deduplicate_records(
+    records: list[dict[str, str]], columns: list[str]
+) -> list[dict[str, str]]:
+    """Remove exact duplicate output rows while preserving first-seen order."""
+    seen: set[tuple[str, ...]] = set()
+    unique: list[dict[str, str]] = []
+    for record in records:
+        key = tuple(record[column] for column in columns)
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(record)
+    return unique
+
+
+def _combined_provenance(
+    source_label: str,
+    sources: list[dict[str, Any]],
+    output_path_text: str,
+    output: Path,
+    rows: int,
+    columns: list[str],
+    started_at: str,
+    duration_sec: float,
+) -> dict[str, Any]:
+    """Create provenance for one or many configured source files."""
+    if len(sources) == 1:
+        item = sources[0]
+        return _provenance(
+            source_label,
+            item["path_text"],
+            item["path"],
+            output_path_text,
+            output,
+            rows,
+            columns,
+            item["selection"],
+            started_at,
+            duration_sec,
+        )
+
+    return {
+        "status": "success",
+        "run_started_at_utc": started_at,
+        "parser": "validator_handoff_parse_module",
+        "parser_version": PARSER_VERSION,
+        "python_version": platform.python_version(),
+        "inputs": [
+            {
+                "type": source_label,
+                "dataset_name": item["dataset_name"],
+                "path": item["path_text"],
+                "size_bytes": item["path"].stat().st_size,
+                "sha256": _sha256(item["path"]),
+                "selection": item["selection"],
+            }
+            for item in sources
+        ],
+        "output": {
+            "path": output_path_text,
+            "rows": rows,
+            "columns": columns,
+            "size_bytes": output.stat().st_size,
+            "sha256": _sha256(output),
+        },
+        "duration_sec": round(duration_sec, 3),
+    }
+
+
 
 def run_parser(config_path: str | Path) -> dict[str, Any]:
-    """Write the validator-input bundle and return its provenance records."""
+    """Write one aggregated validator-input bundle and return provenance records.
+
+    The output contract remains the same regardless of whether the configuration
+    contains one dataset or many: sample_manifest.tsv, feature_expression.tsv,
+    quantitative_outcome.tsv, their provenance records, and a bundle manifest.
+    """
     run_started_at = _utc_now()
     config_source = Path(config_path)
     try:
@@ -434,16 +587,17 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
         raise ValidatorHandoffParseError(f"Could not read configuration: {exc}") from exc
     if not isinstance(config, dict):
         raise ValidatorHandoffParseError("Configuration root must be an object")
+
     manifest = config.get("manifest")
-    geo = config.get("geo")
-    immport = config.get("immport")
-    if not all(isinstance(section, dict) for section in [manifest, geo, immport]):
-        raise ValidatorHandoffParseError(
-            "Configuration requires manifest, geo, and immport objects"
-        )
+    if not isinstance(manifest, dict):
+        raise ValidatorHandoffParseError("Configuration requires a manifest object")
+    jobs = _configured_dataset_jobs(config)
+
     output_dir_text = _require_text(config, "output_dir", "root")
     output_dir = Path(output_dir_text)
 
+    # The normalized sample manifest is already study-aware, so it is copied once
+    # and can contain rows for every study represented in the configured jobs.
     manifest_source_text = _require_text(manifest, "source", "manifest")
     manifest_source = Path(manifest_source_text)
     manifest_output = output_dir / SAMPLE_MANIFEST_FILENAME
@@ -452,7 +606,8 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
     started = time.monotonic()
     manifest_rows, manifest_columns = _inspect_tsv(manifest_source)
     manifest_output.parent.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(manifest_source, manifest_output)
+    if manifest_source.resolve() != manifest_output.resolve():
+        shutil.copyfile(manifest_source, manifest_output)
     manifest_provenance = _provenance(
         "normalized_immport_sample_manifest",
         manifest_source_text,
@@ -467,62 +622,98 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
     )
     _write_json(manifest_provenance, manifest_provenance_path)
 
-    geo_source_text = _require_text(geo, "source_matrix", "geo")
-    geo_source = Path(geo_source_text)
+    # Aggregate feature-expression rows across every configured GEO job.
     geo_output = output_dir / FEATURE_EXPRESSION_FILENAME
     geo_provenance_path = output_dir / "feature_expression.provenance.json"
     geo_started_at = _utc_now()
     started = time.monotonic()
-    geo_records = _read_geo_feature(geo, geo_source)
+    geo_records: list[dict[str, str]] = []
+    geo_sources: list[dict[str, Any]] = []
+    for job in jobs:
+        geo = job.get("geo")
+        if geo is None:
+            continue
+        geo_source_text = _require_text(geo, "source_matrix", f"datasets[{job['name']}].geo")
+        geo_source = Path(geo_source_text)
+        geo_records.extend(_read_geo_feature(geo, geo_source))
+        geo_sources.append(
+            {
+                "dataset_name": job["name"],
+                "path_text": geo_source_text,
+                "path": geo_source,
+                "selection": {
+                    key: geo[key]
+                    for key in [
+                        "study_accession",
+                        "gse_accession",
+                        "gpl_accession",
+                        "gene",
+                        "feature_id",
+                    ]
+                },
+            }
+        )
+    if not geo_sources:
+        raise ValidatorHandoffParseError("No GEO jobs were configured")
+    geo_records = _deduplicate_records(geo_records, GEO_COLUMNS)
     _write_tsv(geo_records, GEO_COLUMNS, geo_output)
-    geo_provenance = _provenance(
+    geo_provenance = _combined_provenance(
         "geo_series_matrix",
-        geo_source_text,
-        geo_source,
+        geo_sources,
         str(geo_output),
         geo_output,
         len(geo_records),
         GEO_COLUMNS,
-        {
-            key: geo[key]
-            for key in [
-                "study_accession",
-                "gse_accession",
-                "gpl_accession",
-                "gene",
-                "feature_id",
-            ]
-        },
         geo_started_at,
         time.monotonic() - started,
     )
     _write_json(geo_provenance, geo_provenance_path)
 
-    immport_source_text = _require_text(immport, "source_tab_zip", "immport")
-    immport_source = Path(immport_source_text)
+    # Aggregate quantitative outcomes across every configured ImmPort job.
+    # Exact duplicates are removed so the same study/outcome can safely be
+    # referenced by more than one GEO dataset entry.
     immport_output = output_dir / QUANTITATIVE_OUTCOME_FILENAME
     immport_provenance_path = output_dir / "quantitative_outcome.provenance.json"
     immport_started_at = _utc_now()
     started = time.monotonic()
-    immport_records = _read_immport_outcomes(immport, immport_source)
+    immport_records: list[dict[str, str]] = []
+    immport_sources: list[dict[str, Any]] = []
+    for job in jobs:
+        immport = job.get("immport")
+        if immport is None:
+            continue
+        immport_source_text = _require_text(
+            immport, "source_tab_zip", f"datasets[{job['name']}].immport"
+        )
+        immport_source = Path(immport_source_text)
+        immport_records.extend(_read_immport_outcomes(immport, immport_source))
+        immport_sources.append(
+            {
+                "dataset_name": job["name"],
+                "path_text": immport_source_text,
+                "path": immport_source,
+                "selection": {
+                    key: immport[key]
+                    for key in [
+                        "study_accession",
+                        "outcome_names",
+                        "timepoint_source_unit",
+                        "field_precedence",
+                    ]
+                },
+            }
+        )
+    if not immport_sources:
+        raise ValidatorHandoffParseError("No ImmPort jobs were configured")
+    immport_records = _deduplicate_records(immport_records, IMMPORT_COLUMNS)
     _write_tsv(immport_records, IMMPORT_COLUMNS, immport_output)
-    immport_provenance = _provenance(
+    immport_provenance = _combined_provenance(
         "immport_tab_zip",
-        immport_source_text,
-        immport_source,
+        immport_sources,
         str(immport_output),
         immport_output,
         len(immport_records),
         IMMPORT_COLUMNS,
-        {
-            key: immport[key]
-            for key in [
-                "study_accession",
-                "outcome_names",
-                "timepoint_source_unit",
-                "field_precedence",
-            ]
-        },
         immport_started_at,
         time.monotonic() - started,
     )
@@ -543,6 +734,7 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
                 "sha256": _sha256(provenance_path),
             },
         }
+
     bundle_manifest = {
         "status": "success",
         "run_started_at_utc": run_started_at,
@@ -555,6 +747,8 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
             "size_bytes": config_source.stat().st_size,
             "sha256": _sha256(config_source),
         },
+        "configuration_mode": "multi_dataset" if "datasets" in config else "legacy_single_dataset",
+        "dataset_jobs": [job["name"] for job in jobs],
         "output_dir": output_dir_text,
         "artifacts": artifacts,
     }

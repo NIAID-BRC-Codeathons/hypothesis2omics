@@ -2,6 +2,7 @@
 data/geo_cache/
 data/immport_cache/
 data/__pycache__/
+data/fetch_input
 temp
 
 # API keys
