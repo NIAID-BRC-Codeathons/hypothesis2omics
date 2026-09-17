@@ -1,0 +1,61 @@
+{
+  "duration_sec": 0.009,
+  "input": {
+    "path": "data/immport_cache/parsed/sample_manifest.tsv",
+    "sha256": "a42854a6ef461671c891bb9f9d06272ceb4704bf0d667e08f5a199820d20a781",
+    "size_bytes": 356388,
+    "type": "normalized_immport_sample_manifest"
+  },
+  "output": {
+    "columns": [
+      "study_accession",
+      "experiment_accession",
+      "experiment_name",
+      "measurement_technique",
+      "expsample_accession",
+      "result_schema",
+      "upload_result_status",
+      "repository_name",
+      "repository_accession",
+      "biosample_accession",
+      "planned_visit_accession",
+      "subject_accession",
+      "study_time_collected",
+      "study_time_collected_unit",
+      "study_time_t0_event",
+      "biosample_type",
+      "biosample_subtype",
+      "arm_accession",
+      "arm_name",
+      "arm_type_reported",
+      "arm_type_preferred",
+      "age_event",
+      "age_unit",
+      "min_subject_age",
+      "max_subject_age",
+      "min_subject_age_in_years",
+      "max_subject_age_in_years",
+      "subject_phenotype",
+      "subject_location",
+      "ancestral_population",
+      "ethnicity",
+      "gender",
+      "race",
+      "race_specify",
+      "species",
+      "strain"
+    ],
+    "path": "data/validator_input/sample_manifest.tsv",
+    "rows": 888,
+    "sha256": "a42854a6ef461671c891bb9f9d06272ceb4704bf0d667e08f5a199820d20a781",
+    "size_bytes": 356388
+  },
+  "parser": "validator_handoff_parse_module",
+  "parser_version": "0.2.0",
+  "python_version": "3.12.13",
+  "run_started_at_utc": "2026-09-17T13:49:27.530882+00:00",
+  "selection": {
+    "mode": "verbatim_copy"
+  },
+  "status": "success"
+}

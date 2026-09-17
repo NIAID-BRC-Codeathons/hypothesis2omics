@@ -1,0 +1,36 @@
+{
+  "duration_sec": 0.206,
+  "input": {
+    "path": "data/geo_cache/GSE13485/GSE13485_series_matrix.txt.gz",
+    "sha256": "8399d88306b13d5a6f23cc5d4227c59da561fd9b97ab2840e22279d4046d546b",
+    "size_bytes": 9627893,
+    "type": "geo_series_matrix"
+  },
+  "output": {
+    "columns": [
+      "study_accession",
+      "gse_accession",
+      "gpl_accession",
+      "gene",
+      "feature_id",
+      "sample_accession",
+      "expression_value"
+    ],
+    "path": "data/validator_input/feature_expression.tsv",
+    "rows": 87,
+    "sha256": "8477be12aaf5ed8fe269bf3aa2db4b395cda84f72309bb45526db6a36f521db8",
+    "size_bytes": 6002
+  },
+  "parser": "validator_handoff_parse_module",
+  "parser_version": "0.2.0",
+  "python_version": "3.12.13",
+  "run_started_at_utc": "2026-09-17T13:49:27.544158+00:00",
+  "selection": {
+    "feature_id": "Hs.412102_at",
+    "gene": "EIF2AK4",
+    "gpl_accession": "GPL7567",
+    "gse_accession": "GSE13485",
+    "study_accession": "SDY1264"
+  },
+  "status": "success"
+}
