@@ -14,12 +14,14 @@ from typing import Any
 
 from fastmcp import FastMCP
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+MCP_ROOT = Path(__file__).resolve().parents[1]
+for import_root in (MCP_ROOT, PROJECT_ROOT):
+    if str(import_root) not in sys.path:
+        sys.path.insert(0, str(import_root))
 
-from mcp_server.geo_tools import GeoDataStore
-from mcp_server.pipeline_tools import DEFAULT_DATA_ROOT, PipelineTools
+from data_normalizer.geo_tools import GeoDataStore  # noqa: E402
+from data_normalizer.pipeline_tools import DEFAULT_DATA_ROOT, PipelineTools  # noqa: E402
 
 PARSED_ROOT_ENV = "HYPOTHESIS2OMICS_GEO_PARSED_ROOT"
 DATA_ROOT_ENV = "HYPOTHESIS2OMICS_DATA_ROOT"

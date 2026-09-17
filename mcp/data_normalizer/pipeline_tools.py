@@ -21,7 +21,7 @@ from data.immport_batch_parse import run_batch as run_immport_batch_parser
 from data.immport_fetch_module import fetch_immport_datasets
 from data.list_directory import build_file_inventory
 
-DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[1] / "data"
+DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[2] / "data"
 SDY_PATTERN = re.compile(r"^SDY\d+$", re.IGNORECASE)
 GSE_PATTERN = re.compile(r"^GSE\d+$", re.IGNORECASE)
 PLAN_FILENAME = "geo_download_plan.tsv"

@@ -68,7 +68,7 @@ import parse_hypothesis as step1  # noqa: E402
 from h2o_common import DEFAULT_MODEL, OPENAI_API_KEY, OPENAI_BASE_URL  # noqa: E402
 
 # Matches the mcp.json key in mcp-server.json. Not "hypothesis2omics" -- that is
-# the pipeline server in mcp_server/, and two servers reporting one name makes
+# the pipeline server in mcp/data_normalizer/, and two servers reporting one name makes
 # a client's server list ambiguous.
 server = MCPServer("hypothesis-parser")
 

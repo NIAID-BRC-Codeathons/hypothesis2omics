@@ -21,7 +21,7 @@ EXPRESSION_FILENAME = "expression.tsv.gz"
 SAMPLES_FILENAME = "samples.tsv"
 GEO_METADATA_FILENAME = "geo_sample_metadata_long.tsv"
 DEFAULT_PARSED_ROOT = (
-    Path(__file__).resolve().parents[1] / "data" / "geo_cache" / "parsed"
+    Path(__file__).resolve().parents[2] / "data" / "geo_cache" / "parsed"
 )
 MAX_SAMPLE_PAGE_SIZE = 100
 GSM_PATTERN = re.compile(r"^GSM\d+$", re.IGNORECASE)

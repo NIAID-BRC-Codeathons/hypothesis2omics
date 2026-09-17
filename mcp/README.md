@@ -9,7 +9,7 @@ self-contained script, another is a package that shares the repo's `pyproject.to
 |---|---|---|
 | `hypothesis-parser` | `mcp/parse-hypo/` | a plain-text hypothesis → a test spec and an ImmPort search spec (needs an LLM gateway) |
 | `keyword-to-immport` | `mcp/keyword-to-immport/` | keywords or a search spec → ImmPort study accessions (public API, no credentials) |
-| `hypothesis2omics` | `mcp_server/` | run the ingestion pipeline and inspect parsed GEO units |
+| `hypothesis2omics` | `mcp/data_normalizer/` | run ingestion and inspect GEO units |
 
 Together they chain: parse a hypothesis into a search spec, run that spec against
 ImmPort for accessions, then ingest and inspect them.
@@ -98,7 +98,13 @@ A package that shares the repo's `pyproject.toml`:
 {
   "name": "hypothesis2omics",
   "command": "uv",
-  "args": ["run", "--directory", "${root}", "python", "-m", "mcp_server.server"],
+  "args": [
+    "run",
+    "--directory",
+    "${root}",
+    "python",
+    "${root}/mcp/data_normalizer/server.py"
+  ],
   "directTools": true,
   "env": { "IMMPORT_API_KEY": "${IMMPORT_API_KEY}" }
 }

@@ -4,15 +4,29 @@ from __future__ import annotations
 
 import csv
 import json
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
-from data.list_directory import build_file_inventory
-from mcp_server.pipeline_tools import PipelineTools
+REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+MCP_ROOT = REPOSITORY_ROOT / "mcp"
+if str(MCP_ROOT) not in sys.path:
+    sys.path.insert(0, str(MCP_ROOT))
+
+from data.list_directory import build_file_inventory  # noqa: E402
+from data_normalizer.geo_tools import DEFAULT_PARSED_ROOT  # noqa: E402
+from data_normalizer.pipeline_tools import DEFAULT_DATA_ROOT, PipelineTools  # noqa: E402
 
 
 class FileInventoryTests(unittest.TestCase):
+    def test_data_normalizer_defaults_resolve_from_repository_root(self) -> None:
+        self.assertEqual(DEFAULT_DATA_ROOT, REPOSITORY_ROOT / "data")
+        self.assertEqual(
+            DEFAULT_PARSED_ROOT,
+            REPOSITORY_ROOT / "data" / "geo_cache" / "parsed",
+        )
+
     def setUp(self) -> None:
         self.temporary_directory = tempfile.TemporaryDirectory()
         self.data_root = Path(self.temporary_directory.name) / "data"
