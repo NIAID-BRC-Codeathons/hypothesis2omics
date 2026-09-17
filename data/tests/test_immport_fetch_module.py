@@ -1,4 +1,4 @@
-"""Focused tests for ImmPort download progress and CLI failure reporting."""
+"""Focused tests for ImmPort file selection, progress, and CLI failure reporting."""
 
 from __future__ import annotations
 
@@ -9,12 +9,14 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
+from data.immport_batch_parse import discover_tab_sources
 from data.immport_fetch_module import (
     ArtifactRecord,
     FetchRecord,
     ImmportSession,
     _download_progress,
     _format_bytes,
+    _select_parser_required_entries,
     fetch_one,
     main,
 )
@@ -37,6 +39,28 @@ class ImmportFetchProgressTests(unittest.TestCase):
     def test_formats_download_progress(self) -> None:
         self.assertEqual(_format_bytes(1024), "1.0 KiB")
         self.assertEqual(_download_progress(1024, 2048), "1.0 KiB/2.0 KiB")
+
+    def test_selects_one_highest_release_direct_tab_archive(self) -> None:
+        entries = [
+            {"path": "/SDY123/SDY123-DR57_Tab.zip"},
+            {"path": "/SDY123/SDY123-DR58_MySQL.zip"},
+            {"path": "/SDY123/ResultFiles/SDY123-DR99_Tab.zip"},
+            {"path": "/SDY123/SDY123-DR58_Tab.zip"},
+        ]
+
+        selected, release = _select_parser_required_entries("SDY123", entries)
+
+        self.assertEqual(release, 58)
+        self.assertEqual(selected, [entries[-1]])
+
+    def test_rejects_ambiguous_highest_release_tab_archive(self) -> None:
+        entries = [
+            {"path": "/SDY123/SDY123-DR58_Tab.zip", "fileUUID": "first"},
+            {"path": "/SDY123/SDY123-DR58_Tab.zip", "fileUUID": "second"},
+        ]
+
+        with self.assertRaisesRegex(ValueError, "Expected one .* but found 2"):
+            _select_parser_required_entries("SDY123", entries)
 
     @patch("data.immport_fetch_module._download_file")
     @patch("data.immport_fetch_module._fetch_filepath_manifest")
@@ -64,13 +88,84 @@ class ImmportFetchProgressTests(unittest.TestCase):
                     "SDY123",
                     Path(directory),
                     ImmportSession(api_key="test-key"),
+                    all_files=True,
                 )
 
         messages = "\n".join(captured.output)
         self.assertEqual(result.status, "partial")
-        self.assertIn("Manifest lists 2 files; processing 2", messages)
+        self.assertIn("Manifest lists 2 files; selected 2 (all_files); processing 2", messages)
         self.assertIn("first.zip: downloaded", messages)
         self.assertIn("second.zip: failed: HTTP 500", messages)
+
+    @patch("data.immport_fetch_module._download_file")
+    @patch("data.immport_fetch_module._fetch_filepath_manifest")
+    def test_default_fetch_downloads_only_parser_tab_zip(
+        self,
+        manifest_mock,
+        download_mock,
+    ) -> None:
+        manifest_mock.return_value = [
+            {
+                "path": "/SDY123/ResultFiles/result.txt",
+                "fileUUID": "result",
+                "filesizeBytes": 20,
+            },
+            {
+                "path": "/SDY123/SDY123-DR58_Tab.zip",
+                "fileUUID": "tab",
+                "filesizeBytes": 1024,
+            },
+        ]
+        download_mock.return_value = _artifact("success", "SDY123-DR58_Tab.zip")
+
+        with tempfile.TemporaryDirectory() as directory:
+            result = fetch_one(
+                "SDY123",
+                Path(directory),
+                ImmportSession(api_key="test-key"),
+            )
+            tab_path = Path(directory) / "SDY123" / "SDY123-DR58_Tab.zip"
+            tab_path.touch()
+            discovered = discover_tab_sources(directory)
+
+        self.assertEqual(download_mock.call_count, 1)
+        self.assertEqual(download_mock.call_args.args[0], "/SDY123/SDY123-DR58_Tab.zip")
+        self.assertEqual(result.status, "success")
+        self.assertEqual(result.selection_mode, "parser_required")
+        self.assertEqual(result.selected_data_release, 58)
+        self.assertEqual(result.n_files_listed, 2)
+        self.assertEqual(result.n_files_selected, 1)
+        self.assertEqual(result.n_files_downloaded, 1)
+        self.assertEqual(discovered["SDY123"][0], 58)
+
+    @patch("data.immport_fetch_module._download_file")
+    @patch("data.immport_fetch_module._fetch_filepath_manifest")
+    def test_missing_tab_archive_fails_with_manifest_provenance(
+        self,
+        manifest_mock,
+        download_mock,
+    ) -> None:
+        manifest_mock.return_value = [
+            {
+                "path": "/SDY123/ResultFiles/result.txt",
+                "fileUUID": "result",
+            }
+        ]
+
+        with tempfile.TemporaryDirectory() as directory:
+            result = fetch_one(
+                "SDY123",
+                Path(directory),
+                ImmportSession(api_key="test-key"),
+            )
+            manifest_path = Path(directory) / "SDY123" / "SDY123_filepath_manifest.json"
+            self.assertTrue(manifest_path.is_file())
+
+        download_mock.assert_not_called()
+        self.assertEqual(result.status, "failed")
+        self.assertEqual(result.n_files_selected, 0)
+        self.assertIn("No direct SDY123-DR<n>_Tab.zip", result.error or "")
+        self.assertEqual(result.artifacts[0].artifact_type, "filepath_manifest")
 
     @patch("data.immport_fetch_module.fetch_immport_datasets")
     @patch("data.immport_fetch_module._parse_args")
@@ -82,6 +177,7 @@ class ImmportFetchProgressTests(unittest.TestCase):
                 api_key_file="key.json",
                 force=False,
                 max_files_per_study=None,
+                all_files=False,
             )
             fetch_mock.return_value = [
                 FetchRecord(

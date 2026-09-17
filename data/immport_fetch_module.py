@@ -2,9 +2,10 @@
 Dataset acquisition for the Hypothesis2Omics pipeline (ImmPort).
 
 For each ImmPort Study Accession (SDYxxxx), this module authenticates against the
-ImmPort Shared Data API, retrieves the study manifest, resolves each file's DRS ID
-to a signed download URL, caches the artifacts under data/immport_cache, and records
-per-artifact provenance (mirrors the structure of geo_fetch_module.py).
+ImmPort Shared Data API and retrieves the study manifest. By default, it downloads
+only the highest-release Tab ZIP consumed by immport_batch_parse.py. It can instead
+download every listed file with --all-files. Artifacts are cached under
+data/immport_cache with per-artifact provenance.
 
 Unlike GEO, ImmPort requires an API key to resolve authenticated download URLs.
 See:
@@ -63,14 +64,14 @@ Python usage:
     )
 
 Output:
-    By default, files are saved under data/immport_cache/<SDY_ID>/. The fetcher
-    preserves ImmPort subdirectories such as StudyFiles/ and ResultFiles/ and saves
-    <SDY_ID>_filepath_manifest.json alongside them. Use --destdir to select another
-    cache root.
+    By default, the newest <SDY_ID>-DR<n>_Tab.zip is saved under
+    data/immport_cache/<SDY_ID>/. The complete remote file manifest is saved as
+    <SDY_ID>_filepath_manifest.json. Use --all-files to download every listed file
+    or --destdir to select another cache root.
 
-    Each FetchRecord includes status, source paths, local paths, file sizes, SHA-256
-    checksums, errors, timing, and listed/downloaded file counts. Command-line runs
-    also write data/immport_cache/manifest.json and append to
+    Each FetchRecord includes status, selection mode and release, source and local
+    paths, file sizes, SHA-256 checksums, errors, timing, and file counts.
+    Command-line runs also write data/immport_cache/manifest.json and append to
     data/immport_cache/provenance_log.jsonl.
 
 """
@@ -83,6 +84,7 @@ import json
 import logging
 import os
 import platform
+import re
 import time
 from collections.abc import Sequence
 from dataclasses import asdict, dataclass, field
@@ -112,6 +114,12 @@ PROGRESS_LOG_INTERVAL_SEC = 5.0
 MAX_ERROR_BODY_CHARS = 500
 SOURCE_MISSING_MARKERS = ("nosuchkey", "specified key does not exist")
 CANDIDATE_SDY_IDS = ["SDY1529", "SDY1264", "SDY1294", "SDY1289"]
+TAB_ARCHIVE_PATTERN = re.compile(
+    r"^(?P<accession>SDY\d+)-DR(?P<release>\d+)_Tab\.zip$",
+    re.IGNORECASE,
+)
+PARSER_REQUIRED_MODE = "parser_required"
+ALL_FILES_MODE = "all_files"
 
 
 # --------------------------------------------------------------------------- #
@@ -147,7 +155,10 @@ class FetchRecord:
     api_base_url: str
     filepath_manifest_url: Optional[str]
     artifacts: list[ArtifactRecord] = field(default_factory=list)
+    selection_mode: str = PARSER_REQUIRED_MODE
+    selected_data_release: Optional[int] = None
     n_files_listed: Optional[int] = None
+    n_files_selected: Optional[int] = None
     n_files_downloaded: Optional[int] = None
     error: Optional[str] = None
     duration_sec: Optional[float] = None
@@ -337,6 +348,39 @@ def _fetch_filepath_manifest(sdy_id: str, session: ImmportSession) -> list[dict]
     return deduped
 
 
+def _select_parser_required_entries(
+    sdy_id: str,
+    manifest_entries: Sequence[dict],
+) -> tuple[list[dict], int]:
+    """Select one direct, highest-release Tab ZIP accepted by the batch parser."""
+    candidates: list[tuple[int, dict]] = []
+    for entry in manifest_entries:
+        file_path = entry.get("path")
+        if not isinstance(file_path, str):
+            continue
+        parts = PurePosixPath(file_path.lstrip("/")).parts
+        if len(parts) != 2 or parts[0].upper() != sdy_id:
+            continue
+        match = TAB_ARCHIVE_PATTERN.fullmatch(parts[1])
+        if not match or match.group("accession").upper() != sdy_id:
+            continue
+        candidates.append((int(match.group("release")), entry))
+
+    if not candidates:
+        raise ValueError(
+            f"No direct {sdy_id}-DR<n>_Tab.zip archive was listed in the study manifest"
+        )
+
+    selected_release = max(release for release, _entry in candidates)
+    selected = [entry for release, entry in candidates if release == selected_release]
+    if len(selected) != 1:
+        raise ValueError(
+            f"Expected one {sdy_id}-DR{selected_release}_Tab.zip archive, "
+            f"but found {len(selected)} manifest entries"
+        )
+    return selected, selected_release
+
+
 def _download_file(
     file_path: str,
     file_uuid: str,
@@ -504,11 +548,13 @@ def fetch_one(
     session: ImmportSession,
     force: bool = False,
     max_files: Optional[int] = None,
+    all_files: bool = False,
 ) -> FetchRecord:
-    """Fetch the file-path manifest and every listed file for one ImmPort study."""
+    """Fetch a manifest and its parser-required Tab ZIP, or every listed file."""
 
     start = time.time()
     now = datetime.now(timezone.utc).isoformat()
+    selection_mode = ALL_FILES_MODE if all_files else PARSER_REQUIRED_MODE
 
     try:
         normalized_id = _normalize_sdy_id(sdy_id)
@@ -521,6 +567,7 @@ def fetch_one(
             destdir=str(destdir),
             api_base_url=QUERY_BASE_URL,
             filepath_manifest_url=None,
+            selection_mode=selection_mode,
             error=str(exc),
             duration_sec=round(time.time() - start, 3),
         )
@@ -542,6 +589,7 @@ def fetch_one(
             destdir=str(sdy_dir),
             api_base_url=QUERY_BASE_URL,
             filepath_manifest_url=manifest_url,
+            selection_mode=selection_mode,
             error=error,
             duration_sec=round(time.time() - start, 3),
         )
@@ -564,13 +612,45 @@ def fetch_one(
         )
     ]
 
-    entries_to_fetch = manifest_entries[:max_files] if max_files is not None else manifest_entries
+    selected_release: Optional[int] = None
+    try:
+        if all_files:
+            selected_entries = manifest_entries
+        else:
+            selected_entries, selected_release = _select_parser_required_entries(
+                normalized_id,
+                manifest_entries,
+            )
+    except ValueError as exc:
+        error = str(exc)
+        logger.error("[%s] %s", normalized_id, error)
+        return FetchRecord(
+            sdy_id=normalized_id,
+            status="failed",
+            run_started_at_utc=now,
+            destdir=str(sdy_dir),
+            api_base_url=QUERY_BASE_URL,
+            filepath_manifest_url=manifest_url,
+            artifacts=artifacts,
+            selection_mode=selection_mode,
+            n_files_listed=len(manifest_entries),
+            n_files_selected=0,
+            n_files_downloaded=0,
+            error=error,
+            duration_sec=round(time.time() - start, 3),
+        )
+
+    entries_to_fetch = (
+        selected_entries[:max_files] if max_files is not None else selected_entries
+    )
     errors: list[str] = []
     total_files = len(entries_to_fetch)
     logger.info(
-        "[%s] Manifest lists %s files; processing %s",
+        "[%s] Manifest lists %s files; selected %s (%s); processing %s",
         normalized_id,
         len(manifest_entries),
+        len(selected_entries),
+        selection_mode,
         total_files,
     )
 
@@ -630,7 +710,7 @@ def fetch_one(
         if a.artifact_type != "filepath_manifest" and a.status in {"success", "cached"}
     )
     status = _summarize_status(artifacts)
-    if len(entries_to_fetch) < len(manifest_entries) and status in {"success", "cached"}:
+    if len(entries_to_fetch) < len(selected_entries) and status in {"success", "cached"}:
         status = "partial"
     if errors and status in {"success", "cached"}:
         status = "partial"
@@ -643,7 +723,10 @@ def fetch_one(
         api_base_url=QUERY_BASE_URL,
         filepath_manifest_url=manifest_url,
         artifacts=artifacts,
+        selection_mode=selection_mode,
+        selected_data_release=selected_release,
         n_files_listed=len(manifest_entries),
+        n_files_selected=len(selected_entries),
         n_files_downloaded=n_downloaded,
         error="; ".join(errors) or None,
         duration_sec=round(time.time() - start, 3),
@@ -658,9 +741,10 @@ def fetch_immport_datasets(
     force: bool = False,
     max_files_per_study: Optional[int] = None,
     provenance_log_path: Optional[str] = None,
+    all_files: bool = False,
 ) -> list[FetchRecord]:
     """
-    Fetch file-path manifests and files for each SDY accession, with provenance logging.
+    Fetch manifests and parser-required Tab ZIPs, or all files, with provenance.
 
     The API key resolves from arguments first, then IMMPORT_API_KEY_FILE or
     IMMPORT_API_KEY. Use your own ImmPort account and do not share the key.
@@ -676,7 +760,14 @@ def fetch_immport_datasets(
         provenance_path.parent.mkdir(parents=True, exist_ok=True)
 
     for sdy_id in sdy_ids:
-        record = fetch_one(sdy_id, base, session, force=force, max_files=max_files_per_study)
+        record = fetch_one(
+            sdy_id,
+            base,
+            session,
+            force=force,
+            max_files=max_files_per_study,
+            all_files=all_files,
+        )
         records.append(record)
         if provenance_path:
             with provenance_path.open("a", encoding="utf-8") as handle:
@@ -690,11 +781,13 @@ def _print_summary(records: Sequence[FetchRecord]) -> None:
     logger.info("Fetch summary")
     for record in records:
         logger.info(
-            "[%s] %s — %s/%s files (%ss)",
+            "[%s] %s — %s/%s selected files (%s listed, mode=%s, %ss)",
             record.status.upper(),
             record.sdy_id,
             record.n_files_downloaded,
+            record.n_files_selected,
             record.n_files_listed,
+            record.selection_mode,
             record.duration_sec,
         )
         if record.error:
@@ -705,7 +798,7 @@ def _print_summary(records: Sequence[FetchRecord]) -> None:
 
 def _parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Fetch ImmPort study file manifests and result files with provenance. "
+        description="Fetch ImmPort study manifests and selected files with provenance. "
         "Requires your own ImmPort API key; see the README."
     )
     parser.add_argument(
@@ -728,7 +821,12 @@ def _parse_args() -> argparse.Namespace:
         "--max-files-per-study",
         type=int,
         default=None,
-        help="Optional cap on number of files downloaded per study (manifest is always full).",
+        help="Optional cap on selected files downloaded per study (manifest is always full).",
+    )
+    parser.add_argument(
+        "--all-files",
+        action="store_true",
+        help="Download every listed file instead of only the newest parser-required Tab ZIP.",
     )
     parser.add_argument(
         "--api-key-file",
@@ -749,6 +847,7 @@ def main() -> None:
             api_key_file=args.api_key_file,
             force=args.force,
             max_files_per_study=args.max_files_per_study,
+            all_files=args.all_files,
             provenance_log_path=str(provenance_path),
         )
     except ImmportAuthError as exc:

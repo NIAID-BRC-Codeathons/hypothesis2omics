@@ -19,18 +19,22 @@ ImmPort requires a personal API key with `browse` and `download` scopes. Create 
 under `data/immport_cache/`. Never commit or share it.
 
 ```bash
-# Fetch selected studies.
+# Fetch each study's newest Tab ZIP required by the ImmPort parser.
 uv run python data/immport_fetch_module.py SDY1529 SDY1264 \
   --api-key-file data/immport_cache/immport-key-REPLACE_ME.json
 
-# Limit a smoke test to one file per study.
+# Download every file listed by ImmPort only when the full dataset is needed.
 uv run python data/immport_fetch_module.py SDY1529 \
   --api-key-file data/immport_cache/immport-key-REPLACE_ME.json \
-  --max-files-per-study 1
+  --all-files
 ```
 
 Always pass the downloaded JSON file with `--api-key-file`, as shown above. Replace
 `immport-key-REPLACE_ME.json` with the downloaded filename; do not paste the raw key into a command.
+The complete remote file manifest is retained in both modes. By default, the fetcher selects the
+highest-release `<SDY_ID>-DR<n>_Tab.zip`; MySQL archives and result files are not downloaded.
+`--max-files-per-study` can optionally cap the files selected for processing, which is most useful
+with `--all-files`.
 
 ## Parse ImmPort sample links
 
@@ -119,7 +123,6 @@ from data.geo_fetch_module import fetch_geo_datasets
 immport_records = fetch_immport_datasets(
     ["SDY1529"],
     api_key_file="data/immport_cache/immport-key-REPLACE_ME.json",
-    max_files_per_study=1,
     provenance_log_path="data/immport_cache/provenance_log.jsonl",
 )
 geo_records = fetch_geo_datasets(
@@ -128,8 +131,9 @@ geo_records = fetch_geo_datasets(
 )
 ```
 
-Each call returns one structured record per accession, including status, source and local paths,
-file sizes, SHA-256 checksums, errors, and timing.
+Each call returns one structured record per accession, including selection mode and release, status,
+source and local paths, file counts, sizes, SHA-256 checksums, errors, and timing. Pass
+`all_files=True` to the Python fetcher only when every remote file is needed.
 
 ## Outputs and options
 
