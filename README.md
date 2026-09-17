@@ -41,7 +41,7 @@ pipeline runs unattended from end to end, by design.
 | Hypothesis -> test spec -> search spec     | `mcp/parse-hypo`               | Melanie Sadecki            |
 | Keyword and spec search over ImmPort       | `mcp/keyword-to-immport`       | Yaphet Kebede              |
 | MCP registration and installer             | `mcp/`                         | Yaphet Kebede              |
-| Retrieval, parsing, normalization          | `data/`, `mcp/data_normalizer` | Yijun Zhou                 |
+| Retrieval, parsing, normalization          | `data/`, `mcp/data_normalizer` | Yijun Zhou, Amar Kumar     |
 | Scientific eligibility and evidence fusion | `scientific_validator/`        | Amar Kumar                 |
 | Analysis execution                         | Galaxy, limma                  | Archit Vasan, Slim Fourati |
 | Decision rules, independence, synthesis    | `evidence_rules/`              | Rushikesh Lagad            |
