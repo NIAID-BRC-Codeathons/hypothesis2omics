@@ -1,5 +1,6 @@
 """Focused tests for scientific-validator handoff input path resolution."""
 
+from pathlib import Path
 import unittest
 
 from scientific_validator.handoff_adapter import resolve_input_paths
@@ -9,14 +10,13 @@ class HandoffAdapterTests(unittest.TestCase):
     def test_resolves_canonical_bundle_paths(self) -> None:
         paths = resolve_input_paths("data/validator_input", None, None, None)
 
-        self.assertEqual(
-            paths,
-            (
-                "data/validator_input/sample_manifest.tsv",
-                "data/validator_input/feature_expression.tsv",
-                "data/validator_input/quantitative_outcome.tsv",
-            ),
+        expected = (
+            str(Path("data/validator_input/sample_manifest.tsv")),
+            str(Path("data/validator_input/feature_expression.tsv")),
+            str(Path("data/validator_input/quantitative_outcome.tsv")),
         )
+
+        self.assertEqual(paths, expected)
 
     def test_explicit_path_overrides_bundle_path(self) -> None:
         paths = resolve_input_paths(
