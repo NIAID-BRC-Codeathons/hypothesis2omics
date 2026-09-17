@@ -17,6 +17,12 @@ copy of every rule.
                                             STEP 3  (local) -> 03_search_spec.yaml
     derive_search_spec(test_spec_path)      STEP 3 again, after a hand edit
     audit_search_terms(search_spec_path)    per-term hit counts, ImmPort reads only
+    check_study_readiness(sdy_ids, outdir)  STEP 4  (ImmPort, no model) -> study_readiness.tsv
+
+STEP 4 needs its own credential -- an ImmPort API key, resolved from
+IMMPORT_API_KEY_FILE or IMMPORT_API_KEY in the environment. There is no credential
+parameter on the tool, matching how the LLM gateway credential above is resolved
+from the environment rather than an argument.
 
 ON THE HUMAN GATE. build_test_spec takes a filesystem path, never an inline object,
 so 01_parsed.yaml must exist before step 2 can run. That is a speed bump, not an
@@ -104,6 +110,18 @@ def _step2() -> Any:
     import build_test_spec
 
     return build_test_spec
+
+
+def _step4() -> Any:
+    """Import step 4 lazily.
+
+    study_readiness_module pulls in data/immport_fetch_module.py and its own
+    ImmPort session/download machinery. Deferring it to first use means a client
+    that never calls this tool never loads the ImmPort retrieval layer either.
+    """
+    import study_readiness_module
+
+    return study_readiness_module
 
 
 def _outdir(path: str) -> Path:
@@ -283,6 +301,56 @@ def audit_search_terms(search_spec_path: str) -> dict:
         "no_hits": [r["term"] for r in rows if r["hits"] == 0],
         "widens_required_set": [r["term"] for r in rows
                                 if r["required_group"] and r["unique"] >= 3],
+    }
+
+
+@server.tool()
+def check_study_readiness(
+    sdy_ids: list[str], outdir: str, cache_dir: str | None = None
+) -> dict:
+    """Step 4: gate ImmPort accessions on GEO-linked sample data before retrieval.
+
+    Step 3 returns accessions ImmPort will hand back for a keyword match; it says
+    nothing about whether a study has the specific linkage data this pipeline needs
+    downstream. For each accession, downloads only the study's small *_Tab.zip
+    release file (a few MB, not the full multi-GB archive) and checks it: ready
+    means expsample_public_repository.txt is present with at least one row where
+    REPOSITORY_NAME == GEO. study_link.txt, where present, is recorded but never
+    gates the verdict -- see study_readiness_module.py for why.
+
+    No credential parameter: the ImmPort API key is resolved from
+    IMMPORT_API_KEY_FILE or IMMPORT_API_KEY in the environment, the same way
+    ImmportSession already resolves it for immport_fetch_module.py's own CLI.
+
+    Args:
+        sdy_ids: ImmPort study accessions to check, e.g. the output of
+            keyword-to-immport's search_spec.
+        outdir: directory to write study_readiness.tsv, ready_studies.txt,
+            excluded_studies.tsv and provenance into; created if absent.
+        cache_dir: where to cache downloaded Tab.zip files. Defaults to
+            <outdir>/immport_cache.
+
+    Returns: {"ready", "excluded", "study_readiness_path", "ready_studies_path",
+        "excluded_studies_path", "provenance"}.
+
+    Raises: ImmportAuthError if no ImmPort API key is found in the environment.
+    """
+    step4 = _step4()
+    out = _outdir(outdir)
+    result = step4.assess_studies(
+        sdy_ids,
+        output_dir=out,
+        api_key_file=None,
+        cache_dir=Path(cache_dir).expanduser() if cache_dir else None,
+    )
+    provenance = result["provenance"]
+    return {
+        "ready": provenance["ready"],
+        "excluded": provenance["excluded"],
+        "study_readiness_path": provenance["outputs"]["study_readiness_tsv"],
+        "ready_studies_path": provenance["outputs"]["ready_studies_txt"],
+        "excluded_studies_path": provenance["outputs"]["excluded_studies_tsv"],
+        "provenance": provenance,
     }
 
 
