@@ -16,10 +16,11 @@ ImmPort for accessions, then ingest and inspect them.
 
 ## Install into Loom
 
-Loom has no user-installable extensions — the Pi.dev extensions in its README are
-hardcoded into `bin/loom.js`. It does pick up MCP servers, though: it merges
-`~/.pi/agent/mcp.json` on every launch and leaves keys it doesn't own alone. One
-line registers every server in this repo there:
+Loom's **Pi.dev extensions** are hardcoded as `-e` args in `bin/loom.js`, so one of
+those cannot be installed from outside. MCP servers are a different mechanism and are
+fully open: Loom merges `$PI_CODING_AGENT_DIR/mcp.json` (default `~/.pi/agent/mcp.json`)
+on every launch, sets only its own `galaxy` and `brc-analytics` keys, and leaves foreign
+keys alone. One line registers every server in this repo there:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/NIAID-BRC-Codeathons/hypothesis2omics/main/mcp/install.sh | bash
@@ -64,8 +65,9 @@ server name, hyphens becoming underscores — `keyword_to_immport_search_spec`,
   `OPENAI_BASE_URL` **and** `OPENAI_MODEL` before starting Loom; the default model id
   is Argo's and means nothing elsewhere. The other servers need none of this.
 - **Loom's web/remote shell will not expose these tools.** Its `web-mode-gate` is
-  default-deny with an allowlist covering only `galaxy_`, `brc_analytics_`, `gtn_`
-  and `notebook_`. CLI and Orbit are unaffected.
+  default-deny with an allowlist covering only the prefixes `galaxy_`, `brc_analytics_`,
+  `gtn_`, `notebook_`, plus the exact tool `skills_fetch`. Those prefixes are the gate's
+  own allowlist, not the `-e` extension list. CLI and Orbit are unaffected.
 
 ## Adding a server
 
@@ -115,6 +117,33 @@ An HTTP server needs only `{"url": "..."}` instead of `command`/`args`.
 `node mcp/register.mjs --self-test` checks that every manifest parses, that its
 placeholders resolve to paths that exist, and that registering leaves Loom's own
 `galaxy` / `brc-analytics` entries untouched.
+
+## Instructions, not just tools
+
+Registering the servers gives Loom the tools. It does not tell it how they chain, which
+calls cost money, or which stages have no tool at all. Two files in the repo root cover that:
+
+- **`LOOM.md`** — Loom discovers it by walking the cwd's ancestors and injects it
+  automatically, so a clone needs no install step. It is injected as *data, not
+  instructions*: Loom tells the model the file may have shipped with the folder rather than
+  been written by the user, so imperative text in it carries no authority. Written as a map
+  and a tool inventory for that reason. Caps are 8 KB and 200 lines, silently truncated past
+  either.
+- **`LOOM.global.md`** — a short snippet for `~/.pi/agent/LOOM.md`, which *does* ride in the
+  cached system prompt with real authority. Opt-in, and **appended** rather than copied:
+  that path is global to every project the user opens.
+
+The full route lives in `.claude/skills/hypothesis2omics/SKILL.md`, which both files point
+at, together with `scripts/h2o_preflight.py` — a standard-library preflight that reports
+environment readiness, which stage is runnable, and whether every artifact on disk carries
+provenance.
+
+Loom also has a real skills mechanism — `skills_fetch` plus the Claude Code `SKILL.md`
+convention, with progressive disclosure into the system prompt. It is not usable from here:
+`shared/loom-config.js` pins `ALLOWED_SKILLS_PREFIX` to `https://github.com/galaxyproject/`
+and enforces it twice, because fetched skill text is treated as authoritative instructions
+and an arbitrary repo is a prompt-injection vector. Reaching it would mean landing the skill
+in a `galaxyproject/*` repository.
 
 ## Other MCP clients
 
