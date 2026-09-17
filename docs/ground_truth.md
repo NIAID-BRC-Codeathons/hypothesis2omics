@@ -43,6 +43,54 @@ inferred from the hypothesis text, it is taken from two published studies.
 **Predictor timepoint is day 7.** Ravindran notes the human signature kinetics
 peak at day 7, not day 3 and not day 15.
 
+### The two papers make claims at different grains
+
+This matters for what our benchmark is comparable to, so it is worth being
+explicit rather than citing both as generic support.
+
+**Querec's human claim is signature-level.** A multi-gene signature evaluated
+as a classifier, reported as discriminative accuracy in a blinded trial, not as
+a correlation coefficient for any single gene. A single gene taken out of a
+signature need not correlate on its own, so a null on one gene is not evidence
+against the signature.
+
+**Ravindran has two legs, and only one is human.** The human leg is the quoted
+correlation of early GCN2 expression with later CD8 magnitude, which is a
+single-gene claim at the same grain as our test. The causal leg is murine:
+GCN2 knockouts, bone marrow chimeras, the CD11c-cre conditional. The mechanism
+is established in mice; the human evidence remains correlative.
+
+So `direction = "up"` is still pre-registerable, but it rests on a human
+correlative signature plus a human single-gene correlation plus a mouse
+mechanism. A report that says "the direction is taken from two published
+studies" should say which of those legs it is relying on.
+
+### Open question, and it bears on which specification is primary
+
+> **Unverified, and it matters.** We do not currently know how Ravindran
+> defined the predictor for that human correlation: expression as measured at
+> day 7, or a change from baseline.
+>
+> `evidence_rules/run_yf17d.py` declares `day7_raw` as the primary
+> specification on the reasoning that expression as measured is what the
+> published work used. Our two specifications disagree: as measured is
+> inconclusive in both trial arms, while day 7 minus day 0 is positive and
+> significant in both. If Ravindran used a change from baseline, then the
+> difference score is the specification that matches the published method, and
+> the primary should be reconsidered.
+>
+> Resolving this needs the Ravindran methods section, PMC4048998. It is the
+> single highest-value literature check remaining, because it decides which of
+> our verdicts is the headline. Whoever has access should read how the
+> predictor was constructed and record it here.
+>
+> Note that this does not make the difference score unproblematic. Baseline
+> EIF2AK4 is itself associated with the outcome in both arms (r = -0.439 and
+> -0.826), so a difference score inherits that by construction, and the
+> association does not survive baseline adjustment in the second arm. If
+> Ravindran used a difference score, the published result inherits the same
+> coupling. That is worth knowing either way.
+
 > Unverified: the proposal cites a "Rodrigues-Coffinet 2025 Science
 > Immunology" paper. It did not turn up in any search. Somebody should confirm
 > it exists before it goes in a report.

@@ -1,0 +1,98 @@
+{
+  "commit": "2ba6aaf",
+  "comparability": null,
+  "decision_rule": {
+    "alpha": 0.05,
+    "correction": "BH",
+    "direction": "up",
+    "min_effect": 0.0,
+    "min_independent_groups": 2
+  },
+  "hypothesis": "Early expression of EIF2AK4 (GCN2) correlates with the magnitude of the YF-17D specific CD8+ T cell response.",
+  "hypothesis_id": "H1-CD8",
+  "independence_groups": {
+    "GSE13485_trial1": "SDY1264|ARM4368",
+    "GSE13485_trial2": "SDY1264|ARM4369"
+  },
+  "limitations": [
+    "One accession supplies both analysis units. The two trials were run a year apart with different vaccine lots, which is why they are treated as independent, but they share a lab, a platform and a protocol.",
+    "The step between an eligible dataset and an analysis-ready matrix with a design file is manual. The stages either side are scripted and provenance-backed; this one is not yet."
+  ],
+  "n_analysis_units": 2,
+  "n_independent_groups": 2,
+  "n_supporting_groups": 0,
+  "not_analysed": [
+    {
+      "accession": "GSE13486",
+      "reason": "SuperSeries containing GSE13485; skipped to avoid duplicating the same expression data",
+      "stage": "retrieval"
+    },
+    {
+      "accession": "GSE125921",
+      "reason": "baseline only, all 36 samples carry a _BL suffix, so no post-vaccination predictor timepoint exists",
+      "stage": "eligibility"
+    },
+    {
+      "accession": "GSE13699",
+      "reason": "SDY1289 matrix extracted (22,184 x 126) but no design file yet, so limma has not been run",
+      "stage": "analysis-ready preparation"
+    },
+    {
+      "accession": "SDY1291",
+      "reason": "fetched and parsed, produces no linked GEO analysis unit",
+      "stage": "parsing"
+    }
+  ],
+  "overall_verdict": "inconclusive",
+  "prepared_on": "2026-09-17",
+  "primary_specification": {
+    "label": "EIF2AK4 at day 7, as measured",
+    "prereg_basis": "Querec 2009 built its predictive signature from early expression as measured, and Ravindran 2014 puts the human signature peak at day 7. This is the specification that matches the published method, so it is the one that counts. The two difference-score specifications below are sensitivity analyses.",
+    "spec_id": "day7_raw"
+  },
+  "sensitivity": [
+    {
+      "label": "EIF2AK4 day 7 minus day 0",
+      "overall_verdict": "supportive",
+      "spec_id": "delta"
+    },
+    {
+      "label": "EIF2AK4 at day 7, baseline held constant",
+      "overall_verdict": "inconclusive",
+      "spec_id": "day7_adjusted"
+    }
+  ],
+  "synthesis": {
+    "narrative": "Overall verdict: inconclusive, because no result met the pre-registered criteria.\n\nPre-registered before any result existed: alpha 0.05, BH correction, expected direction 'up', minimum effect 0.0, and at least 2 independent dataset group(s) required.\n\n2 analysis unit(s) resolve to 2 independent group(s):\n  SDY1264|ARM4368: GSE13485_trial1\n  SDY1264|ARM4369: GSE13485_trial2\n\nCaveats:\n  - This is a re-analysis of public data. Agreeing with a published finding shows the pipeline reproduces it, which is not independent confirmation of the underlying biology.",
+    "overall_verdict": "inconclusive",
+    "per_dataset": [
+      {
+        "analysis_unit_id": "GSE13485_trial1",
+        "caveats": [
+          "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability."
+        ],
+        "cohort": "Trial 1",
+        "confidence": 0.4,
+        "evidence_summary": "effect +0.438, p 0.103, n = 15",
+        "gse_id": "GSE13485",
+        "platform": "GPL7567",
+        "rationale": "p=0.103 is above 0.05",
+        "verdict": "inconclusive"
+      },
+      {
+        "analysis_unit_id": "GSE13485_trial2",
+        "caveats": [
+          "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability."
+        ],
+        "cohort": "Trial 2",
+        "confidence": 0.07,
+        "evidence_summary": "effect +0.032, p 0.93, n = 10",
+        "gse_id": "GSE13485",
+        "platform": "GPL7567",
+        "rationale": "p=0.93 is above 0.05",
+        "verdict": "inconclusive"
+      }
+    ]
+  },
+  "uncovered": []
+}
