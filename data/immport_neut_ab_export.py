@@ -2,7 +2,8 @@
 
 Inputs:
     Highest-release ImmPort Tab ZIP or extracted Tab directory for every study
-    discovered below ``--cache-root``.
+    discovered below ``--cache-root``. Studies without a neutralizing-antibody
+    result table are skipped and recorded in provenance.
 
 Outputs:
     ``ImmPort_neut_ab_titer_results.tsv`` and a JSON provenance sidecar below
@@ -37,7 +38,7 @@ except ModuleNotFoundError:
 
 logger = logging.getLogger("immport_neut_ab_export")
 
-EXPORTER_VERSION = "0.1.0"
+EXPORTER_VERSION = "0.2.0"
 TABLE_FILENAME = "neut_ab_titer_result.txt"
 DEFAULT_CACHE_ROOT = Path(__file__).resolve().parent / "immport_cache"
 DEFAULT_OUTPUT_DIR = Path(__file__).resolve().parent / "galaxy_file_input"
@@ -63,6 +64,10 @@ REQUIRED_COLUMNS = {
 
 class NeutralizingAntibodyExportError(RuntimeError):
     """Raised when neutralizing-antibody inputs violate the export contract."""
+
+
+class MissingNeutralizingAntibodyTableError(NeutralizingAntibodyExportError):
+    """Raised when a valid ImmPort Tab source has no neutralization table."""
 
 
 def _sha256(path: Path, chunk_size: int = 65536) -> str:
@@ -119,7 +124,11 @@ def _zip_member(archive: zipfile.ZipFile, source: Path) -> zipfile.ZipInfo:
         and PurePosixPath(info.filename).name == TABLE_FILENAME
         and "Tab" in PurePosixPath(info.filename).parts[:-1]
     ]
-    if len(matches) != 1:
+    if not matches:
+        raise MissingNeutralizingAntibodyTableError(
+            f"No {TABLE_FILENAME} member in {source}"
+        )
+    if len(matches) > 1:
         raise NeutralizingAntibodyExportError(
             f"Expected one {TABLE_FILENAME} member in {source}; found {len(matches)}"
         )
@@ -134,8 +143,8 @@ def _read_source(
     if source.is_dir():
         table_path = source / TABLE_FILENAME
         if not table_path.is_file():
-            raise NeutralizingAntibodyExportError(
-                f"Required neutralization table is missing: {table_path}"
+            raise MissingNeutralizingAntibodyTableError(
+                f"No {TABLE_FILENAME} in {source}"
             )
         with table_path.open(encoding="utf-8", errors="strict", newline="") as handle:
             columns, rows = _read_rows(handle, str(table_path))
@@ -229,8 +238,22 @@ def run_export(
     columns: list[str] | None = None
     combined_rows: list[dict[str, str]] = []
     inputs: list[dict[str, Any]] = []
+    skipped_inputs: list[dict[str, Any]] = []
     for accession, (release, source) in sorted(selected.items()):
-        source_columns, rows, input_record = _read_source(accession, release, source)
+        try:
+            source_columns, rows, input_record = _read_source(accession, release, source)
+        except MissingNeutralizingAntibodyTableError as exc:
+            logger.info("Skipping %s: %s", accession, exc)
+            skipped_inputs.append(
+                {
+                    "study_accession": accession,
+                    "data_release": release,
+                    "source_type": "directory" if source.is_dir() else "zip",
+                    "path": str(source),
+                    "reason": "neutralizing_antibody_table_not_present",
+                }
+            )
+            continue
         if columns is None:
             columns = source_columns
         elif source_columns != columns:
@@ -272,8 +295,12 @@ def run_export(
             "table": TABLE_FILENAME,
         },
         "inputs": inputs,
+        "skipped_inputs": skipped_inputs,
         "counts": {
             "studies": len(inputs),
+            "studies_discovered": len(selected),
+            "studies_exported": len(inputs),
+            "studies_skipped": len(skipped_inputs),
             "rows": len(combined_rows),
             "value_preferred_populated": preferred_count,
             "value_preferred_blank": len(combined_rows) - preferred_count,

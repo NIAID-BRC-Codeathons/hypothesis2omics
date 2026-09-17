@@ -115,7 +115,7 @@ handoff parser. Scientific selections remain explicit rather than being inferred
 
 ## Export neutralizing-antibody results for Galaxy
 
-Export the raw `neut_ab_titer_result.txt` rows from each discovered study's newest Tab source:
+Export raw `neut_ab_titer_result.txt` rows from each applicable study's newest Tab source:
 
 ```bash
 uv run python data/immport_neut_ab_export.py
@@ -124,7 +124,8 @@ uv run python data/immport_neut_ab_export.py
 This writes `ImmPort_neut_ab_titer_results.tsv` and its provenance JSON under
 `data/galaxy_file_input/`. Source columns are retained with lowercase headers. Preferred and
 reported values remain separate, so censored values such as `<10` are not substituted for blank
-`value_preferred` fields.
+`value_preferred` fields. Studies without a neutralizing-antibody result table are skipped and
+listed in the provenance file; malformed or duplicate tables still stop the export.
 
 
 

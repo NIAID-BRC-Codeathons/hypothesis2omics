@@ -52,6 +52,14 @@ def _write_study(root: Path, accession: str, release: int, row: list[str]) -> No
         )
 
 
+def _write_study_without_table(root: Path, accession: str, release: int) -> None:
+    study_dir = root / accession
+    study_dir.mkdir()
+    archive = study_dir / f"{accession}-DR{release}_Tab.zip"
+    with zipfile.ZipFile(archive, "w") as handle:
+        handle.writestr(f"{accession}-DR{release}_Tab/Tab/study.txt", "STUDY_ACCESSION\n")
+
+
 class NeutralizingAntibodyExportTests(unittest.TestCase):
     def test_exports_raw_rows_and_provenance(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
@@ -129,6 +137,64 @@ class NeutralizingAntibodyExportTests(unittest.TestCase):
         self.assertEqual(provenance["counts"]["value_preferred_populated"], 1)
         self.assertEqual(provenance["counts"]["value_preferred_blank"], 1)
         self.assertEqual(sidecar["output"]["sha256"], provenance["output"]["sha256"])
+
+    def test_skips_study_without_neutralization_table(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            cache = root / "cache"
+            output_dir = root / "galaxy"
+            cache.mkdir()
+            _write_study(
+                cache,
+                "SDY1",
+                4,
+                [
+                    "1",
+                    "ARM1",
+                    "BS1",
+                    "",
+                    "EXP1",
+                    "ES1",
+                    "",
+                    "",
+                    "SDY1",
+                    "60",
+                    "Days",
+                    "SUB1",
+                    "Antibody titer",
+                    "Antibody titer",
+                    "320",
+                    "320",
+                    "Yellow fever virus 17D",
+                    "YF17D",
+                    "10",
+                ],
+            )
+            _write_study_without_table(cache, "SDY2", 3)
+
+            provenance = run_export(cache, output_dir)
+
+        self.assertEqual(provenance["counts"]["studies_discovered"], 2)
+        self.assertEqual(provenance["counts"]["studies_exported"], 1)
+        self.assertEqual(provenance["counts"]["studies_skipped"], 1)
+        self.assertEqual(provenance["skipped_inputs"][0]["study_accession"], "SDY2")
+        self.assertEqual(
+            provenance["skipped_inputs"][0]["reason"],
+            "neutralizing_antibody_table_not_present",
+        )
+
+    def test_rejects_cache_with_no_neutralization_tables(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            cache = root / "cache"
+            cache.mkdir()
+            _write_study_without_table(cache, "SDY1", 1)
+
+            with self.assertRaisesRegex(
+                NeutralizingAntibodyExportError,
+                "No neutralizing-antibody results",
+            ):
+                run_export(cache, root / "output")
 
     def test_rejects_missing_required_column(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
