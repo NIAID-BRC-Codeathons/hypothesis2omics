@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 import numpy as np
@@ -42,6 +43,7 @@ from scipy import stats
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from evidence_rules import DecisionRule          # noqa: E402
+from report import Specification, write_report, yf17d_context  # noqa: E402
 from synthesis import synthesize, validate_synthesis  # noqa: E402
 
 
@@ -123,11 +125,88 @@ SPECS = [
     ("day7_adjusted", "EIF2AK4 at day 7, baseline held constant"),
 ]
 
+# Which specification counts. `day7_raw` is the one that matches the published
+# method: Querec built its signature from early expression as measured, and
+# Ravindran puts the human signature peak at day 7. It is also the one that
+# comes out inconclusive, which is why this constant is declared here, above
+# the code that computes the numbers, rather than chosen when they arrive.
+PRIMARY_SPEC = "day7_raw"
+
+PREREG_BASIS = (
+    "Querec 2009 built its predictive signature from early expression as "
+    "measured, and Ravindran 2014 puts the human signature peak at day 7. "
+    "This is the specification that matches the published method, so it is "
+    "the one that counts. The two difference-score specifications below are "
+    "sensitivity analyses."
+)
+
+# These describe what each specification does, never what it came out at. A
+# static string that asserts a result is false the moment the data changes,
+# and the verdicts here are computed one screen away.
+SPEC_NOTES = {
+    "delta": (
+        "A day 7 minus day 0 difference score. Where baseline is itself "
+        "correlated with the outcome, a difference score inherits that "
+        "correlation by construction, so a positive result here is not "
+        "independent of the baseline association."
+    ),
+    "day7_adjusted": (
+        "Partial correlation, day 0 partialled out of both sides. This removes "
+        "the baseline coupling the difference score inherits, and costs a "
+        "degree of freedom doing so."
+    ),
+}
+
+
+def baseline_coupling(df: pd.DataFrame) -> str:
+    """corr(day 0, outcome) per arm, as a sentence, from the live numbers.
+
+    This is the reason the difference-score specification cannot be taken at
+    face value, so the report states the actual correlations rather than
+    asserting that a confound exists.
+    """
+    bits = []
+    for arm, label in (("Trial1", "Trial 1"), ("Trial2", "Trial 2")):
+        s = df[df.cohort == arm]
+        r, p = stats.pearsonr(s[BASELINE_DAY], s.cd8)
+        bits.append(f"{label} r = {r:+.3f}, p = {p:.3f}")
+    return "; ".join(bits)
+
+
+def specifications(df: pd.DataFrame) -> list[Specification]:
+    """The three specifications, from the live numbers, ready for the report."""
+    coupling = baseline_coupling(df)
+    out = []
+    for spec, label in SPECS:
+        primary = spec == PRIMARY_SPEC
+        note = None if primary else SPEC_NOTES.get(spec)
+        if spec == "delta" and note:
+            note = f"{note} Baseline against outcome: {coupling}."
+        out.append(Specification(
+            spec_id=spec,
+            label=label,
+            units=tuple(units_for(df, spec)),
+            role="primary" if primary else "sensitivity",
+            prereg_basis=PREREG_BASIS if primary else None,
+            note=note,
+        ))
+    return out
+
 
 def main() -> int:
+    # A Windows console encodes stdout as cp1252 and raises on a character it
+    # cannot map, rather than degrading. Cohort labels come from the data, so
+    # what gets printed here is not entirely under our control.
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
+    except (AttributeError, OSError, ValueError):
+        pass
+
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--repo", required=True, type=Path,
                     help="checkout of NIAID-BRC-Codeathons/hypothesis2omics")
+    ap.add_argument("--report", type=Path, metavar="PATH",
+                    help="also write the evidence report here, plus PATH.json")
     args = ap.parse_args()
 
     df = load(args.repo)
@@ -162,8 +241,36 @@ def main() -> int:
     print("\n" + "=" * 72)
     print("Three specifications, three different overall verdicts, one dataset.")
     print("Which one counts has to be chosen before the numbers, not after.")
+    print(f"Pre-registered primary: {PRIMARY_SPEC}")
     print("=" * 72)
+
+    if args.report:
+        ctx = replace(
+            yf17d_context(),
+            command=(f"python evidence_rules/run_yf17d.py --repo . "
+                     f"--report {args.report}"),
+            commit=_commit(args.repo),
+        )
+        rule_for_report = DecisionRule(
+            alpha=0.05, direction="up", min_independent_groups=2
+        )
+        p = write_report(args.report, specifications(df), rule_for_report, ctx)
+        print(f"\nwrote {p}")
+        print(f"wrote {p.with_suffix(p.suffix + '.json')}")
     return 0
+
+
+def _commit(repo: Path) -> str | None:
+    """The repo's HEAD, for the provenance line. Absent is fine, wrong is not."""
+    import subprocess
+    try:
+        out = subprocess.run(
+            ["git", "-C", str(repo), "rev-parse", "--short", "HEAD"],
+            capture_output=True, text=True, timeout=10,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return None
+    return out.stdout.strip() or None
 
 
 if __name__ == "__main__":
