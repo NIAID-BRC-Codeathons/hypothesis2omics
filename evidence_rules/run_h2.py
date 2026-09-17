@@ -75,6 +75,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from analysis_result import comparability, from_regression       # noqa: E402
 from evidence_rules import DecisionRule                          # noqa: E402
 from report import ReportContext, Specification, write_report     # noqa: E402
+from validator_bundle import (  # noqa: E402
+    BundleDivergence, bundle_caveats, resolve,
+)
 
 
 STUDY = "SDY1264"
@@ -87,6 +90,9 @@ PLATFORM = "GPL7567"
 RULE = DecisionRule(alpha=0.05, direction="up", min_independent_groups=2)
 
 PRIMARY_SPEC = "d7"
+
+# Populated by load(), so context() can disclose which bundle was read.
+BUNDLE: dict[str, Any] = {}
 
 
 # ---------------------------------------------------------------------------
@@ -216,7 +222,12 @@ EIF2AK4 = FeatureIdentity(
 def load(repo: Path, probe: str) -> dict[str, Any]:
     """Subject-level expression by day, plus the titer and arm per subject."""
     man: dict[str, dict[str, Any]] = {}
-    with open(repo / "data/validator_immport/sample_manifest.tsv", newline="") as fh:
+    # One bundle, one resolver. Prefers data/validator_input/ so a freshly
+    # generated bundle feeds this directly. See validator_bundle.py.
+    manifest = resolve(repo, "sample_manifest.tsv")
+    BUNDLE.clear()
+    BUNDLE["sample_manifest.tsv"] = manifest
+    with open(manifest.path, newline="") as fh:
         for r in csv.DictReader(fh, delimiter="\t"):
             if r["study_accession"] != STUDY or r["repository_name"] != "GEO":
                 continue
@@ -494,6 +505,7 @@ def context(data: dict[str, Any], identity: FeatureIdentity,
     ]
     for e in identity.evidence:
         limitations.append("Probe identity evidence, not confirmation: " + e)
+    limitations.extend(bundle_caveats(BUNDLE))
 
     return ReportContext(
         hypothesis=(
@@ -629,7 +641,15 @@ def main() -> int:
     args = ap.parse_args()
 
     identity = TNFRSF17
-    data = load(args.repo, identity.probe_id)
+    try:
+        data = load(args.repo, identity.probe_id)
+    except BundleDivergence as e:
+        print("=" * 78)
+        print("REFUSING TO RUN")
+        print("=" * 78)
+        print()
+        print(f"  {e}")
+        return 3
     print_table(data, identity)
 
     if not args.report:

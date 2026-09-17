@@ -12,9 +12,15 @@ Needs pandas and scipy. The evidence_rules modules need neither.
 What it joins
 -------------
 
-    data/validator_immport/sample_manifest.tsv      GSM -> subject, day, arm
-    data/validator_geo/feature_expression.tsv       EIF2AK4 per GSM
-    data/validator_immport/quantitative_outcome.tsv CD8 response per subject
+    sample_manifest.tsv        GSM -> subject, day, arm
+    feature_expression.tsv     EIF2AK4 per GSM
+    quantitative_outcome.tsv   CD8 response per subject
+
+These three are one bundle from one pipeline stage. `validator_bundle.resolve`
+finds them, preferring `data/validator_input/` (what
+`validator_handoff_parse_module.py` writes and what
+`validator_input_manifest.json` declares) and falling back to the older
+`data/validator_immport/` and `data/validator_geo/` split.
 
 `handoff_adapter.py` already proves these link. It reports counts and overlaps
 rather than the joined table, so this builds the table and runs the number.
@@ -45,16 +51,44 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from evidence_rules import DecisionRule          # noqa: E402
 from report import Specification, write_report, yf17d_context  # noqa: E402
 from synthesis import synthesize, validate_synthesis  # noqa: E402
+from validator_bundle import (  # noqa: E402
+    BundleDivergence, bundle_caveats, declared_rows, resolve_all,
+)
 
 
 PREDICTOR_DAY = 7.0     # Ravindran 2014: human signature kinetics peak at day 7
 BASELINE_DAY = 0.0
 
 
+# Populated by load() so main() can report which bundle it actually read.
+BUNDLE: dict[str, object] = {}
+
+
 def load(repo: Path, study: str = "SDY1264") -> pd.DataFrame:
-    man = pd.read_csv(repo / "data/validator_immport/sample_manifest.tsv", sep="\t")
-    expr = pd.read_csv(repo / "data/validator_geo/feature_expression.tsv", sep="\t")
-    out = pd.read_csv(repo / "data/validator_immport/quantitative_outcome.tsv", sep="\t")
+    # The three tables are one bundle produced by one pipeline stage. Resolve
+    # them through validator_bundle rather than hardcoding a directory, so a
+    # freshly generated data/validator_input/ feeds this script directly. It
+    # used to read data/validator_immport/ and data/validator_geo/, which meant
+    # step 10's output had to be hand-copied into a second naming before this
+    # would see it. Melanie's pipeline trace found that.
+    resolved = resolve_all(repo)
+    BUNDLE.clear()
+    BUNDLE.update(resolved)
+
+    man = pd.read_csv(resolved["sample_manifest.tsv"].path, sep="\t")
+    expr = pd.read_csv(resolved["feature_expression.tsv"].path, sep="\t")
+    out = pd.read_csv(resolved["quantitative_outcome.tsv"].path, sep="\t")
+
+    # Step 10 records what it wrote. Disagreement means the tables were edited
+    # after generation, which is worth knowing before correlating them.
+    declared = declared_rows(repo)
+    for name, frame in (("sample_manifest.tsv", man),
+                        ("feature_expression.tsv", expr),
+                        ("quantitative_outcome.tsv", out)):
+        want = declared.get(name)
+        if want is not None and want != len(frame):
+            print(f"  ! {name} has {len(frame)} rows; "
+                  f"validator_input_manifest.json declares {want}")
 
     man = man[(man.study_accession == study) & (man.repository_name == "GEO")]
     link = man[[
@@ -209,10 +243,24 @@ def main() -> int:
                     help="also write the evidence report here, plus PATH.json")
     args = ap.parse_args()
 
-    df = load(args.repo)
+    try:
+        df = load(args.repo)
+    except BundleDivergence as e:
+        print("=" * 72)
+        print("REFUSING TO RUN")
+        print("=" * 72)
+        print()
+        print(f"  {e}")
+        return 3
+    except FileNotFoundError as e:
+        print(f"  {e}")
+        return 4
     print("=" * 72)
     print("EIF2AK4 vs Act CD8 T Cell Response, day 15, SDY1264 / GSE13485")
     print("=" * 72)
+    if BUNDLE:
+        dirs = sorted({r.directory for r in BUNDLE.values()})  # type: ignore[attr-defined]
+        print(f"\nValidator bundle read from: {', '.join(dirs)}")
     print(f"\n{len(df)} subjects with both a predictor and an outcome:")
     print(df.groupby("cohort").size().to_string())
 
@@ -245,11 +293,13 @@ def main() -> int:
     print("=" * 72)
 
     if args.report:
+        base = yf17d_context()
         ctx = replace(
-            yf17d_context(),
+            base,
             command=(f"python evidence_rules/run_yf17d.py --repo . "
                      f"--report {args.report}"),
             commit=_commit(args.repo),
+            limitations=tuple(base.limitations) + tuple(bundle_caveats(BUNDLE)),  # type: ignore[arg-type]
         )
         rule_for_report = DecisionRule(
             alpha=0.05, direction="up", min_independent_groups=2
