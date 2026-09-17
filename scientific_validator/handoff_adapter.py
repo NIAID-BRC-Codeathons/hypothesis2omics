@@ -4,6 +4,40 @@ from pathlib import Path
 
 import pandas as pd
 
+VALIDATOR_INPUT_FILENAMES = {
+    "manifest": "sample_manifest.tsv",
+    "feature_expression": "feature_expression.tsv",
+    "outcome": "quantitative_outcome.tsv",
+}
+
+
+def resolve_input_paths(
+    input_dir: str | None,
+    manifest: str | None,
+    feature_expression: str | None,
+    outcome: str | None,
+) -> tuple[str, str, str]:
+    """Resolve explicit input paths, falling back to canonical bundle filenames."""
+    base = Path(input_dir) if input_dir else None
+    resolved = {
+        "manifest": manifest,
+        "feature_expression": feature_expression,
+        "outcome": outcome,
+    }
+    if base is not None:
+        for name, filename in VALIDATOR_INPUT_FILENAMES.items():
+            if resolved[name] is None:
+                resolved[name] = str(base / filename)
+    missing = [name for name, path in resolved.items() if path is None]
+    if missing:
+        options = ", ".join(name.replace("_", "-") for name in missing)
+        raise ValueError(f"Missing input paths for: {options}")
+    return (
+        str(resolved["manifest"]),
+        str(resolved["feature_expression"]),
+        str(resolved["outcome"]),
+    )
+
 
 def criterion(value, confidence, evidence, sources):
     return {
@@ -16,15 +50,31 @@ def criterion(value, confidence, evidence, sources):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Build scientific-validator evidence from normalized GEO/ImmPort handoff tables."
+        description=(
+            "Build scientific-validator evidence from normalized GEO/ImmPort "
+            "handoff tables."
+        )
     )
-    parser.add_argument("--manifest", required=True)
-    parser.add_argument("--feature-expression", required=True)
-    parser.add_argument("--outcome", required=True)
+    parser.add_argument(
+        "--input-dir",
+        help="Directory containing the canonical validator-input bundle",
+    )
+    parser.add_argument("--manifest")
+    parser.add_argument("--feature-expression")
+    parser.add_argument("--outcome")
     parser.add_argument("--study-accession", required=True)
     parser.add_argument("--gene", default="EIF2AK4")
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
+    try:
+        args.manifest, args.feature_expression, args.outcome = resolve_input_paths(
+            args.input_dir,
+            args.manifest,
+            args.feature_expression,
+            args.outcome,
+        )
+    except ValueError as exc:
+        parser.error(str(exc))
 
     study = args.study_accession
     gene = args.gene

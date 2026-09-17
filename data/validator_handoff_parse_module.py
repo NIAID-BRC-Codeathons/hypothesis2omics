@@ -1,9 +1,10 @@
 """Create bounded GEO and ImmPort tables for scientific-validator handoff.
 
-Inputs are a JSON configuration, one cached GEO series matrix, and one ImmPort
-Tab ZIP. Outputs are validator-ready TSV files and provenance JSON records. The
-configuration explicitly identifies the GEO feature and ImmPort outcome; this
-module does not infer scientific eligibility or normalize source measurements.
+Inputs are a JSON configuration, one normalized ImmPort sample manifest, one
+cached GEO series matrix, and one ImmPort Tab ZIP. Outputs are a validator-input
+bundle containing three TSV files, per-file provenance, and a bundle manifest.
+The configuration explicitly identifies the GEO feature and ImmPort outcome;
+this module does not infer scientific eligibility or normalize measurements.
 
 External dependencies: none beyond the Python standard library.
 """
@@ -19,6 +20,7 @@ import json
 import logging
 import platform
 import re
+import shutil
 import time
 import zipfile
 from datetime import datetime, timezone
@@ -28,7 +30,11 @@ from typing import Any
 
 logger = logging.getLogger("validator_handoff_parser")
 
-PARSER_VERSION = "0.1.0"
+PARSER_VERSION = "0.2.0"
+SAMPLE_MANIFEST_FILENAME = "sample_manifest.tsv"
+FEATURE_EXPRESSION_FILENAME = "feature_expression.tsv"
+QUANTITATIVE_OUTCOME_FILENAME = "quantitative_outcome.tsv"
+BUNDLE_MANIFEST_FILENAME = "validator_input_manifest.json"
 GSM_PATTERN = re.compile(r"^GSM\d+$", re.IGNORECASE)
 GSE_PATTERN = re.compile(r"^GSE\d+$", re.IGNORECASE)
 GPL_PATTERN = re.compile(r"^GPL\d+$", re.IGNORECASE)
@@ -360,7 +366,26 @@ def _write_tsv(records: list[dict[str, str]], columns: list[str], path: Path) ->
 
 
 def _write_json(payload: dict[str, Any], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+
+
+def _inspect_tsv(path: Path) -> tuple[int, list[str]]:
+    try:
+        with path.open(encoding="utf-8", newline="") as handle:
+            reader = csv.reader(handle, delimiter="\t")
+            header = next(reader)
+            rows = sum(1 for _ in reader)
+    except StopIteration as exc:
+        raise ValidatorHandoffParseError(f"Sample manifest is empty: {path}") from exc
+    except (OSError, UnicodeError, csv.Error) as exc:
+        raise ValidatorHandoffParseError(f"Could not read sample manifest {path}: {exc}") from exc
+    columns = [column.strip() for column in header]
+    if not columns or any(not column for column in columns):
+        raise ValidatorHandoffParseError("Sample manifest has an empty column name")
+    if len(columns) != len(set(columns)):
+        raise ValidatorHandoffParseError("Sample manifest has duplicate columns")
+    return rows, columns
 
 
 def _provenance(
@@ -400,7 +425,8 @@ def _provenance(
 
 
 def run_parser(config_path: str | Path) -> dict[str, Any]:
-    """Write both validator handoff tables and return their provenance records."""
+    """Write the validator-input bundle and return its provenance records."""
+    run_started_at = _utc_now()
     config_source = Path(config_path)
     try:
         config = json.loads(config_source.read_text(encoding="utf-8"))
@@ -408,16 +434,43 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
         raise ValidatorHandoffParseError(f"Could not read configuration: {exc}") from exc
     if not isinstance(config, dict):
         raise ValidatorHandoffParseError("Configuration root must be an object")
+    manifest = config.get("manifest")
     geo = config.get("geo")
     immport = config.get("immport")
-    if not isinstance(geo, dict) or not isinstance(immport, dict):
-        raise ValidatorHandoffParseError("Configuration requires geo and immport objects")
+    if not all(isinstance(section, dict) for section in [manifest, geo, immport]):
+        raise ValidatorHandoffParseError(
+            "Configuration requires manifest, geo, and immport objects"
+        )
+    output_dir_text = _require_text(config, "output_dir", "root")
+    output_dir = Path(output_dir_text)
+
+    manifest_source_text = _require_text(manifest, "source", "manifest")
+    manifest_source = Path(manifest_source_text)
+    manifest_output = output_dir / SAMPLE_MANIFEST_FILENAME
+    manifest_provenance_path = output_dir / "sample_manifest.provenance.json"
+    manifest_started_at = _utc_now()
+    started = time.monotonic()
+    manifest_rows, manifest_columns = _inspect_tsv(manifest_source)
+    manifest_output.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(manifest_source, manifest_output)
+    manifest_provenance = _provenance(
+        "normalized_immport_sample_manifest",
+        manifest_source_text,
+        manifest_source,
+        str(manifest_output),
+        manifest_output,
+        manifest_rows,
+        manifest_columns,
+        {"mode": "verbatim_copy"},
+        manifest_started_at,
+        time.monotonic() - started,
+    )
+    _write_json(manifest_provenance, manifest_provenance_path)
 
     geo_source_text = _require_text(geo, "source_matrix", "geo")
-    geo_output_text = _require_text(geo, "output", "geo")
-    geo_provenance_text = _require_text(geo, "provenance", "geo")
     geo_source = Path(geo_source_text)
-    geo_output = Path(geo_output_text)
+    geo_output = output_dir / FEATURE_EXPRESSION_FILENAME
+    geo_provenance_path = output_dir / "feature_expression.provenance.json"
     geo_started_at = _utc_now()
     started = time.monotonic()
     geo_records = _read_geo_feature(geo, geo_source)
@@ -426,7 +479,7 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
         "geo_series_matrix",
         geo_source_text,
         geo_source,
-        geo_output_text,
+        str(geo_output),
         geo_output,
         len(geo_records),
         GEO_COLUMNS,
@@ -443,15 +496,12 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
         geo_started_at,
         time.monotonic() - started,
     )
-    geo_provenance_path = Path(geo_provenance_text)
-    geo_provenance_path.parent.mkdir(parents=True, exist_ok=True)
     _write_json(geo_provenance, geo_provenance_path)
 
     immport_source_text = _require_text(immport, "source_tab_zip", "immport")
-    immport_output_text = _require_text(immport, "output", "immport")
-    immport_provenance_text = _require_text(immport, "provenance", "immport")
     immport_source = Path(immport_source_text)
-    immport_output = Path(immport_output_text)
+    immport_output = output_dir / QUANTITATIVE_OUTCOME_FILENAME
+    immport_provenance_path = output_dir / "quantitative_outcome.provenance.json"
     immport_started_at = _utc_now()
     started = time.monotonic()
     immport_records = _read_immport_outcomes(immport, immport_source)
@@ -460,7 +510,7 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
         "immport_tab_zip",
         immport_source_text,
         immport_source,
-        immport_output_text,
+        str(immport_output),
         immport_output,
         len(immport_records),
         IMMPORT_COLUMNS,
@@ -476,15 +526,51 @@ def run_parser(config_path: str | Path) -> dict[str, Any]:
         immport_started_at,
         time.monotonic() - started,
     )
-    immport_provenance_path = Path(immport_provenance_text)
-    immport_provenance_path.parent.mkdir(parents=True, exist_ok=True)
     _write_json(immport_provenance, immport_provenance_path)
-    return {"geo": geo_provenance, "immport": immport_provenance}
+
+    provenance_items = {
+        "sample_manifest": (manifest_provenance, manifest_provenance_path),
+        "feature_expression": (geo_provenance, geo_provenance_path),
+        "quantitative_outcome": (immport_provenance, immport_provenance_path),
+    }
+    artifacts = {}
+    for name, (provenance, provenance_path) in provenance_items.items():
+        artifacts[name] = {
+            **provenance["output"],
+            "provenance": {
+                "path": str(provenance_path),
+                "size_bytes": provenance_path.stat().st_size,
+                "sha256": _sha256(provenance_path),
+            },
+        }
+    bundle_manifest = {
+        "status": "success",
+        "run_started_at_utc": run_started_at,
+        "run_completed_at_utc": _utc_now(),
+        "parser": "validator_handoff_parse_module",
+        "parser_version": PARSER_VERSION,
+        "python_version": platform.python_version(),
+        "configuration": {
+            "path": str(config_source),
+            "size_bytes": config_source.stat().st_size,
+            "sha256": _sha256(config_source),
+        },
+        "output_dir": output_dir_text,
+        "artifacts": artifacts,
+    }
+    bundle_manifest_path = output_dir / BUNDLE_MANIFEST_FILENAME
+    _write_json(bundle_manifest, bundle_manifest_path)
+    return {
+        "manifest": manifest_provenance,
+        "geo": geo_provenance,
+        "immport": immport_provenance,
+        "bundle": bundle_manifest,
+    }
 
 
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Create configured GEO feature and ImmPort outcome handoff tables."
+        description="Create a configured scientific-validator input bundle."
     )
     parser.add_argument("config", help="Path to validator handoff JSON configuration")
     return parser
@@ -499,7 +585,8 @@ def main() -> int:
         logger.error("Validator handoff parsing failed: %s", exc)
         return 1
     logger.info(
-        "Wrote %s GEO rows and %s ImmPort rows",
+        "Wrote %s manifest, %s GEO, and %s ImmPort rows",
+        result["manifest"]["output"]["rows"],
         result["geo"]["output"]["rows"],
         result["immport"]["output"]["rows"],
     )
