@@ -29,6 +29,26 @@ with local scipy to about 5e-07 on rho, raw p and the BH-adjusted q. The
 comparison checks all three deliberately, because agreeing on rho alone would
 not establish that the two implementations adjust the same way.
 
+That job id is not the one carried by the artifacts now committed under
+`galaxy_out/`, which record `bbd44e69cb8906b5315143fa638bf584` and
+`bbd44e69cb8906b58409527efaaaf5f4`. Either this line refers to a run whose
+outputs are not in the repository, or it is stale. Left as written pending
+confirmation from the author.
+
+`verify_galaxy_agreement.py` re-derives that 5e-07 figure from the committed
+tables rather than from the runner's own `comparison_vs_local` block:
+
+```bash
+python analysis/verify_galaxy_agreement.py
+```
+
+It checks each per-feature table against the `per_feature_sha256` recorded in
+its provenance JSON, then recomputes feature-set identity, the maximum absolute
+rho, p and q differences, the top-1000 overlap and the q<0.05 counts. It exits
+non-zero on any failure and needs nothing installed. See
+`galaxy_out/README.md` for the coverage it currently spans, which is two of the
+twelve specifications.
+
 ---
 
 ## What it cannot do yet
