@@ -76,8 +76,8 @@ python3 parse_hypothesis.py --hypothesis "..." --outdir runs/HYP001
 python3 build_test_spec.py runs/HYP001/01_parsed.yaml --audit --search
 ```
 
-**MCP** — the same three steps as tools, for a client that would rather call them
-than shell out:
+**MCP** — steps 1-4 as tools, for a client that would rather call them than shell
+out:
 
 ```sh
 python3 hypothesis_mcp.py --check     # live smoke test, no client needed
@@ -92,7 +92,7 @@ path -- there is one copy of the facet list and the spec search, not two.
 Step 1 needs only `openai` and `pyyaml`. Steps 2-3 additionally need `httpx` and
 `mcp`, because they import `keyword-to-immport/server.py`.
 
-## The four files
+## The five files
 
 ```
 h2o_common.py   ../keyword-to-immport/server.py   <- leaves: import nothing local
@@ -101,15 +101,18 @@ parse_hypothesis.py   |            <- step 1, no ImmPort dependency at all
       |     |         |
    build_test_spec.py              <- steps 2-3
       |     |
-  hypothesis_mcp.py                <- MCP front door, wraps the two steps
+study_readiness_module.py          <- step 4
+      |     |
+  hypothesis_mcp.py                <- MCP front door, wraps steps 1-4
 ```
 
 | file | role |
 |---|---|
 | `h2o_common.py` | Gateway calls, JSON extraction, YAML scalars, provenance. Repository-agnostic. |
-| `parse_hypothesis.py` | Step 1. Imports nothing from the ImmPort layer, so it runs and tests with ImmPort unreachable. |
+| `parse_hypothesis.py` | Step 1. Runs and tests with ImmPort unreachable. |
 | `build_test_spec.py` | Steps 2 and 3. Grounds filters in ImmPort's controlled vocabulary. |
-| `hypothesis_mcp.py` | Steps 1-3 as MCP tools. No logic of its own; it imports the modules above. |
+| `study_readiness_module.py` | Step 4. Gates candidates on sample-level GEO links. |
+| `hypothesis_mcp.py` | MCP front door for steps 1-4; imports the modules above. |
 
 That `parse_hypothesis.py` has no ImmPort dependency is a property worth keeping. It
 means step 1 can be developed, tested and run without the repository being reachable,
@@ -177,6 +180,7 @@ twice.
 | `build_test_spec(parsed_path, outdir=None)` | 1 gateway call + an ImmPort vocabulary read |
 | `derive_search_spec(test_spec_path)` | none — re-runs step 3 after a hand edit |
 | `audit_search_terms(search_spec_path)` | 1 ImmPort query per term |
+| `check_study_readiness(...)` | at most 1 cached Tab ZIP download per study |
 
 Every tool writes its numbered artifact **and** returns the content, so an MCP run
 leaves the same trail on disk as a CLI run. Errors raise: an empty completion, a
@@ -236,9 +240,11 @@ Outputs: `study_readiness.tsv` (one row per study checked), `ready_studies.txt`
 `immport_fetch_module.fetch_immport_datasets`), `excluded_studies.tsv` (not-ready
 studies with a reason, kept rather than discarded), and a provenance JSON.
 
-**Not yet wired into `hypothesis_mcp.py`.** It is a standalone CLI script with its
-own `argparse`, not an MCP tool — a client currently has to shell out to it rather
-than call it alongside the three tools above.
+The same operation is exposed by `hypothesis_mcp.py` as
+`check_study_readiness(sdy_ids, outdir, cache_dir=None)`. The MCP tool resolves
+credentials from `IMMPORT_API_KEY_FILE` or `IMMPORT_API_KEY`; it does not accept a
+credential argument. The standalone CLI remains available for direct use with
+`--api-key-file`.
 
 ## Rules that are load-bearing
 
