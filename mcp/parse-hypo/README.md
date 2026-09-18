@@ -27,14 +27,15 @@ out, with a reviewable artifact at every step.
         v
   ["SDY1264", "SDY1289", "SDY1294", ...]
         |
-        |  STEP 4  (ImmPort, no model)   per-study GEO-readiness gate
-        v
-  study_readiness.tsv
+        |  STEP 4  (ImmPort, no model)   per-study GEO-readiness gate,
+        v                                via the real ImmPort sample-link parser
+  study_readiness.tsv + sample_manifest.tsv (ready studies only)
         |         \
         v          v
   ready_studies.txt   excluded_studies.tsv
   -> data retrieval    -> kept for later review
-     (immport_fetch_module.py)
+     (already has sample_manifest.tsv
+      from step 4 -- step 6 need not re-parse)
 ```
 
 Search terms are never invented in step 3. They are lifted from the component that
@@ -177,6 +178,7 @@ twice.
 | `build_test_spec(parsed_path, outdir=None)` | 1 gateway call + an ImmPort vocabulary read |
 | `derive_search_spec(test_spec_path)` | none — re-runs step 3 after a hand edit |
 | `audit_search_terms(search_spec_path)` | 1 ImmPort query per term |
+| `check_study_readiness(sdy_ids, outdir)` | 1 manifest read + 1 Tab.zip download per accession — see [Step 4](#step-4-study_readiness_modulepy) below |
 
 Every tool writes its numbered artifact **and** returns the content, so an MCP run
 leaves the same trail on disk as a CLI run. Errors raise: an empty completion, a
@@ -200,23 +202,35 @@ downstream. `study_readiness_module.py` checks, per accession, before the full
 (multi-GB) retrieval runs:
 
 - Downloads only the study's small `*_Tab.zip` release file (a few MB, not the full
-  archive) and looks inside it.
-- **`ready`** = it contains `expsample_public_repository.txt` with at least one row
-  where `REPOSITORY_NAME == GEO` — i.e. the study has sample-level data actually
-  linked to a GEO accession, not just a topical keyword match.
+  archive), then runs `data/immport_parse_module.py`'s real 8-table sample-link
+  parser against it — the same parse step 6 (`immport_batch_parse.py`) would
+  otherwise run separately.
+- **`ready`** = that parse succeeds AND yields at least one sample row with
+  `repository_name == GEO` — i.e. the study has sample-level data actually linked
+  to a GEO accession, not just a topical keyword match. Reusing the real parser
+  rather than checking for one required file by name means `ready` also catches any
+  of the other 7 required tables being missing or malformed, which the file-presence
+  check alone did not.
 - `study_link.txt`, where present, is recorded (its links to ClinicalTrials.gov, a
   publication, GEO, etc.) but never gates the verdict: it is a study-level table of
   links to *any* external resource, and a study can have GEO-linked sample data
   without one (SDY63) or have one pointing somewhere else entirely, like
   ClinicalTrials.gov, while having no GEO-linked samples at all (SDY1479).
+- **One parse, two outputs.** Every ready study's parsed rows are combined into
+  `sample_manifest.tsv`, in the same column shape `immport_batch_parse.py`'s
+  combined output already uses — verified byte-identical against it on the YF-17D
+  set (5 studies, 888 rows) and independently on an unrelated influenza hypothesis
+  (5 different studies, 8,164 rows). Not-ready studies never contribute rows to it.
+  A caller that has already run step 4 does not need to run step 6 afterward for
+  the studies that passed.
 
 Measured 2026-09-17 against the 7 accessions `03_search_spec.yaml` returns for the
 YF-17D hypothesis: the 4 hand-curated candidates (SDY1264, SDY1289, SDY1294,
 SDY1529) plus SDY1291 came back ready; SDY15 and SDY271 — the 2 keyword-only hits
-noted elsewhere as having no recall denominator — came back not ready, with no
-`expsample_public_repository.txt` in either Tab archive at all. That's a partial
-answer to that open question: those two extras are not usable by this pipeline
-regardless of topical relevance.
+noted elsewhere as having no recall denominator — came back not ready (the parse
+fails on both: `expsample_public_repository.txt` missing from either Tab archive).
+That's a partial answer to that open question: those two extras are not usable by
+this pipeline regardless of topical relevance.
 
 ```sh
 python3 study_readiness_module.py SDY63 SDY1479 \
@@ -226,19 +240,22 @@ python3 study_readiness_module.py SDY63 SDY1479 \
 
 Requires its own ImmPort API key (`--api-key-file`, with `browse` scope) — separate
 from the LLM gateway credential steps 1-2 use, and from `keyword-to-immport`'s
-public, keyless search API. Imports `../../data/immport_fetch_module.py` by path,
-the same way `build_test_spec.py` imports `keyword-to-immport/server.py`, so there
-is one source of truth for how ImmPort's manifest and download endpoints are
-called.
+public, keyless search API. Imports `../../data/immport_fetch_module.py` and
+`../../data/immport_parse_module.py` by path, the same way `build_test_spec.py`
+imports `keyword-to-immport/server.py`, so there is one source of truth for how
+ImmPort's manifest, download and parsing logic are called. The parse side needs
+pandas — run this under `uv run` against the repo root's `pyproject.toml` (which
+already declares it), not a bare `pip install`-ed environment; `hypothesis_mcp.py`'s
+own PEP-723 header lists `pandas` for exactly this reason.
 
 Outputs: `study_readiness.tsv` (one row per study checked), `ready_studies.txt`
 (plain accession list, the intended input to
 `immport_fetch_module.fetch_immport_datasets`), `excluded_studies.tsv` (not-ready
-studies with a reason, kept rather than discarded), and a provenance JSON.
+studies with a reason, kept rather than discarded), `sample_manifest.tsv` (combined,
+ready studies only — absent if none came back ready), and a provenance JSON.
 
-**Not yet wired into `hypothesis_mcp.py`.** It is a standalone CLI script with its
-own `argparse`, not an MCP tool — a client currently has to shell out to it rather
-than call it alongside the three tools above.
+**Wired into `hypothesis_mcp.py`** as the `check_study_readiness` tool (see the
+table above) — a client does not have to shell out to this script separately.
 
 ## Rules that are load-bearing
 

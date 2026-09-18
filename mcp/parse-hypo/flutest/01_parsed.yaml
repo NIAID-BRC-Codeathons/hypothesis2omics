@@ -1,0 +1,22 @@
+# step: 1-parse
+# generator: parse_hypothesis.py 0.4.0
+# model: claudeopus5
+# temperature: 1
+# prompt_sha256: 639efb8bb67b4b44
+# repair_pass_used: False
+# created_utc: 2026-09-18T15:08:10+00:00
+# hypothesis_sha256: 91820f78fe1ce306
+
+hypothesis_text: IRF7 in B cells prevent response to seasonal influenza vaccine
+
+intervention: seasonal influenza vaccine
+predictor: IRF7
+cell_type: B cells
+outcome: response to seasonal influenza vaccine
+relationship_type: causal
+directionality: negative
+
+warnings:
+  - "predictor IRF7 lacks specified measure (expression, activity, variant)"
+  - "outcome 'response' names no measurable quantity (e.g., titer)"
+  - no study population stated

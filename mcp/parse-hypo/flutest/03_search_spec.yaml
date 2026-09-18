@@ -1,0 +1,95 @@
+# step: 3-search-spec
+# derived_from: 02_test_spec.json
+# method: deterministic collection of components[*].search_terms
+
+repositories:
+  - ImmPort
+
+search_terms:
+  intervention:
+    - influenza vaccine
+    - influenza vaccination
+    - seasonal influenza
+    - trivalent influenza vaccine
+    - quadrivalent influenza vaccine
+    - TIV
+    - QIV
+    - inactivated influenza vaccine
+    - live attenuated influenza vaccine
+    - LAIV
+    - FluMist
+    - Fluzone
+    - Fluarix
+    - Fluvirin
+    - Agriflu
+    - Afluria
+    - Flucelvax
+    - Fluad
+    - FluLaval
+    - influenza
+    - flu vaccine
+    - flu vaccination
+    - H1N1 vaccine
+    - H3N2 vaccine
+    - influenza A
+    - influenza B
+
+  predictor:
+    - IRF7
+    - interferon regulatory factor 7
+    - interferon regulatory factor
+    - type I interferon signature
+    - interferon signaling
+    - B cell transcriptome
+    - B cells
+    - CD19
+    - plasmablast
+    - systems vaccinology
+
+  outcome:
+    - vaccine response
+    - antibody response
+    - immunogenicity
+    - hemagglutination inhibition
+    - HAI titer
+    - seroconversion
+    - antibody titer
+    - neutralizing antibody
+    - plasmablast response
+    - vaccine responders
+    - humoral response
+
+  assay:
+    - RNA sequencing
+    - transcriptomics
+    - gene expression
+    - microarray
+    - transcription profiling
+    - single cell RNA-seq
+    - scRNA-seq
+    - CITE-Seq
+    - flow cytometry
+    - CyTOF
+    - mass cytometry
+    - ELISA
+    - ELISPOT
+    - hemagglutination inhibition
+    - microneutralization
+
+required_features:
+  - human subjects
+  - seasonal influenza vaccination
+  - transcriptomics
+  - B cell resolution
+  - antibody titers
+  - paired pre/post samples
+
+# Below this line is what actually constrains the query. `repositories` and
+# `required_features` above are documentation; search_spec ignores them.
+require:
+  - intervention
+min_groups: 1
+filters:
+  species: Homo sapiens
+limit: 100
+per_term: 200

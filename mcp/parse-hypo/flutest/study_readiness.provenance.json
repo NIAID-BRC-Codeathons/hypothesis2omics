@@ -1,0 +1,32 @@
+{
+  "run_started_at_utc": "2026-09-18T15:16:57.021281+00:00",
+  "tool": "study_readiness_module",
+  "tool_version": "0.2.0",
+  "studies_checked": 5,
+  "ready": [
+    "SDY63",
+    "SDY400",
+    "SDY224",
+    "SDY2903",
+    "SDY404"
+  ],
+  "excluded": [],
+  "sample_manifest": {
+    "path": "/Users/msadeck/Desktop/h2o-scratch/flutest/sample_manifest.tsv",
+    "rows": 8164,
+    "studies_included": [
+      "SDY63",
+      "SDY400",
+      "SDY224",
+      "SDY2903",
+      "SDY404"
+    ]
+  },
+  "outputs": {
+    "study_readiness_tsv": "/Users/msadeck/Desktop/h2o-scratch/flutest/study_readiness.tsv",
+    "ready_studies_txt": "/Users/msadeck/Desktop/h2o-scratch/flutest/ready_studies.txt",
+    "excluded_studies_tsv": "/Users/msadeck/Desktop/h2o-scratch/flutest/excluded_studies.tsv",
+    "sample_manifest_tsv": "/Users/msadeck/Desktop/h2o-scratch/flutest/sample_manifest.tsv"
+  },
+  "duration_sec": 2.833
+}

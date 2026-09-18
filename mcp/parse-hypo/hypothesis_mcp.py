@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # /// script
 # requires-python = ">=3.11"
-# dependencies = ["mcp>=2.0", "openai>=1.40", "httpx>=0.27", "pyyaml>=6"]
+# dependencies = ["mcp>=2.0", "openai>=1.40", "httpx>=0.27", "pyyaml>=6", "pandas"]
 # ///
 """MCP server: a plain-text hypothesis -> components -> test spec -> ImmPort search spec.
 
@@ -18,6 +18,7 @@ copy of every rule.
     derive_search_spec(test_spec_path)      STEP 3 again, after a hand edit
     audit_search_terms(search_spec_path)    per-term hit counts, ImmPort reads only
     check_study_readiness(sdy_ids, outdir)  STEP 4  (ImmPort, no model) -> study_readiness.tsv
+                                             + sample_manifest.tsv for the ready ones
 
 STEP 4 needs its own credential -- an ImmPort API key, resolved from
 IMMPORT_API_KEY_FILE or IMMPORT_API_KEY in the environment. There is no credential
@@ -313,10 +314,16 @@ def check_study_readiness(
     Step 3 returns accessions ImmPort will hand back for a keyword match; it says
     nothing about whether a study has the specific linkage data this pipeline needs
     downstream. For each accession, downloads only the study's small *_Tab.zip
-    release file (a few MB, not the full multi-GB archive) and checks it: ready
-    means expsample_public_repository.txt is present with at least one row where
-    REPOSITORY_NAME == GEO. study_link.txt, where present, is recorded but never
-    gates the verdict -- see study_readiness_module.py for why.
+    release file (a few MB, not the full multi-GB archive) and runs the real ImmPort
+    sample-link parser against it: ready means the 8-table join succeeds AND yields
+    at least one sample row with repository_name == GEO. study_link.txt, where
+    present, is recorded but never gates the verdict -- see study_readiness_module.py
+    for why.
+
+    One parse, two outputs: the verdict above, and every ready study's rows combined
+    into sample_manifest.tsv -- the same artifact step 6 (immport_batch_parse.py)
+    would otherwise produce separately, so calling this tool already leaves that
+    step's output behind it for the studies that passed.
 
     No credential parameter: the ImmPort API key is resolved from
     IMMPORT_API_KEY_FILE or IMMPORT_API_KEY in the environment, the same way
@@ -326,12 +333,14 @@ def check_study_readiness(
         sdy_ids: ImmPort study accessions to check, e.g. the output of
             keyword-to-immport's search_spec.
         outdir: directory to write study_readiness.tsv, ready_studies.txt,
-            excluded_studies.tsv and provenance into; created if absent.
+            excluded_studies.tsv, sample_manifest.tsv and provenance into; created
+            if absent.
         cache_dir: where to cache downloaded Tab.zip files. Defaults to
             <outdir>/immport_cache.
 
     Returns: {"ready", "excluded", "study_readiness_path", "ready_studies_path",
-        "excluded_studies_path", "provenance"}.
+        "excluded_studies_path", "sample_manifest_path", "provenance"}.
+        sample_manifest_path is None when no accession came back ready.
 
     Raises: ImmportAuthError if no ImmPort API key is found in the environment.
     """
@@ -350,6 +359,7 @@ def check_study_readiness(
         "study_readiness_path": provenance["outputs"]["study_readiness_tsv"],
         "ready_studies_path": provenance["outputs"]["ready_studies_txt"],
         "excluded_studies_path": provenance["outputs"]["excluded_studies_tsv"],
+        "sample_manifest_path": provenance["outputs"]["sample_manifest_tsv"],
         "provenance": provenance,
     }
 

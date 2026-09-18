@@ -1,0 +1,237 @@
+{
+  "hypothesis_id": "HYP001",
+  "hypothesis_text": "IRF7 in B cells prevent response to seasonal influenza vaccine",
+  "analysis_intent": "association",
+  "population": "healthy human recipients of seasonal influenza vaccination",
+  "intervention": {
+    "name": "Seasonal influenza vaccine",
+    "search_terms": [
+      "influenza vaccine",
+      "influenza vaccination",
+      "seasonal influenza",
+      "trivalent influenza vaccine",
+      "quadrivalent influenza vaccine",
+      "TIV",
+      "QIV",
+      "inactivated influenza vaccine",
+      "live attenuated influenza vaccine",
+      "LAIV",
+      "FluMist",
+      "Fluzone",
+      "Fluarix",
+      "Fluvirin",
+      "Agriflu",
+      "Afluria",
+      "Flucelvax",
+      "Fluad",
+      "FluLaval",
+      "influenza",
+      "flu vaccine",
+      "flu vaccination",
+      "H1N1 vaccine",
+      "H3N2 vaccine",
+      "influenza A",
+      "influenza B"
+    ]
+  },
+  "predictor": {
+    "biological_factor": "IRF7 expression in B cells",
+    "possible_measurements": [
+      "IRF7 transcript abundance in sorted B cells (RNA-seq or microarray)",
+      "IRF7 expression in B cell clusters from single-cell RNA-seq of PBMC",
+      "IRF7 module or interferon-regulatory-factor signature score in bulk PBMC/whole blood deconvolved to B cells",
+      "IRF7 protein level by flow cytometry or CyTOF in CD19+ cells",
+      "IRF7 regulon activity score"
+    ],
+    "search_terms": [
+      "IRF7",
+      "interferon regulatory factor 7",
+      "interferon regulatory factor",
+      "type I interferon signature",
+      "interferon signaling",
+      "B cell transcriptome",
+      "B cells",
+      "CD19",
+      "plasmablast",
+      "systems vaccinology"
+    ]
+  },
+  "outcome": {
+    "name": "Influenza vaccine immunogenicity",
+    "possible_measurements": [
+      "hemagglutination inhibition (HAI) titer at day 28 relative to day 0",
+      "HAI fold change / seroconversion (>=4-fold rise)",
+      "microneutralization titer",
+      "influenza-specific IgG by ELISA or multiplex assay",
+      "day 7 plasmablast frequency by flow cytometry",
+      "influenza-specific antibody-secreting cell ELISPOT counts"
+    ],
+    "search_terms": [
+      "vaccine response",
+      "antibody response",
+      "immunogenicity",
+      "hemagglutination inhibition",
+      "HAI titer",
+      "seroconversion",
+      "antibody titer",
+      "neutralizing antibody",
+      "plasmablast response",
+      "vaccine responders",
+      "humoral response"
+    ]
+  },
+  "assay": {
+    "search_terms": [
+      "RNA sequencing",
+      "transcriptomics",
+      "gene expression",
+      "microarray",
+      "transcription profiling",
+      "single cell RNA-seq",
+      "scRNA-seq",
+      "CITE-Seq",
+      "flow cytometry",
+      "CyTOF",
+      "mass cytometry",
+      "ELISA",
+      "ELISPOT",
+      "hemagglutination inhibition",
+      "microneutralization"
+    ]
+  },
+  "required_data": [
+    "gene expression data from B cells or from PBMC/whole blood with B cell resolution",
+    "influenza-specific antibody titers (HAI, microneutralization, or ELISA) post-vaccination",
+    "subject-level identifiers linking transcriptomics to antibody outcomes",
+    "vaccination timepoint metadata"
+  ],
+  "preferred_predictor_timepoint": [
+    "pre-vaccination",
+    "early post-vaccination"
+  ],
+  "preferred_outcome_timepoint": [
+    "post-vaccination (day 21-28 or later)"
+  ],
+  "preferred_sample_types": [
+    "PBMC",
+    "whole blood",
+    "sorted B cells",
+    "serum"
+  ],
+  "required_features": [
+    "human subjects",
+    "seasonal influenza vaccination",
+    "transcriptomics",
+    "B cell resolution",
+    "antibody titers",
+    "paired pre/post samples"
+  ],
+  "eligibility": {
+    "scientific_criteria": [
+      {
+        "id": "human_subjects",
+        "description": "Study enrolled human participants.",
+        "exclusion": "non-human study"
+      },
+      {
+        "id": "seasonal_influenza_vaccination",
+        "description": "Participants received a seasonal influenza vaccine (inactivated or live attenuated).",
+        "exclusion": "no influenza vaccination"
+      },
+      {
+        "id": "gene_expression_available",
+        "description": "Study includes transcriptomic or proteomic measurement from which IRF7 levels could be extracted (RNA-seq, microarray, scRNA-seq, CyTOF/flow with IRF7 or interferon markers).",
+        "exclusion": "no molecular expression data"
+      },
+      {
+        "id": "b_cell_resolution",
+        "description": "Expression data derive from sorted B cells, single-cell data containing B cells, or bulk blood samples amenable to B cell deconvolution.",
+        "exclusion": "no B cell-resolved data"
+      },
+      {
+        "id": "antibody_outcome_measured",
+        "description": "Study measures influenza-specific antibody response (HAI, microneutralization, or ELISA titers) after vaccination.",
+        "exclusion": "no antibody response outcome"
+      },
+      {
+        "id": "baseline_and_post_timepoints",
+        "description": "Samples span at least a pre-vaccination or early post-vaccination timepoint for expression and a post-vaccination timepoint (approximately day 21-28 or later) for antibody titer.",
+        "exclusion": "single timepoint only"
+      },
+      {
+        "id": "subject_level_linkage",
+        "description": "Expression measurements and antibody titers can be linked to the same individual participant via shared subject identifiers.",
+        "exclusion": "predictor and outcome unlinkable"
+      },
+      {
+        "id": "sufficient_cohort_size",
+        "description": "Study includes enough vaccinated participants with both expression and titer data to support an association analysis (roughly 20 or more).",
+        "exclusion": "cohort too small"
+      }
+    ],
+    "operational_criteria": [
+      {
+        "id": "data_downloadable",
+        "description": "Study data files (expression matrices and lab results) are publicly downloadable from ImmPort or a linked repository."
+      },
+      {
+        "id": "metadata_complete",
+        "description": "Subject, timepoint, and biosample annotations are present and sufficient to align assays."
+      },
+      {
+        "id": "expression_matrix_gene_level",
+        "description": "Expression data are provided at gene level or can be mapped to gene symbols including IRF7."
+      }
+    ]
+  },
+  "primary_statistical_test": {
+    "type": "association/regression",
+    "example_model": "log2_HAI_fold_change ~ B_cell_IRF7_expression + baseline_HAI_titer + age + sex + study/batch"
+  },
+  "recommended_analysis": {
+    "predictor": "IRF7 expression in B cells (sorted B cell RNA, B cell cluster pseudobulk from scRNA-seq, or deconvolved B cell signal) at pre-vaccination or early post-vaccination",
+    "outcome": "log2 fold change in influenza HAI titer from day 0 to day 28 (or maximum strain-specific fold change)",
+    "model": "log2_HAI_fold_change ~ B_cell_IRF7_expression + baseline_HAI_titer + age + sex + study/batch"
+  },
+  "search": {
+    "require": [
+      "intervention"
+    ],
+    "min_groups": 1,
+    "filters": {
+      "species": "Homo sapiens"
+    },
+    "limit": 100,
+    "per_term": 200
+  },
+  "inclusion_criteria": [
+    "Study enrolled human participants.",
+    "Participants received a seasonal influenza vaccine (inactivated or live attenuated).",
+    "Study includes transcriptomic or proteomic measurement from which IRF7 levels could be extracted (RNA-seq, microarray, scRNA-seq, CyTOF/flow with IRF7 or interferon markers).",
+    "Expression data derive from sorted B cells, single-cell data containing B cells, or bulk blood samples amenable to B cell deconvolution.",
+    "Study measures influenza-specific antibody response (HAI, microneutralization, or ELISA titers) after vaccination.",
+    "Samples span at least a pre-vaccination or early post-vaccination timepoint for expression and a post-vaccination timepoint (approximately day 21-28 or later) for antibody titer.",
+    "Expression measurements and antibody titers can be linked to the same individual participant via shared subject identifiers.",
+    "Study includes enough vaccinated participants with both expression and titer data to support an association analysis (roughly 20 or more)."
+  ],
+  "exclusion_criteria": [
+    "non-human study",
+    "no influenza vaccination",
+    "no molecular expression data",
+    "no B cell-resolved data",
+    "no antibody response outcome",
+    "single timepoint only",
+    "predictor and outcome unlinkable",
+    "cohort too small"
+  ],
+  "provenance": {
+    "step": "2-test-spec",
+    "generator": "build_test_spec.py 0.4.0",
+    "model": "claudeopus5",
+    "temperature": 1,
+    "prompt_sha256": "80d77a3683484629",
+    "repair_pass_used": false,
+    "created_utc": "2026-09-18T15:08:45+00:00",
+    "grounded_facets": "assayMethod,researchFocus,species"
+  }
+}
