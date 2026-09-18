@@ -1,0 +1,15 @@
+{
+ "perms": 2000,
+ "observed": {
+  "TNF-alpha Signaling via NF-kB": 11,
+  "Interferon Alpha Response": 13,
+  "Interferon Gamma Response": 29,
+  "Inflammatory Response": 17
+ },
+ "p": {
+  "TNF-alpha Signaling via NF-kB": 0.44627686156921537,
+  "Interferon Alpha Response": 0.10144927536231885,
+  "Interferon Gamma Response": 0.057971014492753624,
+  "Inflammatory Response": 0.11544227886056972
+ }
+}

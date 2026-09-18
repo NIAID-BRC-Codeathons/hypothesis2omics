@@ -1,0 +1,89 @@
+{
+  "overall_verdict": "inconclusive",
+  "per_dataset": [
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/NFKB1",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.11775302221690942, 'p_value': 0.131987239224795, 'fdr': 0.2366341550570231}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/NFKB2, SDY1328/GSE65834/REL, SDY1328/GSE65834/RELA, SDY1328/GSE65834/RELB. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    },
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/RELA",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.10269851444387272, 'p_value': 0.18930732404561848, 'fdr': 0.2366341550570231}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/NFKB1, SDY1328/GSE65834/NFKB2, SDY1328/GSE65834/REL, SDY1328/GSE65834/RELB. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    },
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/NFKB2",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.06190602889971262, 'p_value': 0.429580312462543, 'fdr': 0.429580312462543}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/NFKB1, SDY1328/GSE65834/REL, SDY1328/GSE65834/RELA, SDY1328/GSE65834/RELB. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    },
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/REL",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.10721545645489744, 'p_value': 0.17047102418281435, 'fdr': 0.2366341550570231}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/NFKB1, SDY1328/GSE65834/NFKB2, SDY1328/GSE65834/RELA, SDY1328/GSE65834/RELB. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    },
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/RELB",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.11254910403841162, 'p_value': 0.15006386610887462, 'fdr': 0.2366341550570231}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/NFKB1, SDY1328/GSE65834/NFKB2, SDY1328/GSE65834/REL, SDY1328/GSE65834/RELA. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    }
+  ],
+  "narrative": "Overall verdict: inconclusive, because no result met the pre-registered criteria.\n\nPre-registered before any result existed: alpha 0.05, BH correction, expected direction 'down', minimum effect 0.0, and at least 1 independent dataset group(s) required.\n\n5 analysis unit(s) resolve to 1 independent group(s):\n  SDY1328: SDY1328/GSE65834/NFKB1, SDY1328/GSE65834/NFKB2, SDY1328/GSE65834/REL, SDY1328/GSE65834/RELA, SDY1328/GSE65834/RELB\n\nUnits sharing a group are correlated by construction and are counted once toward replication. The schema has no field for this, so it is stated here.\n\nCaveats:\n  - 5 rows collapse to 1 independent dataset group(s). Rows inside a group share a study, lab or platform and are not independent replication.\n  - This is a re-analysis of public data. Agreeing with a published finding shows the pipeline reproduces it, which is not independent confirmation of the underlying biology.",
+  "n_independent_groups": 1,
+  "decision_rule": {
+    "alpha": 0.05,
+    "correction": "BH",
+    "min_effect": 0.0,
+    "direction": "down",
+    "min_independent_groups": 1
+  }
+}
