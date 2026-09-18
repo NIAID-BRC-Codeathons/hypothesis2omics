@@ -1,0 +1,74 @@
+{
+  "overall_verdict": "inconclusive",
+  "per_dataset": [
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/TNF-alpha Signaling via NF-kB",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.052533799016450056, 'p_value': 0.5027674484034174, 'fdr': 0.5027674484034174}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/Inflammatory Response, SDY1328/GSE65834/Interferon Alpha Response, SDY1328/GSE65834/Interferon Gamma Response. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    },
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/Interferon Alpha Response",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.09963215778813628, 'p_value': 0.20293312347967601, 'fdr': 0.4198771986585337}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/Inflammatory Response, SDY1328/GSE65834/Interferon Gamma Response, SDY1328/GSE65834/TNF-alpha Signaling via NF-kB. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    },
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/Interferon Gamma Response",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.09184301821207255, 'p_value': 0.2406924955579403, 'fdr': 0.4198771986585337}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/Inflammatory Response, SDY1328/GSE65834/Interferon Alpha Response, SDY1328/GSE65834/TNF-alpha Signaling via NF-kB. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    },
+    {
+      "analysis_unit_id": "SDY1328/GSE65834/Inflammatory Response",
+      "gse_id": "GSE65834",
+      "cohort": "SDY1328_ARM4537",
+      "platform": "GPL15048",
+      "verdict": "inconclusive",
+      "confidence": 0.3,
+      "evidence_summary": "effect {'log2fc': -0.07871429868032233, 'p_value': 0.31490789899390026, 'fdr': 0.4198771986585337}",
+      "rationale": "missing an effect estimate or a significance value",
+      "caveats": [
+        "Confidence is derived deterministically from the pre-registered rule and the adjusted p-value. It is not a calibrated posterior probability.",
+        "Not independent of SDY1328/GSE65834/Interferon Alpha Response, SDY1328/GSE65834/Interferon Gamma Response, SDY1328/GSE65834/TNF-alpha Signaling via NF-kB. All share independence group 'SDY1328', so they count once toward replication."
+      ],
+      "independence_group": "SDY1328"
+    }
+  ],
+  "narrative": "Overall verdict: inconclusive, because no result met the pre-registered criteria.\n\nPre-registered before any result existed: alpha 0.05, BH correction, expected direction 'down', minimum effect 0.0, and at least 1 independent dataset group(s) required.\n\n4 analysis unit(s) resolve to 1 independent group(s):\n  SDY1328: SDY1328/GSE65834/Inflammatory Response, SDY1328/GSE65834/Interferon Alpha Response, SDY1328/GSE65834/Interferon Gamma Response, SDY1328/GSE65834/TNF-alpha Signaling via NF-kB\n\nUnits sharing a group are correlated by construction and are counted once toward replication. The schema has no field for this, so it is stated here.\n\nCaveats:\n  - 4 rows collapse to 1 independent dataset group(s). Rows inside a group share a study, lab or platform and are not independent replication.\n  - This is a re-analysis of public data. Agreeing with a published finding shows the pipeline reproduces it, which is not independent confirmation of the underlying biology.",
+  "n_independent_groups": 1,
+  "decision_rule": {
+    "alpha": 0.05,
+    "correction": "BH",
+    "min_effect": 0.0,
+    "direction": "down",
+    "min_independent_groups": 1
+  }
+}

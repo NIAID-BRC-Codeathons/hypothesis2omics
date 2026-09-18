@@ -1,0 +1,27 @@
+{
+  "run_started_at_utc": "2026-09-18T15:58:43.585736+00:00",
+  "tool": "study_readiness_module",
+  "tool_version": "0.1.0",
+  "studies_checked": 11,
+  "ready": [
+    "SDY1328",
+    "SDY299",
+    "SDY2312",
+    "SDY1538",
+    "SDY2584"
+  ],
+  "excluded": [
+    "SDY89",
+    "SDY690",
+    "SDY816",
+    "SDY671",
+    "SDY674",
+    "SDY3271"
+  ],
+  "outputs": {
+    "study_readiness_tsv": "/nfs/lambda_stor_01/data/avasan/omics_agents/hepb_nfkb/readiness/study_readiness.tsv",
+    "ready_studies_txt": "/nfs/lambda_stor_01/data/avasan/omics_agents/hepb_nfkb/readiness/ready_studies.txt",
+    "excluded_studies_tsv": "/nfs/lambda_stor_01/data/avasan/omics_agents/hepb_nfkb/readiness/excluded_studies.tsv"
+  },
+  "duration_sec": 114.905
+}
