@@ -1,0 +1,41 @@
+{
+  "counts": {
+    "geo_metadata_rows": 544,
+    "probes": 24526,
+    "samples": 16
+  },
+  "duration_sec": 0.243,
+  "experiment_accession": "EXP20685",
+  "gpl_accession": "GPL6883",
+  "gse_accession": "GSE13699",
+  "output_directory": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883",
+  "outputs": [
+    {
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883/expression.tsv.gz",
+      "sha256": "425bdc5a1eb98366b126ea59dfba03be9398bed27d7430ebff757b4ad25bb403",
+      "size_bytes": 210846,
+      "type": "expression"
+    },
+    {
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883/samples.tsv",
+      "sha256": "03406c32c8c7a5b69deb0be80a36a770764e775293094baf5500f93380a2b42f",
+      "size_bytes": 10211,
+      "type": "samples"
+    },
+    {
+      "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache/parsed/SDY1289/EXP20685/GSE13699_GPL6883/geo_sample_metadata_long.tsv",
+      "sha256": "8e1960068715d61fa17e614887eca807073aa73ddeff4ec0714e65c1588f0888",
+      "size_bytes": 61337,
+      "type": "geo_sample_metadata"
+    }
+  ],
+  "requested_samples": 16,
+  "run_started_at_utc": "2026-09-17T21:17:35.625186+00:00",
+  "source_matrix": {
+    "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache/GSE13699/GSE13699-GPL6883_series_matrix.txt.gz",
+    "sha256": "3319b4c0cdb2c6b4429166a31f8cba469d8f1f55010ba8e3e3ba57e875b436cf",
+    "size_bytes": 227905
+  },
+  "status": "success",
+  "study_accession": "SDY1289"
+}

@@ -1,0 +1,1333 @@
+gsm_accession	attribute	occurrence	attribute_order	value
+GSM3584982	title	0	0	YF00104_1_BL
+GSM3584982	geo_accession	0	1	GSM3584982
+GSM3584982	status	0	2	Public on Jan 31 2019
+GSM3584982	submission_date	0	3	Jan 30 2019
+GSM3584982	last_update_date	0	4	Jan 31 2019
+GSM3584982	type	0	5	RNA
+GSM3584982	channel_count	0	6	1
+GSM3584982	source_name_ch1	0	7	Whole blood
+GSM3584982	organism_ch1	0	8	Homo sapiens
+GSM3584982	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584982	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3584982	characteristics_ch1	2	11	gender: F
+GSM3584982	characteristics_ch1	3	12	donor: YF00104006
+GSM3584982	characteristics_ch1	4	13	age: 22
+GSM3584982	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584982	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584982	molecule_ch1	0	16	total RNA
+GSM3584982	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584982	label_ch1	0	18	Biotin
+GSM3584982	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584982	taxid_ch1	0	20	9606
+GSM3584982	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584982	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584982	description	0	23	Pre-vaccination sample
+GSM3584982	description	1	24	5491099001_B
+GSM3584982	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584982	platform_id	0	26	GPL10558
+GSM3584982	contact_name	0	27	Ali,,Filali
+GSM3584982	contact_email	0	28	afilali@case.edu
+GSM3584982	contact_department	0	29	Pathology
+GSM3584982	contact_institute	0	30	CWRU
+GSM3584982	contact_address	0	31	10900  Euclid Avenue
+GSM3584982	contact_city	0	32	Cleveland
+GSM3584982	contact_zip/postal_code	0	33	44106
+GSM3584982	contact_country	0	34	USA
+GSM3584982	supplementary_file	0	35	NONE
+GSM3584982	data_row_count	0	36	47231
+GSM3584991	title	0	0	YF00104_10_BL
+GSM3584991	geo_accession	0	1	GSM3584991
+GSM3584991	status	0	2	Public on Jan 31 2019
+GSM3584991	submission_date	0	3	Jan 30 2019
+GSM3584991	last_update_date	0	4	Jan 31 2019
+GSM3584991	type	0	5	RNA
+GSM3584991	channel_count	0	6	1
+GSM3584991	source_name_ch1	0	7	Whole blood
+GSM3584991	organism_ch1	0	8	Homo sapiens
+GSM3584991	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584991	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3584991	characteristics_ch1	2	11	gender: M
+GSM3584991	characteristics_ch1	3	12	donor: YF00104005
+GSM3584991	characteristics_ch1	4	13	age: 21
+GSM3584991	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584991	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584991	molecule_ch1	0	16	total RNA
+GSM3584991	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584991	label_ch1	0	18	Biotin
+GSM3584991	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584991	taxid_ch1	0	20	9606
+GSM3584991	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584991	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584991	description	0	23	Pre-vaccination sample
+GSM3584991	description	1	24	5645570007_C
+GSM3584991	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584991	platform_id	0	26	GPL10558
+GSM3584991	contact_name	0	27	Ali,,Filali
+GSM3584991	contact_email	0	28	afilali@case.edu
+GSM3584991	contact_department	0	29	Pathology
+GSM3584991	contact_institute	0	30	CWRU
+GSM3584991	contact_address	0	31	10900  Euclid Avenue
+GSM3584991	contact_city	0	32	Cleveland
+GSM3584991	contact_zip/postal_code	0	33	44106
+GSM3584991	contact_country	0	34	USA
+GSM3584991	supplementary_file	0	35	NONE
+GSM3584991	data_row_count	0	36	47231
+GSM3584992	title	0	0	YF00104_11_BL
+GSM3584992	geo_accession	0	1	GSM3584992
+GSM3584992	status	0	2	Public on Jan 31 2019
+GSM3584992	submission_date	0	3	Jan 30 2019
+GSM3584992	last_update_date	0	4	Jan 31 2019
+GSM3584992	type	0	5	RNA
+GSM3584992	channel_count	0	6	1
+GSM3584992	source_name_ch1	0	7	Whole blood
+GSM3584992	organism_ch1	0	8	Homo sapiens
+GSM3584992	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584992	characteristics_ch1	1	10	day84 nab titer: 640
+GSM3584992	characteristics_ch1	2	11	gender: M
+GSM3584992	characteristics_ch1	3	12	donor: YF00104019
+GSM3584992	characteristics_ch1	4	13	age: 19
+GSM3584992	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584992	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584992	molecule_ch1	0	16	total RNA
+GSM3584992	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584992	label_ch1	0	18	Biotin
+GSM3584992	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584992	taxid_ch1	0	20	9606
+GSM3584992	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584992	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584992	description	0	23	Pre-vaccination sample
+GSM3584992	description	1	24	5645570007_K
+GSM3584992	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584992	platform_id	0	26	GPL10558
+GSM3584992	contact_name	0	27	Ali,,Filali
+GSM3584992	contact_email	0	28	afilali@case.edu
+GSM3584992	contact_department	0	29	Pathology
+GSM3584992	contact_institute	0	30	CWRU
+GSM3584992	contact_address	0	31	10900  Euclid Avenue
+GSM3584992	contact_city	0	32	Cleveland
+GSM3584992	contact_zip/postal_code	0	33	44106
+GSM3584992	contact_country	0	34	USA
+GSM3584992	supplementary_file	0	35	NONE
+GSM3584992	data_row_count	0	36	47231
+GSM3584993	title	0	0	YF00104_12_BL
+GSM3584993	geo_accession	0	1	GSM3584993
+GSM3584993	status	0	2	Public on Jan 31 2019
+GSM3584993	submission_date	0	3	Jan 30 2019
+GSM3584993	last_update_date	0	4	Jan 31 2019
+GSM3584993	type	0	5	RNA
+GSM3584993	channel_count	0	6	1
+GSM3584993	source_name_ch1	0	7	Whole blood
+GSM3584993	organism_ch1	0	8	Homo sapiens
+GSM3584993	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584993	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3584993	characteristics_ch1	2	11	gender: M
+GSM3584993	characteristics_ch1	3	12	donor: YF00104031
+GSM3584993	characteristics_ch1	4	13	age: 23
+GSM3584993	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584993	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584993	molecule_ch1	0	16	total RNA
+GSM3584993	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584993	label_ch1	0	18	Biotin
+GSM3584993	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584993	taxid_ch1	0	20	9606
+GSM3584993	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584993	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584993	description	0	23	Pre-vaccination sample
+GSM3584993	description	1	24	5645570008_C
+GSM3584993	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584993	platform_id	0	26	GPL10558
+GSM3584993	contact_name	0	27	Ali,,Filali
+GSM3584993	contact_email	0	28	afilali@case.edu
+GSM3584993	contact_department	0	29	Pathology
+GSM3584993	contact_institute	0	30	CWRU
+GSM3584993	contact_address	0	31	10900  Euclid Avenue
+GSM3584993	contact_city	0	32	Cleveland
+GSM3584993	contact_zip/postal_code	0	33	44106
+GSM3584993	contact_country	0	34	USA
+GSM3584993	supplementary_file	0	35	NONE
+GSM3584993	data_row_count	0	36	47231
+GSM3584994	title	0	0	YF00104_13_BL
+GSM3584994	geo_accession	0	1	GSM3584994
+GSM3584994	status	0	2	Public on Jan 31 2019
+GSM3584994	submission_date	0	3	Jan 30 2019
+GSM3584994	last_update_date	0	4	Jan 31 2019
+GSM3584994	type	0	5	RNA
+GSM3584994	channel_count	0	6	1
+GSM3584994	source_name_ch1	0	7	Whole blood
+GSM3584994	organism_ch1	0	8	Homo sapiens
+GSM3584994	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584994	characteristics_ch1	1	10	day84 nab titer: 5120
+GSM3584994	characteristics_ch1	2	11	gender: F
+GSM3584994	characteristics_ch1	3	12	donor: YF00104054
+GSM3584994	characteristics_ch1	4	13	age: 29
+GSM3584994	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584994	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584994	molecule_ch1	0	16	total RNA
+GSM3584994	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584994	label_ch1	0	18	Biotin
+GSM3584994	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584994	taxid_ch1	0	20	9606
+GSM3584994	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584994	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584994	description	0	23	Pre-vaccination sample
+GSM3584994	description	1	24	5645570008_G
+GSM3584994	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584994	platform_id	0	26	GPL10558
+GSM3584994	contact_name	0	27	Ali,,Filali
+GSM3584994	contact_email	0	28	afilali@case.edu
+GSM3584994	contact_department	0	29	Pathology
+GSM3584994	contact_institute	0	30	CWRU
+GSM3584994	contact_address	0	31	10900  Euclid Avenue
+GSM3584994	contact_city	0	32	Cleveland
+GSM3584994	contact_zip/postal_code	0	33	44106
+GSM3584994	contact_country	0	34	USA
+GSM3584994	supplementary_file	0	35	NONE
+GSM3584994	data_row_count	0	36	47231
+GSM3584995	title	0	0	YF00104_14_BL
+GSM3584995	geo_accession	0	1	GSM3584995
+GSM3584995	status	0	2	Public on Jan 31 2019
+GSM3584995	submission_date	0	3	Jan 30 2019
+GSM3584995	last_update_date	0	4	Jan 31 2019
+GSM3584995	type	0	5	RNA
+GSM3584995	channel_count	0	6	1
+GSM3584995	source_name_ch1	0	7	Whole blood
+GSM3584995	organism_ch1	0	8	Homo sapiens
+GSM3584995	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584995	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3584995	characteristics_ch1	2	11	gender: M
+GSM3584995	characteristics_ch1	3	12	donor: YF00104015
+GSM3584995	characteristics_ch1	4	13	age: 49
+GSM3584995	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584995	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584995	molecule_ch1	0	16	total RNA
+GSM3584995	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584995	label_ch1	0	18	Biotin
+GSM3584995	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584995	taxid_ch1	0	20	9606
+GSM3584995	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584995	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584995	description	0	23	Pre-vaccination sample
+GSM3584995	description	1	24	5645570008_K
+GSM3584995	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584995	platform_id	0	26	GPL10558
+GSM3584995	contact_name	0	27	Ali,,Filali
+GSM3584995	contact_email	0	28	afilali@case.edu
+GSM3584995	contact_department	0	29	Pathology
+GSM3584995	contact_institute	0	30	CWRU
+GSM3584995	contact_address	0	31	10900  Euclid Avenue
+GSM3584995	contact_city	0	32	Cleveland
+GSM3584995	contact_zip/postal_code	0	33	44106
+GSM3584995	contact_country	0	34	USA
+GSM3584995	supplementary_file	0	35	NONE
+GSM3584995	data_row_count	0	36	47231
+GSM3584996	title	0	0	YF00104_15_BL
+GSM3584996	geo_accession	0	1	GSM3584996
+GSM3584996	status	0	2	Public on Jan 31 2019
+GSM3584996	submission_date	0	3	Jan 30 2019
+GSM3584996	last_update_date	0	4	Jan 31 2019
+GSM3584996	type	0	5	RNA
+GSM3584996	channel_count	0	6	1
+GSM3584996	source_name_ch1	0	7	Whole blood
+GSM3584996	organism_ch1	0	8	Homo sapiens
+GSM3584996	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584996	characteristics_ch1	1	10	day84 nab titer: 5120
+GSM3584996	characteristics_ch1	2	11	gender: M
+GSM3584996	characteristics_ch1	3	12	donor: YF00104038
+GSM3584996	characteristics_ch1	4	13	age: 26
+GSM3584996	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584996	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584996	molecule_ch1	0	16	total RNA
+GSM3584996	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584996	label_ch1	0	18	Biotin
+GSM3584996	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584996	taxid_ch1	0	20	9606
+GSM3584996	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584996	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584996	description	0	23	Pre-vaccination sample
+GSM3584996	description	1	24	5645570009_C
+GSM3584996	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584996	platform_id	0	26	GPL10558
+GSM3584996	contact_name	0	27	Ali,,Filali
+GSM3584996	contact_email	0	28	afilali@case.edu
+GSM3584996	contact_department	0	29	Pathology
+GSM3584996	contact_institute	0	30	CWRU
+GSM3584996	contact_address	0	31	10900  Euclid Avenue
+GSM3584996	contact_city	0	32	Cleveland
+GSM3584996	contact_zip/postal_code	0	33	44106
+GSM3584996	contact_country	0	34	USA
+GSM3584996	supplementary_file	0	35	NONE
+GSM3584996	data_row_count	0	36	47231
+GSM3584997	title	0	0	YF00104_16_BL
+GSM3584997	geo_accession	0	1	GSM3584997
+GSM3584997	status	0	2	Public on Jan 31 2019
+GSM3584997	submission_date	0	3	Jan 30 2019
+GSM3584997	last_update_date	0	4	Jan 31 2019
+GSM3584997	type	0	5	RNA
+GSM3584997	channel_count	0	6	1
+GSM3584997	source_name_ch1	0	7	Whole blood
+GSM3584997	organism_ch1	0	8	Homo sapiens
+GSM3584997	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584997	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3584997	characteristics_ch1	2	11	gender: M
+GSM3584997	characteristics_ch1	3	12	donor: YF00104039
+GSM3584997	characteristics_ch1	4	13	age: 32
+GSM3584997	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584997	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584997	molecule_ch1	0	16	total RNA
+GSM3584997	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584997	label_ch1	0	18	Biotin
+GSM3584997	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584997	taxid_ch1	0	20	9606
+GSM3584997	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584997	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584997	description	0	23	Pre-vaccination sample
+GSM3584997	description	1	24	5645570009_G
+GSM3584997	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584997	platform_id	0	26	GPL10558
+GSM3584997	contact_name	0	27	Ali,,Filali
+GSM3584997	contact_email	0	28	afilali@case.edu
+GSM3584997	contact_department	0	29	Pathology
+GSM3584997	contact_institute	0	30	CWRU
+GSM3584997	contact_address	0	31	10900  Euclid Avenue
+GSM3584997	contact_city	0	32	Cleveland
+GSM3584997	contact_zip/postal_code	0	33	44106
+GSM3584997	contact_country	0	34	USA
+GSM3584997	supplementary_file	0	35	NONE
+GSM3584997	data_row_count	0	36	47231
+GSM3584998	title	0	0	YF00104_17_BL
+GSM3584998	geo_accession	0	1	GSM3584998
+GSM3584998	status	0	2	Public on Jan 31 2019
+GSM3584998	submission_date	0	3	Jan 30 2019
+GSM3584998	last_update_date	0	4	Jan 31 2019
+GSM3584998	type	0	5	RNA
+GSM3584998	channel_count	0	6	1
+GSM3584998	source_name_ch1	0	7	Whole blood
+GSM3584998	organism_ch1	0	8	Homo sapiens
+GSM3584998	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584998	characteristics_ch1	1	10	day84 nab titer: 5120
+GSM3584998	characteristics_ch1	2	11	gender: F
+GSM3584998	characteristics_ch1	3	12	donor: YF00104044
+GSM3584998	characteristics_ch1	4	13	age: 21
+GSM3584998	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584998	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584998	molecule_ch1	0	16	total RNA
+GSM3584998	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584998	label_ch1	0	18	Biotin
+GSM3584998	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584998	taxid_ch1	0	20	9606
+GSM3584998	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584998	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584998	description	0	23	Pre-vaccination sample
+GSM3584998	description	1	24	5645570009_K
+GSM3584998	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584998	platform_id	0	26	GPL10558
+GSM3584998	contact_name	0	27	Ali,,Filali
+GSM3584998	contact_email	0	28	afilali@case.edu
+GSM3584998	contact_department	0	29	Pathology
+GSM3584998	contact_institute	0	30	CWRU
+GSM3584998	contact_address	0	31	10900  Euclid Avenue
+GSM3584998	contact_city	0	32	Cleveland
+GSM3584998	contact_zip/postal_code	0	33	44106
+GSM3584998	contact_country	0	34	USA
+GSM3584998	supplementary_file	0	35	NONE
+GSM3584998	data_row_count	0	36	47231
+GSM3584999	title	0	0	YF00104_18_BL
+GSM3584999	geo_accession	0	1	GSM3584999
+GSM3584999	status	0	2	Public on Jan 31 2019
+GSM3584999	submission_date	0	3	Jan 30 2019
+GSM3584999	last_update_date	0	4	Jan 31 2019
+GSM3584999	type	0	5	RNA
+GSM3584999	channel_count	0	6	1
+GSM3584999	source_name_ch1	0	7	Whole blood
+GSM3584999	organism_ch1	0	8	Homo sapiens
+GSM3584999	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584999	characteristics_ch1	1	10	day84 nab titer: 640
+GSM3584999	characteristics_ch1	2	11	gender: M
+GSM3584999	characteristics_ch1	3	12	donor: YF00104024
+GSM3584999	characteristics_ch1	4	13	age: 22
+GSM3584999	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584999	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584999	molecule_ch1	0	16	total RNA
+GSM3584999	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584999	label_ch1	0	18	Biotin
+GSM3584999	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584999	taxid_ch1	0	20	9606
+GSM3584999	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584999	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584999	description	0	23	Pre-vaccination sample
+GSM3584999	description	1	24	5645692008_B
+GSM3584999	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584999	platform_id	0	26	GPL10558
+GSM3584999	contact_name	0	27	Ali,,Filali
+GSM3584999	contact_email	0	28	afilali@case.edu
+GSM3584999	contact_department	0	29	Pathology
+GSM3584999	contact_institute	0	30	CWRU
+GSM3584999	contact_address	0	31	10900  Euclid Avenue
+GSM3584999	contact_city	0	32	Cleveland
+GSM3584999	contact_zip/postal_code	0	33	44106
+GSM3584999	contact_country	0	34	USA
+GSM3584999	supplementary_file	0	35	NONE
+GSM3584999	data_row_count	0	36	47231
+GSM3585000	title	0	0	YF00104_19_BL
+GSM3585000	geo_accession	0	1	GSM3585000
+GSM3585000	status	0	2	Public on Jan 31 2019
+GSM3585000	submission_date	0	3	Jan 30 2019
+GSM3585000	last_update_date	0	4	Jan 31 2019
+GSM3585000	type	0	5	RNA
+GSM3585000	channel_count	0	6	1
+GSM3585000	source_name_ch1	0	7	Whole blood
+GSM3585000	organism_ch1	0	8	Homo sapiens
+GSM3585000	characteristics_ch1	0	9	baseline nab titer: 160
+GSM3585000	characteristics_ch1	1	10	day84 nab titer: 320
+GSM3585000	characteristics_ch1	2	11	gender: M
+GSM3585000	characteristics_ch1	3	12	donor: YF00104042
+GSM3585000	characteristics_ch1	4	13	age: 25
+GSM3585000	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585000	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585000	molecule_ch1	0	16	total RNA
+GSM3585000	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585000	label_ch1	0	18	Biotin
+GSM3585000	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585000	taxid_ch1	0	20	9606
+GSM3585000	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585000	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585000	description	0	23	Pre-vaccination sample
+GSM3585000	description	1	24	5645692008_F
+GSM3585000	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585000	platform_id	0	26	GPL10558
+GSM3585000	contact_name	0	27	Ali,,Filali
+GSM3585000	contact_email	0	28	afilali@case.edu
+GSM3585000	contact_department	0	29	Pathology
+GSM3585000	contact_institute	0	30	CWRU
+GSM3585000	contact_address	0	31	10900  Euclid Avenue
+GSM3585000	contact_city	0	32	Cleveland
+GSM3585000	contact_zip/postal_code	0	33	44106
+GSM3585000	contact_country	0	34	USA
+GSM3585000	supplementary_file	0	35	NONE
+GSM3585000	data_row_count	0	36	47231
+GSM3584983	title	0	0	YF00104_2_BL
+GSM3584983	geo_accession	0	1	GSM3584983
+GSM3584983	status	0	2	Public on Jan 31 2019
+GSM3584983	submission_date	0	3	Jan 30 2019
+GSM3584983	last_update_date	0	4	Jan 31 2019
+GSM3584983	type	0	5	RNA
+GSM3584983	channel_count	0	6	1
+GSM3584983	source_name_ch1	0	7	Whole blood
+GSM3584983	organism_ch1	0	8	Homo sapiens
+GSM3584983	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584983	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3584983	characteristics_ch1	2	11	gender: M
+GSM3584983	characteristics_ch1	3	12	donor: YF00104012
+GSM3584983	characteristics_ch1	4	13	age: 36
+GSM3584983	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584983	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584983	molecule_ch1	0	16	total RNA
+GSM3584983	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584983	label_ch1	0	18	Biotin
+GSM3584983	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584983	taxid_ch1	0	20	9606
+GSM3584983	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584983	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584983	description	0	23	Pre-vaccination sample
+GSM3584983	description	1	24	5491099057_B
+GSM3584983	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584983	platform_id	0	26	GPL10558
+GSM3584983	contact_name	0	27	Ali,,Filali
+GSM3584983	contact_email	0	28	afilali@case.edu
+GSM3584983	contact_department	0	29	Pathology
+GSM3584983	contact_institute	0	30	CWRU
+GSM3584983	contact_address	0	31	10900  Euclid Avenue
+GSM3584983	contact_city	0	32	Cleveland
+GSM3584983	contact_zip/postal_code	0	33	44106
+GSM3584983	contact_country	0	34	USA
+GSM3584983	supplementary_file	0	35	NONE
+GSM3584983	data_row_count	0	36	47231
+GSM3585001	title	0	0	YF00104_20_BL
+GSM3585001	geo_accession	0	1	GSM3585001
+GSM3585001	status	0	2	Public on Jan 31 2019
+GSM3585001	submission_date	0	3	Jan 30 2019
+GSM3585001	last_update_date	0	4	Jan 31 2019
+GSM3585001	type	0	5	RNA
+GSM3585001	channel_count	0	6	1
+GSM3585001	source_name_ch1	0	7	Whole blood
+GSM3585001	organism_ch1	0	8	Homo sapiens
+GSM3585001	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585001	characteristics_ch1	1	10	day84 nab titer: 320
+GSM3585001	characteristics_ch1	2	11	gender: M
+GSM3585001	characteristics_ch1	3	12	donor: YF00104037
+GSM3585001	characteristics_ch1	4	13	age: 29
+GSM3585001	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585001	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585001	molecule_ch1	0	16	total RNA
+GSM3585001	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585001	label_ch1	0	18	Biotin
+GSM3585001	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585001	taxid_ch1	0	20	9606
+GSM3585001	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585001	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585001	description	0	23	Pre-vaccination sample
+GSM3585001	description	1	24	5645692008_J
+GSM3585001	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585001	platform_id	0	26	GPL10558
+GSM3585001	contact_name	0	27	Ali,,Filali
+GSM3585001	contact_email	0	28	afilali@case.edu
+GSM3585001	contact_department	0	29	Pathology
+GSM3585001	contact_institute	0	30	CWRU
+GSM3585001	contact_address	0	31	10900  Euclid Avenue
+GSM3585001	contact_city	0	32	Cleveland
+GSM3585001	contact_zip/postal_code	0	33	44106
+GSM3585001	contact_country	0	34	USA
+GSM3585001	supplementary_file	0	35	NONE
+GSM3585001	data_row_count	0	36	47231
+GSM3585002	title	0	0	YF00104_21_BL
+GSM3585002	geo_accession	0	1	GSM3585002
+GSM3585002	status	0	2	Public on Jan 31 2019
+GSM3585002	submission_date	0	3	Jan 30 2019
+GSM3585002	last_update_date	0	4	Jan 31 2019
+GSM3585002	type	0	5	RNA
+GSM3585002	channel_count	0	6	1
+GSM3585002	source_name_ch1	0	7	Whole blood
+GSM3585002	organism_ch1	0	8	Homo sapiens
+GSM3585002	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585002	characteristics_ch1	1	10	day84 nab titer: 640
+GSM3585002	characteristics_ch1	2	11	gender: F
+GSM3585002	characteristics_ch1	3	12	donor: YF00104058
+GSM3585002	characteristics_ch1	4	13	age: 20
+GSM3585002	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585002	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585002	molecule_ch1	0	16	total RNA
+GSM3585002	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585002	label_ch1	0	18	Biotin
+GSM3585002	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585002	taxid_ch1	0	20	9606
+GSM3585002	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585002	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585002	description	0	23	Pre-vaccination sample
+GSM3585002	description	1	24	5645692011_B
+GSM3585002	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585002	platform_id	0	26	GPL10558
+GSM3585002	contact_name	0	27	Ali,,Filali
+GSM3585002	contact_email	0	28	afilali@case.edu
+GSM3585002	contact_department	0	29	Pathology
+GSM3585002	contact_institute	0	30	CWRU
+GSM3585002	contact_address	0	31	10900  Euclid Avenue
+GSM3585002	contact_city	0	32	Cleveland
+GSM3585002	contact_zip/postal_code	0	33	44106
+GSM3585002	contact_country	0	34	USA
+GSM3585002	supplementary_file	0	35	NONE
+GSM3585002	data_row_count	0	36	47231
+GSM3585003	title	0	0	YF00104_22_BL
+GSM3585003	geo_accession	0	1	GSM3585003
+GSM3585003	status	0	2	Public on Jan 31 2019
+GSM3585003	submission_date	0	3	Jan 30 2019
+GSM3585003	last_update_date	0	4	Jan 31 2019
+GSM3585003	type	0	5	RNA
+GSM3585003	channel_count	0	6	1
+GSM3585003	source_name_ch1	0	7	Whole blood
+GSM3585003	organism_ch1	0	8	Homo sapiens
+GSM3585003	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585003	characteristics_ch1	1	10	day84 nab titer: 640
+GSM3585003	characteristics_ch1	2	11	gender: F
+GSM3585003	characteristics_ch1	3	12	donor: YF00104056
+GSM3585003	characteristics_ch1	4	13	age: 27
+GSM3585003	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585003	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585003	molecule_ch1	0	16	total RNA
+GSM3585003	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585003	label_ch1	0	18	Biotin
+GSM3585003	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585003	taxid_ch1	0	20	9606
+GSM3585003	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585003	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585003	description	0	23	Pre-vaccination sample
+GSM3585003	description	1	24	5645692011_F
+GSM3585003	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585003	platform_id	0	26	GPL10558
+GSM3585003	contact_name	0	27	Ali,,Filali
+GSM3585003	contact_email	0	28	afilali@case.edu
+GSM3585003	contact_department	0	29	Pathology
+GSM3585003	contact_institute	0	30	CWRU
+GSM3585003	contact_address	0	31	10900  Euclid Avenue
+GSM3585003	contact_city	0	32	Cleveland
+GSM3585003	contact_zip/postal_code	0	33	44106
+GSM3585003	contact_country	0	34	USA
+GSM3585003	supplementary_file	0	35	NONE
+GSM3585003	data_row_count	0	36	47231
+GSM3585004	title	0	0	YF00104_23_BL
+GSM3585004	geo_accession	0	1	GSM3585004
+GSM3585004	status	0	2	Public on Jan 31 2019
+GSM3585004	submission_date	0	3	Jan 30 2019
+GSM3585004	last_update_date	0	4	Jan 31 2019
+GSM3585004	type	0	5	RNA
+GSM3585004	channel_count	0	6	1
+GSM3585004	source_name_ch1	0	7	Whole blood
+GSM3585004	organism_ch1	0	8	Homo sapiens
+GSM3585004	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585004	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3585004	characteristics_ch1	2	11	gender: F
+GSM3585004	characteristics_ch1	3	12	donor: YF00104055
+GSM3585004	characteristics_ch1	4	13	age: 23
+GSM3585004	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585004	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585004	molecule_ch1	0	16	total RNA
+GSM3585004	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585004	label_ch1	0	18	Biotin
+GSM3585004	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585004	taxid_ch1	0	20	9606
+GSM3585004	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585004	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585004	description	0	23	Pre-vaccination sample
+GSM3585004	description	1	24	5645692020_B
+GSM3585004	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585004	platform_id	0	26	GPL10558
+GSM3585004	contact_name	0	27	Ali,,Filali
+GSM3585004	contact_email	0	28	afilali@case.edu
+GSM3585004	contact_department	0	29	Pathology
+GSM3585004	contact_institute	0	30	CWRU
+GSM3585004	contact_address	0	31	10900  Euclid Avenue
+GSM3585004	contact_city	0	32	Cleveland
+GSM3585004	contact_zip/postal_code	0	33	44106
+GSM3585004	contact_country	0	34	USA
+GSM3585004	supplementary_file	0	35	NONE
+GSM3585004	data_row_count	0	36	47231
+GSM3585005	title	0	0	YF00104_24_BL
+GSM3585005	geo_accession	0	1	GSM3585005
+GSM3585005	status	0	2	Public on Jan 31 2019
+GSM3585005	submission_date	0	3	Jan 30 2019
+GSM3585005	last_update_date	0	4	Jan 31 2019
+GSM3585005	type	0	5	RNA
+GSM3585005	channel_count	0	6	1
+GSM3585005	source_name_ch1	0	7	Whole blood
+GSM3585005	organism_ch1	0	8	Homo sapiens
+GSM3585005	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585005	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3585005	characteristics_ch1	2	11	gender: F
+GSM3585005	characteristics_ch1	3	12	donor: YF00104059
+GSM3585005	characteristics_ch1	4	13	age: 22
+GSM3585005	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585005	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585005	molecule_ch1	0	16	total RNA
+GSM3585005	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585005	label_ch1	0	18	Biotin
+GSM3585005	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585005	taxid_ch1	0	20	9606
+GSM3585005	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585005	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585005	description	0	23	Pre-vaccination sample
+GSM3585005	description	1	24	5645692020_F
+GSM3585005	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585005	platform_id	0	26	GPL10558
+GSM3585005	contact_name	0	27	Ali,,Filali
+GSM3585005	contact_email	0	28	afilali@case.edu
+GSM3585005	contact_department	0	29	Pathology
+GSM3585005	contact_institute	0	30	CWRU
+GSM3585005	contact_address	0	31	10900  Euclid Avenue
+GSM3585005	contact_city	0	32	Cleveland
+GSM3585005	contact_zip/postal_code	0	33	44106
+GSM3585005	contact_country	0	34	USA
+GSM3585005	supplementary_file	0	35	NONE
+GSM3585005	data_row_count	0	36	47231
+GSM3585006	title	0	0	YF00104_25_BL
+GSM3585006	geo_accession	0	1	GSM3585006
+GSM3585006	status	0	2	Public on Jan 31 2019
+GSM3585006	submission_date	0	3	Jan 30 2019
+GSM3585006	last_update_date	0	4	Jan 31 2019
+GSM3585006	type	0	5	RNA
+GSM3585006	channel_count	0	6	1
+GSM3585006	source_name_ch1	0	7	Whole blood
+GSM3585006	organism_ch1	0	8	Homo sapiens
+GSM3585006	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585006	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3585006	characteristics_ch1	2	11	gender: F
+GSM3585006	characteristics_ch1	3	12	donor: YF00104062
+GSM3585006	characteristics_ch1	4	13	age: 24
+GSM3585006	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585006	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585006	molecule_ch1	0	16	total RNA
+GSM3585006	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585006	label_ch1	0	18	Biotin
+GSM3585006	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585006	taxid_ch1	0	20	9606
+GSM3585006	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585006	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585006	description	0	23	Pre-vaccination sample
+GSM3585006	description	1	24	5645692020_J
+GSM3585006	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585006	platform_id	0	26	GPL10558
+GSM3585006	contact_name	0	27	Ali,,Filali
+GSM3585006	contact_email	0	28	afilali@case.edu
+GSM3585006	contact_department	0	29	Pathology
+GSM3585006	contact_institute	0	30	CWRU
+GSM3585006	contact_address	0	31	10900  Euclid Avenue
+GSM3585006	contact_city	0	32	Cleveland
+GSM3585006	contact_zip/postal_code	0	33	44106
+GSM3585006	contact_country	0	34	USA
+GSM3585006	supplementary_file	0	35	NONE
+GSM3585006	data_row_count	0	36	47231
+GSM3585007	title	0	0	YF00104_26_BL
+GSM3585007	geo_accession	0	1	GSM3585007
+GSM3585007	status	0	2	Public on Jan 31 2019
+GSM3585007	submission_date	0	3	Jan 30 2019
+GSM3585007	last_update_date	0	4	Jan 31 2019
+GSM3585007	type	0	5	RNA
+GSM3585007	channel_count	0	6	1
+GSM3585007	source_name_ch1	0	7	Whole blood
+GSM3585007	organism_ch1	0	8	Homo sapiens
+GSM3585007	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585007	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3585007	characteristics_ch1	2	11	gender: M
+GSM3585007	characteristics_ch1	3	12	donor: YF00104018
+GSM3585007	characteristics_ch1	4	13	age: 19
+GSM3585007	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585007	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585007	molecule_ch1	0	16	total RNA
+GSM3585007	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585007	label_ch1	0	18	Biotin
+GSM3585007	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585007	taxid_ch1	0	20	9606
+GSM3585007	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585007	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585007	description	0	23	Pre-vaccination sample
+GSM3585007	description	1	24	5645692022_D
+GSM3585007	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585007	platform_id	0	26	GPL10558
+GSM3585007	contact_name	0	27	Ali,,Filali
+GSM3585007	contact_email	0	28	afilali@case.edu
+GSM3585007	contact_department	0	29	Pathology
+GSM3585007	contact_institute	0	30	CWRU
+GSM3585007	contact_address	0	31	10900  Euclid Avenue
+GSM3585007	contact_city	0	32	Cleveland
+GSM3585007	contact_zip/postal_code	0	33	44106
+GSM3585007	contact_country	0	34	USA
+GSM3585007	supplementary_file	0	35	NONE
+GSM3585007	data_row_count	0	36	47231
+GSM3585008	title	0	0	YF00104_27_BL
+GSM3585008	geo_accession	0	1	GSM3585008
+GSM3585008	status	0	2	Public on Jan 31 2019
+GSM3585008	submission_date	0	3	Jan 30 2019
+GSM3585008	last_update_date	0	4	Jan 31 2019
+GSM3585008	type	0	5	RNA
+GSM3585008	channel_count	0	6	1
+GSM3585008	source_name_ch1	0	7	Whole blood
+GSM3585008	organism_ch1	0	8	Homo sapiens
+GSM3585008	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585008	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3585008	characteristics_ch1	2	11	gender: M
+GSM3585008	characteristics_ch1	3	12	donor: YF00104036
+GSM3585008	characteristics_ch1	4	13	age: 23
+GSM3585008	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585008	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585008	molecule_ch1	0	16	total RNA
+GSM3585008	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585008	label_ch1	0	18	Biotin
+GSM3585008	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585008	taxid_ch1	0	20	9606
+GSM3585008	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585008	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585008	description	0	23	Pre-vaccination sample
+GSM3585008	description	1	24	5645692022_L
+GSM3585008	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585008	platform_id	0	26	GPL10558
+GSM3585008	contact_name	0	27	Ali,,Filali
+GSM3585008	contact_email	0	28	afilali@case.edu
+GSM3585008	contact_department	0	29	Pathology
+GSM3585008	contact_institute	0	30	CWRU
+GSM3585008	contact_address	0	31	10900  Euclid Avenue
+GSM3585008	contact_city	0	32	Cleveland
+GSM3585008	contact_zip/postal_code	0	33	44106
+GSM3585008	contact_country	0	34	USA
+GSM3585008	supplementary_file	0	35	NONE
+GSM3585008	data_row_count	0	36	47231
+GSM3585009	title	0	0	YF00104_28_BL
+GSM3585009	geo_accession	0	1	GSM3585009
+GSM3585009	status	0	2	Public on Jan 31 2019
+GSM3585009	submission_date	0	3	Jan 30 2019
+GSM3585009	last_update_date	0	4	Jan 31 2019
+GSM3585009	type	0	5	RNA
+GSM3585009	channel_count	0	6	1
+GSM3585009	source_name_ch1	0	7	Whole blood
+GSM3585009	organism_ch1	0	8	Homo sapiens
+GSM3585009	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585009	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3585009	characteristics_ch1	2	11	gender: M
+GSM3585009	characteristics_ch1	3	12	donor: YF00104029
+GSM3585009	characteristics_ch1	4	13	age: 21
+GSM3585009	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585009	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585009	molecule_ch1	0	16	total RNA
+GSM3585009	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585009	label_ch1	0	18	Biotin
+GSM3585009	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585009	taxid_ch1	0	20	9606
+GSM3585009	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585009	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585009	description	0	23	Pre-vaccination sample
+GSM3585009	description	1	24	5645692034_D
+GSM3585009	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585009	platform_id	0	26	GPL10558
+GSM3585009	contact_name	0	27	Ali,,Filali
+GSM3585009	contact_email	0	28	afilali@case.edu
+GSM3585009	contact_department	0	29	Pathology
+GSM3585009	contact_institute	0	30	CWRU
+GSM3585009	contact_address	0	31	10900  Euclid Avenue
+GSM3585009	contact_city	0	32	Cleveland
+GSM3585009	contact_zip/postal_code	0	33	44106
+GSM3585009	contact_country	0	34	USA
+GSM3585009	supplementary_file	0	35	NONE
+GSM3585009	data_row_count	0	36	47231
+GSM3585010	title	0	0	YF00104_29_BL
+GSM3585010	geo_accession	0	1	GSM3585010
+GSM3585010	status	0	2	Public on Jan 31 2019
+GSM3585010	submission_date	0	3	Jan 30 2019
+GSM3585010	last_update_date	0	4	Jan 31 2019
+GSM3585010	type	0	5	RNA
+GSM3585010	channel_count	0	6	1
+GSM3585010	source_name_ch1	0	7	Whole blood
+GSM3585010	organism_ch1	0	8	Homo sapiens
+GSM3585010	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585010	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3585010	characteristics_ch1	2	11	gender: M
+GSM3585010	characteristics_ch1	3	12	donor: YF00104045
+GSM3585010	characteristics_ch1	4	13	age: 29
+GSM3585010	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585010	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585010	molecule_ch1	0	16	total RNA
+GSM3585010	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585010	label_ch1	0	18	Biotin
+GSM3585010	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585010	taxid_ch1	0	20	9606
+GSM3585010	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585010	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585010	description	0	23	Pre-vaccination sample
+GSM3585010	description	1	24	5645692034_L
+GSM3585010	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585010	platform_id	0	26	GPL10558
+GSM3585010	contact_name	0	27	Ali,,Filali
+GSM3585010	contact_email	0	28	afilali@case.edu
+GSM3585010	contact_department	0	29	Pathology
+GSM3585010	contact_institute	0	30	CWRU
+GSM3585010	contact_address	0	31	10900  Euclid Avenue
+GSM3585010	contact_city	0	32	Cleveland
+GSM3585010	contact_zip/postal_code	0	33	44106
+GSM3585010	contact_country	0	34	USA
+GSM3585010	supplementary_file	0	35	NONE
+GSM3585010	data_row_count	0	36	47231
+GSM3584984	title	0	0	YF00104_3_BL
+GSM3584984	geo_accession	0	1	GSM3584984
+GSM3584984	status	0	2	Public on Jan 31 2019
+GSM3584984	submission_date	0	3	Jan 30 2019
+GSM3584984	last_update_date	0	4	Jan 31 2019
+GSM3584984	type	0	5	RNA
+GSM3584984	channel_count	0	6	1
+GSM3584984	source_name_ch1	0	7	Whole blood
+GSM3584984	organism_ch1	0	8	Homo sapiens
+GSM3584984	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584984	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3584984	characteristics_ch1	2	11	gender: M
+GSM3584984	characteristics_ch1	3	12	donor: YF00104021
+GSM3584984	characteristics_ch1	4	13	age: 24
+GSM3584984	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584984	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584984	molecule_ch1	0	16	total RNA
+GSM3584984	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584984	label_ch1	0	18	Biotin
+GSM3584984	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584984	taxid_ch1	0	20	9606
+GSM3584984	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584984	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584984	description	0	23	Pre-vaccination sample
+GSM3584984	description	1	24	5491099057_J
+GSM3584984	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584984	platform_id	0	26	GPL10558
+GSM3584984	contact_name	0	27	Ali,,Filali
+GSM3584984	contact_email	0	28	afilali@case.edu
+GSM3584984	contact_department	0	29	Pathology
+GSM3584984	contact_institute	0	30	CWRU
+GSM3584984	contact_address	0	31	10900  Euclid Avenue
+GSM3584984	contact_city	0	32	Cleveland
+GSM3584984	contact_zip/postal_code	0	33	44106
+GSM3584984	contact_country	0	34	USA
+GSM3584984	supplementary_file	0	35	NONE
+GSM3584984	data_row_count	0	36	47231
+GSM3585011	title	0	0	YF00104_30_BL
+GSM3585011	geo_accession	0	1	GSM3585011
+GSM3585011	status	0	2	Public on Jan 31 2019
+GSM3585011	submission_date	0	3	Jan 30 2019
+GSM3585011	last_update_date	0	4	Jan 31 2019
+GSM3585011	type	0	5	RNA
+GSM3585011	channel_count	0	6	1
+GSM3585011	source_name_ch1	0	7	Whole blood
+GSM3585011	organism_ch1	0	8	Homo sapiens
+GSM3585011	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585011	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3585011	characteristics_ch1	2	11	gender: F
+GSM3585011	characteristics_ch1	3	12	donor: YF00104063
+GSM3585011	characteristics_ch1	4	13	age: 34
+GSM3585011	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585011	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585011	molecule_ch1	0	16	total RNA
+GSM3585011	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585011	label_ch1	0	18	Biotin
+GSM3585011	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585011	taxid_ch1	0	20	9606
+GSM3585011	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585011	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585011	description	0	23	Pre-vaccination sample
+GSM3585011	description	1	24	5645692049_B
+GSM3585011	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585011	platform_id	0	26	GPL10558
+GSM3585011	contact_name	0	27	Ali,,Filali
+GSM3585011	contact_email	0	28	afilali@case.edu
+GSM3585011	contact_department	0	29	Pathology
+GSM3585011	contact_institute	0	30	CWRU
+GSM3585011	contact_address	0	31	10900  Euclid Avenue
+GSM3585011	contact_city	0	32	Cleveland
+GSM3585011	contact_zip/postal_code	0	33	44106
+GSM3585011	contact_country	0	34	USA
+GSM3585011	supplementary_file	0	35	NONE
+GSM3585011	data_row_count	0	36	47231
+GSM3585012	title	0	0	YF00104_31_BL
+GSM3585012	geo_accession	0	1	GSM3585012
+GSM3585012	status	0	2	Public on Jan 31 2019
+GSM3585012	submission_date	0	3	Jan 30 2019
+GSM3585012	last_update_date	0	4	Jan 31 2019
+GSM3585012	type	0	5	RNA
+GSM3585012	channel_count	0	6	1
+GSM3585012	source_name_ch1	0	7	Whole blood
+GSM3585012	organism_ch1	0	8	Homo sapiens
+GSM3585012	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585012	characteristics_ch1	1	10	day84 nab titer: 160
+GSM3585012	characteristics_ch1	2	11	gender: F
+GSM3585012	characteristics_ch1	3	12	donor: YF00104064
+GSM3585012	characteristics_ch1	4	13	age: 25
+GSM3585012	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585012	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585012	molecule_ch1	0	16	total RNA
+GSM3585012	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585012	label_ch1	0	18	Biotin
+GSM3585012	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585012	taxid_ch1	0	20	9606
+GSM3585012	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585012	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585012	description	0	23	Pre-vaccination sample
+GSM3585012	description	1	24	5645692049_J
+GSM3585012	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585012	platform_id	0	26	GPL10558
+GSM3585012	contact_name	0	27	Ali,,Filali
+GSM3585012	contact_email	0	28	afilali@case.edu
+GSM3585012	contact_department	0	29	Pathology
+GSM3585012	contact_institute	0	30	CWRU
+GSM3585012	contact_address	0	31	10900  Euclid Avenue
+GSM3585012	contact_city	0	32	Cleveland
+GSM3585012	contact_zip/postal_code	0	33	44106
+GSM3585012	contact_country	0	34	USA
+GSM3585012	supplementary_file	0	35	NONE
+GSM3585012	data_row_count	0	36	47231
+GSM3585013	title	0	0	YF00104_32_BL
+GSM3585013	geo_accession	0	1	GSM3585013
+GSM3585013	status	0	2	Public on Jan 31 2019
+GSM3585013	submission_date	0	3	Jan 30 2019
+GSM3585013	last_update_date	0	4	Jan 31 2019
+GSM3585013	type	0	5	RNA
+GSM3585013	channel_count	0	6	1
+GSM3585013	source_name_ch1	0	7	Whole blood
+GSM3585013	organism_ch1	0	8	Homo sapiens
+GSM3585013	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585013	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3585013	characteristics_ch1	2	11	gender: M
+GSM3585013	characteristics_ch1	3	12	donor: YF00104046
+GSM3585013	characteristics_ch1	4	13	age: 30
+GSM3585013	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585013	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585013	molecule_ch1	0	16	total RNA
+GSM3585013	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585013	label_ch1	0	18	Biotin
+GSM3585013	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585013	taxid_ch1	0	20	9606
+GSM3585013	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585013	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585013	description	0	23	Pre-vaccination sample
+GSM3585013	description	1	24	5645692058_D
+GSM3585013	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585013	platform_id	0	26	GPL10558
+GSM3585013	contact_name	0	27	Ali,,Filali
+GSM3585013	contact_email	0	28	afilali@case.edu
+GSM3585013	contact_department	0	29	Pathology
+GSM3585013	contact_institute	0	30	CWRU
+GSM3585013	contact_address	0	31	10900  Euclid Avenue
+GSM3585013	contact_city	0	32	Cleveland
+GSM3585013	contact_zip/postal_code	0	33	44106
+GSM3585013	contact_country	0	34	USA
+GSM3585013	supplementary_file	0	35	NONE
+GSM3585013	data_row_count	0	36	47231
+GSM3585014	title	0	0	YF00104_33_BL
+GSM3585014	geo_accession	0	1	GSM3585014
+GSM3585014	status	0	2	Public on Jan 31 2019
+GSM3585014	submission_date	0	3	Jan 30 2019
+GSM3585014	last_update_date	0	4	Jan 31 2019
+GSM3585014	type	0	5	RNA
+GSM3585014	channel_count	0	6	1
+GSM3585014	source_name_ch1	0	7	Whole blood
+GSM3585014	organism_ch1	0	8	Homo sapiens
+GSM3585014	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585014	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3585014	characteristics_ch1	2	11	gender: F
+GSM3585014	characteristics_ch1	3	12	donor: YF00104048
+GSM3585014	characteristics_ch1	4	13	age: 42
+GSM3585014	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585014	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585014	molecule_ch1	0	16	total RNA
+GSM3585014	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585014	label_ch1	0	18	Biotin
+GSM3585014	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585014	taxid_ch1	0	20	9606
+GSM3585014	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585014	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585014	description	0	23	Pre-vaccination sample
+GSM3585014	description	1	24	5645692058_H
+GSM3585014	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585014	platform_id	0	26	GPL10558
+GSM3585014	contact_name	0	27	Ali,,Filali
+GSM3585014	contact_email	0	28	afilali@case.edu
+GSM3585014	contact_department	0	29	Pathology
+GSM3585014	contact_institute	0	30	CWRU
+GSM3585014	contact_address	0	31	10900  Euclid Avenue
+GSM3585014	contact_city	0	32	Cleveland
+GSM3585014	contact_zip/postal_code	0	33	44106
+GSM3585014	contact_country	0	34	USA
+GSM3585014	supplementary_file	0	35	NONE
+GSM3585014	data_row_count	0	36	47231
+GSM3585015	title	0	0	YF00104_34_BL
+GSM3585015	geo_accession	0	1	GSM3585015
+GSM3585015	status	0	2	Public on Jan 31 2019
+GSM3585015	submission_date	0	3	Jan 30 2019
+GSM3585015	last_update_date	0	4	Jan 31 2019
+GSM3585015	type	0	5	RNA
+GSM3585015	channel_count	0	6	1
+GSM3585015	source_name_ch1	0	7	Whole blood
+GSM3585015	organism_ch1	0	8	Homo sapiens
+GSM3585015	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585015	characteristics_ch1	1	10	day84 nab titer: 640
+GSM3585015	characteristics_ch1	2	11	gender: M
+GSM3585015	characteristics_ch1	3	12	donor: YF00104023
+GSM3585015	characteristics_ch1	4	13	age: 20
+GSM3585015	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585015	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585015	molecule_ch1	0	16	total RNA
+GSM3585015	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585015	label_ch1	0	18	Biotin
+GSM3585015	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585015	taxid_ch1	0	20	9606
+GSM3585015	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585015	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585015	description	0	23	Pre-vaccination sample
+GSM3585015	description	1	24	5645692059_L
+GSM3585015	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585015	platform_id	0	26	GPL10558
+GSM3585015	contact_name	0	27	Ali,,Filali
+GSM3585015	contact_email	0	28	afilali@case.edu
+GSM3585015	contact_department	0	29	Pathology
+GSM3585015	contact_institute	0	30	CWRU
+GSM3585015	contact_address	0	31	10900  Euclid Avenue
+GSM3585015	contact_city	0	32	Cleveland
+GSM3585015	contact_zip/postal_code	0	33	44106
+GSM3585015	contact_country	0	34	USA
+GSM3585015	supplementary_file	0	35	NONE
+GSM3585015	data_row_count	0	36	47231
+GSM3585016	title	0	0	YF00104_35_BL
+GSM3585016	geo_accession	0	1	GSM3585016
+GSM3585016	status	0	2	Public on Jan 31 2019
+GSM3585016	submission_date	0	3	Jan 30 2019
+GSM3585016	last_update_date	0	4	Jan 31 2019
+GSM3585016	type	0	5	RNA
+GSM3585016	channel_count	0	6	1
+GSM3585016	source_name_ch1	0	7	Whole blood
+GSM3585016	organism_ch1	0	8	Homo sapiens
+GSM3585016	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585016	characteristics_ch1	1	10	day84 nab titer: 5120
+GSM3585016	characteristics_ch1	2	11	gender: F
+GSM3585016	characteristics_ch1	3	12	donor: YF00104028
+GSM3585016	characteristics_ch1	4	13	age: 28
+GSM3585016	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585016	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585016	molecule_ch1	0	16	total RNA
+GSM3585016	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585016	label_ch1	0	18	Biotin
+GSM3585016	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585016	taxid_ch1	0	20	9606
+GSM3585016	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585016	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585016	description	0	23	Pre-vaccination sample
+GSM3585016	description	1	24	5645764008_D
+GSM3585016	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585016	platform_id	0	26	GPL10558
+GSM3585016	contact_name	0	27	Ali,,Filali
+GSM3585016	contact_email	0	28	afilali@case.edu
+GSM3585016	contact_department	0	29	Pathology
+GSM3585016	contact_institute	0	30	CWRU
+GSM3585016	contact_address	0	31	10900  Euclid Avenue
+GSM3585016	contact_city	0	32	Cleveland
+GSM3585016	contact_zip/postal_code	0	33	44106
+GSM3585016	contact_country	0	34	USA
+GSM3585016	supplementary_file	0	35	NONE
+GSM3585016	data_row_count	0	36	47231
+GSM3585017	title	0	0	YF00104_36_BL
+GSM3585017	geo_accession	0	1	GSM3585017
+GSM3585017	status	0	2	Public on Jan 31 2019
+GSM3585017	submission_date	0	3	Jan 30 2019
+GSM3585017	last_update_date	0	4	Jan 31 2019
+GSM3585017	type	0	5	RNA
+GSM3585017	channel_count	0	6	1
+GSM3585017	source_name_ch1	0	7	Whole blood
+GSM3585017	organism_ch1	0	8	Homo sapiens
+GSM3585017	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3585017	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3585017	characteristics_ch1	2	11	gender: F
+GSM3585017	characteristics_ch1	3	12	donor: YF00104066
+GSM3585017	characteristics_ch1	4	13	age: 36
+GSM3585017	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585017	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3585017	molecule_ch1	0	16	total RNA
+GSM3585017	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3585017	label_ch1	0	18	Biotin
+GSM3585017	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3585017	taxid_ch1	0	20	9606
+GSM3585017	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3585017	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3585017	description	0	23	Pre-vaccination sample
+GSM3585017	description	1	24	5645764038_B
+GSM3585017	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3585017	platform_id	0	26	GPL10558
+GSM3585017	contact_name	0	27	Ali,,Filali
+GSM3585017	contact_email	0	28	afilali@case.edu
+GSM3585017	contact_department	0	29	Pathology
+GSM3585017	contact_institute	0	30	CWRU
+GSM3585017	contact_address	0	31	10900  Euclid Avenue
+GSM3585017	contact_city	0	32	Cleveland
+GSM3585017	contact_zip/postal_code	0	33	44106
+GSM3585017	contact_country	0	34	USA
+GSM3585017	supplementary_file	0	35	NONE
+GSM3585017	data_row_count	0	36	47231
+GSM3584985	title	0	0	YF00104_4_BL
+GSM3584985	geo_accession	0	1	GSM3584985
+GSM3584985	status	0	2	Public on Jan 31 2019
+GSM3584985	submission_date	0	3	Jan 30 2019
+GSM3584985	last_update_date	0	4	Jan 31 2019
+GSM3584985	type	0	5	RNA
+GSM3584985	channel_count	0	6	1
+GSM3584985	source_name_ch1	0	7	Whole blood
+GSM3584985	organism_ch1	0	8	Homo sapiens
+GSM3584985	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584985	characteristics_ch1	1	10	day84 nab titer: 640
+GSM3584985	characteristics_ch1	2	11	gender: M
+GSM3584985	characteristics_ch1	3	12	donor: YF00104007
+GSM3584985	characteristics_ch1	4	13	age: 28
+GSM3584985	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584985	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584985	molecule_ch1	0	16	total RNA
+GSM3584985	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584985	label_ch1	0	18	Biotin
+GSM3584985	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584985	taxid_ch1	0	20	9606
+GSM3584985	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584985	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584985	description	0	23	Pre-vaccination sample
+GSM3584985	description	1	24	5552277044_D
+GSM3584985	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584985	platform_id	0	26	GPL10558
+GSM3584985	contact_name	0	27	Ali,,Filali
+GSM3584985	contact_email	0	28	afilali@case.edu
+GSM3584985	contact_department	0	29	Pathology
+GSM3584985	contact_institute	0	30	CWRU
+GSM3584985	contact_address	0	31	10900  Euclid Avenue
+GSM3584985	contact_city	0	32	Cleveland
+GSM3584985	contact_zip/postal_code	0	33	44106
+GSM3584985	contact_country	0	34	USA
+GSM3584985	supplementary_file	0	35	NONE
+GSM3584985	data_row_count	0	36	47231
+GSM3584986	title	0	0	YF00104_5_BL
+GSM3584986	geo_accession	0	1	GSM3584986
+GSM3584986	status	0	2	Public on Jan 31 2019
+GSM3584986	submission_date	0	3	Jan 30 2019
+GSM3584986	last_update_date	0	4	Jan 31 2019
+GSM3584986	type	0	5	RNA
+GSM3584986	channel_count	0	6	1
+GSM3584986	source_name_ch1	0	7	Whole blood
+GSM3584986	organism_ch1	0	8	Homo sapiens
+GSM3584986	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584986	characteristics_ch1	1	10	day84 nab titer: 5120
+GSM3584986	characteristics_ch1	2	11	gender: F
+GSM3584986	characteristics_ch1	3	12	donor: YF00104035
+GSM3584986	characteristics_ch1	4	13	age: 24
+GSM3584986	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584986	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584986	molecule_ch1	0	16	total RNA
+GSM3584986	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584986	label_ch1	0	18	Biotin
+GSM3584986	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584986	taxid_ch1	0	20	9606
+GSM3584986	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584986	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584986	description	0	23	Pre-vaccination sample
+GSM3584986	description	1	24	5552277045_C
+GSM3584986	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584986	platform_id	0	26	GPL10558
+GSM3584986	contact_name	0	27	Ali,,Filali
+GSM3584986	contact_email	0	28	afilali@case.edu
+GSM3584986	contact_department	0	29	Pathology
+GSM3584986	contact_institute	0	30	CWRU
+GSM3584986	contact_address	0	31	10900  Euclid Avenue
+GSM3584986	contact_city	0	32	Cleveland
+GSM3584986	contact_zip/postal_code	0	33	44106
+GSM3584986	contact_country	0	34	USA
+GSM3584986	supplementary_file	0	35	NONE
+GSM3584986	data_row_count	0	36	47231
+GSM3584987	title	0	0	YF00104_6_BL
+GSM3584987	geo_accession	0	1	GSM3584987
+GSM3584987	status	0	2	Public on Jan 31 2019
+GSM3584987	submission_date	0	3	Jan 30 2019
+GSM3584987	last_update_date	0	4	Jan 31 2019
+GSM3584987	type	0	5	RNA
+GSM3584987	channel_count	0	6	1
+GSM3584987	source_name_ch1	0	7	Whole blood
+GSM3584987	organism_ch1	0	8	Homo sapiens
+GSM3584987	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584987	characteristics_ch1	1	10	day84 nab titer: 5120
+GSM3584987	characteristics_ch1	2	11	gender: M
+GSM3584987	characteristics_ch1	3	12	donor: YF00104032
+GSM3584987	characteristics_ch1	4	13	age: 27
+GSM3584987	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584987	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584987	molecule_ch1	0	16	total RNA
+GSM3584987	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584987	label_ch1	0	18	Biotin
+GSM3584987	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584987	taxid_ch1	0	20	9606
+GSM3584987	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584987	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584987	description	0	23	Pre-vaccination sample
+GSM3584987	description	1	24	5552277045_G
+GSM3584987	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584987	platform_id	0	26	GPL10558
+GSM3584987	contact_name	0	27	Ali,,Filali
+GSM3584987	contact_email	0	28	afilali@case.edu
+GSM3584987	contact_department	0	29	Pathology
+GSM3584987	contact_institute	0	30	CWRU
+GSM3584987	contact_address	0	31	10900  Euclid Avenue
+GSM3584987	contact_city	0	32	Cleveland
+GSM3584987	contact_zip/postal_code	0	33	44106
+GSM3584987	contact_country	0	34	USA
+GSM3584987	supplementary_file	0	35	NONE
+GSM3584987	data_row_count	0	36	47231
+GSM3584988	title	0	0	YF00104_7_BL
+GSM3584988	geo_accession	0	1	GSM3584988
+GSM3584988	status	0	2	Public on Jan 31 2019
+GSM3584988	submission_date	0	3	Jan 30 2019
+GSM3584988	last_update_date	0	4	Jan 31 2019
+GSM3584988	type	0	5	RNA
+GSM3584988	channel_count	0	6	1
+GSM3584988	source_name_ch1	0	7	Whole blood
+GSM3584988	organism_ch1	0	8	Homo sapiens
+GSM3584988	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584988	characteristics_ch1	1	10	day84 nab titer: 2560
+GSM3584988	characteristics_ch1	2	11	gender: M
+GSM3584988	characteristics_ch1	3	12	donor: YF00104002
+GSM3584988	characteristics_ch1	4	13	age: 27
+GSM3584988	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584988	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584988	molecule_ch1	0	16	total RNA
+GSM3584988	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584988	label_ch1	0	18	Biotin
+GSM3584988	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584988	taxid_ch1	0	20	9606
+GSM3584988	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584988	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584988	description	0	23	Pre-vaccination sample
+GSM3584988	description	1	24	5552277045_K
+GSM3584988	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584988	platform_id	0	26	GPL10558
+GSM3584988	contact_name	0	27	Ali,,Filali
+GSM3584988	contact_email	0	28	afilali@case.edu
+GSM3584988	contact_department	0	29	Pathology
+GSM3584988	contact_institute	0	30	CWRU
+GSM3584988	contact_address	0	31	10900  Euclid Avenue
+GSM3584988	contact_city	0	32	Cleveland
+GSM3584988	contact_zip/postal_code	0	33	44106
+GSM3584988	contact_country	0	34	USA
+GSM3584988	supplementary_file	0	35	NONE
+GSM3584988	data_row_count	0	36	47231
+GSM3584989	title	0	0	YF00104_8_BL
+GSM3584989	geo_accession	0	1	GSM3584989
+GSM3584989	status	0	2	Public on Jan 31 2019
+GSM3584989	submission_date	0	3	Jan 30 2019
+GSM3584989	last_update_date	0	4	Jan 31 2019
+GSM3584989	type	0	5	RNA
+GSM3584989	channel_count	0	6	1
+GSM3584989	source_name_ch1	0	7	Whole blood
+GSM3584989	organism_ch1	0	8	Homo sapiens
+GSM3584989	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584989	characteristics_ch1	1	10	day84 nab titer: 1280
+GSM3584989	characteristics_ch1	2	11	gender: F
+GSM3584989	characteristics_ch1	3	12	donor: YF00104047
+GSM3584989	characteristics_ch1	4	13	age: 29
+GSM3584989	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584989	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584989	molecule_ch1	0	16	total RNA
+GSM3584989	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584989	label_ch1	0	18	Biotin
+GSM3584989	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584989	taxid_ch1	0	20	9606
+GSM3584989	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584989	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584989	description	0	23	Pre-vaccination sample
+GSM3584989	description	1	24	5552277097_K
+GSM3584989	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584989	platform_id	0	26	GPL10558
+GSM3584989	contact_name	0	27	Ali,,Filali
+GSM3584989	contact_email	0	28	afilali@case.edu
+GSM3584989	contact_department	0	29	Pathology
+GSM3584989	contact_institute	0	30	CWRU
+GSM3584989	contact_address	0	31	10900  Euclid Avenue
+GSM3584989	contact_city	0	32	Cleveland
+GSM3584989	contact_zip/postal_code	0	33	44106
+GSM3584989	contact_country	0	34	USA
+GSM3584989	supplementary_file	0	35	NONE
+GSM3584989	data_row_count	0	36	47231
+GSM3584990	title	0	0	YF00104_9_BL
+GSM3584990	geo_accession	0	1	GSM3584990
+GSM3584990	status	0	2	Public on Jan 31 2019
+GSM3584990	submission_date	0	3	Jan 30 2019
+GSM3584990	last_update_date	0	4	Jan 31 2019
+GSM3584990	type	0	5	RNA
+GSM3584990	channel_count	0	6	1
+GSM3584990	source_name_ch1	0	7	Whole blood
+GSM3584990	organism_ch1	0	8	Homo sapiens
+GSM3584990	characteristics_ch1	0	9	baseline nab titer: 80
+GSM3584990	characteristics_ch1	1	10	day84 nab titer: 10240
+GSM3584990	characteristics_ch1	2	11	gender: M
+GSM3584990	characteristics_ch1	3	12	donor: YF00104033
+GSM3584990	characteristics_ch1	4	13	age: 24
+GSM3584990	treatment_protocol_ch1	0	14	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584990	growth_protocol_ch1	0	15	Gene expression microarrays were undertaken using  whole blood samples obtained from 36 subjects
+GSM3584990	molecule_ch1	0	16	total RNA
+GSM3584990	extract_protocol_ch1	0	17	Cells were washed twice with cold PBS and lysed with 100 µl of cold RLT buffer (QIAGEN, Germany) supplemented with 1% beta-mercaptoethanol (BM) (Sigma, St. Louis, MO USA), and transferred to 1.7 ml tubes with 250 µl of cold RLT/BM buffer and quickly stored at -80oC. The samples underwent nucleic acid isolation in a designated Pre-PCR room using Qiagen’s RNeasy Micro Kit and underwent DNase I treatment.  Total RNA concentrations were quantified using a NanoDrop 2000c spectrophotometer and quality was assessed using BioRad’s Experion automated electrophoresis system.  With each batch of samples a 500 ng HeLa RNA control and two water non-template negative controls were included.
+GSM3584990	label_ch1	0	18	Biotin
+GSM3584990	label_protocol_ch1	0	19	The hybridized BeadChips were washed, blocked, stained and scanned according to the Illumina's direct hybridization protocol.
+GSM3584990	taxid_ch1	0	20	9606
+GSM3584990	hyb_protocol	0	21	Microarray analysis was conducted using 750ng of biotinylated cRNA hybridized toHumanRefSeq8 V2   BeadChips (Illumina) at 58°C for 20 hours, according to Illumina's direct hybridization protocol.
+GSM3584990	scan_protocol	0	22	The arrays were scanned using an Illumina iScan scanner and quantified using GenomeStudio software (Illumina).
+GSM3584990	description	0	23	Pre-vaccination sample
+GSM3584990	description	1	24	5552277099_C
+GSM3584990	data_processing	0	25	Analysis of the quantified output data was conducted using  various software packages from R and Bioconductor.  Missing values were imputed using the KNN algorithm from the impute R package. Quantile normalization was applied, followed by a log2 transformation.
+GSM3584990	platform_id	0	26	GPL10558
+GSM3584990	contact_name	0	27	Ali,,Filali
+GSM3584990	contact_email	0	28	afilali@case.edu
+GSM3584990	contact_department	0	29	Pathology
+GSM3584990	contact_institute	0	30	CWRU
+GSM3584990	contact_address	0	31	10900  Euclid Avenue
+GSM3584990	contact_city	0	32	Cleveland
+GSM3584990	contact_zip/postal_code	0	33	44106
+GSM3584990	contact_country	0	34	USA
+GSM3584990	supplementary_file	0	35	NONE
+GSM3584990	data_row_count	0	36	47231

@@ -1,0 +1,7 @@
+study_accession	gse_accession	link_name	link_value	data_release	input_source
+SDY1264	GSE13485	GEO	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13485	58	/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1264/SDY1264-DR58_Tab.zip!SDY1264-DR58_Tab/Tab/study_link.txt
+SDY1289	GSE13699	NCBI GEO	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE13699	58	/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1289/SDY1289-DR58_Tab.zip!SDY1289-DR58_Tab/Tab/study_link.txt
+SDY1291	GSE22768	NCBI GEO	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE22768	58	/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1291/SDY1291-DR58_Tab.zip!SDY1291-DR58_Tab/Tab/study_link.txt
+SDY1294	GSE82152	NCBI GEO	https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE82152	58	/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1294/SDY1294-DR58_Tab.zip!SDY1294-DR58_Tab/Tab/study_link.txt
+SDY1529	GSE125921	Gene Expression Omnibus	GSE125921	58	/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1529/SDY1529-DR58_Tab.zip!SDY1529-DR58_Tab/Tab/study_link.txt
+SDY1529	GSE136163	Gene Expression Omnibus	GSE136163	58	/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1529/SDY1529-DR58_Tab.zip!SDY1529-DR58_Tab/Tab/study_link.txt
