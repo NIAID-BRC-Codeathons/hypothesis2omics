@@ -78,6 +78,38 @@ class PipelineLinkedGeoTests(unittest.TestCase):
 
         fetch_mock.assert_not_called()
 
+    @patch("data_normalizer.pipeline_tools.run_geo_matrix_parser")
+    def test_parses_derived_linked_units(self, parser_mock) -> None:
+        parser_mock.return_value = {
+            "status": "success",
+            "selection_mode": "derived_from_parsed_immport_links",
+            "selection_path": "derived.tsv",
+            "counts": {"download_units": 1},
+            "units": [
+                {
+                    "study_accession": "SDY1",
+                    "experiment_accession": "EXP1",
+                    "gse_accession": "GSE10",
+                    "gpl_accession": "GPL1",
+                    "status": "success",
+                    "counts": {"samples": 10},
+                }
+            ],
+            "duration_sec": 0.1,
+        }
+
+        result = self.pipeline.parse_linked_geo_matrices()
+
+        parser_mock.assert_called_once_with(
+            None,
+            self.pipeline.immport_manifest,
+            self.pipeline.geo_cache,
+            self.pipeline.geo_parsed,
+            geo_series_links_path=self.pipeline.geo_series_links,
+        )
+        self.assertEqual(result["selection_mode"], "derived_from_parsed_immport_links")
+        self.assertEqual(result["units"][0]["analysis_unit_id"], "SDY1/EXP1/GSE10_GPL1")
+
 
 if __name__ == "__main__":
     unittest.main()

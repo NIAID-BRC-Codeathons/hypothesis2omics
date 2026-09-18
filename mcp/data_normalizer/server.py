@@ -111,9 +111,19 @@ def create_server(
         return pipeline.fetch_planned_geo()
 
     @server.tool
+    def fetch_linked_geo() -> dict[str, Any]:
+        """Fetch GSE accessions linked by the parsed ImmPort outputs."""
+        return pipeline.fetch_linked_geo()
+
+    @server.tool
     def parse_geo_matrices() -> dict[str, Any]:
         """Parse downloaded GEO matrices into bounded analysis units."""
         return pipeline.parse_geo_matrices()
+
+    @server.tool
+    def parse_linked_geo_matrices() -> dict[str, Any]:
+        """Derive units from parsed ImmPort links and parse cached GEO matrices."""
+        return pipeline.parse_linked_geo_matrices()
 
     return server
 

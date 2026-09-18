@@ -8,7 +8,10 @@ credentials only through the data modules' existing environment-variable logic.
 
 from __future__ import annotations
 
+import hashlib
+import json
 import re
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -22,10 +25,13 @@ from data.immport_fetch_module import fetch_immport_datasets
 from data.list_directory import build_file_inventory
 
 DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[2] / "data"
+PIPELINE_TOOLS_VERSION = "0.2.0"
 SDY_PATTERN = re.compile(r"^SDY\d+$", re.IGNORECASE)
 GSE_PATTERN = re.compile(r"^GSE\d+$", re.IGNORECASE)
 PLAN_FILENAME = "geo_download_plan.tsv"
 IMMPORT_MANIFEST_FILENAME = "sample_manifest.tsv"
+GEO_SERIES_LINKS_FILENAME = "geo_series_links.tsv"
+GEO_FETCH_SELECTION_FILENAME = "geo_fetch_selection.provenance.json"
 GEO_PARSE_MANIFEST_FILENAME = "geo_matrix_parse_manifest.json"
 MAX_INVENTORY_CANDIDATES = 100
 
@@ -67,6 +73,30 @@ def _artifact_summary(artifact: Any) -> dict[str, Any]:
     }
 
 
+def _sha256(path: Path, chunk_size: int = 65536) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(chunk_size), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _read_tsv(path: Path, required: set[str], label: str) -> pd.DataFrame:
+    if not path.is_file():
+        raise PipelineToolError(f"{label} does not exist: {path}")
+    try:
+        frame = pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False)
+    except (OSError, UnicodeError, pd.errors.ParserError) as exc:
+        raise PipelineToolError(f"Could not read {label}: {exc}") from exc
+    frame.columns = [str(column).strip().lower() for column in frame.columns]
+    if len(frame.columns) != len(set(frame.columns)):
+        raise PipelineToolError(f"{label} has duplicate normalized columns")
+    missing = sorted(required - set(frame.columns))
+    if missing:
+        raise PipelineToolError(f"{label} is missing columns: {missing}")
+    return frame
+
+
 class PipelineTools:
     """Execute the repository's ingestion stages within one fixed data root."""
 
@@ -75,6 +105,7 @@ class PipelineTools:
         self.immport_cache = self.data_root / "immport_cache"
         self.immport_parsed = self.immport_cache / "parsed"
         self.immport_manifest = self.immport_parsed / IMMPORT_MANIFEST_FILENAME
+        self.geo_series_links = self.immport_parsed / GEO_SERIES_LINKS_FILENAME
         self.geo_cache = self.data_root / "geo_cache"
         self.geo_plan = self.geo_cache / "plan"
         self.geo_plan_path = self.geo_plan / PLAN_FILENAME
@@ -243,6 +274,121 @@ class PipelineTools:
             "results": results,
         }
 
+    def fetch_linked_geo(self) -> dict[str, Any]:
+        """Fetch GSE accessions linked to GEO samples in parsed ImmPort outputs."""
+        manifest = _read_tsv(
+            self.immport_manifest,
+            {"study_accession", "repository_name", "repository_accession"},
+            "ImmPort sample manifest",
+        )
+        links = _read_tsv(
+            self.geo_series_links,
+            {"study_accession", "gse_accession"},
+            "ImmPort GEO series links",
+        )
+
+        geo_rows = manifest.loc[
+            manifest["repository_name"].str.strip().str.casefold().eq("geo")
+            & manifest["repository_accession"].str.strip().ne("")
+        ].copy()
+        if geo_rows.empty:
+            raise PipelineToolError("ImmPort sample manifest has no GEO-linked samples")
+        geo_studies = _normalized_accessions(
+            list(dict.fromkeys(geo_rows["study_accession"])),
+            SDY_PATTERN,
+            "GEO-linked study accessions",
+        )
+
+        links["study_accession"] = links["study_accession"].str.strip().str.upper()
+        links["gse_accession"] = links["gse_accession"].str.strip().str.upper()
+        invalid_studies = sorted(
+            value
+            for value in set(links["study_accession"])
+            if not SDY_PATTERN.fullmatch(value)
+        )
+        invalid_gses = sorted(
+            value for value in set(links["gse_accession"]) if not GSE_PATTERN.fullmatch(value)
+        )
+        if invalid_studies:
+            raise PipelineToolError(
+                f"ImmPort GEO series links contain invalid studies: {invalid_studies}"
+            )
+        if invalid_gses:
+            raise PipelineToolError(
+                f"ImmPort GEO series links contain invalid GSE accessions: {invalid_gses}"
+            )
+
+        linked_studies = set(links["study_accession"])
+        missing_studies = sorted(set(geo_studies) - linked_studies)
+        if missing_studies:
+            raise PipelineToolError(
+                "GEO-linked ImmPort studies have no GSE link: "
+                + ", ".join(missing_studies)
+            )
+        selected = links.loc[
+            links["study_accession"].isin(geo_studies),
+            "gse_accession",
+        ]
+        accessions = list(dict.fromkeys(selected))
+
+        records = fetch_geo_datasets(
+            accessions,
+            destdir=str(self.geo_cache),
+            force=False,
+            provenance_log_path=str(self.geo_cache / "provenance_log.jsonl"),
+        )
+        results = []
+        for record in records:
+            results.append(
+                {
+                    "gse_accession": record.gse_id,
+                    "status": record.status,
+                    "platforms": record.n_platforms,
+                    "samples": record.n_samples,
+                    "duration_sec": record.duration_sec,
+                    "error": record.error,
+                    "artifacts": [_artifact_summary(item) for item in record.artifacts],
+                }
+            )
+
+        self.geo_cache.mkdir(parents=True, exist_ok=True)
+        provenance_path = self.geo_cache / GEO_FETCH_SELECTION_FILENAME
+        provenance = {
+            "status": _overall_status([item["status"] for item in results]),
+            "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+            "tool": "mcp.data_normalizer.fetch_linked_geo",
+            "tool_version": PIPELINE_TOOLS_VERSION,
+            "inputs": {
+                "sample_manifest": {
+                    "path": str(self.immport_manifest),
+                    "sha256": _sha256(self.immport_manifest),
+                },
+                "geo_series_links": {
+                    "path": str(self.geo_series_links),
+                    "sha256": _sha256(self.geo_series_links),
+                },
+            },
+            "selected_gse_accessions": accessions,
+            "outputs": {
+                "cache_directory": str(self.geo_cache),
+                "provenance_log": str(self.geo_cache / "provenance_log.jsonl"),
+                "selection_provenance": str(provenance_path),
+            },
+            "results": results,
+        }
+        provenance_path.write_text(
+            json.dumps(provenance, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+        return {
+            "operation": "fetch_linked_geo",
+            "status": provenance["status"],
+            "linked_accessions": accessions,
+            "cache_root": str(self.geo_cache),
+            "provenance_path": str(provenance_path),
+            "results": results,
+        }
+
     def parse_geo_matrices(self) -> dict[str, Any]:
         """Parse all downloaded plan units into bounded expression artifacts."""
         provenance = run_geo_matrix_parser(
@@ -269,6 +415,41 @@ class PipelineTools:
         return {
             "operation": "parse_geo_matrices",
             "status": provenance["status"],
+            "counts": provenance["counts"],
+            "units": units,
+            "manifest_path": str(self.geo_parsed / GEO_PARSE_MANIFEST_FILENAME),
+            "duration_sec": provenance["duration_sec"],
+        }
+
+    def parse_linked_geo_matrices(self) -> dict[str, Any]:
+        """Derive analysis units from parsed ImmPort links and parse cached matrices."""
+        provenance = run_geo_matrix_parser(
+            None,
+            self.immport_manifest,
+            self.geo_cache,
+            self.geo_parsed,
+            geo_series_links_path=self.geo_series_links,
+        )
+        units = [
+            {
+                "analysis_unit_id": "/".join(
+                    [
+                        unit["study_accession"],
+                        unit["experiment_accession"],
+                        f"{unit['gse_accession']}_{unit['gpl_accession']}",
+                    ]
+                ),
+                "status": unit["status"],
+                "counts": unit.get("counts", {}),
+                "error": unit.get("error"),
+            }
+            for unit in provenance["units"]
+        ]
+        return {
+            "operation": "parse_linked_geo_matrices",
+            "status": provenance["status"],
+            "selection_mode": provenance["selection_mode"],
+            "selection_path": provenance["selection_path"],
             "counts": provenance["counts"],
             "units": units,
             "manifest_path": str(self.geo_parsed / GEO_PARSE_MANIFEST_FILENAME),

@@ -51,13 +51,19 @@ from the path it gives you.
 | `fetch_immport_studies(study_accessions, max_files_per_study)` | fetch named ImmPort studies, server-side credentials, cached |
 | `parse_immport_studies()` | parse every cached study and combine their sample linkage |
 | `inventory_downloaded_files()` | list what is cached and which files a parser can use |
+| `fetch_linked_geo()` | validate parsed ImmPort links and fetch their deduplicated GSEs |
+| `parse_linked_geo_matrices()` | derive units from parsed links and parse cached matrices |
 | `plan_geo_retrieval(batch_size, timeout)` | resolve linked GSMs to series and platforms, write the plan |
 | `fetch_planned_geo()` | fetch only the GSEs the plan marks `download` |
 | `parse_geo_matrices()` | parse downloaded matrices into bounded analysis units |
 
-Run them in that order. `plan_geo_retrieval` is metadata-only and marks explicit
-SuperSeries records `skip_superseries`, so `fetch_planned_geo` does not download
-the same expression data twice.
+The current linked-data path is `parse_immport_studies`, `fetch_linked_geo`, then
+`parse_linked_geo_matrices`. It validates that every ImmPort study with GEO-linked
+samples has a structured GSE link before any GEO request, and hashes both selection
+inputs in its provenance.
+
+The plan-based tools remain available for compatibility. That path is
+`plan_geo_retrieval`, `fetch_planned_geo`, then `parse_geo_matrices`.
 
 ---
 
