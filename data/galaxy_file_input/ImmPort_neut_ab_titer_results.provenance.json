@@ -1,16 +1,19 @@
 {
   "counts": {
-    "rows": 320,
+    "distinct_gsm_accessions": 469,
+    "linked_result_rows": 1704,
+    "rows": 1704,
+    "source_result_rows": 320,
     "studies": 4,
     "studies_discovered": 5,
     "studies_exported": 4,
     "studies_skipped": 1,
-    "value_preferred_blank": 25,
-    "value_preferred_populated": 295
+    "value_preferred_blank": 133,
+    "value_preferred_populated": 1571
   },
-  "duration_sec": 0.02,
+  "duration_sec": 0.054,
   "exporter": "immport_neut_ab_export",
-  "exporter_version": "0.2.0",
+  "exporter_version": "0.3.0",
   "inputs": [
     {
       "data_release": 58,
@@ -71,6 +74,8 @@
       "expsample_accession",
       "repository_accession",
       "repository_name",
+      "repository_study_time_collected",
+      "repository_study_time_collected_unit",
       "study_accession",
       "study_time_collected",
       "study_time_collected_unit",
@@ -84,14 +89,21 @@
       "workspace_id"
     ],
     "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/galaxy_file_input/ImmPort_neut_ab_titer_results.tsv",
-    "rows": 320,
-    "sha256": "90b45a54b13dde71f4dbcc97d383712e5eca09d518d0ee8f11981f44fe8a17f1",
-    "size_bytes": 48355
+    "rows": 1704,
+    "sha256": "744a368fc51010d33e6c1468d601bea8decab9775f87bb6626d6d03b512a7360",
+    "size_bytes": 289565
   },
   "python_version": "3.12.13",
-  "run_started_at_utc": "2026-09-17T22:17:57.570668+00:00",
+  "run_started_at_utc": "2026-09-18T15:04:32.723046+00:00",
+  "sample_manifest_input": {
+    "geo_samples": 568,
+    "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/parsed/sample_manifest.tsv",
+    "sha256": "a42854a6ef461671c891bb9f9d06272ceb4704bf0d667e08f5a199820d20a781",
+    "size_bytes": 356388
+  },
   "selection": {
     "cache_root": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache",
+    "gsm_linkage": "study_accession_and_subject_accession",
     "mode": "highest_release_tab_source_per_study",
     "table": "neut_ab_titer_result.txt"
   },

@@ -123,17 +123,23 @@ handoff parser. Scientific selections remain explicit rather than being inferred
 
 ## Export neutralizing-antibody results for Galaxy
 
-Export raw `neut_ab_titer_result.txt` rows from each applicable study's newest Tab source:
+Export `neut_ab_titer_result.txt` rows from each applicable study's newest Tab source and
+link them to GEO samples in the combined ImmPort sample manifest:
 
 ```bash
 uv run python data/immport_neut_ab_export.py
 ```
 
 This writes `ImmPort_neut_ab_titer_results.tsv` and its provenance JSON under
-`data/galaxy_file_input/`. Source columns are retained with lowercase headers. Preferred and
-reported values remain separate, so censored values such as `<10` are not substituted for blank
-`value_preferred` fields. Studies without a neutralizing-antibody result table are skipped and
-listed in the provenance file; malformed or duplicate tables still stop the export.
+`data/galaxy_file_input/`. Each antibody result is repeated once for every GEO sample with the
+same `study_accession` and `subject_accession`. `repository_name` and `repository_accession`
+identify the linked GEO/GSM sample; `repository_study_time_collected` and
+`repository_study_time_collected_unit` record its timepoint. The original
+`study_time_collected` fields continue to describe the antibody outcome. Preferred and reported
+values remain separate, so censored values such as `<10` are not substituted for blank
+`value_preferred` fields. Missing GEO links, malformed inputs, and duplicate GSM accessions stop
+the export. Studies without a neutralizing-antibody result table are skipped and listed in the
+provenance file.
 
 ## Extract Galaxy-ready intensity matrices
 

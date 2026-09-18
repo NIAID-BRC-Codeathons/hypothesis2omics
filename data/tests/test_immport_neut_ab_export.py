@@ -60,8 +60,24 @@ def _write_study_without_table(root: Path, accession: str, release: int) -> None
         handle.writestr(f"{accession}-DR{release}_Tab/Tab/study.txt", "STUDY_ACCESSION\n")
 
 
+def _write_manifest(root: Path, rows: list[list[str]]) -> None:
+    parsed = root / "parsed"
+    parsed.mkdir()
+    columns = [
+        "STUDY_ACCESSION",
+        "SUBJECT_ACCESSION",
+        "REPOSITORY_NAME",
+        "REPOSITORY_ACCESSION",
+        "STUDY_TIME_COLLECTED",
+        "STUDY_TIME_COLLECTED_UNIT",
+    ]
+    content = "\t".join(columns) + "\n"
+    content += "".join("\t".join(row) + "\n" for row in rows)
+    (parsed / "sample_manifest.tsv").write_text(content, encoding="utf-8")
+
+
 class NeutralizingAntibodyExportTests(unittest.TestCase):
-    def test_exports_raw_rows_and_provenance(self) -> None:
+    def test_exports_rows_for_every_subject_gsm_and_provenance(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             cache = root / "cache"
@@ -119,6 +135,14 @@ class NeutralizingAntibodyExportTests(unittest.TestCase):
                     "10",
                 ],
             )
+            _write_manifest(
+                cache,
+                [
+                    ["SDY1", "SUB1", "GEO", "GSM11", "0", "Days"],
+                    ["SDY1", "SUB1", "GEO", "GSM12", "7", "Days"],
+                    ["SDY2", "SUB2", "GEO", "GSM21", "3", "Days"],
+                ],
+            )
 
             provenance = run_export(cache, output_dir)
 
@@ -129,12 +153,18 @@ class NeutralizingAntibodyExportTests(unittest.TestCase):
                 (output_dir / PROVENANCE_FILENAME).read_text(encoding="utf-8")
             )
 
-        self.assertEqual(len(rows), 2)
+        self.assertEqual(len(rows), 3)
         self.assertEqual(rows[0]["study_accession"], "SDY1")
         self.assertEqual(rows[0]["value_preferred"], "320")
-        self.assertEqual(rows[1]["value_preferred"], "")
-        self.assertEqual(rows[1]["value_reported"], "<10")
-        self.assertEqual(provenance["counts"]["value_preferred_populated"], 1)
+        self.assertEqual(rows[0]["repository_accession"], "GSM11")
+        self.assertEqual(rows[0]["repository_study_time_collected"], "0")
+        self.assertEqual(rows[1]["repository_accession"], "GSM12")
+        self.assertEqual(rows[1]["repository_study_time_collected"], "7")
+        self.assertEqual(rows[2]["value_preferred"], "")
+        self.assertEqual(rows[2]["value_reported"], "<10")
+        self.assertEqual(provenance["counts"]["source_result_rows"], 2)
+        self.assertEqual(provenance["counts"]["linked_result_rows"], 3)
+        self.assertEqual(provenance["counts"]["value_preferred_populated"], 2)
         self.assertEqual(provenance["counts"]["value_preferred_blank"], 1)
         self.assertEqual(sidecar["output"]["sha256"], provenance["output"]["sha256"])
 
@@ -171,6 +201,10 @@ class NeutralizingAntibodyExportTests(unittest.TestCase):
                 ],
             )
             _write_study_without_table(cache, "SDY2", 3)
+            _write_manifest(
+                cache,
+                [["SDY1", "SUB1", "GEO", "GSM11", "7", "Days"]],
+            )
 
             provenance = run_export(cache, output_dir)
 
@@ -193,6 +227,48 @@ class NeutralizingAntibodyExportTests(unittest.TestCase):
             with self.assertRaisesRegex(
                 NeutralizingAntibodyExportError,
                 "No neutralizing-antibody results",
+            ):
+                run_export(cache, root / "output")
+
+    def test_rejects_result_without_subject_gsm(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            cache = root / "cache"
+            cache.mkdir()
+            _write_study(
+                cache,
+                "SDY1",
+                1,
+                [
+                    "1",
+                    "ARM1",
+                    "BS1",
+                    "",
+                    "EXP1",
+                    "ES1",
+                    "",
+                    "",
+                    "SDY1",
+                    "60",
+                    "Days",
+                    "SUB1",
+                    "Antibody titer",
+                    "Antibody titer",
+                    "320",
+                    "320",
+                    "Yellow fever virus 17D",
+                    "YF17D",
+                    "10",
+                ],
+            )
+            _write_manifest(
+                cache,
+                [["SDY1", "SUB2", "GEO", "GSM22", "7", "Days"]],
+            )
+
+            with self.assertRaisesRegex(
+                NeutralizingAntibodyExportError,
+                "No GEO sample matched",
             ):
                 run_export(cache, root / "output")
 
