@@ -36,15 +36,15 @@ Hypothesis
 A human reads and corrects the parsed hypothesis before anything proceeds. Nothing in this
 pipeline runs unattended from end to end, by design.
 
-| Stage                                      | Where                          | Owner                      |
-| ------------------------------------------ | ------------------------------ | -------------------------- |
-| Hypothesis -> test spec -> search spec     | `mcp/parse-hypo`               | Melanie Sadecki            |
-| Keyword and spec search over ImmPort       | `mcp/keyword-to-immport`       | Yaphet Kebede              |
-| MCP registration and installer             | `mcp/`                         | Yaphet Kebede              |
-| Retrieval, parsing, normalization          | `data/`, `mcp/data_normalizer` | Yijun Zhou, Amar Kumar     |
-| Scientific eligibility and evidence fusion | `scientific_validator/`        | Amar Kumar                 |
-| Analysis execution                         | Galaxy, limma                  | Archit Vasan, Slim Fourati |
-| Decision rules, independence, synthesis    | `evidence_rules/`              | Rushikesh Lagad            |
+| Stage                                           | Where                          | Owner                      |
+| ----------------------------------------------- | ------------------------------ | -------------------------- |
+| Hypothesis -> test spec -> search spec          | `mcp/parse-hypo`               | Melanie Sadecki            |
+| Keyword and spec search over ImmPort            | `mcp/keyword-to-immport`       | Yaphet Kebede              |
+| MCP registration and installer                  | `mcp/`                         | Yaphet Kebede              |
+| Retrieval, parsing, normalization               | `data/`, `mcp/data_normalizer` | Yijun Zhou, Amar Kumar     |
+| Scientific eligibility and evidence fusion      | `scientific_validator/`        | Amar Kumar                 |
+| Analysis execution                              | Galaxy, limma                  | Archit Vasan, Slim Fourati |
+| Decision rules, independence, synthesis, report | `evidence_rules/`              | Rushikesh Lagad            |
 
 ### Current limitation, stated plainly
 
@@ -73,7 +73,7 @@ hypothesis2omics/
 |
 |-- scientific_validator/         # Dataset eligibility assessment
 |
-|-- evidence_rules/               # Decision rules, independence, synthesis
+|-- evidence_rules/               # Decision rules, independence, synthesis, report
 |
 `-- docs/                         # Ground truth and benchmark documentation
 ```
@@ -168,23 +168,39 @@ against the GEO records.
 ## What the benchmark found
 
 ```bash
-python evidence_rules/run_yf17d.py --repo .
+python evidence_rules/run_yf17d.py --repo . --report docs/evidence_report_yf17d.md
 ```
 
-Using day 7 minus day 0 as the predictor, both trials in `GSE13485` are positive and
-significant, which reads as a replication. Baseline EIF2AK4 is itself correlated with the
-outcome, so a difference score inherits that; holding baseline constant, the second trial is
-null. Three predictor specifications give three different overall verdicts on the same 25
+That prints the run and writes the evidence report, plus `docs/evidence_report_yf17d.md.json` for
+anything downstream.
+
+**The headline verdict is `inconclusive`.** The pre-registered predictor is EIF2AK4 at day 7
+as measured, because that is what Querec's signature was built from, and neither trial in
+`GSE13485` reaches alpha on it.
+
+Two other defensible definitions of the same predictor do better. Day 7 minus day 0 is
+positive and significant in both trials, which reads as a replication. But baseline EIF2AK4
+is itself correlated with the outcome, so a difference score inherits that; holding baseline
+constant, the second trial is null. Three specifications, three overall verdicts, the same 25
 subjects.
 
-That is the pipeline working. The result is specification-sensitive, not a definitive
-replication, and the report says so rather than picking the flattering specification.
+That is the pipeline working. The report leads with the specification that was declared
+first, prints the other two next to it with their verdicts, and says in those words that the
+result is specification-sensitive. Picking the flattering specification would have been one
+line of code and no warning to the reader, which is the failure mode this stage exists to
+catch.
 
 ## Design commitments
 
 **The decision rule is frozen before results exist.** Alpha, expected direction, minimum
 effect and the replication threshold are set during planning and printed in the report, so a
 reader can check that what was promised is what was applied.
+
+**The specification that counts is declared, not selected.** "Early expression" has several
+defensible definitions and they do not agree. The report generator requires exactly one
+specification marked primary, with a stated reason, and refuses to render without it. Every
+other specification is printed beside it with its own verdict. This is the difference between
+a result and a choice of result, and the report shows which one it is.
 
 **Independence is counted in groups, not rows.** `GSE125921` and `GSE136163` are both
 `SDY1529`. `GSE13485` is one accession holding two trials run a year apart. Treating related

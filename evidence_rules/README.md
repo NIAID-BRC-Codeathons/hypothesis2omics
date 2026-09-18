@@ -1,17 +1,30 @@
 # evidence_rules
 
-The last stage of the pipeline: given results, what are we allowed to claim?
+The last stage of the pipeline: given results, what are we allowed to claim,
+and what does the report have to disclose?
 
-Three files, no dependencies beyond the standard library, plain dicts in and
-out.
+No dependencies beyond the standard library, plain dicts in and out, except
+`run_yf17d.py` which needs pandas and scipy to read the data tables.
 
 ```bash
-python evidence_rules/evidence_rules.py   # four case demo, 30 self-tests
-python evidence_rules/synthesis.py        # schema-valid output, 14 test groups
-python evidence_rules/adapters.py         # worked example, 12 self-tests
+python evidence_rules/evidence_rules.py    # four case demo, 30 self-tests
+python evidence_rules/synthesis.py         # schema-valid output, 16 test groups
+python evidence_rules/adapters.py          # worked example, 12 self-tests
+python evidence_rules/analysis_result.py   # the result contract, 20 test groups
+python evidence_rules/limma_adapter.py     # reads a limma topTable, 17 test groups
+python evidence_rules/cohorts.py           # cohort structure from sample titles
+python evidence_rules/report.py            # the evidence report, 24 test groups
 ```
 
-All three run in about a second and need nothing installed.
+Each runs in about a second and needs nothing installed.
+
+To produce the actual report from the repo's committed tables:
+
+```bash
+python evidence_rules/run_yf17d.py --repo . --report evidence_report.md
+```
+
+That writes the Markdown report and `evidence_report.md.json` beside it.
 
 ---
 
@@ -20,8 +33,13 @@ All three run in about a second and need nothing installed.
 | File | Does |
 |---|---|
 | `evidence_rules.py` | The decision logic. Frozen rule, independence counting, coverage gaps. |
+| `analysis_result.py` | One result shape for both branches of the pipeline. Effect type, estimand, orientation, evidence role. |
+| `limma_adapter.py` | Reads a limma `topTable` without letting it pick winners. |
+| `cohorts.py` | Recovers cohort structure from GEO sample titles. |
 | `synthesis.py` | Emits `schemas/synthesis.schema.json`, backed by the frozen rule. |
 | `adapters.py` | Reads the eligibility engine's verdicts and answers the set-level question it cannot. |
+| `report.py` | Renders the evidence report a human reads and grades. |
+| `run_yf17d.py` | End-to-end run on the tables already in `data/`, and the report. |
 
 `synthesis.py` implements `schemas/synthesis.schema.json`, which was specified
 but had no implementation. It includes a validator, so nothing needs
@@ -73,28 +91,58 @@ disclaimer.
 
 ---
 
-## Using it
+## The report
+
+`report.py` turns the synthesis document into Markdown a domain expert can
+grade, which is what the project's evaluation criteria ask for. It refuses
+three things, and the refusals are the interesting part.
+
+**It will not headline a verdict without a declared primary specification.**
+The benchmark is the reason. Three defensible definitions of "early EIF2AK4
+expression" on the same 25 subjects give different overall verdicts. So
+`render_report` requires exactly one `Specification` with `role="primary"` and
+a `prereg_basis` saying why, and raises otherwise. Choosing the primary after
+seeing the numbers is still possible; it just has to happen in the open.
+
+For the benchmark the primary is `day7_raw`, expression as measured, because
+that is what Querec's signature was built from. It is also the specification
+that comes out inconclusive. The difference score, which reads as a clean
+replication, is a sensitivity analysis with a known confound, and it is
+reported as one.
+
+**It will not hide the specifications that lost.** Every non-primary
+specification appears in a sensitivity table with its own verdict, next to the
+primary. When they disagree the report says so in those words.
+
+**It will not report only what was analysed.** `ReportContext.not_analysed`
+records every dataset that entered the pipeline and left before producing a
+result, with the stage it left at and why. A report listing four analysed
+datasets and nothing else implies four datasets were all there was. The
+constructor rejects an entry missing a stage or a reason.
+
+Controls get their own section. A result carrying `role="positive_control"` or
+`"negative_control"` never appears in the evidence table — `to_synthesis_unit`
+refuses it at the boundary — but a reviewer does want to see that the
+sex-marker check came out right, so the report prints it, labelled as evidence
+about the machinery rather than about the hypothesis.
+
+The "what would have changed the verdict" section is read off the decision
+rule, not written. It is not a plan for reaching a particular verdict.
 
 ```python
-from evidence_rules import DecisionRule
-from synthesis import synthesize, validate_synthesis
+from report import ReportContext, Specification, write_report
 
-# during planning, before any result exists
-rule = DecisionRule(alpha=0.05, direction="up", min_independent_groups=2)
-
-# after analysis
-doc = synthesize(analysis_units, rule)
-assert validate_synthesis(doc) == []
-
-doc["overall_verdict"]   # supportive | contradictory | inconclusive
-doc["per_dataset"]       # one analysis_unit_verdict each
-doc["narrative"]         # rule, grouping and caveats in prose
+write_report(
+    "evidence_report.md",
+    specs,          # exactly one role="primary", with a prereg_basis
+    rule,           # the frozen DecisionRule
+    context,        # hypothesis, literature, what was not analysed
+)
 ```
 
-Each analysis unit needs `analysis_unit_id`, `gse_id`, and an effect with
-`fdr` or `p_value`. `cohort`, `platform`, `superseries`, `bioproject`, `study`
-and `independence_group` are all optional and used when present. Missing
-fields are skipped, never guessed.
+`write_report` also writes `evidence_report.md.json`, whose `synthesis` key is
+the schema-valid document verbatim, so anything downstream that only
+understands `synthesis.schema.json` can read that key and ignore the rest.
 
 ---
 
@@ -126,5 +174,15 @@ to prevent. Set it from the literature or leave it `"either"`.
 genes? Correct first and pass adjusted values in as `fdr`.
 `benjamini_hochberg()` is included if you want it without pulling in scipy.
 
-**Every effect size in the demos is invented.** They exist to show the logic,
-not a result. The output says so on its first line.
+**Magnitudes are never pooled across estimands.** `comparability()` requires
+the same estimand and the same effect type before magnitudes may be combined.
+Two logFC results, one for EIF2AK4 against CD8 response and one for UTY against
+sex, share a unit and do not estimate the same quantity. When pooling is
+refused, no averaged effect size appears anywhere in the report.
+
+**The numbers in `run_yf17d.py` are real; the numbers in the other demos are
+not.** `run_yf17d.py` reads the repo's committed tables and reports what it
+finds. Every other module's demo uses invented or fixture values to show the
+logic, and says so on its first line. `report.py` carries a frozen copy of the
+`run_yf17d.py` output so its example runs without pandas; that block is
+labelled a fixture, and the live path is `run_yf17d.py --report`.
