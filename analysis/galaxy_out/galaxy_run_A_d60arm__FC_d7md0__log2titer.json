@@ -1,0 +1,63 @@
+{
+  "agrees_with_local": true,
+  "analysis_key": "A_d60arm__FC_d7-d0__log2titer",
+  "comparison_vs_local": {
+    "feature_sets_identical": true,
+    "galaxy_p_lt_001": 99,
+    "galaxy_p_lt_01": 818,
+    "galaxy_q_lt_05": 0,
+    "galaxy_significant_true": 0,
+    "local_p_lt_001": 99,
+    "local_p_lt_01": 818,
+    "local_q_lt_05": 0,
+    "max_abs_p_diff": 4.9895166998048524e-08,
+    "max_abs_q_diff": 4.959057878228812e-08,
+    "max_abs_rho_diff": 4.901427547165937e-07,
+    "n_features": 20077,
+    "top1000_of": 1000,
+    "top1000_overlap": 1000,
+    "top_hit_galaxy": {
+      "p": 6.467714206193559e-06,
+      "probe": "Hs.438265_at",
+      "q": 0.0967462494743652,
+      "rho": 0.8953593717542205
+    },
+    "top_hit_local": {
+      "p": 6.467714e-06,
+      "probe": "Hs.438265_at",
+      "q": 0.09674625,
+      "rho": 0.895359
+    }
+  },
+  "galaxy_url": "https://usegalaxy.org",
+  "history_id": "bbd44e69cb8906b582dcb277dc921d4d",
+  "inputs": {
+    "matrix_a_sha256": "148157cdbbe28577d90d3f128a57d796f90f29254d382ce1c9b906621c391361",
+    "matrix_b_sha256": "76d8613e59f9e11f887cc538b9cbe9a1c9146d9fcae28855d148a106fc01dca9"
+  },
+  "job_id": "bbd44e69cb8906b58409527efaaaf5f4",
+  "job_state": "ok",
+  "local_reference": "/nfs/lambda_stor_01/data/avasan/omics_agents/yf17d/out/corr_A_d60arm__FC_d7-d0__log2titer.tsv",
+  "outputs": {
+    "per_feature": "/nfs/lambda_stor_01/data/avasan/omics_agents/yf17d/galaxy_out/perfeature_A_d60arm__FC_d7md0__log2titer.tsv",
+    "per_feature_sha256": "7d0cbd0ca3c48754bfe20c6afcfd40c453342aad9184347dbdd9e57c4c8cad4c",
+    "summary": "/nfs/lambda_stor_01/data/avasan/omics_agents/yf17d/galaxy_out/summary_A_d60arm__FC_d7md0__log2titer.tsv"
+  },
+  "tool_id": "toolshed.g2.bx.psu.edu/repos/goeckslab/featurewise_correlation/featurewise_correlation/0.1.0+galaxy3",
+  "tool_params": {
+    "alpha": 0.05,
+    "alternative": "two-sided",
+    "delimiter_a": "tab",
+    "delimiter_b": "tab",
+    "feature_start_a": 2,
+    "feature_start_b": 2,
+    "has_header_a": "true",
+    "has_header_b": "true",
+    "id_column_a": 1,
+    "id_column_b": 1,
+    "method": "spearman",
+    "min_pairs": 3,
+    "transform_a": "none",
+    "transform_b": "none"
+  }
+}
