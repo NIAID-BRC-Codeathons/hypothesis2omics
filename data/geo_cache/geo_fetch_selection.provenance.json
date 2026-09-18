@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-09-17T20:57:31.019836+00:00",
+  "tool": "data.geo_fetch_module",
+  "tool_version": "0.2.0",
+  "selection_mode": "parsed_immport_geo_series_links",
+  "input": {
+    "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/parsed/geo_series_links.tsv",
+    "sha256": "e41f0095d3c15209ac042d6dc8f9aa80da4347f3923cb7a657b35d1e8fd8b6a7"
+  },
+  "selected_gse_ids": [
+    "GSE13485",
+    "GSE13699",
+    "GSE22768",
+    "GSE82152",
+    "GSE125921",
+    "GSE136163"
+  ],
+  "force": false,
+  "outputs": {
+    "cache_directory": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache",
+    "manifest": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache/manifest.json",
+    "provenance_log": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/geo_cache/provenance_log.jsonl"
+  },
+  "result_status_counts": {
+    "success": 6
+  }
+}

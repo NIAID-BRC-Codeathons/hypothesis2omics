@@ -1,0 +1,545 @@
+gsm_accession	attribute	occurrence	attribute_order	value
+GSM344057	title	0	0	Day3_YF1222; VaxDesign Mimic experiment
+GSM344057	geo_accession	0	1	GSM344057
+GSM344057	status	0	2	Public on Dec 01 2008
+GSM344057	submission_date	0	3	Nov 19 2008
+GSM344057	last_update_date	0	4	Nov 27 2008
+GSM344057	type	0	5	RNA
+GSM344057	channel_count	0	6	1
+GSM344057	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344057	organism_ch1	0	8	Homo sapiens
+GSM344057	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344057	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344057	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for 3 days
+GSM344057	molecule_ch1	0	12	total RNA
+GSM344057	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344057	label_ch1	0	14	biotin
+GSM344057	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344057	taxid_ch1	0	16	9606
+GSM344057	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344057	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344057	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344057	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344057	platform_id	0	21	GPL6883
+GSM344057	contact_name	0	22	Bastian,Robert,Angermann
+GSM344057	contact_email	0	23	angerb@gmx.de
+GSM344057	contact_fax	0	24	5143437854
+GSM344057	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344057	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344057	contact_address	0	27	264 René-Lévesque Est
+GSM344057	contact_city	0	28	Montréal
+GSM344057	contact_state	0	29	Quebec
+GSM344057	contact_zip/postal_code	0	30	H2X 1P1
+GSM344057	contact_country	0	31	Canada
+GSM344057	supplementary_file	0	32	NONE
+GSM344057	data_row_count	0	33	24526
+GSM344058	title	0	0	Day3_01222; VaxDesign Mimic experiment
+GSM344058	geo_accession	0	1	GSM344058
+GSM344058	status	0	2	Public on Dec 01 2008
+GSM344058	submission_date	0	3	Nov 19 2008
+GSM344058	last_update_date	0	4	Nov 27 2008
+GSM344058	type	0	5	RNA
+GSM344058	channel_count	0	6	1
+GSM344058	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344058	organism_ch1	0	8	Homo sapiens
+GSM344058	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344058	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344058	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 3 days
+GSM344058	molecule_ch1	0	12	total RNA
+GSM344058	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344058	label_ch1	0	14	biotin
+GSM344058	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344058	taxid_ch1	0	16	9606
+GSM344058	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344058	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344058	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344058	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344058	platform_id	0	21	GPL6883
+GSM344058	contact_name	0	22	Bastian,Robert,Angermann
+GSM344058	contact_email	0	23	angerb@gmx.de
+GSM344058	contact_fax	0	24	5143437854
+GSM344058	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344058	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344058	contact_address	0	27	264 René-Lévesque Est
+GSM344058	contact_city	0	28	Montréal
+GSM344058	contact_state	0	29	Quebec
+GSM344058	contact_zip/postal_code	0	30	H2X 1P1
+GSM344058	contact_country	0	31	Canada
+GSM344058	supplementary_file	0	32	NONE
+GSM344058	data_row_count	0	33	24526
+GSM344059	title	0	0	Day3_YF1173; VaxDesign Mimic experiment
+GSM344059	geo_accession	0	1	GSM344059
+GSM344059	status	0	2	Public on Dec 01 2008
+GSM344059	submission_date	0	3	Nov 19 2008
+GSM344059	last_update_date	0	4	Nov 27 2008
+GSM344059	type	0	5	RNA
+GSM344059	channel_count	0	6	1
+GSM344059	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344059	organism_ch1	0	8	Homo sapiens
+GSM344059	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344059	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344059	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for3 days
+GSM344059	molecule_ch1	0	12	total RNA
+GSM344059	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344059	label_ch1	0	14	biotin
+GSM344059	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344059	taxid_ch1	0	16	9606
+GSM344059	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344059	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344059	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344059	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344059	platform_id	0	21	GPL6883
+GSM344059	contact_name	0	22	Bastian,Robert,Angermann
+GSM344059	contact_email	0	23	angerb@gmx.de
+GSM344059	contact_fax	0	24	5143437854
+GSM344059	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344059	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344059	contact_address	0	27	264 René-Lévesque Est
+GSM344059	contact_city	0	28	Montréal
+GSM344059	contact_state	0	29	Quebec
+GSM344059	contact_zip/postal_code	0	30	H2X 1P1
+GSM344059	contact_country	0	31	Canada
+GSM344059	supplementary_file	0	32	NONE
+GSM344059	data_row_count	0	33	24526
+GSM344060	title	0	0	Day3_01173; VaxDesign Mimic experiment
+GSM344060	geo_accession	0	1	GSM344060
+GSM344060	status	0	2	Public on Dec 01 2008
+GSM344060	submission_date	0	3	Nov 19 2008
+GSM344060	last_update_date	0	4	Nov 27 2008
+GSM344060	type	0	5	RNA
+GSM344060	channel_count	0	6	1
+GSM344060	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344060	organism_ch1	0	8	Homo sapiens
+GSM344060	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344060	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344060	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 3 days
+GSM344060	molecule_ch1	0	12	total RNA
+GSM344060	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344060	label_ch1	0	14	biotin
+GSM344060	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344060	taxid_ch1	0	16	9606
+GSM344060	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344060	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344060	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344060	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344060	platform_id	0	21	GPL6883
+GSM344060	contact_name	0	22	Bastian,Robert,Angermann
+GSM344060	contact_email	0	23	angerb@gmx.de
+GSM344060	contact_fax	0	24	5143437854
+GSM344060	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344060	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344060	contact_address	0	27	264 René-Lévesque Est
+GSM344060	contact_city	0	28	Montréal
+GSM344060	contact_state	0	29	Quebec
+GSM344060	contact_zip/postal_code	0	30	H2X 1P1
+GSM344060	contact_country	0	31	Canada
+GSM344060	supplementary_file	0	32	NONE
+GSM344060	data_row_count	0	33	24526
+GSM344061	title	0	0	Day3_01105; VaxDesign Mimic experiment
+GSM344061	geo_accession	0	1	GSM344061
+GSM344061	status	0	2	Public on Dec 01 2008
+GSM344061	submission_date	0	3	Nov 19 2008
+GSM344061	last_update_date	0	4	Nov 27 2008
+GSM344061	type	0	5	RNA
+GSM344061	channel_count	0	6	1
+GSM344061	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344061	organism_ch1	0	8	Homo sapiens
+GSM344061	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344061	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344061	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 3 days
+GSM344061	molecule_ch1	0	12	total RNA
+GSM344061	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344061	label_ch1	0	14	biotin
+GSM344061	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344061	taxid_ch1	0	16	9606
+GSM344061	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344061	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344061	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344061	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344061	platform_id	0	21	GPL6883
+GSM344061	contact_name	0	22	Bastian,Robert,Angermann
+GSM344061	contact_email	0	23	angerb@gmx.de
+GSM344061	contact_fax	0	24	5143437854
+GSM344061	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344061	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344061	contact_address	0	27	264 René-Lévesque Est
+GSM344061	contact_city	0	28	Montréal
+GSM344061	contact_state	0	29	Quebec
+GSM344061	contact_zip/postal_code	0	30	H2X 1P1
+GSM344061	contact_country	0	31	Canada
+GSM344061	supplementary_file	0	32	NONE
+GSM344061	data_row_count	0	33	24526
+GSM344062	title	0	0	Day7_YF1222; VaxDesign Mimic experiment
+GSM344062	geo_accession	0	1	GSM344062
+GSM344062	status	0	2	Public on Dec 01 2008
+GSM344062	submission_date	0	3	Nov 19 2008
+GSM344062	last_update_date	0	4	Nov 27 2008
+GSM344062	type	0	5	RNA
+GSM344062	channel_count	0	6	1
+GSM344062	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344062	organism_ch1	0	8	Homo sapiens
+GSM344062	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344062	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344062	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for 7 days
+GSM344062	molecule_ch1	0	12	total RNA
+GSM344062	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344062	label_ch1	0	14	biotin
+GSM344062	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344062	taxid_ch1	0	16	9606
+GSM344062	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344062	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344062	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344062	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344062	platform_id	0	21	GPL6883
+GSM344062	contact_name	0	22	Bastian,Robert,Angermann
+GSM344062	contact_email	0	23	angerb@gmx.de
+GSM344062	contact_fax	0	24	5143437854
+GSM344062	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344062	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344062	contact_address	0	27	264 René-Lévesque Est
+GSM344062	contact_city	0	28	Montréal
+GSM344062	contact_state	0	29	Quebec
+GSM344062	contact_zip/postal_code	0	30	H2X 1P1
+GSM344062	contact_country	0	31	Canada
+GSM344062	supplementary_file	0	32	NONE
+GSM344062	data_row_count	0	33	24526
+GSM344063	title	0	0	Day7_01222; VaxDesign Mimic experiment
+GSM344063	geo_accession	0	1	GSM344063
+GSM344063	status	0	2	Public on Dec 01 2008
+GSM344063	submission_date	0	3	Nov 19 2008
+GSM344063	last_update_date	0	4	Nov 27 2008
+GSM344063	type	0	5	RNA
+GSM344063	channel_count	0	6	1
+GSM344063	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344063	organism_ch1	0	8	Homo sapiens
+GSM344063	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344063	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344063	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 7 days
+GSM344063	molecule_ch1	0	12	total RNA
+GSM344063	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344063	label_ch1	0	14	biotin
+GSM344063	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344063	taxid_ch1	0	16	9606
+GSM344063	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344063	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344063	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344063	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344063	platform_id	0	21	GPL6883
+GSM344063	contact_name	0	22	Bastian,Robert,Angermann
+GSM344063	contact_email	0	23	angerb@gmx.de
+GSM344063	contact_fax	0	24	5143437854
+GSM344063	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344063	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344063	contact_address	0	27	264 René-Lévesque Est
+GSM344063	contact_city	0	28	Montréal
+GSM344063	contact_state	0	29	Quebec
+GSM344063	contact_zip/postal_code	0	30	H2X 1P1
+GSM344063	contact_country	0	31	Canada
+GSM344063	supplementary_file	0	32	NONE
+GSM344063	data_row_count	0	33	24526
+GSM344064	title	0	0	Day7_YF1173; VaxDesign Mimic experiment
+GSM344064	geo_accession	0	1	GSM344064
+GSM344064	status	0	2	Public on Dec 01 2008
+GSM344064	submission_date	0	3	Nov 19 2008
+GSM344064	last_update_date	0	4	Nov 27 2008
+GSM344064	type	0	5	RNA
+GSM344064	channel_count	0	6	1
+GSM344064	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344064	organism_ch1	0	8	Homo sapiens
+GSM344064	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344064	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344064	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for 7 days
+GSM344064	molecule_ch1	0	12	total RNA
+GSM344064	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344064	label_ch1	0	14	biotin
+GSM344064	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344064	taxid_ch1	0	16	9606
+GSM344064	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344064	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344064	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344064	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344064	platform_id	0	21	GPL6883
+GSM344064	contact_name	0	22	Bastian,Robert,Angermann
+GSM344064	contact_email	0	23	angerb@gmx.de
+GSM344064	contact_fax	0	24	5143437854
+GSM344064	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344064	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344064	contact_address	0	27	264 René-Lévesque Est
+GSM344064	contact_city	0	28	Montréal
+GSM344064	contact_state	0	29	Quebec
+GSM344064	contact_zip/postal_code	0	30	H2X 1P1
+GSM344064	contact_country	0	31	Canada
+GSM344064	supplementary_file	0	32	NONE
+GSM344064	data_row_count	0	33	24526
+GSM344065	title	0	0	Day7_01173; VaxDesign Mimic experiment
+GSM344065	geo_accession	0	1	GSM344065
+GSM344065	status	0	2	Public on Dec 01 2008
+GSM344065	submission_date	0	3	Nov 19 2008
+GSM344065	last_update_date	0	4	Nov 27 2008
+GSM344065	type	0	5	RNA
+GSM344065	channel_count	0	6	1
+GSM344065	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344065	organism_ch1	0	8	Homo sapiens
+GSM344065	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344065	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344065	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 7 days
+GSM344065	molecule_ch1	0	12	total RNA
+GSM344065	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344065	label_ch1	0	14	biotin
+GSM344065	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344065	taxid_ch1	0	16	9606
+GSM344065	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344065	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344065	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344065	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344065	platform_id	0	21	GPL6883
+GSM344065	contact_name	0	22	Bastian,Robert,Angermann
+GSM344065	contact_email	0	23	angerb@gmx.de
+GSM344065	contact_fax	0	24	5143437854
+GSM344065	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344065	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344065	contact_address	0	27	264 René-Lévesque Est
+GSM344065	contact_city	0	28	Montréal
+GSM344065	contact_state	0	29	Quebec
+GSM344065	contact_zip/postal_code	0	30	H2X 1P1
+GSM344065	contact_country	0	31	Canada
+GSM344065	supplementary_file	0	32	NONE
+GSM344065	data_row_count	0	33	24526
+GSM344066	title	0	0	Day7_YF1105; VaxDesign Mimic experiment
+GSM344066	geo_accession	0	1	GSM344066
+GSM344066	status	0	2	Public on Dec 01 2008
+GSM344066	submission_date	0	3	Nov 19 2008
+GSM344066	last_update_date	0	4	Nov 27 2008
+GSM344066	type	0	5	RNA
+GSM344066	channel_count	0	6	1
+GSM344066	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344066	organism_ch1	0	8	Homo sapiens
+GSM344066	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344066	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344066	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for 7 days
+GSM344066	molecule_ch1	0	12	total RNA
+GSM344066	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344066	label_ch1	0	14	biotin
+GSM344066	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344066	taxid_ch1	0	16	9606
+GSM344066	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344066	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344066	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344066	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344066	platform_id	0	21	GPL6883
+GSM344066	contact_name	0	22	Bastian,Robert,Angermann
+GSM344066	contact_email	0	23	angerb@gmx.de
+GSM344066	contact_fax	0	24	5143437854
+GSM344066	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344066	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344066	contact_address	0	27	264 René-Lévesque Est
+GSM344066	contact_city	0	28	Montréal
+GSM344066	contact_state	0	29	Quebec
+GSM344066	contact_zip/postal_code	0	30	H2X 1P1
+GSM344066	contact_country	0	31	Canada
+GSM344066	supplementary_file	0	32	NONE
+GSM344066	data_row_count	0	33	24526
+GSM344067	title	0	0	Day7_01105; VaxDesign Mimic experiment
+GSM344067	geo_accession	0	1	GSM344067
+GSM344067	status	0	2	Public on Dec 01 2008
+GSM344067	submission_date	0	3	Nov 19 2008
+GSM344067	last_update_date	0	4	Nov 27 2008
+GSM344067	type	0	5	RNA
+GSM344067	channel_count	0	6	1
+GSM344067	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344067	organism_ch1	0	8	Homo sapiens
+GSM344067	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344067	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344067	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 7 days
+GSM344067	molecule_ch1	0	12	total RNA
+GSM344067	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344067	label_ch1	0	14	biotin
+GSM344067	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344067	taxid_ch1	0	16	9606
+GSM344067	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344067	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344067	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344067	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344067	platform_id	0	21	GPL6883
+GSM344067	contact_name	0	22	Bastian,Robert,Angermann
+GSM344067	contact_email	0	23	angerb@gmx.de
+GSM344067	contact_fax	0	24	5143437854
+GSM344067	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344067	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344067	contact_address	0	27	264 René-Lévesque Est
+GSM344067	contact_city	0	28	Montréal
+GSM344067	contact_state	0	29	Quebec
+GSM344067	contact_zip/postal_code	0	30	H2X 1P1
+GSM344067	contact_country	0	31	Canada
+GSM344067	supplementary_file	0	32	NONE
+GSM344067	data_row_count	0	33	24526
+GSM344068	title	0	0	Day14_YF1222; VaxDesign Mimic experiment
+GSM344068	geo_accession	0	1	GSM344068
+GSM344068	status	0	2	Public on Dec 01 2008
+GSM344068	submission_date	0	3	Nov 19 2008
+GSM344068	last_update_date	0	4	Nov 27 2008
+GSM344068	type	0	5	RNA
+GSM344068	channel_count	0	6	1
+GSM344068	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344068	organism_ch1	0	8	Homo sapiens
+GSM344068	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344068	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344068	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for 14 days
+GSM344068	molecule_ch1	0	12	total RNA
+GSM344068	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344068	label_ch1	0	14	biotin
+GSM344068	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344068	taxid_ch1	0	16	9606
+GSM344068	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344068	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344068	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344068	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344068	platform_id	0	21	GPL6883
+GSM344068	contact_name	0	22	Bastian,Robert,Angermann
+GSM344068	contact_email	0	23	angerb@gmx.de
+GSM344068	contact_fax	0	24	5143437854
+GSM344068	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344068	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344068	contact_address	0	27	264 René-Lévesque Est
+GSM344068	contact_city	0	28	Montréal
+GSM344068	contact_state	0	29	Quebec
+GSM344068	contact_zip/postal_code	0	30	H2X 1P1
+GSM344068	contact_country	0	31	Canada
+GSM344068	supplementary_file	0	32	NONE
+GSM344068	data_row_count	0	33	24526
+GSM344069	title	0	0	Day14_01222; VaxDesign Mimic experiment
+GSM344069	geo_accession	0	1	GSM344069
+GSM344069	status	0	2	Public on Dec 01 2008
+GSM344069	submission_date	0	3	Nov 19 2008
+GSM344069	last_update_date	0	4	Nov 27 2008
+GSM344069	type	0	5	RNA
+GSM344069	channel_count	0	6	1
+GSM344069	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344069	organism_ch1	0	8	Homo sapiens
+GSM344069	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344069	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344069	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 14 days
+GSM344069	molecule_ch1	0	12	total RNA
+GSM344069	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344069	label_ch1	0	14	biotin
+GSM344069	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344069	taxid_ch1	0	16	9606
+GSM344069	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344069	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344069	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344069	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344069	platform_id	0	21	GPL6883
+GSM344069	contact_name	0	22	Bastian,Robert,Angermann
+GSM344069	contact_email	0	23	angerb@gmx.de
+GSM344069	contact_fax	0	24	5143437854
+GSM344069	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344069	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344069	contact_address	0	27	264 René-Lévesque Est
+GSM344069	contact_city	0	28	Montréal
+GSM344069	contact_state	0	29	Quebec
+GSM344069	contact_zip/postal_code	0	30	H2X 1P1
+GSM344069	contact_country	0	31	Canada
+GSM344069	supplementary_file	0	32	NONE
+GSM344069	data_row_count	0	33	24526
+GSM344070	title	0	0	Day14_YF1173; VaxDesign Mimic experiment
+GSM344070	geo_accession	0	1	GSM344070
+GSM344070	status	0	2	Public on Dec 01 2008
+GSM344070	submission_date	0	3	Nov 19 2008
+GSM344070	last_update_date	0	4	Nov 27 2008
+GSM344070	type	0	5	RNA
+GSM344070	channel_count	0	6	1
+GSM344070	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344070	organism_ch1	0	8	Homo sapiens
+GSM344070	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344070	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344070	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for 14 days
+GSM344070	molecule_ch1	0	12	total RNA
+GSM344070	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344070	label_ch1	0	14	biotin
+GSM344070	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344070	taxid_ch1	0	16	9606
+GSM344070	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344070	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344070	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344070	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344070	platform_id	0	21	GPL6883
+GSM344070	contact_name	0	22	Bastian,Robert,Angermann
+GSM344070	contact_email	0	23	angerb@gmx.de
+GSM344070	contact_fax	0	24	5143437854
+GSM344070	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344070	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344070	contact_address	0	27	264 René-Lévesque Est
+GSM344070	contact_city	0	28	Montréal
+GSM344070	contact_state	0	29	Quebec
+GSM344070	contact_zip/postal_code	0	30	H2X 1P1
+GSM344070	contact_country	0	31	Canada
+GSM344070	supplementary_file	0	32	NONE
+GSM344070	data_row_count	0	33	24526
+GSM344071	title	0	0	Day14_01173; VaxDesign Mimic experiment
+GSM344071	geo_accession	0	1	GSM344071
+GSM344071	status	0	2	Public on Dec 01 2008
+GSM344071	submission_date	0	3	Nov 19 2008
+GSM344071	last_update_date	0	4	Nov 27 2008
+GSM344071	type	0	5	RNA
+GSM344071	channel_count	0	6	1
+GSM344071	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344071	organism_ch1	0	8	Homo sapiens
+GSM344071	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344071	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344071	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with untreatedDCs at a ratio of 60:1 for 14 days
+GSM344071	molecule_ch1	0	12	total RNA
+GSM344071	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344071	label_ch1	0	14	biotin
+GSM344071	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344071	taxid_ch1	0	16	9606
+GSM344071	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344071	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344071	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344071	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344071	platform_id	0	21	GPL6883
+GSM344071	contact_name	0	22	Bastian,Robert,Angermann
+GSM344071	contact_email	0	23	angerb@gmx.de
+GSM344071	contact_fax	0	24	5143437854
+GSM344071	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344071	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344071	contact_address	0	27	264 René-Lévesque Est
+GSM344071	contact_city	0	28	Montréal
+GSM344071	contact_state	0	29	Quebec
+GSM344071	contact_zip/postal_code	0	30	H2X 1P1
+GSM344071	contact_country	0	31	Canada
+GSM344071	supplementary_file	0	32	NONE
+GSM344071	data_row_count	0	33	24526
+GSM344072	title	0	0	Day14_YF1105; VaxDesign Mimic experiment
+GSM344072	geo_accession	0	1	GSM344072
+GSM344072	status	0	2	Public on Dec 01 2008
+GSM344072	submission_date	0	3	Nov 19 2008
+GSM344072	last_update_date	0	4	Nov 27 2008
+GSM344072	type	0	5	RNA
+GSM344072	channel_count	0	6	1
+GSM344072	source_name_ch1	0	7	Frozen stocks of autologous PBMCs were used as a source of lymphocytes.
+GSM344072	organism_ch1	0	8	Homo sapiens
+GSM344072	characteristics_ch1	0	9	Yellow Fever unexposed volunteer
+GSM344072	biomaterial_provider_ch1	0	10	Donald R. Drake,VaxDesign Corporation, 12612 Challenger Parkway, Suite 365, Orlando, FL 32826, USA
+GSM344072	treatment_protocol_ch1	0	11	Purified CD4+ T cells were co-cultured  in the Mimic System with YF17D-pulsed DCs at a ratio of 60:1 for 14 days
+GSM344072	molecule_ch1	0	12	total RNA
+GSM344072	extract_protocol_ch1	0	13	Total RNA was purified using RNA extraction kits from Qiagen.  Quantification was performed using NanoDrop Technologies spectrophotometer and RNA quality was assessed using the Experion automated electrophoresis system from Bio-Rad.
+GSM344072	label_ch1	0	14	biotin
+GSM344072	label_protocol_ch1	0	15	Total RNA as amplified and labeled using the Illumina TotalPrep RNA Amplication kit which is based on the Eberwine amplification protocol. It involves a first cDNA synthesis step followed by in vitro transcription of cRNA.
+GSM344072	taxid_ch1	0	16	9606
+GSM344072	hyb_protocol	0	17	The biotinylated cRNA was hybridized onto Illumina Human RefSeq-8 BeadChips v2 at 58oC for 20 hours.
+GSM344072	scan_protocol	0	18	Fluorescent array images were collected with Illumina BeadStation 500GX scanner fluorescent scanner and image intensity data were extracted using Illumina BeadStudio version 3 software.
+GSM344072	description	0	19	PBMCs used in the assays were acquired from normal healthy donors enrolled in a VaxDesign Corporation apheresis study program (protocol CRRI 0906009). Blood collections were performed at Florida’s Blood Centers (Olrando, FL) using standard techniques.  The enriched leukocytes were isolated and cryopreserved. Human DCs were prepared as described in Gaucher et al. “Yellow fever vaccine induces integrated multilineage and polyfunctional immune responses , J. Exp. Med XXX. After 5 days of culture with IL-4 and GM-CSF, the DCs were infected with a 1:100 dilution of the live-attenuated YF-VAX® vaccine.  After 24 hrs, 5% human AB serum was added to the media to quench the infection. Alternatively, some of the DCs we not infected.  On the sixth day, all DCs were matured with an overnight treatment of 25 ng/mL TNF- (R&D Systems).
+GSM344072	data_processing	0	20	"Illuma probe data were exported from BeadStudio as raw data and were screened for quality.  Samples failing chip visual inspection and control examination were removed. The R software was used to quantile normalize the probe intensities, and to minimum-replace (surrogate-replacement policy) values below background using the mean background vale of the probe controls rounded up to the rearest power of 2, determined from the microarray quality controls to reduce noise and reduce ""over-inflated"" expression ratios in subsequent steps."
+GSM344072	platform_id	0	21	GPL6883
+GSM344072	contact_name	0	22	Bastian,Robert,Angermann
+GSM344072	contact_email	0	23	angerb@gmx.de
+GSM344072	contact_fax	0	24	5143437854
+GSM344072	contact_laboratory	0	25	Laboratoire d'immunologie
+GSM344072	contact_institute	0	26	Centre de Recherche du Centre Hospitalier de l’Université de Montréal (CR-CHUM) Saint-Luc
+GSM344072	contact_address	0	27	264 René-Lévesque Est
+GSM344072	contact_city	0	28	Montréal
+GSM344072	contact_state	0	29	Quebec
+GSM344072	contact_zip/postal_code	0	30	H2X 1P1
+GSM344072	contact_country	0	31	Canada
+GSM344072	supplementary_file	0	32	NONE
+GSM344072	data_row_count	0	33	24526

@@ -1,0 +1,1901 @@
+gsm_accession	attribute	occurrence	attribute_order	value
+GSM563091	title	0	0	071-008_Ad5Titer_707_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563091	geo_accession	0	1	GSM563091
+GSM563091	status	0	2	Public on Nov 20 2012
+GSM563091	submission_date	0	3	Jul 06 2010
+GSM563091	last_update_date	0	4	Nov 20 2012
+GSM563091	type	0	5	RNA
+GSM563091	channel_count	0	6	1
+GSM563091	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563091	organism_ch1	0	8	Homo sapiens
+GSM563091	characteristics_ch1	0	9	human subject anonymized id: 071-008
+GSM563091	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 707
+GSM563091	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563091	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563091	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563091	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563091	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563091	growth_protocol_ch1	0	16	Not applicable
+GSM563091	molecule_ch1	0	17	total RNA
+GSM563091	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563091	label_ch1	0	19	biotin
+GSM563091	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563091	taxid_ch1	0	21	9606
+GSM563091	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563091	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563091	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563091	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563091	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563091	platform_id	0	27	GPL10647
+GSM563091	contact_name	0	28	Daniel,Edward,Zak
+GSM563091	contact_laboratory	0	29	Aderem Lab
+GSM563091	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563091	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563091	contact_city	0	32	Seattle
+GSM563091	contact_state	0	33	WA
+GSM563091	contact_zip/postal_code	0	34	98109
+GSM563091	contact_country	0	35	USA
+GSM563091	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563091/suppl/GSM563091.CEL.gz
+GSM563091	data_row_count	0	37	44765
+GSM563092	title	0	0	071-008_Ad5Titer_707_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563092	geo_accession	0	1	GSM563092
+GSM563092	status	0	2	Public on Nov 20 2012
+GSM563092	submission_date	0	3	Jul 06 2010
+GSM563092	last_update_date	0	4	Nov 20 2012
+GSM563092	type	0	5	RNA
+GSM563092	channel_count	0	6	1
+GSM563092	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563092	organism_ch1	0	8	Homo sapiens
+GSM563092	characteristics_ch1	0	9	human subject anonymized id: 071-008
+GSM563092	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 707
+GSM563092	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563092	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563092	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563092	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563092	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563092	growth_protocol_ch1	0	16	Not applicable
+GSM563092	molecule_ch1	0	17	total RNA
+GSM563092	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563092	label_ch1	0	19	biotin
+GSM563092	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563092	taxid_ch1	0	21	9606
+GSM563092	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563092	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563092	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563092	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563092	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563092	platform_id	0	27	GPL10647
+GSM563092	contact_name	0	28	Daniel,Edward,Zak
+GSM563092	contact_laboratory	0	29	Aderem Lab
+GSM563092	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563092	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563092	contact_city	0	32	Seattle
+GSM563092	contact_state	0	33	WA
+GSM563092	contact_zip/postal_code	0	34	98109
+GSM563092	contact_country	0	35	USA
+GSM563092	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563092/suppl/GSM563092.CEL.gz
+GSM563092	data_row_count	0	37	44765
+GSM563093	title	0	0	071-008_Ad5Titer_707_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563093	geo_accession	0	1	GSM563093
+GSM563093	status	0	2	Public on Nov 20 2012
+GSM563093	submission_date	0	3	Jul 06 2010
+GSM563093	last_update_date	0	4	Nov 20 2012
+GSM563093	type	0	5	RNA
+GSM563093	channel_count	0	6	1
+GSM563093	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563093	organism_ch1	0	8	Homo sapiens
+GSM563093	characteristics_ch1	0	9	human subject anonymized id: 071-008
+GSM563093	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 707
+GSM563093	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563093	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563093	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563093	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563093	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563093	growth_protocol_ch1	0	16	Not applicable
+GSM563093	molecule_ch1	0	17	total RNA
+GSM563093	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563093	label_ch1	0	19	biotin
+GSM563093	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563093	taxid_ch1	0	21	9606
+GSM563093	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563093	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563093	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563093	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563093	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563093	platform_id	0	27	GPL10647
+GSM563093	contact_name	0	28	Daniel,Edward,Zak
+GSM563093	contact_laboratory	0	29	Aderem Lab
+GSM563093	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563093	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563093	contact_city	0	32	Seattle
+GSM563093	contact_state	0	33	WA
+GSM563093	contact_zip/postal_code	0	34	98109
+GSM563093	contact_country	0	35	USA
+GSM563093	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563093/suppl/GSM563093.CEL.gz
+GSM563093	data_row_count	0	37	44765
+GSM563094	title	0	0	071-008_Ad5Titer_707_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563094	geo_accession	0	1	GSM563094
+GSM563094	status	0	2	Public on Nov 20 2012
+GSM563094	submission_date	0	3	Jul 06 2010
+GSM563094	last_update_date	0	4	Nov 20 2012
+GSM563094	type	0	5	RNA
+GSM563094	channel_count	0	6	1
+GSM563094	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563094	organism_ch1	0	8	Homo sapiens
+GSM563094	characteristics_ch1	0	9	human subject anonymized id: 071-008
+GSM563094	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 707
+GSM563094	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563094	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563094	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563094	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563094	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563094	growth_protocol_ch1	0	16	Not applicable
+GSM563094	molecule_ch1	0	17	total RNA
+GSM563094	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563094	label_ch1	0	19	biotin
+GSM563094	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563094	taxid_ch1	0	21	9606
+GSM563094	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563094	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563094	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563094	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563094	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563094	platform_id	0	27	GPL10647
+GSM563094	contact_name	0	28	Daniel,Edward,Zak
+GSM563094	contact_laboratory	0	29	Aderem Lab
+GSM563094	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563094	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563094	contact_city	0	32	Seattle
+GSM563094	contact_state	0	33	WA
+GSM563094	contact_zip/postal_code	0	34	98109
+GSM563094	contact_country	0	35	USA
+GSM563094	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563094/suppl/GSM563094.CEL.gz
+GSM563094	data_row_count	0	37	44765
+GSM563095	title	0	0	071-008_Ad5Titer_707_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563095	geo_accession	0	1	GSM563095
+GSM563095	status	0	2	Public on Nov 20 2012
+GSM563095	submission_date	0	3	Jul 06 2010
+GSM563095	last_update_date	0	4	Nov 20 2012
+GSM563095	type	0	5	RNA
+GSM563095	channel_count	0	6	1
+GSM563095	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563095	organism_ch1	0	8	Homo sapiens
+GSM563095	characteristics_ch1	0	9	human subject anonymized id: 071-008
+GSM563095	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 707
+GSM563095	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563095	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563095	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563095	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563095	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563095	growth_protocol_ch1	0	16	Not applicable
+GSM563095	molecule_ch1	0	17	total RNA
+GSM563095	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563095	label_ch1	0	19	biotin
+GSM563095	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563095	taxid_ch1	0	21	9606
+GSM563095	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563095	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563095	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563095	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563095	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563095	platform_id	0	27	GPL10647
+GSM563095	contact_name	0	28	Daniel,Edward,Zak
+GSM563095	contact_laboratory	0	29	Aderem Lab
+GSM563095	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563095	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563095	contact_city	0	32	Seattle
+GSM563095	contact_state	0	33	WA
+GSM563095	contact_zip/postal_code	0	34	98109
+GSM563095	contact_country	0	35	USA
+GSM563095	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563095/suppl/GSM563095.CEL.gz
+GSM563095	data_row_count	0	37	44765
+GSM563096	title	0	0	071-015_Ad5Titer_0_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563096	geo_accession	0	1	GSM563096
+GSM563096	status	0	2	Public on Nov 20 2012
+GSM563096	submission_date	0	3	Jul 06 2010
+GSM563096	last_update_date	0	4	Nov 20 2012
+GSM563096	type	0	5	RNA
+GSM563096	channel_count	0	6	1
+GSM563096	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563096	organism_ch1	0	8	Homo sapiens
+GSM563096	characteristics_ch1	0	9	human subject anonymized id: 071-015
+GSM563096	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563096	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563096	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563096	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563096	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563096	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563096	growth_protocol_ch1	0	16	Not applicable
+GSM563096	molecule_ch1	0	17	total RNA
+GSM563096	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563096	label_ch1	0	19	biotin
+GSM563096	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563096	taxid_ch1	0	21	9606
+GSM563096	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563096	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563096	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563096	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563096	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563096	platform_id	0	27	GPL10647
+GSM563096	contact_name	0	28	Daniel,Edward,Zak
+GSM563096	contact_laboratory	0	29	Aderem Lab
+GSM563096	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563096	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563096	contact_city	0	32	Seattle
+GSM563096	contact_state	0	33	WA
+GSM563096	contact_zip/postal_code	0	34	98109
+GSM563096	contact_country	0	35	USA
+GSM563096	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563096/suppl/GSM563096.CEL.gz
+GSM563096	data_row_count	0	37	44765
+GSM563097	title	0	0	071-015_Ad5Titer_0_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563097	geo_accession	0	1	GSM563097
+GSM563097	status	0	2	Public on Nov 20 2012
+GSM563097	submission_date	0	3	Jul 06 2010
+GSM563097	last_update_date	0	4	Nov 20 2012
+GSM563097	type	0	5	RNA
+GSM563097	channel_count	0	6	1
+GSM563097	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563097	organism_ch1	0	8	Homo sapiens
+GSM563097	characteristics_ch1	0	9	human subject anonymized id: 071-015
+GSM563097	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563097	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563097	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563097	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563097	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563097	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563097	growth_protocol_ch1	0	16	Not applicable
+GSM563097	molecule_ch1	0	17	total RNA
+GSM563097	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563097	label_ch1	0	19	biotin
+GSM563097	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563097	taxid_ch1	0	21	9606
+GSM563097	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563097	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563097	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563097	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563097	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563097	platform_id	0	27	GPL10647
+GSM563097	contact_name	0	28	Daniel,Edward,Zak
+GSM563097	contact_laboratory	0	29	Aderem Lab
+GSM563097	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563097	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563097	contact_city	0	32	Seattle
+GSM563097	contact_state	0	33	WA
+GSM563097	contact_zip/postal_code	0	34	98109
+GSM563097	contact_country	0	35	USA
+GSM563097	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563097/suppl/GSM563097.CEL.gz
+GSM563097	data_row_count	0	37	44765
+GSM563098	title	0	0	071-015_Ad5Titer_0_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563098	geo_accession	0	1	GSM563098
+GSM563098	status	0	2	Public on Nov 20 2012
+GSM563098	submission_date	0	3	Jul 06 2010
+GSM563098	last_update_date	0	4	Nov 20 2012
+GSM563098	type	0	5	RNA
+GSM563098	channel_count	0	6	1
+GSM563098	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563098	organism_ch1	0	8	Homo sapiens
+GSM563098	characteristics_ch1	0	9	human subject anonymized id: 071-015
+GSM563098	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563098	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563098	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563098	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563098	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563098	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563098	growth_protocol_ch1	0	16	Not applicable
+GSM563098	molecule_ch1	0	17	total RNA
+GSM563098	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563098	label_ch1	0	19	biotin
+GSM563098	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563098	taxid_ch1	0	21	9606
+GSM563098	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563098	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563098	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563098	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563098	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563098	platform_id	0	27	GPL10647
+GSM563098	contact_name	0	28	Daniel,Edward,Zak
+GSM563098	contact_laboratory	0	29	Aderem Lab
+GSM563098	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563098	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563098	contact_city	0	32	Seattle
+GSM563098	contact_state	0	33	WA
+GSM563098	contact_zip/postal_code	0	34	98109
+GSM563098	contact_country	0	35	USA
+GSM563098	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563098/suppl/GSM563098.CEL.gz
+GSM563098	data_row_count	0	37	44765
+GSM563099	title	0	0	071-015_Ad5Titer_0_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563099	geo_accession	0	1	GSM563099
+GSM563099	status	0	2	Public on Nov 20 2012
+GSM563099	submission_date	0	3	Jul 06 2010
+GSM563099	last_update_date	0	4	Nov 20 2012
+GSM563099	type	0	5	RNA
+GSM563099	channel_count	0	6	1
+GSM563099	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563099	organism_ch1	0	8	Homo sapiens
+GSM563099	characteristics_ch1	0	9	human subject anonymized id: 071-015
+GSM563099	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563099	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563099	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563099	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563099	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563099	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563099	growth_protocol_ch1	0	16	Not applicable
+GSM563099	molecule_ch1	0	17	total RNA
+GSM563099	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563099	label_ch1	0	19	biotin
+GSM563099	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563099	taxid_ch1	0	21	9606
+GSM563099	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563099	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563099	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563099	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563099	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563099	platform_id	0	27	GPL10647
+GSM563099	contact_name	0	28	Daniel,Edward,Zak
+GSM563099	contact_laboratory	0	29	Aderem Lab
+GSM563099	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563099	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563099	contact_city	0	32	Seattle
+GSM563099	contact_state	0	33	WA
+GSM563099	contact_zip/postal_code	0	34	98109
+GSM563099	contact_country	0	35	USA
+GSM563099	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563099/suppl/GSM563099.CEL.gz
+GSM563099	data_row_count	0	37	44765
+GSM563100	title	0	0	071-015_Ad5Titer_0_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563100	geo_accession	0	1	GSM563100
+GSM563100	status	0	2	Public on Nov 20 2012
+GSM563100	submission_date	0	3	Jul 06 2010
+GSM563100	last_update_date	0	4	Nov 20 2012
+GSM563100	type	0	5	RNA
+GSM563100	channel_count	0	6	1
+GSM563100	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563100	organism_ch1	0	8	Homo sapiens
+GSM563100	characteristics_ch1	0	9	human subject anonymized id: 071-015
+GSM563100	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563100	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563100	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563100	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563100	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563100	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563100	growth_protocol_ch1	0	16	Not applicable
+GSM563100	molecule_ch1	0	17	total RNA
+GSM563100	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563100	label_ch1	0	19	biotin
+GSM563100	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563100	taxid_ch1	0	21	9606
+GSM563100	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563100	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563100	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563100	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563100	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563100	platform_id	0	27	GPL10647
+GSM563100	contact_name	0	28	Daniel,Edward,Zak
+GSM563100	contact_laboratory	0	29	Aderem Lab
+GSM563100	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563100	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563100	contact_city	0	32	Seattle
+GSM563100	contact_state	0	33	WA
+GSM563100	contact_zip/postal_code	0	34	98109
+GSM563100	contact_country	0	35	USA
+GSM563100	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563100/suppl/GSM563100.CEL.gz
+GSM563100	data_row_count	0	37	44765
+GSM563101	title	0	0	071-025_Ad5Titer_0_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563101	geo_accession	0	1	GSM563101
+GSM563101	status	0	2	Public on Nov 20 2012
+GSM563101	submission_date	0	3	Jul 06 2010
+GSM563101	last_update_date	0	4	Nov 20 2012
+GSM563101	type	0	5	RNA
+GSM563101	channel_count	0	6	1
+GSM563101	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563101	organism_ch1	0	8	Homo sapiens
+GSM563101	characteristics_ch1	0	9	human subject anonymized id: 071-025
+GSM563101	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563101	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563101	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563101	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563101	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563101	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563101	growth_protocol_ch1	0	16	Not applicable
+GSM563101	molecule_ch1	0	17	total RNA
+GSM563101	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563101	label_ch1	0	19	biotin
+GSM563101	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563101	taxid_ch1	0	21	9606
+GSM563101	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563101	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563101	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563101	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563101	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563101	platform_id	0	27	GPL10647
+GSM563101	contact_name	0	28	Daniel,Edward,Zak
+GSM563101	contact_laboratory	0	29	Aderem Lab
+GSM563101	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563101	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563101	contact_city	0	32	Seattle
+GSM563101	contact_state	0	33	WA
+GSM563101	contact_zip/postal_code	0	34	98109
+GSM563101	contact_country	0	35	USA
+GSM563101	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563101/suppl/GSM563101.CEL.gz
+GSM563101	data_row_count	0	37	44765
+GSM563102	title	0	0	071-025_Ad5Titer_0_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563102	geo_accession	0	1	GSM563102
+GSM563102	status	0	2	Public on Nov 20 2012
+GSM563102	submission_date	0	3	Jul 06 2010
+GSM563102	last_update_date	0	4	Nov 20 2012
+GSM563102	type	0	5	RNA
+GSM563102	channel_count	0	6	1
+GSM563102	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563102	organism_ch1	0	8	Homo sapiens
+GSM563102	characteristics_ch1	0	9	human subject anonymized id: 071-025
+GSM563102	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563102	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563102	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563102	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563102	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563102	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563102	growth_protocol_ch1	0	16	Not applicable
+GSM563102	molecule_ch1	0	17	total RNA
+GSM563102	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563102	label_ch1	0	19	biotin
+GSM563102	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563102	taxid_ch1	0	21	9606
+GSM563102	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563102	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563102	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563102	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563102	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563102	platform_id	0	27	GPL10647
+GSM563102	contact_name	0	28	Daniel,Edward,Zak
+GSM563102	contact_laboratory	0	29	Aderem Lab
+GSM563102	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563102	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563102	contact_city	0	32	Seattle
+GSM563102	contact_state	0	33	WA
+GSM563102	contact_zip/postal_code	0	34	98109
+GSM563102	contact_country	0	35	USA
+GSM563102	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563102/suppl/GSM563102.CEL.gz
+GSM563102	data_row_count	0	37	44765
+GSM563103	title	0	0	071-025_Ad5Titer_0_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563103	geo_accession	0	1	GSM563103
+GSM563103	status	0	2	Public on Nov 20 2012
+GSM563103	submission_date	0	3	Jul 06 2010
+GSM563103	last_update_date	0	4	Nov 20 2012
+GSM563103	type	0	5	RNA
+GSM563103	channel_count	0	6	1
+GSM563103	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563103	organism_ch1	0	8	Homo sapiens
+GSM563103	characteristics_ch1	0	9	human subject anonymized id: 071-025
+GSM563103	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563103	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563103	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563103	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563103	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563103	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563103	growth_protocol_ch1	0	16	Not applicable
+GSM563103	molecule_ch1	0	17	total RNA
+GSM563103	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563103	label_ch1	0	19	biotin
+GSM563103	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563103	taxid_ch1	0	21	9606
+GSM563103	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563103	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563103	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563103	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563103	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563103	platform_id	0	27	GPL10647
+GSM563103	contact_name	0	28	Daniel,Edward,Zak
+GSM563103	contact_laboratory	0	29	Aderem Lab
+GSM563103	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563103	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563103	contact_city	0	32	Seattle
+GSM563103	contact_state	0	33	WA
+GSM563103	contact_zip/postal_code	0	34	98109
+GSM563103	contact_country	0	35	USA
+GSM563103	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563103/suppl/GSM563103.CEL.gz
+GSM563103	data_row_count	0	37	44765
+GSM563104	title	0	0	071-025_Ad5Titer_0_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563104	geo_accession	0	1	GSM563104
+GSM563104	status	0	2	Public on Nov 20 2012
+GSM563104	submission_date	0	3	Jul 06 2010
+GSM563104	last_update_date	0	4	Nov 20 2012
+GSM563104	type	0	5	RNA
+GSM563104	channel_count	0	6	1
+GSM563104	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563104	organism_ch1	0	8	Homo sapiens
+GSM563104	characteristics_ch1	0	9	human subject anonymized id: 071-025
+GSM563104	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563104	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563104	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563104	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563104	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563104	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563104	growth_protocol_ch1	0	16	Not applicable
+GSM563104	molecule_ch1	0	17	total RNA
+GSM563104	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563104	label_ch1	0	19	biotin
+GSM563104	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563104	taxid_ch1	0	21	9606
+GSM563104	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563104	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563104	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563104	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563104	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563104	platform_id	0	27	GPL10647
+GSM563104	contact_name	0	28	Daniel,Edward,Zak
+GSM563104	contact_laboratory	0	29	Aderem Lab
+GSM563104	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563104	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563104	contact_city	0	32	Seattle
+GSM563104	contact_state	0	33	WA
+GSM563104	contact_zip/postal_code	0	34	98109
+GSM563104	contact_country	0	35	USA
+GSM563104	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563104/suppl/GSM563104.CEL.gz
+GSM563104	data_row_count	0	37	44765
+GSM563105	title	0	0	071-025_Ad5Titer_0_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563105	geo_accession	0	1	GSM563105
+GSM563105	status	0	2	Public on Nov 20 2012
+GSM563105	submission_date	0	3	Jul 06 2010
+GSM563105	last_update_date	0	4	Nov 20 2012
+GSM563105	type	0	5	RNA
+GSM563105	channel_count	0	6	1
+GSM563105	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563105	organism_ch1	0	8	Homo sapiens
+GSM563105	characteristics_ch1	0	9	human subject anonymized id: 071-025
+GSM563105	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563105	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563105	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563105	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563105	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563105	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563105	growth_protocol_ch1	0	16	Not applicable
+GSM563105	molecule_ch1	0	17	total RNA
+GSM563105	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563105	label_ch1	0	19	biotin
+GSM563105	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563105	taxid_ch1	0	21	9606
+GSM563105	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563105	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563105	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563105	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563105	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563105	platform_id	0	27	GPL10647
+GSM563105	contact_name	0	28	Daniel,Edward,Zak
+GSM563105	contact_laboratory	0	29	Aderem Lab
+GSM563105	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563105	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563105	contact_city	0	32	Seattle
+GSM563105	contact_state	0	33	WA
+GSM563105	contact_zip/postal_code	0	34	98109
+GSM563105	contact_country	0	35	USA
+GSM563105	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563105/suppl/GSM563105.CEL.gz
+GSM563105	data_row_count	0	37	44765
+GSM563106	title	0	0	071-035_Ad5Titer_0_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563106	geo_accession	0	1	GSM563106
+GSM563106	status	0	2	Public on Nov 20 2012
+GSM563106	submission_date	0	3	Jul 06 2010
+GSM563106	last_update_date	0	4	Nov 20 2012
+GSM563106	type	0	5	RNA
+GSM563106	channel_count	0	6	1
+GSM563106	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563106	organism_ch1	0	8	Homo sapiens
+GSM563106	characteristics_ch1	0	9	human subject anonymized id: 071-035
+GSM563106	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563106	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563106	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563106	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563106	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563106	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563106	growth_protocol_ch1	0	16	Not applicable
+GSM563106	molecule_ch1	0	17	total RNA
+GSM563106	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563106	label_ch1	0	19	biotin
+GSM563106	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563106	taxid_ch1	0	21	9606
+GSM563106	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563106	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563106	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563106	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563106	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563106	platform_id	0	27	GPL10647
+GSM563106	contact_name	0	28	Daniel,Edward,Zak
+GSM563106	contact_laboratory	0	29	Aderem Lab
+GSM563106	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563106	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563106	contact_city	0	32	Seattle
+GSM563106	contact_state	0	33	WA
+GSM563106	contact_zip/postal_code	0	34	98109
+GSM563106	contact_country	0	35	USA
+GSM563106	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563106/suppl/GSM563106.CEL.gz
+GSM563106	data_row_count	0	37	44765
+GSM563107	title	0	0	071-035_Ad5Titer_0_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563107	geo_accession	0	1	GSM563107
+GSM563107	status	0	2	Public on Nov 20 2012
+GSM563107	submission_date	0	3	Jul 06 2010
+GSM563107	last_update_date	0	4	Nov 20 2012
+GSM563107	type	0	5	RNA
+GSM563107	channel_count	0	6	1
+GSM563107	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563107	organism_ch1	0	8	Homo sapiens
+GSM563107	characteristics_ch1	0	9	human subject anonymized id: 071-035
+GSM563107	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563107	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563107	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563107	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563107	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563107	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563107	growth_protocol_ch1	0	16	Not applicable
+GSM563107	molecule_ch1	0	17	total RNA
+GSM563107	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563107	label_ch1	0	19	biotin
+GSM563107	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563107	taxid_ch1	0	21	9606
+GSM563107	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563107	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563107	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563107	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563107	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563107	platform_id	0	27	GPL10647
+GSM563107	contact_name	0	28	Daniel,Edward,Zak
+GSM563107	contact_laboratory	0	29	Aderem Lab
+GSM563107	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563107	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563107	contact_city	0	32	Seattle
+GSM563107	contact_state	0	33	WA
+GSM563107	contact_zip/postal_code	0	34	98109
+GSM563107	contact_country	0	35	USA
+GSM563107	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563107/suppl/GSM563107.CEL.gz
+GSM563107	data_row_count	0	37	44765
+GSM563108	title	0	0	071-035_Ad5Titer_0_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563108	geo_accession	0	1	GSM563108
+GSM563108	status	0	2	Public on Nov 20 2012
+GSM563108	submission_date	0	3	Jul 06 2010
+GSM563108	last_update_date	0	4	Nov 20 2012
+GSM563108	type	0	5	RNA
+GSM563108	channel_count	0	6	1
+GSM563108	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563108	organism_ch1	0	8	Homo sapiens
+GSM563108	characteristics_ch1	0	9	human subject anonymized id: 071-035
+GSM563108	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563108	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563108	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563108	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563108	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563108	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563108	growth_protocol_ch1	0	16	Not applicable
+GSM563108	molecule_ch1	0	17	total RNA
+GSM563108	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563108	label_ch1	0	19	biotin
+GSM563108	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563108	taxid_ch1	0	21	9606
+GSM563108	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563108	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563108	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563108	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563108	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563108	platform_id	0	27	GPL10647
+GSM563108	contact_name	0	28	Daniel,Edward,Zak
+GSM563108	contact_laboratory	0	29	Aderem Lab
+GSM563108	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563108	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563108	contact_city	0	32	Seattle
+GSM563108	contact_state	0	33	WA
+GSM563108	contact_zip/postal_code	0	34	98109
+GSM563108	contact_country	0	35	USA
+GSM563108	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563108/suppl/GSM563108.CEL.gz
+GSM563108	data_row_count	0	37	44765
+GSM563109	title	0	0	071-035_Ad5Titer_0_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563109	geo_accession	0	1	GSM563109
+GSM563109	status	0	2	Public on Nov 20 2012
+GSM563109	submission_date	0	3	Jul 06 2010
+GSM563109	last_update_date	0	4	Nov 20 2012
+GSM563109	type	0	5	RNA
+GSM563109	channel_count	0	6	1
+GSM563109	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563109	organism_ch1	0	8	Homo sapiens
+GSM563109	characteristics_ch1	0	9	human subject anonymized id: 071-035
+GSM563109	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563109	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563109	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563109	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563109	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563109	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563109	growth_protocol_ch1	0	16	Not applicable
+GSM563109	molecule_ch1	0	17	total RNA
+GSM563109	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563109	label_ch1	0	19	biotin
+GSM563109	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563109	taxid_ch1	0	21	9606
+GSM563109	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563109	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563109	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563109	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563109	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563109	platform_id	0	27	GPL10647
+GSM563109	contact_name	0	28	Daniel,Edward,Zak
+GSM563109	contact_laboratory	0	29	Aderem Lab
+GSM563109	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563109	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563109	contact_city	0	32	Seattle
+GSM563109	contact_state	0	33	WA
+GSM563109	contact_zip/postal_code	0	34	98109
+GSM563109	contact_country	0	35	USA
+GSM563109	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563109/suppl/GSM563109.CEL.gz
+GSM563109	data_row_count	0	37	44765
+GSM563110	title	0	0	071-035_Ad5Titer_0_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563110	geo_accession	0	1	GSM563110
+GSM563110	status	0	2	Public on Nov 20 2012
+GSM563110	submission_date	0	3	Jul 06 2010
+GSM563110	last_update_date	0	4	Nov 20 2012
+GSM563110	type	0	5	RNA
+GSM563110	channel_count	0	6	1
+GSM563110	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563110	organism_ch1	0	8	Homo sapiens
+GSM563110	characteristics_ch1	0	9	human subject anonymized id: 071-035
+GSM563110	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563110	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563110	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563110	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563110	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563110	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563110	growth_protocol_ch1	0	16	Not applicable
+GSM563110	molecule_ch1	0	17	total RNA
+GSM563110	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563110	label_ch1	0	19	biotin
+GSM563110	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563110	taxid_ch1	0	21	9606
+GSM563110	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563110	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563110	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563110	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563110	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563110	platform_id	0	27	GPL10647
+GSM563110	contact_name	0	28	Daniel,Edward,Zak
+GSM563110	contact_laboratory	0	29	Aderem Lab
+GSM563110	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563110	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563110	contact_city	0	32	Seattle
+GSM563110	contact_state	0	33	WA
+GSM563110	contact_zip/postal_code	0	34	98109
+GSM563110	contact_country	0	35	USA
+GSM563110	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563110/suppl/GSM563110.CEL.gz
+GSM563110	data_row_count	0	37	44765
+GSM563111	title	0	0	071-044_Ad5Titer_0_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563111	geo_accession	0	1	GSM563111
+GSM563111	status	0	2	Public on Nov 20 2012
+GSM563111	submission_date	0	3	Jul 06 2010
+GSM563111	last_update_date	0	4	Nov 20 2012
+GSM563111	type	0	5	RNA
+GSM563111	channel_count	0	6	1
+GSM563111	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563111	organism_ch1	0	8	Homo sapiens
+GSM563111	characteristics_ch1	0	9	human subject anonymized id: 071-044
+GSM563111	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563111	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563111	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563111	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563111	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563111	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563111	growth_protocol_ch1	0	16	Not applicable
+GSM563111	molecule_ch1	0	17	total RNA
+GSM563111	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563111	label_ch1	0	19	biotin
+GSM563111	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563111	taxid_ch1	0	21	9606
+GSM563111	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563111	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563111	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563111	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563111	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563111	platform_id	0	27	GPL10647
+GSM563111	contact_name	0	28	Daniel,Edward,Zak
+GSM563111	contact_laboratory	0	29	Aderem Lab
+GSM563111	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563111	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563111	contact_city	0	32	Seattle
+GSM563111	contact_state	0	33	WA
+GSM563111	contact_zip/postal_code	0	34	98109
+GSM563111	contact_country	0	35	USA
+GSM563111	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563111/suppl/GSM563111.CEL.gz
+GSM563111	data_row_count	0	37	44765
+GSM563112	title	0	0	071-044_Ad5Titer_0_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563112	geo_accession	0	1	GSM563112
+GSM563112	status	0	2	Public on Nov 20 2012
+GSM563112	submission_date	0	3	Jul 06 2010
+GSM563112	last_update_date	0	4	Nov 20 2012
+GSM563112	type	0	5	RNA
+GSM563112	channel_count	0	6	1
+GSM563112	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563112	organism_ch1	0	8	Homo sapiens
+GSM563112	characteristics_ch1	0	9	human subject anonymized id: 071-044
+GSM563112	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563112	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563112	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563112	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563112	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563112	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563112	growth_protocol_ch1	0	16	Not applicable
+GSM563112	molecule_ch1	0	17	total RNA
+GSM563112	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563112	label_ch1	0	19	biotin
+GSM563112	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563112	taxid_ch1	0	21	9606
+GSM563112	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563112	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563112	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563112	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563112	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563112	platform_id	0	27	GPL10647
+GSM563112	contact_name	0	28	Daniel,Edward,Zak
+GSM563112	contact_laboratory	0	29	Aderem Lab
+GSM563112	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563112	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563112	contact_city	0	32	Seattle
+GSM563112	contact_state	0	33	WA
+GSM563112	contact_zip/postal_code	0	34	98109
+GSM563112	contact_country	0	35	USA
+GSM563112	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563112/suppl/GSM563112.CEL.gz
+GSM563112	data_row_count	0	37	44765
+GSM563113	title	0	0	071-044_Ad5Titer_0_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563113	geo_accession	0	1	GSM563113
+GSM563113	status	0	2	Public on Nov 20 2012
+GSM563113	submission_date	0	3	Jul 06 2010
+GSM563113	last_update_date	0	4	Nov 20 2012
+GSM563113	type	0	5	RNA
+GSM563113	channel_count	0	6	1
+GSM563113	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563113	organism_ch1	0	8	Homo sapiens
+GSM563113	characteristics_ch1	0	9	human subject anonymized id: 071-044
+GSM563113	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563113	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563113	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563113	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563113	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563113	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563113	growth_protocol_ch1	0	16	Not applicable
+GSM563113	molecule_ch1	0	17	total RNA
+GSM563113	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563113	label_ch1	0	19	biotin
+GSM563113	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563113	taxid_ch1	0	21	9606
+GSM563113	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563113	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563113	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563113	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563113	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563113	platform_id	0	27	GPL10647
+GSM563113	contact_name	0	28	Daniel,Edward,Zak
+GSM563113	contact_laboratory	0	29	Aderem Lab
+GSM563113	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563113	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563113	contact_city	0	32	Seattle
+GSM563113	contact_state	0	33	WA
+GSM563113	contact_zip/postal_code	0	34	98109
+GSM563113	contact_country	0	35	USA
+GSM563113	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563113/suppl/GSM563113.CEL.gz
+GSM563113	data_row_count	0	37	44765
+GSM563114	title	0	0	071-044_Ad5Titer_0_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563114	geo_accession	0	1	GSM563114
+GSM563114	status	0	2	Public on Nov 20 2012
+GSM563114	submission_date	0	3	Jul 06 2010
+GSM563114	last_update_date	0	4	Nov 20 2012
+GSM563114	type	0	5	RNA
+GSM563114	channel_count	0	6	1
+GSM563114	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563114	organism_ch1	0	8	Homo sapiens
+GSM563114	characteristics_ch1	0	9	human subject anonymized id: 071-044
+GSM563114	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563114	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563114	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563114	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563114	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563114	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563114	growth_protocol_ch1	0	16	Not applicable
+GSM563114	molecule_ch1	0	17	total RNA
+GSM563114	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563114	label_ch1	0	19	biotin
+GSM563114	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563114	taxid_ch1	0	21	9606
+GSM563114	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563114	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563114	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563114	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563114	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563114	platform_id	0	27	GPL10647
+GSM563114	contact_name	0	28	Daniel,Edward,Zak
+GSM563114	contact_laboratory	0	29	Aderem Lab
+GSM563114	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563114	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563114	contact_city	0	32	Seattle
+GSM563114	contact_state	0	33	WA
+GSM563114	contact_zip/postal_code	0	34	98109
+GSM563114	contact_country	0	35	USA
+GSM563114	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563114/suppl/GSM563114.CEL.gz
+GSM563114	data_row_count	0	37	44765
+GSM563115	title	0	0	071-044_Ad5Titer_0_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563115	geo_accession	0	1	GSM563115
+GSM563115	status	0	2	Public on Nov 20 2012
+GSM563115	submission_date	0	3	Jul 06 2010
+GSM563115	last_update_date	0	4	Nov 20 2012
+GSM563115	type	0	5	RNA
+GSM563115	channel_count	0	6	1
+GSM563115	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563115	organism_ch1	0	8	Homo sapiens
+GSM563115	characteristics_ch1	0	9	human subject anonymized id: 071-044
+GSM563115	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563115	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563115	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563115	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563115	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563115	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563115	growth_protocol_ch1	0	16	Not applicable
+GSM563115	molecule_ch1	0	17	total RNA
+GSM563115	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563115	label_ch1	0	19	biotin
+GSM563115	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563115	taxid_ch1	0	21	9606
+GSM563115	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563115	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563115	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563115	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563115	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563115	platform_id	0	27	GPL10647
+GSM563115	contact_name	0	28	Daniel,Edward,Zak
+GSM563115	contact_laboratory	0	29	Aderem Lab
+GSM563115	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563115	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563115	contact_city	0	32	Seattle
+GSM563115	contact_state	0	33	WA
+GSM563115	contact_zip/postal_code	0	34	98109
+GSM563115	contact_country	0	35	USA
+GSM563115	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563115/suppl/GSM563115.CEL.gz
+GSM563115	data_row_count	0	37	44765
+GSM563116	title	0	0	071-046_Ad5Titer_0_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563116	geo_accession	0	1	GSM563116
+GSM563116	status	0	2	Public on Nov 20 2012
+GSM563116	submission_date	0	3	Jul 06 2010
+GSM563116	last_update_date	0	4	Nov 20 2012
+GSM563116	type	0	5	RNA
+GSM563116	channel_count	0	6	1
+GSM563116	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563116	organism_ch1	0	8	Homo sapiens
+GSM563116	characteristics_ch1	0	9	human subject anonymized id: 071-046
+GSM563116	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563116	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563116	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563116	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563116	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563116	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563116	growth_protocol_ch1	0	16	Not applicable
+GSM563116	molecule_ch1	0	17	total RNA
+GSM563116	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563116	label_ch1	0	19	biotin
+GSM563116	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563116	taxid_ch1	0	21	9606
+GSM563116	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563116	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563116	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563116	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563116	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563116	platform_id	0	27	GPL10647
+GSM563116	contact_name	0	28	Daniel,Edward,Zak
+GSM563116	contact_laboratory	0	29	Aderem Lab
+GSM563116	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563116	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563116	contact_city	0	32	Seattle
+GSM563116	contact_state	0	33	WA
+GSM563116	contact_zip/postal_code	0	34	98109
+GSM563116	contact_country	0	35	USA
+GSM563116	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563116/suppl/GSM563116.CEL.gz
+GSM563116	data_row_count	0	37	44765
+GSM563117	title	0	0	071-046_Ad5Titer_0_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563117	geo_accession	0	1	GSM563117
+GSM563117	status	0	2	Public on Nov 20 2012
+GSM563117	submission_date	0	3	Jul 06 2010
+GSM563117	last_update_date	0	4	Nov 20 2012
+GSM563117	type	0	5	RNA
+GSM563117	channel_count	0	6	1
+GSM563117	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563117	organism_ch1	0	8	Homo sapiens
+GSM563117	characteristics_ch1	0	9	human subject anonymized id: 071-046
+GSM563117	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563117	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563117	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563117	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563117	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563117	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563117	growth_protocol_ch1	0	16	Not applicable
+GSM563117	molecule_ch1	0	17	total RNA
+GSM563117	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563117	label_ch1	0	19	biotin
+GSM563117	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563117	taxid_ch1	0	21	9606
+GSM563117	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563117	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563117	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563117	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563117	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563117	platform_id	0	27	GPL10647
+GSM563117	contact_name	0	28	Daniel,Edward,Zak
+GSM563117	contact_laboratory	0	29	Aderem Lab
+GSM563117	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563117	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563117	contact_city	0	32	Seattle
+GSM563117	contact_state	0	33	WA
+GSM563117	contact_zip/postal_code	0	34	98109
+GSM563117	contact_country	0	35	USA
+GSM563117	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563117/suppl/GSM563117.CEL.gz
+GSM563117	data_row_count	0	37	44765
+GSM563118	title	0	0	071-046_Ad5Titer_0_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563118	geo_accession	0	1	GSM563118
+GSM563118	status	0	2	Public on Nov 20 2012
+GSM563118	submission_date	0	3	Jul 06 2010
+GSM563118	last_update_date	0	4	Nov 20 2012
+GSM563118	type	0	5	RNA
+GSM563118	channel_count	0	6	1
+GSM563118	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563118	organism_ch1	0	8	Homo sapiens
+GSM563118	characteristics_ch1	0	9	human subject anonymized id: 071-046
+GSM563118	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563118	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563118	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563118	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563118	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563118	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563118	growth_protocol_ch1	0	16	Not applicable
+GSM563118	molecule_ch1	0	17	total RNA
+GSM563118	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563118	label_ch1	0	19	biotin
+GSM563118	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563118	taxid_ch1	0	21	9606
+GSM563118	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563118	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563118	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563118	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563118	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563118	platform_id	0	27	GPL10647
+GSM563118	contact_name	0	28	Daniel,Edward,Zak
+GSM563118	contact_laboratory	0	29	Aderem Lab
+GSM563118	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563118	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563118	contact_city	0	32	Seattle
+GSM563118	contact_state	0	33	WA
+GSM563118	contact_zip/postal_code	0	34	98109
+GSM563118	contact_country	0	35	USA
+GSM563118	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563118/suppl/GSM563118.CEL.gz
+GSM563118	data_row_count	0	37	44765
+GSM563119	title	0	0	071-046_Ad5Titer_0_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563119	geo_accession	0	1	GSM563119
+GSM563119	status	0	2	Public on Nov 20 2012
+GSM563119	submission_date	0	3	Jul 06 2010
+GSM563119	last_update_date	0	4	Nov 20 2012
+GSM563119	type	0	5	RNA
+GSM563119	channel_count	0	6	1
+GSM563119	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563119	organism_ch1	0	8	Homo sapiens
+GSM563119	characteristics_ch1	0	9	human subject anonymized id: 071-046
+GSM563119	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563119	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563119	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563119	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563119	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563119	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563119	growth_protocol_ch1	0	16	Not applicable
+GSM563119	molecule_ch1	0	17	total RNA
+GSM563119	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563119	label_ch1	0	19	biotin
+GSM563119	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563119	taxid_ch1	0	21	9606
+GSM563119	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563119	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563119	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563119	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563119	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563119	platform_id	0	27	GPL10647
+GSM563119	contact_name	0	28	Daniel,Edward,Zak
+GSM563119	contact_laboratory	0	29	Aderem Lab
+GSM563119	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563119	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563119	contact_city	0	32	Seattle
+GSM563119	contact_state	0	33	WA
+GSM563119	contact_zip/postal_code	0	34	98109
+GSM563119	contact_country	0	35	USA
+GSM563119	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563119/suppl/GSM563119.CEL.gz
+GSM563119	data_row_count	0	37	44765
+GSM563120	title	0	0	071-046_Ad5Titer_0_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563120	geo_accession	0	1	GSM563120
+GSM563120	status	0	2	Public on Nov 20 2012
+GSM563120	submission_date	0	3	Jul 06 2010
+GSM563120	last_update_date	0	4	Nov 20 2012
+GSM563120	type	0	5	RNA
+GSM563120	channel_count	0	6	1
+GSM563120	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563120	organism_ch1	0	8	Homo sapiens
+GSM563120	characteristics_ch1	0	9	human subject anonymized id: 071-046
+GSM563120	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563120	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563120	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563120	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563120	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563120	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563120	growth_protocol_ch1	0	16	Not applicable
+GSM563120	molecule_ch1	0	17	total RNA
+GSM563120	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563120	label_ch1	0	19	biotin
+GSM563120	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563120	taxid_ch1	0	21	9606
+GSM563120	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563120	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563120	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563120	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563120	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563120	platform_id	0	27	GPL10647
+GSM563120	contact_name	0	28	Daniel,Edward,Zak
+GSM563120	contact_laboratory	0	29	Aderem Lab
+GSM563120	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563120	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563120	contact_city	0	32	Seattle
+GSM563120	contact_state	0	33	WA
+GSM563120	contact_zip/postal_code	0	34	98109
+GSM563120	contact_country	0	35	USA
+GSM563120	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563120/suppl/GSM563120.CEL.gz
+GSM563120	data_row_count	0	37	44765
+GSM563121	title	0	0	071-048_Ad5Titer_220_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563121	geo_accession	0	1	GSM563121
+GSM563121	status	0	2	Public on Nov 20 2012
+GSM563121	submission_date	0	3	Jul 06 2010
+GSM563121	last_update_date	0	4	Nov 20 2012
+GSM563121	type	0	5	RNA
+GSM563121	channel_count	0	6	1
+GSM563121	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563121	organism_ch1	0	8	Homo sapiens
+GSM563121	characteristics_ch1	0	9	human subject anonymized id: 071-048
+GSM563121	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 220
+GSM563121	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563121	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563121	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563121	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563121	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563121	growth_protocol_ch1	0	16	Not applicable
+GSM563121	molecule_ch1	0	17	total RNA
+GSM563121	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563121	label_ch1	0	19	biotin
+GSM563121	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563121	taxid_ch1	0	21	9606
+GSM563121	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563121	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563121	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563121	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563121	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563121	platform_id	0	27	GPL10647
+GSM563121	contact_name	0	28	Daniel,Edward,Zak
+GSM563121	contact_laboratory	0	29	Aderem Lab
+GSM563121	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563121	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563121	contact_city	0	32	Seattle
+GSM563121	contact_state	0	33	WA
+GSM563121	contact_zip/postal_code	0	34	98109
+GSM563121	contact_country	0	35	USA
+GSM563121	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563121/suppl/GSM563121.CEL.gz
+GSM563121	data_row_count	0	37	44765
+GSM563122	title	0	0	071-048_Ad5Titer_220_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563122	geo_accession	0	1	GSM563122
+GSM563122	status	0	2	Public on Nov 20 2012
+GSM563122	submission_date	0	3	Jul 06 2010
+GSM563122	last_update_date	0	4	Nov 20 2012
+GSM563122	type	0	5	RNA
+GSM563122	channel_count	0	6	1
+GSM563122	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563122	organism_ch1	0	8	Homo sapiens
+GSM563122	characteristics_ch1	0	9	human subject anonymized id: 071-048
+GSM563122	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 220
+GSM563122	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563122	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563122	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563122	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563122	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563122	growth_protocol_ch1	0	16	Not applicable
+GSM563122	molecule_ch1	0	17	total RNA
+GSM563122	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563122	label_ch1	0	19	biotin
+GSM563122	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563122	taxid_ch1	0	21	9606
+GSM563122	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563122	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563122	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563122	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563122	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563122	platform_id	0	27	GPL10647
+GSM563122	contact_name	0	28	Daniel,Edward,Zak
+GSM563122	contact_laboratory	0	29	Aderem Lab
+GSM563122	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563122	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563122	contact_city	0	32	Seattle
+GSM563122	contact_state	0	33	WA
+GSM563122	contact_zip/postal_code	0	34	98109
+GSM563122	contact_country	0	35	USA
+GSM563122	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563122/suppl/GSM563122.CEL.gz
+GSM563122	data_row_count	0	37	44765
+GSM563123	title	0	0	071-048_Ad5Titer_220_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563123	geo_accession	0	1	GSM563123
+GSM563123	status	0	2	Public on Nov 20 2012
+GSM563123	submission_date	0	3	Jul 06 2010
+GSM563123	last_update_date	0	4	Nov 20 2012
+GSM563123	type	0	5	RNA
+GSM563123	channel_count	0	6	1
+GSM563123	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563123	organism_ch1	0	8	Homo sapiens
+GSM563123	characteristics_ch1	0	9	human subject anonymized id: 071-048
+GSM563123	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 220
+GSM563123	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563123	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563123	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563123	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563123	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563123	growth_protocol_ch1	0	16	Not applicable
+GSM563123	molecule_ch1	0	17	total RNA
+GSM563123	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563123	label_ch1	0	19	biotin
+GSM563123	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563123	taxid_ch1	0	21	9606
+GSM563123	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563123	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563123	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563123	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563123	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563123	platform_id	0	27	GPL10647
+GSM563123	contact_name	0	28	Daniel,Edward,Zak
+GSM563123	contact_laboratory	0	29	Aderem Lab
+GSM563123	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563123	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563123	contact_city	0	32	Seattle
+GSM563123	contact_state	0	33	WA
+GSM563123	contact_zip/postal_code	0	34	98109
+GSM563123	contact_country	0	35	USA
+GSM563123	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563123/suppl/GSM563123.CEL.gz
+GSM563123	data_row_count	0	37	44765
+GSM563124	title	0	0	071-048_Ad5Titer_220_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563124	geo_accession	0	1	GSM563124
+GSM563124	status	0	2	Public on Nov 20 2012
+GSM563124	submission_date	0	3	Jul 06 2010
+GSM563124	last_update_date	0	4	Nov 20 2012
+GSM563124	type	0	5	RNA
+GSM563124	channel_count	0	6	1
+GSM563124	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563124	organism_ch1	0	8	Homo sapiens
+GSM563124	characteristics_ch1	0	9	human subject anonymized id: 071-048
+GSM563124	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 220
+GSM563124	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563124	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563124	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563124	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563124	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563124	growth_protocol_ch1	0	16	Not applicable
+GSM563124	molecule_ch1	0	17	total RNA
+GSM563124	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563124	label_ch1	0	19	biotin
+GSM563124	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563124	taxid_ch1	0	21	9606
+GSM563124	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563124	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563124	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563124	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563124	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563124	platform_id	0	27	GPL10647
+GSM563124	contact_name	0	28	Daniel,Edward,Zak
+GSM563124	contact_laboratory	0	29	Aderem Lab
+GSM563124	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563124	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563124	contact_city	0	32	Seattle
+GSM563124	contact_state	0	33	WA
+GSM563124	contact_zip/postal_code	0	34	98109
+GSM563124	contact_country	0	35	USA
+GSM563124	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563124/suppl/GSM563124.CEL.gz
+GSM563124	data_row_count	0	37	44765
+GSM563125	title	0	0	071-048_Ad5Titer_220_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563125	geo_accession	0	1	GSM563125
+GSM563125	status	0	2	Public on Nov 20 2012
+GSM563125	submission_date	0	3	Jul 06 2010
+GSM563125	last_update_date	0	4	Nov 20 2012
+GSM563125	type	0	5	RNA
+GSM563125	channel_count	0	6	1
+GSM563125	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563125	organism_ch1	0	8	Homo sapiens
+GSM563125	characteristics_ch1	0	9	human subject anonymized id: 071-048
+GSM563125	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 220
+GSM563125	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Med
+GSM563125	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563125	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563125	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563125	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563125	growth_protocol_ch1	0	16	Not applicable
+GSM563125	molecule_ch1	0	17	total RNA
+GSM563125	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563125	label_ch1	0	19	biotin
+GSM563125	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563125	taxid_ch1	0	21	9606
+GSM563125	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563125	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563125	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563125	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563125	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563125	platform_id	0	27	GPL10647
+GSM563125	contact_name	0	28	Daniel,Edward,Zak
+GSM563125	contact_laboratory	0	29	Aderem Lab
+GSM563125	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563125	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563125	contact_city	0	32	Seattle
+GSM563125	contact_state	0	33	WA
+GSM563125	contact_zip/postal_code	0	34	98109
+GSM563125	contact_country	0	35	USA
+GSM563125	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563125/suppl/GSM563125.CEL.gz
+GSM563125	data_row_count	0	37	44765
+GSM563126	title	0	0	071-050_Ad5Titer_0_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563126	geo_accession	0	1	GSM563126
+GSM563126	status	0	2	Public on Nov 20 2012
+GSM563126	submission_date	0	3	Jul 06 2010
+GSM563126	last_update_date	0	4	Nov 20 2012
+GSM563126	type	0	5	RNA
+GSM563126	channel_count	0	6	1
+GSM563126	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563126	organism_ch1	0	8	Homo sapiens
+GSM563126	characteristics_ch1	0	9	human subject anonymized id: 071-050
+GSM563126	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563126	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563126	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563126	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563126	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563126	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563126	growth_protocol_ch1	0	16	Not applicable
+GSM563126	molecule_ch1	0	17	total RNA
+GSM563126	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563126	label_ch1	0	19	biotin
+GSM563126	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563126	taxid_ch1	0	21	9606
+GSM563126	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563126	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563126	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563126	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563126	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563126	platform_id	0	27	GPL10647
+GSM563126	contact_name	0	28	Daniel,Edward,Zak
+GSM563126	contact_laboratory	0	29	Aderem Lab
+GSM563126	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563126	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563126	contact_city	0	32	Seattle
+GSM563126	contact_state	0	33	WA
+GSM563126	contact_zip/postal_code	0	34	98109
+GSM563126	contact_country	0	35	USA
+GSM563126	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563126/suppl/GSM563126.CEL.gz
+GSM563126	data_row_count	0	37	44765
+GSM563127	title	0	0	071-050_Ad5Titer_0_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563127	geo_accession	0	1	GSM563127
+GSM563127	status	0	2	Public on Nov 20 2012
+GSM563127	submission_date	0	3	Jul 06 2010
+GSM563127	last_update_date	0	4	Nov 20 2012
+GSM563127	type	0	5	RNA
+GSM563127	channel_count	0	6	1
+GSM563127	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563127	organism_ch1	0	8	Homo sapiens
+GSM563127	characteristics_ch1	0	9	human subject anonymized id: 071-050
+GSM563127	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563127	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563127	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563127	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563127	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563127	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563127	growth_protocol_ch1	0	16	Not applicable
+GSM563127	molecule_ch1	0	17	total RNA
+GSM563127	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563127	label_ch1	0	19	biotin
+GSM563127	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563127	taxid_ch1	0	21	9606
+GSM563127	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563127	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563127	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563127	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563127	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563127	platform_id	0	27	GPL10647
+GSM563127	contact_name	0	28	Daniel,Edward,Zak
+GSM563127	contact_laboratory	0	29	Aderem Lab
+GSM563127	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563127	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563127	contact_city	0	32	Seattle
+GSM563127	contact_state	0	33	WA
+GSM563127	contact_zip/postal_code	0	34	98109
+GSM563127	contact_country	0	35	USA
+GSM563127	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563127/suppl/GSM563127.CEL.gz
+GSM563127	data_row_count	0	37	44765
+GSM563128	title	0	0	071-050_Ad5Titer_0_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563128	geo_accession	0	1	GSM563128
+GSM563128	status	0	2	Public on Nov 20 2012
+GSM563128	submission_date	0	3	Jul 06 2010
+GSM563128	last_update_date	0	4	Nov 20 2012
+GSM563128	type	0	5	RNA
+GSM563128	channel_count	0	6	1
+GSM563128	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563128	organism_ch1	0	8	Homo sapiens
+GSM563128	characteristics_ch1	0	9	human subject anonymized id: 071-050
+GSM563128	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563128	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563128	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563128	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563128	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563128	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563128	growth_protocol_ch1	0	16	Not applicable
+GSM563128	molecule_ch1	0	17	total RNA
+GSM563128	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563128	label_ch1	0	19	biotin
+GSM563128	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563128	taxid_ch1	0	21	9606
+GSM563128	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563128	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563128	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563128	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563128	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563128	platform_id	0	27	GPL10647
+GSM563128	contact_name	0	28	Daniel,Edward,Zak
+GSM563128	contact_laboratory	0	29	Aderem Lab
+GSM563128	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563128	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563128	contact_city	0	32	Seattle
+GSM563128	contact_state	0	33	WA
+GSM563128	contact_zip/postal_code	0	34	98109
+GSM563128	contact_country	0	35	USA
+GSM563128	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563128/suppl/GSM563128.CEL.gz
+GSM563128	data_row_count	0	37	44765
+GSM563129	title	0	0	071-050_Ad5Titer_0_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563129	geo_accession	0	1	GSM563129
+GSM563129	status	0	2	Public on Nov 20 2012
+GSM563129	submission_date	0	3	Jul 06 2010
+GSM563129	last_update_date	0	4	Nov 20 2012
+GSM563129	type	0	5	RNA
+GSM563129	channel_count	0	6	1
+GSM563129	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563129	organism_ch1	0	8	Homo sapiens
+GSM563129	characteristics_ch1	0	9	human subject anonymized id: 071-050
+GSM563129	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563129	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563129	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563129	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563129	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563129	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563129	growth_protocol_ch1	0	16	Not applicable
+GSM563129	molecule_ch1	0	17	total RNA
+GSM563129	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563129	label_ch1	0	19	biotin
+GSM563129	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563129	taxid_ch1	0	21	9606
+GSM563129	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563129	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563129	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563129	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563129	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563129	platform_id	0	27	GPL10647
+GSM563129	contact_name	0	28	Daniel,Edward,Zak
+GSM563129	contact_laboratory	0	29	Aderem Lab
+GSM563129	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563129	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563129	contact_city	0	32	Seattle
+GSM563129	contact_state	0	33	WA
+GSM563129	contact_zip/postal_code	0	34	98109
+GSM563129	contact_country	0	35	USA
+GSM563129	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563129/suppl/GSM563129.CEL.gz
+GSM563129	data_row_count	0	37	44765
+GSM563130	title	0	0	071-050_Ad5Titer_0_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563130	geo_accession	0	1	GSM563130
+GSM563130	status	0	2	Public on Nov 20 2012
+GSM563130	submission_date	0	3	Jul 06 2010
+GSM563130	last_update_date	0	4	Nov 20 2012
+GSM563130	type	0	5	RNA
+GSM563130	channel_count	0	6	1
+GSM563130	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563130	organism_ch1	0	8	Homo sapiens
+GSM563130	characteristics_ch1	0	9	human subject anonymized id: 071-050
+GSM563130	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563130	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563130	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563130	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563130	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563130	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563130	growth_protocol_ch1	0	16	Not applicable
+GSM563130	molecule_ch1	0	17	total RNA
+GSM563130	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563130	label_ch1	0	19	biotin
+GSM563130	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563130	taxid_ch1	0	21	9606
+GSM563130	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563130	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563130	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563130	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563130	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563130	platform_id	0	27	GPL10647
+GSM563130	contact_name	0	28	Daniel,Edward,Zak
+GSM563130	contact_laboratory	0	29	Aderem Lab
+GSM563130	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563130	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563130	contact_city	0	32	Seattle
+GSM563130	contact_state	0	33	WA
+GSM563130	contact_zip/postal_code	0	34	98109
+GSM563130	contact_country	0	35	USA
+GSM563130	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563130/suppl/GSM563130.CEL.gz
+GSM563130	data_row_count	0	37	44765
+GSM563131	title	0	0	071-052_Ad5Titer_0_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563131	geo_accession	0	1	GSM563131
+GSM563131	status	0	2	Public on Nov 20 2012
+GSM563131	submission_date	0	3	Jul 06 2010
+GSM563131	last_update_date	0	4	Nov 20 2012
+GSM563131	type	0	5	RNA
+GSM563131	channel_count	0	6	1
+GSM563131	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563131	organism_ch1	0	8	Homo sapiens
+GSM563131	characteristics_ch1	0	9	human subject anonymized id: 071-052
+GSM563131	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563131	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563131	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563131	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563131	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563131	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563131	growth_protocol_ch1	0	16	Not applicable
+GSM563131	molecule_ch1	0	17	total RNA
+GSM563131	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563131	label_ch1	0	19	biotin
+GSM563131	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563131	taxid_ch1	0	21	9606
+GSM563131	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563131	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563131	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563131	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563131	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563131	platform_id	0	27	GPL10647
+GSM563131	contact_name	0	28	Daniel,Edward,Zak
+GSM563131	contact_laboratory	0	29	Aderem Lab
+GSM563131	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563131	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563131	contact_city	0	32	Seattle
+GSM563131	contact_state	0	33	WA
+GSM563131	contact_zip/postal_code	0	34	98109
+GSM563131	contact_country	0	35	USA
+GSM563131	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563131/suppl/GSM563131.CEL.gz
+GSM563131	data_row_count	0	37	44765
+GSM563132	title	0	0	071-052_Ad5Titer_0_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563132	geo_accession	0	1	GSM563132
+GSM563132	status	0	2	Public on Nov 20 2012
+GSM563132	submission_date	0	3	Jul 06 2010
+GSM563132	last_update_date	0	4	Nov 20 2012
+GSM563132	type	0	5	RNA
+GSM563132	channel_count	0	6	1
+GSM563132	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563132	organism_ch1	0	8	Homo sapiens
+GSM563132	characteristics_ch1	0	9	human subject anonymized id: 071-052
+GSM563132	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563132	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563132	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563132	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563132	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563132	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563132	growth_protocol_ch1	0	16	Not applicable
+GSM563132	molecule_ch1	0	17	total RNA
+GSM563132	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563132	label_ch1	0	19	biotin
+GSM563132	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563132	taxid_ch1	0	21	9606
+GSM563132	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563132	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563132	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563132	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563132	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563132	platform_id	0	27	GPL10647
+GSM563132	contact_name	0	28	Daniel,Edward,Zak
+GSM563132	contact_laboratory	0	29	Aderem Lab
+GSM563132	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563132	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563132	contact_city	0	32	Seattle
+GSM563132	contact_state	0	33	WA
+GSM563132	contact_zip/postal_code	0	34	98109
+GSM563132	contact_country	0	35	USA
+GSM563132	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563132/suppl/GSM563132.CEL.gz
+GSM563132	data_row_count	0	37	44765
+GSM563133	title	0	0	071-052_Ad5Titer_0_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563133	geo_accession	0	1	GSM563133
+GSM563133	status	0	2	Public on Nov 20 2012
+GSM563133	submission_date	0	3	Jul 06 2010
+GSM563133	last_update_date	0	4	Nov 20 2012
+GSM563133	type	0	5	RNA
+GSM563133	channel_count	0	6	1
+GSM563133	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563133	organism_ch1	0	8	Homo sapiens
+GSM563133	characteristics_ch1	0	9	human subject anonymized id: 071-052
+GSM563133	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563133	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563133	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563133	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563133	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563133	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563133	growth_protocol_ch1	0	16	Not applicable
+GSM563133	molecule_ch1	0	17	total RNA
+GSM563133	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563133	label_ch1	0	19	biotin
+GSM563133	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563133	taxid_ch1	0	21	9606
+GSM563133	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563133	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563133	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563133	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563133	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563133	platform_id	0	27	GPL10647
+GSM563133	contact_name	0	28	Daniel,Edward,Zak
+GSM563133	contact_laboratory	0	29	Aderem Lab
+GSM563133	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563133	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563133	contact_city	0	32	Seattle
+GSM563133	contact_state	0	33	WA
+GSM563133	contact_zip/postal_code	0	34	98109
+GSM563133	contact_country	0	35	USA
+GSM563133	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563133/suppl/GSM563133.CEL.gz
+GSM563133	data_row_count	0	37	44765
+GSM563134	title	0	0	071-052_Ad5Titer_0_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563134	geo_accession	0	1	GSM563134
+GSM563134	status	0	2	Public on Nov 20 2012
+GSM563134	submission_date	0	3	Jul 06 2010
+GSM563134	last_update_date	0	4	Nov 20 2012
+GSM563134	type	0	5	RNA
+GSM563134	channel_count	0	6	1
+GSM563134	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563134	organism_ch1	0	8	Homo sapiens
+GSM563134	characteristics_ch1	0	9	human subject anonymized id: 071-052
+GSM563134	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563134	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563134	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563134	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563134	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563134	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563134	growth_protocol_ch1	0	16	Not applicable
+GSM563134	molecule_ch1	0	17	total RNA
+GSM563134	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563134	label_ch1	0	19	biotin
+GSM563134	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563134	taxid_ch1	0	21	9606
+GSM563134	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563134	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563134	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563134	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563134	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563134	platform_id	0	27	GPL10647
+GSM563134	contact_name	0	28	Daniel,Edward,Zak
+GSM563134	contact_laboratory	0	29	Aderem Lab
+GSM563134	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563134	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563134	contact_city	0	32	Seattle
+GSM563134	contact_state	0	33	WA
+GSM563134	contact_zip/postal_code	0	34	98109
+GSM563134	contact_country	0	35	USA
+GSM563134	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563134/suppl/GSM563134.CEL.gz
+GSM563134	data_row_count	0	37	44765
+GSM563135	title	0	0	071-052_Ad5Titer_0_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563135	geo_accession	0	1	GSM563135
+GSM563135	status	0	2	Public on Nov 20 2012
+GSM563135	submission_date	0	3	Jul 06 2010
+GSM563135	last_update_date	0	4	Nov 20 2012
+GSM563135	type	0	5	RNA
+GSM563135	channel_count	0	6	1
+GSM563135	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563135	organism_ch1	0	8	Homo sapiens
+GSM563135	characteristics_ch1	0	9	human subject anonymized id: 071-052
+GSM563135	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 0
+GSM563135	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Neg
+GSM563135	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563135	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563135	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563135	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563135	growth_protocol_ch1	0	16	Not applicable
+GSM563135	molecule_ch1	0	17	total RNA
+GSM563135	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563135	label_ch1	0	19	biotin
+GSM563135	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563135	taxid_ch1	0	21	9606
+GSM563135	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563135	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563135	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563135	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563135	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563135	platform_id	0	27	GPL10647
+GSM563135	contact_name	0	28	Daniel,Edward,Zak
+GSM563135	contact_laboratory	0	29	Aderem Lab
+GSM563135	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563135	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563135	contact_city	0	32	Seattle
+GSM563135	contact_state	0	33	WA
+GSM563135	contact_zip/postal_code	0	34	98109
+GSM563135	contact_country	0	35	USA
+GSM563135	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563135/suppl/GSM563135.CEL.gz
+GSM563135	data_row_count	0	37	44765
+GSM563136	title	0	0	071-056_Ad5Titer_111_time_000hr_vaccine_MRKAd5_exp_vivo
+GSM563136	geo_accession	0	1	GSM563136
+GSM563136	status	0	2	Public on Nov 20 2012
+GSM563136	submission_date	0	3	Jul 06 2010
+GSM563136	last_update_date	0	4	Nov 20 2012
+GSM563136	type	0	5	RNA
+GSM563136	channel_count	0	6	1
+GSM563136	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563136	organism_ch1	0	8	Homo sapiens
+GSM563136	characteristics_ch1	0	9	human subject anonymized id: 071-056
+GSM563136	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 111
+GSM563136	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Low
+GSM563136	characteristics_ch1	3	12	time post vaccination or treatment: 000hr
+GSM563136	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563136	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563136	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563136	growth_protocol_ch1	0	16	Not applicable
+GSM563136	molecule_ch1	0	17	total RNA
+GSM563136	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563136	label_ch1	0	19	biotin
+GSM563136	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563136	taxid_ch1	0	21	9606
+GSM563136	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563136	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563136	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563136	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563136	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563136	platform_id	0	27	GPL10647
+GSM563136	contact_name	0	28	Daniel,Edward,Zak
+GSM563136	contact_laboratory	0	29	Aderem Lab
+GSM563136	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563136	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563136	contact_city	0	32	Seattle
+GSM563136	contact_state	0	33	WA
+GSM563136	contact_zip/postal_code	0	34	98109
+GSM563136	contact_country	0	35	USA
+GSM563136	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563136/suppl/GSM563136.CEL.gz
+GSM563136	data_row_count	0	37	44765
+GSM563137	title	0	0	071-056_Ad5Titer_111_time_006hr_vaccine_MRKAd5_exp_vivo
+GSM563137	geo_accession	0	1	GSM563137
+GSM563137	status	0	2	Public on Nov 20 2012
+GSM563137	submission_date	0	3	Jul 06 2010
+GSM563137	last_update_date	0	4	Nov 20 2012
+GSM563137	type	0	5	RNA
+GSM563137	channel_count	0	6	1
+GSM563137	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563137	organism_ch1	0	8	Homo sapiens
+GSM563137	characteristics_ch1	0	9	human subject anonymized id: 071-056
+GSM563137	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 111
+GSM563137	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Low
+GSM563137	characteristics_ch1	3	12	time post vaccination or treatment: 006hr
+GSM563137	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563137	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563137	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563137	growth_protocol_ch1	0	16	Not applicable
+GSM563137	molecule_ch1	0	17	total RNA
+GSM563137	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563137	label_ch1	0	19	biotin
+GSM563137	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563137	taxid_ch1	0	21	9606
+GSM563137	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563137	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563137	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563137	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563137	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563137	platform_id	0	27	GPL10647
+GSM563137	contact_name	0	28	Daniel,Edward,Zak
+GSM563137	contact_laboratory	0	29	Aderem Lab
+GSM563137	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563137	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563137	contact_city	0	32	Seattle
+GSM563137	contact_state	0	33	WA
+GSM563137	contact_zip/postal_code	0	34	98109
+GSM563137	contact_country	0	35	USA
+GSM563137	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563137/suppl/GSM563137.CEL.gz
+GSM563137	data_row_count	0	37	44765
+GSM563138	title	0	0	071-056_Ad5Titer_111_time_024hr_vaccine_MRKAd5_exp_vivo
+GSM563138	geo_accession	0	1	GSM563138
+GSM563138	status	0	2	Public on Nov 20 2012
+GSM563138	submission_date	0	3	Jul 06 2010
+GSM563138	last_update_date	0	4	Nov 20 2012
+GSM563138	type	0	5	RNA
+GSM563138	channel_count	0	6	1
+GSM563138	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563138	organism_ch1	0	8	Homo sapiens
+GSM563138	characteristics_ch1	0	9	human subject anonymized id: 071-056
+GSM563138	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 111
+GSM563138	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Low
+GSM563138	characteristics_ch1	3	12	time post vaccination or treatment: 024hr
+GSM563138	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563138	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563138	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563138	growth_protocol_ch1	0	16	Not applicable
+GSM563138	molecule_ch1	0	17	total RNA
+GSM563138	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563138	label_ch1	0	19	biotin
+GSM563138	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563138	taxid_ch1	0	21	9606
+GSM563138	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563138	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563138	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563138	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563138	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563138	platform_id	0	27	GPL10647
+GSM563138	contact_name	0	28	Daniel,Edward,Zak
+GSM563138	contact_laboratory	0	29	Aderem Lab
+GSM563138	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563138	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563138	contact_city	0	32	Seattle
+GSM563138	contact_state	0	33	WA
+GSM563138	contact_zip/postal_code	0	34	98109
+GSM563138	contact_country	0	35	USA
+GSM563138	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563138/suppl/GSM563138.CEL.gz
+GSM563138	data_row_count	0	37	44765
+GSM563139	title	0	0	071-056_Ad5Titer_111_time_072hr_vaccine_MRKAd5_exp_vivo
+GSM563139	geo_accession	0	1	GSM563139
+GSM563139	status	0	2	Public on Nov 20 2012
+GSM563139	submission_date	0	3	Jul 06 2010
+GSM563139	last_update_date	0	4	Nov 20 2012
+GSM563139	type	0	5	RNA
+GSM563139	channel_count	0	6	1
+GSM563139	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563139	organism_ch1	0	8	Homo sapiens
+GSM563139	characteristics_ch1	0	9	human subject anonymized id: 071-056
+GSM563139	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 111
+GSM563139	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Low
+GSM563139	characteristics_ch1	3	12	time post vaccination or treatment: 072hr
+GSM563139	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563139	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563139	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563139	growth_protocol_ch1	0	16	Not applicable
+GSM563139	molecule_ch1	0	17	total RNA
+GSM563139	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563139	label_ch1	0	19	biotin
+GSM563139	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563139	taxid_ch1	0	21	9606
+GSM563139	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563139	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563139	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563139	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563139	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563139	platform_id	0	27	GPL10647
+GSM563139	contact_name	0	28	Daniel,Edward,Zak
+GSM563139	contact_laboratory	0	29	Aderem Lab
+GSM563139	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563139	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563139	contact_city	0	32	Seattle
+GSM563139	contact_state	0	33	WA
+GSM563139	contact_zip/postal_code	0	34	98109
+GSM563139	contact_country	0	35	USA
+GSM563139	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563139/suppl/GSM563139.CEL.gz
+GSM563139	data_row_count	0	37	44765
+GSM563140	title	0	0	071-056_Ad5Titer_111_time_168hr_vaccine_MRKAd5_exp_vivo
+GSM563140	geo_accession	0	1	GSM563140
+GSM563140	status	0	2	Public on Nov 20 2012
+GSM563140	submission_date	0	3	Jul 06 2010
+GSM563140	last_update_date	0	4	Nov 20 2012
+GSM563140	type	0	5	RNA
+GSM563140	channel_count	0	6	1
+GSM563140	source_name_ch1	0	7	PBMC obtained after in vivo vaccination for varying times with MRKAd5/HIV
+GSM563140	organism_ch1	0	8	Homo sapiens
+GSM563140	characteristics_ch1	0	9	human subject anonymized id: 071-056
+GSM563140	characteristics_ch1	1	10	pre-existing serum ad5 neutralizing antibody titer (merck assay): 111
+GSM563140	characteristics_ch1	2	11	pre-existing serum ad5 neutralizing antibody titer class: Ad5Low
+GSM563140	characteristics_ch1	3	12	time post vaccination or treatment: 168hr
+GSM563140	characteristics_ch1	4	13	vaccine or treatment: MRKAd5/HIV
+GSM563140	characteristics_ch1	5	14	in vivo or in vitro: in vivo
+GSM563140	treatment_protocol_ch1	0	15	At the start of the trial (Day 0), all volunteers were intramuscularly vaccinated with 1.5x10^10 genomes of the MRKAd5/HIV vaccine
+GSM563140	growth_protocol_ch1	0	16	Not applicable
+GSM563140	molecule_ch1	0	17	total RNA
+GSM563140	extract_protocol_ch1	0	18	Blood was collected immediately before vaccination and at 4-6, 24, 72, and 168 hours post-vaccination. PBMC RNA was extracted using the RNeasy Protect Cell protocol (Qiagen)
+GSM563140	label_ch1	0	19	biotin
+GSM563140	label_protocol_ch1	0	20	Total RNA samples were labeled as described in the Whole Transcript Sense Target Labeling protocol (Affymetrix)
+GSM563140	taxid_ch1	0	21	9606
+GSM563140	hyb_protocol	0	22	Samples were hybridized according to the Whole Transcript Sense Target Labeling protocol: *Heat cocktails at 99° for 5 minutes, 42° for 5 minutes, and then centrifuged at 13,200g for 1 minute. *Transfer 200uL of hyb solution to each array. *Hybridize 16 hours at 45° at 60rpm. *Wash and stain using fluidics protocol FS450_0001.
+GSM563140	scan_protocol	0	23	Affymetrix Gene ChIP Scanner 3000 7G
+GSM563140	description	0	24	probe group file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563140	description	1	25	meta-probeset file: BrainArray version 9: HsEx10stv2_Hs_ENTREZG
+GSM563140	data_processing	0	26	Microarrays were normalized at the gene level using the BrainArray custom CDF (Entrez Gene, Version 9) for probeset definitions and RMA as implemented in the justRMA function of the Bioconductor package affy for background adjustment, quantile normalization and summarization.
+GSM563140	platform_id	0	27	GPL10647
+GSM563140	contact_name	0	28	Daniel,Edward,Zak
+GSM563140	contact_laboratory	0	29	Aderem Lab
+GSM563140	contact_institute	0	30	Seattle Biomedical Research Institute
+GSM563140	contact_address	0	31	307 Westlake Ave N, Suite 5
+GSM563140	contact_city	0	32	Seattle
+GSM563140	contact_state	0	33	WA
+GSM563140	contact_zip/postal_code	0	34	98109
+GSM563140	contact_country	0	35	USA
+GSM563140	supplementary_file	0	36	ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM563nnn/GSM563140/suppl/GSM563140.CEL.gz
+GSM563140	data_row_count	0	37	44765

@@ -1,0 +1,113 @@
+{
+  "counts": {
+    "experimental_samples": 50,
+    "repository_linked_samples": 50
+  },
+  "duration_sec": 0.03,
+  "input_source": {
+    "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1291/SDY1291-DR58_Tab.zip",
+    "sha256": "637b22a64ea0c298b72b9de11fc7f88e8dde26e3aa14bfa8219d3e3dc97bb08a",
+    "size_bytes": 425979,
+    "type": "zip"
+  },
+  "inputs": [
+    {
+      "crc32": "4da5492f",
+      "filename": "experiment.txt",
+      "member": "SDY1291-DR58_Tab/Tab/experiment.txt",
+      "size_bytes": 209
+    },
+    {
+      "crc32": "06c99caa",
+      "filename": "expsample.txt",
+      "member": "SDY1291-DR58_Tab/Tab/expsample.txt",
+      "size_bytes": 2656
+    },
+    {
+      "crc32": "64a9790f",
+      "filename": "expsample_2_biosample.txt",
+      "member": "SDY1291-DR58_Tab/Tab/expsample_2_biosample.txt",
+      "size_bytes": 990
+    },
+    {
+      "crc32": "663dd7c2",
+      "filename": "biosample.txt",
+      "member": "SDY1291-DR58_Tab/Tab/biosample.txt",
+      "size_bytes": 5896
+    },
+    {
+      "crc32": "4b627774",
+      "filename": "subject.txt",
+      "member": "SDY1291-DR58_Tab/Tab/subject.txt",
+      "size_bytes": 837
+    },
+    {
+      "crc32": "b96cd95a",
+      "filename": "arm_2_subject.txt",
+      "member": "SDY1291-DR58_Tab/Tab/arm_2_subject.txt",
+      "size_bytes": 896
+    },
+    {
+      "crc32": "717c43c0",
+      "filename": "arm_or_cohort.txt",
+      "member": "SDY1291-DR58_Tab/Tab/arm_or_cohort.txt",
+      "size_bytes": 298
+    },
+    {
+      "crc32": "1cab0a02",
+      "filename": "expsample_public_repository.txt",
+      "member": "SDY1291-DR58_Tab/Tab/expsample_public_repository.txt",
+      "size_bytes": 1567
+    }
+  ],
+  "output": {
+    "columns": [
+      "study_accession",
+      "experiment_accession",
+      "experiment_name",
+      "measurement_technique",
+      "expsample_accession",
+      "result_schema",
+      "upload_result_status",
+      "repository_name",
+      "repository_accession",
+      "biosample_accession",
+      "planned_visit_accession",
+      "subject_accession",
+      "study_time_collected",
+      "study_time_collected_unit",
+      "study_time_t0_event",
+      "biosample_type",
+      "biosample_subtype",
+      "arm_accession",
+      "arm_name",
+      "arm_type_reported",
+      "arm_type_preferred",
+      "age_event",
+      "age_unit",
+      "min_subject_age",
+      "max_subject_age",
+      "min_subject_age_in_years",
+      "max_subject_age_in_years",
+      "subject_phenotype",
+      "subject_location",
+      "ancestral_population",
+      "ethnicity",
+      "gender",
+      "race",
+      "race_specify",
+      "species",
+      "strain"
+    ],
+    "path": "/Users/zhouy25/Documents/GitHub/hypothesis2omics/data/immport_cache/SDY1291/parsed/sample_manifest.tsv",
+    "rows": 50,
+    "sha256": "28dc7780c61be73fd426a506d80cfa13d2b1eede993751a93c7e895749841684",
+    "size_bytes": 21026
+  },
+  "pandas_version": "3.0.5",
+  "parser": "immport_parse_module",
+  "parser_version": "0.1.0",
+  "python_version": "3.12.13",
+  "run_started_at_utc": "2026-09-17T21:18:27.877936+00:00",
+  "status": "success"
+}
