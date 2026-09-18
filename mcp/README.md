@@ -7,12 +7,27 @@ self-contained script, another is a package that shares the repo's `pyproject.to
 
 | Server | Manifest | What it does |
 |---|---|---|
-| `hypothesis-parser` | `mcp/parse-hypo/` | a plain-text hypothesis → a test spec and an ImmPort search spec (needs an LLM gateway) |
-| `keyword-to-immport` | `mcp/keyword-to-immport/` | keywords or a search spec → ImmPort study accessions (public API, no credentials) |
-| `hypothesis2omics` | `mcp/data_normalizer/` | run ingestion and inspect GEO units |
+| `hypothesis-parser` | `parse-hypo/` | build specs; gate ImmPort studies |
+| `keyword-to-immport` | `keyword-to-immport/` | find ImmPort accessions |
+| `hypothesis2omics` | `data_normalizer/` | ingest and inspect linked data |
 
-Together they chain: parse a hypothesis into a search spec, run that spec against
-ImmPort for accessions, then ingest and inspect them.
+The current tool chain is:
+
+```text
+hypothesis_parser_parse_hypothesis
+    -> human review of 01_parsed.yaml
+    -> hypothesis_parser_build_test_spec
+    -> keyword_to_immport_search_spec
+    -> hypothesis_parser_check_study_readiness
+    -> hypothesis2omics_fetch_immport_studies
+    -> hypothesis2omics_parse_immport_studies
+    -> hypothesis2omics_fetch_linked_geo
+    -> hypothesis2omics_parse_linked_geo_matrices
+    -> hypothesis2omics_list_analysis_units
+```
+
+The older plan-based GEO path remains available through `plan_geo_retrieval`,
+`fetch_planned_geo`, and `parse_geo_matrices`.
 
 ## Install into Loom
 
@@ -42,7 +57,8 @@ node mcp/register.mjs        # also takes --dry-run / --remove / --self-test
 
 Restart `loom` (or Orbit) and run `/mcp` to confirm. Tools are prefixed with the
 server name, hyphens becoming underscores — `keyword_to_immport_search_spec`,
-`hypothesis2omics_list_analysis_units`, and so on.
+`hypothesis_parser_check_study_readiness`, `hypothesis2omics_fetch_linked_geo`,
+and so on.
 
 ### Before first use
 
@@ -56,13 +72,18 @@ server name, hyphens becoming underscores — `keyword_to_immport_search_spec`,
   uv sync --directory ~/.loom/mcp/hypothesis2omics
   ```
 
-- **`IMMPORT_API_KEY`** must be exported in the environment you start Loom from if you
-  want `hypothesis2omics_fetch_immport_studies`. Everything else works without it.
-- **`OPENAI_API_KEY`** likewise, for `hypothesis_parser_*` — those two steps call an
-  LLM. It defaults to Argo, where the "key" is your `ac.yourname` username (`ARGO_USER`
-  still works) and you need the Argonne-auth network. To use anything else, export
-  `OPENAI_BASE_URL` **and** `OPENAI_MODEL` before starting Loom; the default model id
-  is Argo's and means nothing elsewhere. The other servers need none of this.
+- **ImmPort credentials** are required for
+  `hypothesis_parser_check_study_readiness` and
+  `hypothesis2omics_fetch_immport_studies`. The readiness tool accepts credentials
+  from `IMMPORT_API_KEY_FILE` or `IMMPORT_API_KEY`; the data-normalizer manifest
+  passes `IMMPORT_API_KEY`. Export the applicable variable before starting Loom.
+- **`OPENAI_API_KEY`** is required only for
+  `hypothesis_parser_parse_hypothesis` and
+  `hypothesis_parser_build_test_spec`. They default to Argo, where the "key" is your
+  `ac.yourname` username (`ARGO_USER` still works) and you need the Argonne-auth
+  network. For another gateway, also export `OPENAI_BASE_URL` and `OPENAI_MODEL`;
+  the default model ID is Argo-specific. The deterministic parser tools do not call
+  the LLM gateway.
 - **Loom's web/remote shell will not expose these tools.** Its `web-mode-gate` is
   default-deny with an allowlist covering only `galaxy_`, `brc_analytics_`, `gtn_`
   and `notebook_`. CLI and Orbit are unaffected.
