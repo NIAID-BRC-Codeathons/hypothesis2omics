@@ -1,0 +1,63 @@
+{
+  "agrees_with_local": true,
+  "analysis_key": "A__FC_d7-d0__rank",
+  "comparison_vs_local": {
+    "feature_sets_identical": true,
+    "galaxy_p_lt_001": 99,
+    "galaxy_p_lt_01": 822,
+    "galaxy_q_lt_05": 0,
+    "galaxy_significant_true": 0,
+    "local_p_lt_001": 99,
+    "local_p_lt_01": 822,
+    "local_q_lt_05": 0,
+    "max_abs_p_diff": 4.993781121953589e-08,
+    "max_abs_q_diff": 4.995949676178668e-08,
+    "max_abs_rho_diff": 4.99830775990695e-07,
+    "n_features": 20077,
+    "top1000_of": 1000,
+    "top1000_overlap": 1000,
+    "top_hit_galaxy": {
+      "p": 7.297282194505804e-06,
+      "probe": "Hs.438265_at",
+      "q": 0.1072383684262343,
+      "rho": 0.7682914648215802
+    },
+    "top_hit_local": {
+      "p": 7.297282e-06,
+      "probe": "Hs.438265_at",
+      "q": 0.1072384,
+      "rho": 0.768291
+    }
+  },
+  "galaxy_url": "https://usegalaxy.org",
+  "history_id": "bbd44e69cb8906b59e146d4d49a7cf28",
+  "inputs": {
+    "matrix_a_sha256": "62883b588d5210b2895517d0fc918d25a197d56164ae180df27618335ba97110",
+    "matrix_b_sha256": "b159913a210011941fa42341b7e8c73b4d102fa0226e1bba94ef846793a6a242"
+  },
+  "job_id": "bbd44e69cb8906b5315143fa638bf584",
+  "job_state": "ok",
+  "local_reference": "/nfs/lambda_stor_01/data/avasan/omics_agents/yf17d/out/corr_A__FC_d7-d0__rank.tsv",
+  "outputs": {
+    "per_feature": "/nfs/lambda_stor_01/data/avasan/omics_agents/yf17d/galaxy_out/perfeature_A__FC_d7md0__rank.tsv",
+    "per_feature_sha256": "34846897f8459588b218ca610cab326a8bb0e7843b7c2491693a5b1d187e6877",
+    "summary": "/nfs/lambda_stor_01/data/avasan/omics_agents/yf17d/galaxy_out/summary_A__FC_d7md0__rank.tsv"
+  },
+  "tool_id": "toolshed.g2.bx.psu.edu/repos/goeckslab/featurewise_correlation/featurewise_correlation/0.1.0+galaxy3",
+  "tool_params": {
+    "alpha": 0.05,
+    "alternative": "two-sided",
+    "delimiter_a": "tab",
+    "delimiter_b": "tab",
+    "feature_start_a": 2,
+    "feature_start_b": 2,
+    "has_header_a": "true",
+    "has_header_b": "true",
+    "id_column_a": 1,
+    "id_column_b": 1,
+    "method": "spearman",
+    "min_pairs": 3,
+    "transform_a": "none",
+    "transform_b": "none"
+  }
+}
