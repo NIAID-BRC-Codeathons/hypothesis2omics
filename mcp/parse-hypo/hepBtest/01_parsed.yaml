@@ -1,0 +1,21 @@
+# step: 1-parse
+# generator: parse_hypothesis.py 0.4.0
+# model: claudeopus5
+# temperature: 1
+# prompt_sha256: 639efb8bb67b4b44
+# repair_pass_used: False
+# created_utc: 2026-09-18T15:20:18+00:00
+# hypothesis_sha256: 1ad8fe0dd716f8ca
+
+hypothesis_text: "High level of NFKB, a transcription factor mediating inflammation, before vaccination is associated with poor response to Hepatitis B vaccine"
+
+intervention: Hepatitis B vaccine
+predictor: "high level of NFKB, a transcription factor mediating inflammation, before vaccination"
+cell_type: null
+outcome: response to Hepatitis B vaccine
+relationship_type: association
+directionality: negative
+
+warnings:
+  - No population or study group specified
+  - "NFKB measurement type (expression, activity) unspecified"

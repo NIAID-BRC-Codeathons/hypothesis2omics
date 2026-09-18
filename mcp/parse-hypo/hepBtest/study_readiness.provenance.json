@@ -1,0 +1,47 @@
+{
+  "run_started_at_utc": "2026-09-18T15:23:46.710025+00:00",
+  "tool": "study_readiness_module",
+  "tool_version": "0.2.0",
+  "studies_checked": 16,
+  "ready": [
+    "SDY299",
+    "SDY2312",
+    "SDY1328",
+    "SDY1538",
+    "SDY2584",
+    "SDY1412",
+    "SDY2311",
+    "SDY1256"
+  ],
+  "excluded": [
+    "SDY89",
+    "SDY690",
+    "SDY816",
+    "SDY674",
+    "SDY2500",
+    "SDY671",
+    "SDY625",
+    "SDY3271"
+  ],
+  "sample_manifest": {
+    "path": "/Users/msadeck/Desktop/hypothesis2omics/hepBtest/sample_manifest.tsv",
+    "rows": 25921,
+    "studies_included": [
+      "SDY299",
+      "SDY2312",
+      "SDY1328",
+      "SDY1538",
+      "SDY2584",
+      "SDY1412",
+      "SDY2311",
+      "SDY1256"
+    ]
+  },
+  "outputs": {
+    "study_readiness_tsv": "/Users/msadeck/Desktop/hypothesis2omics/hepBtest/study_readiness.tsv",
+    "ready_studies_txt": "/Users/msadeck/Desktop/hypothesis2omics/hepBtest/ready_studies.txt",
+    "excluded_studies_tsv": "/Users/msadeck/Desktop/hypothesis2omics/hepBtest/excluded_studies.tsv",
+    "sample_manifest_tsv": "/Users/msadeck/Desktop/hypothesis2omics/hepBtest/sample_manifest.tsv"
+  },
+  "duration_sec": 39.912
+}

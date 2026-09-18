@@ -1,0 +1,7 @@
+{
+  "step": "4-search",
+  "derived_from": "03_search_spec.yaml",
+  "tool": "keyword-to-immport/server.py:search_spec",
+  "total": 16,
+  "accessions": ["SDY89", "SDY690", "SDY816", "SDY299", "SDY2312", "SDY1328", "SDY1538", "SDY2584", "SDY1412", "SDY2311", "SDY1256", "SDY674", "SDY2500", "SDY671", "SDY625", "SDY3271"]
+}

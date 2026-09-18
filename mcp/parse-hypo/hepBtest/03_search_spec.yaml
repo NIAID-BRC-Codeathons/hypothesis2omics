@@ -1,0 +1,94 @@
+# step: 3-search-spec
+# derived_from: 02_test_spec.json
+# method: deterministic collection of components[*].search_terms
+
+repositories:
+  - ImmPort
+
+search_terms:
+  intervention:
+    - Hepatitis B vaccine
+    - Hepatitis B vaccination
+    - HBV vaccine
+    - HBV vaccination
+    - hepatitis B surface antigen vaccine
+    - HBsAg vaccine
+    - Engerix-B
+    - Engerix
+    - Recombivax HB
+    - Recombivax
+    - Heplisav-B
+    - Heplisav
+    - Fendrix
+    - Twinrix
+    - Sci-B-Vac
+    - recombinant hepatitis B vaccine
+    - hepatitis B booster
+    - hepatitis B
+
+  predictor:
+    - NFKB
+    - NF-kB
+    - NF-kappaB
+    - nuclear factor kappa B
+    - NFKB1
+    - NFKB2
+    - RELA
+    - p65
+    - RELB
+    - REL
+    - NFKBIA
+    - IkBalpha
+    - TNFAIP3
+    - A20
+    - inflammation
+    - inflammatory signature
+    - baseline inflammation
+    - innate immune signature
+    - TNF signaling
+    - systems vaccinology
+    - baseline predictor
+
+  outcome:
+    - anti-HBs
+    - anti-HBs titer
+    - hepatitis B surface antibody
+    - antibody response
+    - seroconversion
+    - seroprotection
+    - vaccine response
+    - non-responder
+    - hyporesponsiveness
+    - immunogenicity
+    - antibody titer
+
+  assay:
+    - transcriptomics
+    - transcription profiling
+    - gene expression
+    - microarray
+    - RNA sequencing
+    - RNA-seq
+    - scRNA-seq
+    - CyTOF
+    - flow cytometry
+    - ELISA
+    - Luminex
+    - multiplex immunoassay
+
+required_features:
+  - human subjects
+  - hepatitis B vaccination
+  - baseline transcriptomics
+  - anti-HBs antibody titers
+  - paired per-subject data
+
+# Below this line is what actually constrains the query. `repositories` and
+# `required_features` above are documentation; search_spec ignores them.
+require:
+  - intervention
+min_groups: 1
+filters:
+  species: Homo sapiens
+limit: 100
+per_term: 200

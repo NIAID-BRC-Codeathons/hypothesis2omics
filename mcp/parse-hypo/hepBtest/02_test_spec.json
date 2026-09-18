@@ -1,0 +1,233 @@
+{
+  "hypothesis_id": "HYP001",
+  "hypothesis_text": "High level of NFKB, a transcription factor mediating inflammation, before vaccination is associated with poor response to Hepatitis B vaccine",
+  "analysis_intent": "association",
+  "population": "healthy humans receiving hepatitis B vaccination",
+  "intervention": {
+    "name": "Hepatitis B vaccine",
+    "search_terms": [
+      "Hepatitis B vaccine",
+      "Hepatitis B vaccination",
+      "HBV vaccine",
+      "HBV vaccination",
+      "hepatitis B surface antigen vaccine",
+      "HBsAg vaccine",
+      "Engerix-B",
+      "Engerix",
+      "Recombivax HB",
+      "Recombivax",
+      "Heplisav-B",
+      "Heplisav",
+      "Fendrix",
+      "Twinrix",
+      "Sci-B-Vac",
+      "recombinant hepatitis B vaccine",
+      "hepatitis B booster",
+      "hepatitis B"
+    ]
+  },
+  "predictor": {
+    "biological_factor": "Baseline NF-kB pathway activity / inflammatory transcriptional tone",
+    "possible_measurements": [
+      "pre-vaccination whole blood or PBMC expression of NF-kB subunit genes (NFKB1, NFKB2, RELA, RELB, REL)",
+      "NF-kB target gene signature score (e.g., hallmark TNFA_SIGNALING_VIA_NFKB) at baseline",
+      "NF-kB inhibitor/regulator gene expression (NFKBIA, NFKBIE, TNFAIP3)",
+      "phospho-p65 or nuclear NF-kB by flow cytometry/CyTOF at baseline",
+      "baseline serum inflammatory cytokines (TNF, IL-6, IL-1B, CXCL8) as NF-kB activity proxy"
+    ],
+    "search_terms": [
+      "NFKB",
+      "NF-kB",
+      "NF-kappaB",
+      "nuclear factor kappa B",
+      "NFKB1",
+      "NFKB2",
+      "RELA",
+      "p65",
+      "RELB",
+      "REL",
+      "NFKBIA",
+      "IkBalpha",
+      "TNFAIP3",
+      "A20",
+      "inflammation",
+      "inflammatory signature",
+      "baseline inflammation",
+      "innate immune signature",
+      "TNF signaling",
+      "systems vaccinology",
+      "baseline predictor"
+    ]
+  },
+  "outcome": {
+    "name": "Hepatitis B vaccine response (anti-HBs antibody)",
+    "possible_measurements": [
+      "post-vaccination anti-HBs IgG titer (mIU/mL)",
+      "seroprotection (anti-HBs >= 10 mIU/mL) vs non-response",
+      "fold change in anti-HBs from baseline to post-vaccination",
+      "HBsAg-specific B cell or T cell responses by ELISPOT/flow cytometry"
+    ],
+    "search_terms": [
+      "anti-HBs",
+      "anti-HBs titer",
+      "hepatitis B surface antibody",
+      "antibody response",
+      "seroconversion",
+      "seroprotection",
+      "vaccine response",
+      "non-responder",
+      "hyporesponsiveness",
+      "immunogenicity",
+      "antibody titer"
+    ]
+  },
+  "assay": {
+    "search_terms": [
+      "transcriptomics",
+      "transcription profiling",
+      "gene expression",
+      "microarray",
+      "RNA sequencing",
+      "RNA-seq",
+      "scRNA-seq",
+      "CyTOF",
+      "flow cytometry",
+      "ELISA",
+      "Luminex",
+      "multiplex immunoassay"
+    ]
+  },
+  "required_data": [
+    "pre-vaccination transcriptomic (or protein/phospho) measurement permitting NF-kB pathway quantification",
+    "post-vaccination anti-HBs antibody titer or defined responder status",
+    "subject-level linkage between baseline molecular data and antibody outcome"
+  ],
+  "preferred_predictor_timepoint": [
+    "pre-vaccination",
+    "day 0 baseline"
+  ],
+  "preferred_outcome_timepoint": [
+    "post-vaccination",
+    "post-final dose (4 weeks to 6 months)"
+  ],
+  "preferred_sample_types": [
+    "whole blood",
+    "PBMC",
+    "serum"
+  ],
+  "required_features": [
+    "human subjects",
+    "hepatitis B vaccination",
+    "baseline transcriptomics",
+    "anti-HBs antibody titers",
+    "paired per-subject data"
+  ],
+  "eligibility": {
+    "scientific_criteria": [
+      {
+        "id": "human_subjects",
+        "description": "Study enrolled human participants.",
+        "exclusion": "non-human study"
+      },
+      {
+        "id": "hepb_vaccination",
+        "description": "Participants received a hepatitis B vaccine (any licensed formulation, primary series or booster).",
+        "exclusion": "no hepatitis B vaccination"
+      },
+      {
+        "id": "baseline_sample",
+        "description": "Biological samples were collected before the vaccine dose (baseline/day 0).",
+        "exclusion": "no pre-vaccination sample"
+      },
+      {
+        "id": "nfkb_measurable",
+        "description": "Study contains an assay from which NF-kB pathway activity can be quantified at baseline (transcriptomics, single-cell RNA-seq, phospho-flow/CyTOF, or inflammatory protein panel).",
+        "exclusion": "no NF-kB-quantifiable assay"
+      },
+      {
+        "id": "antibody_outcome",
+        "description": "Post-vaccination hepatitis B vaccine response was measured, e.g., anti-HBs titer, seroconversion, or responder/non-responder classification.",
+        "exclusion": "no vaccine response outcome"
+      },
+      {
+        "id": "post_vaccination_timepoint",
+        "description": "At least one outcome timepoint occurs after vaccination, allowing assessment of response.",
+        "exclusion": "no post-vaccination timepoint"
+      },
+      {
+        "id": "subject_level_linkage",
+        "description": "Baseline molecular measurements and post-vaccination antibody outcomes can be linked within the same participants via subject identifiers.",
+        "exclusion": "predictor and outcome unlinkable"
+      },
+      {
+        "id": "sample_size_variation",
+        "description": "Study includes enough vaccinated participants with both measurements to observe variation in vaccine response (roughly 10 or more).",
+        "exclusion": "too few vaccinated subjects"
+      }
+    ],
+    "operational_criteria": [
+      {
+        "id": "data_downloadable",
+        "description": "Raw or processed assay data files are available for download from ImmPort or a linked repository (e.g., GEO/SRA)."
+      },
+      {
+        "id": "metadata_available",
+        "description": "Subject-level metadata with timepoints, treatment arm, and sample-to-subject mapping are present."
+      },
+      {
+        "id": "antibody_values_accessible",
+        "description": "Anti-HBs titer or responder status values are present in the study's lab test or assay result tables, not only in the publication text."
+      }
+    ]
+  },
+  "primary_statistical_test": {
+    "type": "association/regression",
+    "example_model": "log10_antiHBs_peak ~ baseline_NFkB_score + age + sex + baseline_antiHBs + batch"
+  },
+  "recommended_analysis": {
+    "predictor": "Baseline (day 0) NF-kB target gene signature score computed from whole blood/PBMC expression (or mean z-score of NFKB1, NFKB2, RELA, RELB, REL, NFKBIA)",
+    "outcome": "Peak post-vaccination anti-HBs titer (log10 mIU/mL) or binary responder status (>=10 mIU/mL)",
+    "model": "log10_antiHBs_peak ~ baseline_NFkB_score + age + sex + baseline_antiHBs + batch"
+  },
+  "search": {
+    "require": [
+      "intervention"
+    ],
+    "min_groups": 1,
+    "filters": {
+      "species": "Homo sapiens"
+    },
+    "limit": 100,
+    "per_term": 200
+  },
+  "inclusion_criteria": [
+    "Study enrolled human participants.",
+    "Participants received a hepatitis B vaccine (any licensed formulation, primary series or booster).",
+    "Biological samples were collected before the vaccine dose (baseline/day 0).",
+    "Study contains an assay from which NF-kB pathway activity can be quantified at baseline (transcriptomics, single-cell RNA-seq, phospho-flow/CyTOF, or inflammatory protein panel).",
+    "Post-vaccination hepatitis B vaccine response was measured, e.g., anti-HBs titer, seroconversion, or responder/non-responder classification.",
+    "At least one outcome timepoint occurs after vaccination, allowing assessment of response.",
+    "Baseline molecular measurements and post-vaccination antibody outcomes can be linked within the same participants via subject identifiers.",
+    "Study includes enough vaccinated participants with both measurements to observe variation in vaccine response (roughly 10 or more)."
+  ],
+  "exclusion_criteria": [
+    "non-human study",
+    "no hepatitis B vaccination",
+    "no pre-vaccination sample",
+    "no NF-kB-quantifiable assay",
+    "no vaccine response outcome",
+    "no post-vaccination timepoint",
+    "predictor and outcome unlinkable",
+    "too few vaccinated subjects"
+  ],
+  "provenance": {
+    "step": "2-test-spec",
+    "generator": "build_test_spec.py 0.4.0",
+    "model": "claudeopus5",
+    "temperature": 1,
+    "prompt_sha256": "80d77a3683484629",
+    "repair_pass_used": false,
+    "created_utc": "2026-09-18T15:20:55+00:00",
+    "grounded_facets": "assayMethod,researchFocus,species"
+  }
+}
