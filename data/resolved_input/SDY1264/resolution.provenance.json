@@ -4,8 +4,8 @@
   "predictor_resolution": {
     "concept": "EIF2AK4",
     "status": "verified",
-    "method": "hgnc_bridge",
-    "evidence": "HGNC name/alias/former-name bridged to Description='Eukaryotic translation initiation factor 2 alpha kinase 4'; verification: 87 numeric values found for probe Hs.412102_at",
+    "method": "search_terms",
+    "evidence": "matched Description='Eukaryotic translation initiation factor 2 alpha kinase 4'; verification: 87 numeric values found for probe Hs.412102_at",
     "candidates_considered": [],
     "resolved_id": "Hs.412102_at",
     "resolved_label": "Eukaryotic translation initiation factor 2 alpha kinase 4"
@@ -22,7 +22,10 @@
   "written": {
     "feature_expression_tsv": {
       "path": "/Users/msadeck/Desktop/hypothesis2omics/data/resolved_input/SDY1264/feature_expression.tsv",
-      "rows": 87
+      "rows": 87,
+      "probes": [
+        "Hs.412102_at"
+      ]
     },
     "quantitative_outcome_tsv": {
       "path": "/Users/msadeck/Desktop/hypothesis2omics/data/resolved_input/SDY1264/quantitative_outcome.tsv",

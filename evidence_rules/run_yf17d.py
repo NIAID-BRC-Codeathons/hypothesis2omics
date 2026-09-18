@@ -71,7 +71,13 @@ def load(repo: Path, study: str = "SDY1264") -> pd.DataFrame:
     # used to read data/validator_immport/ and data/validator_geo/, which meant
     # step 10's output had to be hand-copied into a second naming before this
     # would see it. Melanie's pipeline trace found that.
-    resolved = resolve_all(repo)
+    #
+    # study_accession is also passed through so that, if step 10 has not run
+    # at all, a resolver bundle at data/resolved_input/<study>/ can still feed
+    # feature_expression.tsv and quantitative_outcome.tsv directly -- proven
+    # to reproduce this script's numbers exactly in the BUNDLE_BRIDGE01
+    # scratch prototype before this was wired in.
+    resolved = resolve_all(repo, study_accession=study)
     BUNDLE.clear()
     BUNDLE.update(resolved)
 

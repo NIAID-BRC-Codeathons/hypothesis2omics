@@ -54,7 +54,9 @@ logger = logging.getLogger("feature_outcome_resolver")
 REFERENCE_DIR = Path(__file__).resolve().parent / "reference"
 HGNC_TABLE_PATH = REFERENCE_DIR / "hgnc_protein_coding.tsv.gz"
 
-FEATURE_EXPRESSION_COLUMNS = ["study_accession", "gene", "sample_accession", "expression_value"]
+FEATURE_EXPRESSION_COLUMNS = [
+    "study_accession", "gene", "feature_id", "sample_accession", "expression_value",
+]
 QUANTITATIVE_OUTCOME_COLUMNS = [
     "study_accession", "subject_accession", "timepoint_day", "outcome_name", "result_value",
 ]
@@ -68,16 +70,25 @@ class ResolutionResult:
     """What was resolved, how, and whether it survived verification.
 
     status, in the order a result actually moves through them:
-        "candidate"     one match found, not yet checked against real data
-        "tied"          multiple equally-good matches found (candidates_considered
-                        holds all of them), not yet checked against real data
-        "verified"      exactly one candidate (from "candidate" or narrowed down
-                        from "tied") was confirmed against real data
-        "rejected"      a "candidate" was checked and did not hold up
-        "needs_review"  zero candidates, or verification left zero or more than
-                        one standing -- a human decides, nothing here guesses
+        "candidate"          one match found, not yet checked against real data
+        "tied"               multiple equally-good matches found
+                             (candidates_considered holds all of them), not yet
+                             checked against real data
+        "verified"           exactly one candidate (from "candidate" or narrowed
+                             down from "tied") was confirmed against real data
+        "verified_multiple"  predictor only: a tie where MORE than one candidate
+                             survived verification. Every survivor is real and
+                             measured, so each gets its own row in
+                             feature_expression.tsv (feature_id column) rather
+                             than forcing a pick -- see finalize_predictor.
+                             candidates_considered holds every verified one.
+        "rejected"           a "candidate" was checked and did not hold up
+        "needs_review"       zero candidates, or verification left zero standing
+                             -- a human decides, nothing here guesses
 
-    Only "verified" results feed the output tables.
+    "verified" and "verified_multiple" feed the output tables; the outcome side
+    never produces "verified_multiple" -- a tied outcome panel still needs a
+    human, since only one row per subject/timepoint/outcome_name makes sense.
     """
 
     concept: str
@@ -324,9 +335,14 @@ def finalize_predictor(
     (already-loaded dict, a function reading the series matrix lazily, etc.).
 
     "candidate" -> "verified" or "rejected", one probe either way.
-    "tied" -> verify every tied candidate; "verified" only if exactly one survives,
-    otherwise "needs_review" with each candidate's verification outcome attached,
-    so a human sees which ones actually had data and which didn't.
+    "tied" -> verify every tied candidate:
+        0 verified  -> "needs_review" (none had real data)
+        1 verified  -> "verified", same as the single-candidate path
+        2+ verified -> "verified_multiple" -- every survivor is real and
+                       measured, so each becomes its own row in
+                       feature_expression.tsv rather than forcing a pick.
+                       candidates_considered holds all of them, each tagged
+                       verified=True.
     Anything already "needs_review" passes through unchanged.
     """
     if result.status == "candidate":
@@ -347,7 +363,7 @@ def finalize_predictor(
             ok, evidence = verify_predictor(probe_id, matrix_lookup(probe_id))
             checked.append({**cand, "verified": ok, "verification_evidence": evidence})
             if ok:
-                verified.append(cand)
+                verified.append(checked[-1])
         if len(verified) == 1:
             row = verified[0]
             return ResolutionResult(
@@ -355,11 +371,16 @@ def finalize_predictor(
                 evidence=f"{result.evidence}; only {row.get('id')} had real expression data",
                 resolved_id=row.get("id"), resolved_label=row.get("description") or row.get("Symbol"),
             )
+        if len(verified) > 1:
+            return ResolutionResult(
+                concept=result.concept, status="verified_multiple", method=f"{result.method}+verification",
+                evidence=f"{result.evidence}; {len(verified)}/{len(checked)} candidates verified -- "
+                        "keeping every verified probe as its own row, not picking one",
+                candidates_considered=verified,
+            )
         return ResolutionResult(
             concept=result.concept, status="needs_review", method=result.method,
-            evidence=f"{result.evidence}; {len(verified)}/{len(checked)} candidates verified"
-                    + (" -- more than one real candidate, a human call" if len(verified) > 1
-                       else " -- none had real data"),
+            evidence=f"{result.evidence}; 0/{len(checked)} candidates verified -- none had real data",
             candidates_considered=checked,
         )
 
@@ -537,7 +558,7 @@ def write_review_artifact(
             "confirmed_by": None,
         }
         for kind, result in results
-        if result.status != "verified"
+        if result.status not in ("verified", "verified_multiple")
     ]
     if not pending:
         if review_path.exists():
@@ -555,14 +576,20 @@ def write_review_artifact(
 
 
 def build_feature_expression_rows(
-    study_accession: str, gene: str, gsm_values: dict[str, float], study_gsms: set[str],
+    study_accession: str, gene: str, feature_id: str,
+    gsm_values: dict[str, float], study_gsms: set[str],
 ) -> list[dict[str, Any]]:
     """One row per GEO sample that both has an expression value and is actually
     linked to this study in sample_manifest.tsv -- not every GSM in the matrix
-    necessarily belongs to this ImmPort study."""
+    necessarily belongs to this ImmPort study.
+
+    feature_id is the specific probe these values came from. Always required,
+    even when there is only one verified probe: it is what lets a
+    'verified_multiple' result (several real, verified probes for one gene)
+    write one traceable row set per probe instead of silently picking one."""
     return [
-        {"study_accession": study_accession, "gene": gene, "sample_accession": gsm,
-         "expression_value": value}
+        {"study_accession": study_accession, "gene": gene, "feature_id": feature_id,
+         "sample_accession": gsm, "expression_value": value}
         for gsm, value in gsm_values.items()
         if gsm in study_gsms
     ]
@@ -706,13 +733,23 @@ def resolve_and_write(
 
     # --- write whatever verified ---
     written = {}
-    if predictor_final.status == "verified":
-        gsm_values = matrix_lookup(predictor_final.resolved_id)
+    if predictor_final.status in ("verified", "verified_multiple"):
         study_gsms = _load_study_gsms(sample_manifest_path, study_accession)
-        rows = build_feature_expression_rows(study_accession, gene_symbol, gsm_values, study_gsms)
+        if predictor_final.status == "verified":
+            probe_ids = [predictor_final.resolved_id]
+        else:
+            probe_ids = [c["id"] for c in predictor_final.candidates_considered]
+        rows = []
+        for probe_id in probe_ids:
+            gsm_values = matrix_lookup(probe_id)
+            rows.extend(build_feature_expression_rows(
+                study_accession, gene_symbol, probe_id, gsm_values, study_gsms,
+            ))
         path = output_dir / "feature_expression.tsv"
         _write_tsv(rows, FEATURE_EXPRESSION_COLUMNS, path)
-        written["feature_expression_tsv"] = {"path": str(path), "rows": len(rows)}
+        written["feature_expression_tsv"] = {
+            "path": str(path), "rows": len(rows), "probes": probe_ids,
+        }
 
     if outcome_final.status == "verified":
         linkage = load_biosample_linkage(tab_zip_path)

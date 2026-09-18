@@ -18,6 +18,23 @@ canonical directory is organised by which pipeline stage produced it. Those are
 different axes, and the second one is the right one, because a consumer cares
 what stage it is downstream of, not which upstream API the bytes arrived from.
 
+A fourth location exists for two of the three tables:
+
+    data/resolved_input/<study>/    feature_expression.tsv, quantitative_outcome.tsv,
+                                    written directly by feature_outcome_resolver.py,
+                                    one study at a time, bypassing step 10 entirely.
+
+This is not a third copy of the same file -- it is upstream of the canonical
+bundle in the pipeline, produced right after step 9 rather than after step 10,
+and its schema is narrower by design (no gse_accession, gpl_accession,
+biosample_accession, or result_unit -- confirmed unused by run_yf17d.py and
+report.py before this fallback was added). So it is never divergence-checked
+against canonical or legacy the way those two are checked against each other;
+it is only consulted when neither of those exists for a given table, and only
+when a caller supplies which study it wants. sample_manifest.tsv has no
+resolved_input equivalent -- the resolver never produces one -- so it keeps
+its existing two-location resolution unchanged.
+
 `run_yf17d.py` was reading the split pair. So a freshly generated bundle from
 step 10 could not feed it without someone hand-copying files into the other
 naming, which is a real reason the pipeline did not join up end to end.
@@ -74,6 +91,13 @@ FALLBACK_DIR = {
     "feature_expression.tsv": "data/validator_geo",
 }
 
+# The resolver's per-study output directory, and which tables it can supply.
+# Consulted only when a study_accession is given and neither CANONICAL_DIR nor
+# FALLBACK_DIR has the table -- never divergence-checked, since its schema is
+# narrower by design rather than a duplicate of the same file.
+RESOLVED_INPUT_ROOT = "data/resolved_input"
+RESOLVED_INPUT_TABLES = {"feature_expression.tsv", "quantitative_outcome.tsv"}
+
 TABLES: tuple[str, ...] = (
     "sample_manifest.tsv",
     "quantitative_outcome.tsv",
@@ -106,6 +130,16 @@ class Resolved:
                 "One of them is stale and the analysis below depends on which."
             )
         if not self.is_canonical:
+            if self.directory.startswith(f"{RESOLVED_INPUT_ROOT}/"):
+                return (
+                    f"{self.name} was read from {self.directory}/, written "
+                    "directly by feature_outcome_resolver.py, not from the "
+                    f"canonical {CANONICAL_DIR}/ or through "
+                    "validator_handoff_parse_module.py. It carries a narrower "
+                    "schema (no gse_accession, gpl_accession, "
+                    "biosample_accession, or result_unit) -- fine for this "
+                    "analysis, but check before relying on those columns."
+                )
             return (
                 f"{self.name} was read from {self.directory}/, not from the "
                 f"canonical {CANONICAL_DIR}/. That directory is what "
@@ -123,11 +157,22 @@ def _sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def resolve(repo: Path, name: str, allow_divergent: bool = False) -> Resolved:
+def resolve(
+    repo: Path,
+    name: str,
+    study_accession: Optional[str] = None,
+    allow_divergent: bool = False,
+) -> Resolved:
     """Find one table. Canonical location wins; legacy location is a fallback.
 
-    Raises FileNotFoundError when neither exists, and BundleDivergence when
-    both exist with different contents.
+    When canonical and legacy both come up empty, and `study_accession` is
+    given, a per-study resolver bundle under RESOLVED_INPUT_ROOT is tried
+    third -- only for the two tables the resolver actually writes. It is
+    never divergence-checked against the other two; see the module docstring
+    for why comparing it that way would be comparing the wrong thing.
+
+    Raises FileNotFoundError when nothing is found, and BundleDivergence when
+    canonical and legacy both exist with different contents.
     """
     if name not in FALLBACK_DIR:
         raise KeyError(
@@ -158,20 +203,36 @@ def resolve(repo: Path, name: str, allow_divergent: bool = False) -> Resolved:
     if legacy.exists():
         return Resolved(name, legacy, FALLBACK_DIR[name], False)
 
+    if study_accession and name in RESOLVED_INPUT_TABLES:
+        resolved_dir = f"{RESOLVED_INPUT_ROOT}/{study_accession}"
+        resolved_path = repo / resolved_dir / name
+        if resolved_path.exists():
+            return Resolved(name, resolved_path, resolved_dir, False)
+
+    hint = (
+        f" nor {RESOLVED_INPUT_ROOT}/{study_accession}/"
+        if study_accession and name in RESOLVED_INPUT_TABLES else ""
+    )
     raise FileNotFoundError(
-        f"{name} is in neither {CANONICAL_DIR}/ nor {FALLBACK_DIR[name]}/ "
-        f"under {repo}. Generate it with `python "
+        f"{name} is in neither {CANONICAL_DIR}/ nor {FALLBACK_DIR[name]}/"
+        f"{hint} under {repo}. Generate it with `python "
         "data/validator_handoff_parse_module.py --config "
-        "data/validator_handoff_config.json`."
+        "data/validator_handoff_config.json`, or "
+        "mcp/data_normalizer resolve_feature_and_outcome for a per-study "
+        "bundle."
     )
 
 
 def resolve_all(
     repo: Path,
     names: Sequence[str] = TABLES,
+    study_accession: Optional[str] = None,
     allow_divergent: bool = False,
 ) -> dict[str, Resolved]:
-    return {n: resolve(repo, n, allow_divergent=allow_divergent) for n in names}
+    return {
+        n: resolve(repo, n, study_accession=study_accession, allow_divergent=allow_divergent)
+        for n in names
+    }
 
 
 def bundle_caveats(resolved: dict[str, Resolved]) -> list[str]:
@@ -312,16 +373,49 @@ def _self_test() -> None:
         except KeyError:
             n += 1
 
+        # -- resolved_input tier: nothing else present, study given --------
+        for name in TABLES:
+            (repo / CANONICAL_DIR / name).unlink(missing_ok=True)
+        _write(repo / RESOLVED_INPUT_ROOT / "SDY9999" / "feature_expression.tsv", "d\n")
+        _write(repo / RESOLVED_INPUT_ROOT / "SDY9999" / "quantitative_outcome.tsv", "e\n")
+        r = resolve(repo, "feature_expression.tsv", study_accession="SDY9999")
+        assert not r.is_canonical and r.duplicate_at is None
+        assert r.directory == f"{RESOLVED_INPUT_ROOT}/SDY9999"
+        c = r.caveat()
+        assert c is not None and "feature_outcome_resolver.py" in c
+        n += 1
+
+        # -- resolved_input ignored without a study_accession ---------------
+        try:
+            resolve(repo, "feature_expression.tsv")
+            raise AssertionError("resolved a per-study bundle with no study given")
+        except FileNotFoundError as e:
+            assert RESOLVED_INPUT_ROOT not in str(e) or "study_accession" not in str(e)
+            n += 1
+
+        # -- sample_manifest.tsv has no resolved_input equivalent -----------
+        try:
+            resolve(repo, "sample_manifest.tsv", study_accession="SDY9999")
+            raise AssertionError("resolved a manifest the resolver never writes")
+        except FileNotFoundError:
+            n += 1
+
+        # -- canonical still wins over resolved_input when both exist -------
+        _write(repo / CANONICAL_DIR / "feature_expression.tsv", "canonical\n")
+        r = resolve(repo, "feature_expression.tsv", study_accession="SDY9999")
+        assert r.is_canonical and r.directory == CANONICAL_DIR
+        n += 1
+
     print(f"validator_bundle.py: {n} assertion groups passed")
 
 
-def _demo(repo: Optional[Path]) -> None:
+def _demo(repo: Optional[Path], study_accession: Optional[str] = None) -> None:
     if repo is None:
         print("Pass --repo to see how a real checkout resolves.")
         return
     print(f"Resolving the validator bundle under {repo}\n")
     try:
-        r = resolve_all(repo)
+        r = resolve_all(repo, study_accession=study_accession)
     except (FileNotFoundError, BundleDivergence) as e:
         print(f"  {type(e).__name__}: {e}")
         return
@@ -345,12 +439,13 @@ def _demo(repo: Optional[Path]) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--repo", type=Path, help="checkout to resolve against")
+    ap.add_argument("--study", help="study accession, to also try the resolved_input/ tier")
     ap.add_argument("--self-test", action="store_true")
     args = ap.parse_args()
     if args.self_test:
         _self_test()
         return 0
-    _demo(args.repo)
+    _demo(args.repo, args.study)
     print()
     _self_test()
     return 0
