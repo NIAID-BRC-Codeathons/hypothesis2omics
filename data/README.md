@@ -1,20 +1,20 @@
-# Dataset acquisition
+# Data pipeline and analysis inputs
 
 Run both fetchers from the repository root after installing dependencies with `uv sync`.
 
-Downloaded archives are cached in `data/immport_cache/` and `data/geo_cache/`, both excluded from
-Git. Everything else this directory produces is committed: the normalized validator tables, the
-Galaxy-ready matrices, the file inventory, and a provenance JSON beside each output. See
-**Outputs** below for which is which.
+Fetchers and parsers write under `data/`. Most stages emit provenance, but
+`extract_series_matrix.py` currently writes intensity CSVs without a provenance file. This
+checkout contains selected committed benchmark cache artifacts; treat new raw downloads as
+generated data and do not commit them.
 
-## Default candidates
+## Input selection
 
-| Source | Accessions used when none are supplied |
+| Source | Behavior when accessions are omitted |
 |---|---|
 | ImmPort | `SDY1529`, `SDY1264`, `SDY1294`, `SDY1289` |
-| GEO | `GSE125921`, `GSE136163`, `GSE13485`, `GSE82152`, `GSE13699` |
+| GEO | read GSEs from `immport_cache/parsed/geo_series_links.tsv` |
 
-Passing accessions on the command line replaces the corresponding default list.
+Explicit positional accessions replace the corresponding automatic selection.
 
 ## ImmPort acquisition
 
@@ -42,10 +42,8 @@ with `--all-files`.
 
 ## Parse ImmPort sample links
 
-Point the parser at an extracted ImmPort `Tab/` directory:
-
-To discover and parse the newest
-extracted Tab directory or Tab ZIP for every study under a cache root, run:
+Discover and parse the newest extracted Tab directory or Tab ZIP for every study under the
+cache root:
 
 ```bash
 uv run python data/immport_batch_parse.py --cache-root data/immport_cache
@@ -114,12 +112,14 @@ Each TSV receives a provenance JSON file. `validator_input_manifest.json` record
 configuration, output paths, row counts, hashes, parser version, and timestamps for the complete
 bundle.
 
-The MCP data pipeline can automate configuration assembly with its `build_validator_input` tool.
-Callers must provide the study, GSE, GPL, gene, feature ID, outcome names, and timepoint unit. The
-tool resolves the combined ImmPort manifest, matching cached GEO matrix, and newest cached ImmPort
-Tab ZIP; writes `data/validator_input/validator_handoff_config.resolved.json`; and runs the same
-handoff parser. Scientific selections remain explicit rather than being inferred by the pipeline.
+The config supports a `datasets` array. Each entry identifies its study, GSE, platform, gene,
+feature ID, outcome names, timepoint unit, source matrix, and ImmPort Tab ZIP. Exact overlapping
+rows are deduplicated when several entries share a study or outcome.
 
+**The gene and feature ID are entered by hand.** Nothing in this repository maps a probe to a
+gene, so `gene: EIF2AK4` beside `feature_id: Hs.412102_at` is an assertion, not an annotation
+lookup. The provenance records both values as supplied selections. Confirm these pairings against
+the GPL platform annotations before interpreting the gene-labelled output.
 
 ## Export neutralizing-antibody results for Galaxy
 
@@ -140,11 +140,8 @@ listed in the provenance file; malformed or duplicate tables still stop the expo
 Convert GEO series-matrix files into the intensity CSVs the analysis stage consumes:
 
 ```bash
-# one file
-python data/extract_series_matrix.py --input path/to/GSE13699-GPL6104_series_matrix.txt
-
 # every GSE* folder under a directory, recursively
-python data/extract_series_matrix.py --input-dir data/geo_cache
+uv run python data/extract_series_matrix.py --input-dir data/geo_cache
 ```
 
 In directory mode the extractor finds folders whose names begin with `GSE`, searches each one
@@ -156,27 +153,7 @@ decompression, extracts the table between `!series_matrix_table_begin` and
 Tested on `GSE13485` (20,077 probes x 87 samples) and `GSE13699` (22,184 probes x 126 samples).
 
 The matrix is one of the two files limma needs. The design file naming each sample's group is still
-prepared per dataset by hand.
-
-## Build the validator handoff tables
-
-Extract one feature and one outcome into the normalized tables the eligibility engine and the
-evidence layer both read:
-
-```bash
-python data/validator_handoff_parse_module.py --config data/validator_handoff_config.json
-```
-
-The config holds a `datasets` array; each entry names the study, the GSE, the platform, the gene,
-the feature id, and the outcome. It writes `feature_expression.tsv`, `quantitative_outcome.tsv` and
-`sample_manifest.tsv` under `data/validator_input/`, each with a provenance JSON recording input
-hashes and the selection.
-
-**The gene and feature id in that config are entered by hand.** Nothing in this repository maps a
-probe to a gene, so `gene: EIF2AK4` beside `feature_id: Hs.412102_at` is an assertion, not a
-lookup, and the provenance records both under `selection` because they were supplied as inputs. The
-`gene` column in the output carries that value downstream, where it can read as provenance it does
-not have. Confirming these pairings against the GPL platform annotations is open work.
+prepared per dataset by hand. This extractor does not currently write provenance.
 
 ## Python API
 
@@ -195,39 +172,40 @@ geo_records = fetch_geo_datasets(
 )
 ```
 
-Each call returns one structured record per accession, including selection mode and release, status,
-source and local paths, file counts, sizes, SHA-256 checksums, errors, and timing. Pass
-`all_files=True` to the Python fetcher only when every remote file is needed.
+Both calls return one structured record per accession with status, artifact paths, sizes, hashes,
+errors, and timing. ImmPort records additionally include selection mode, selected release, and file
+counts. GEO records include source URLs plus platform and sample counts. Pass `all_files=True` to
+the ImmPort fetcher only when every remote file is needed.
 
 ## Outputs and options
 
-Not committed, recreated by the fetchers:
+Retrieval and parsing artifacts:
 
 ```text
 data/
 |-- immport_cache/
 |   |-- <SDY_ID>/
 |   |-- manifest.json
+|   |-- parsed/                  # combined sample and structured GSE links
 |   `-- provenance_log.jsonl
 `-- geo_cache/
     |-- <GSE_ID>/
     |-- manifest.json
+    |-- parsed/                  # bounded analysis units and run manifest
     |-- geo_fetch_selection.provenance.json
     `-- provenance_log.jsonl
 ```
 
-Committed, produced by the parsers and extractors above:
+Other generated artifacts:
 
 ```text
 data/
 |-- file_inventory/        # downloaded_files.tsv, parser_candidates.tsv, provenance
-|-- galaxy_file_input/     # intensity CSVs and the ImmPort neut-ab titer export
-|-- validator_immport/     # sample_manifest.tsv, quantitative_outcome.tsv, provenance
-|-- validator_geo/         # feature_expression.tsv, parse manifest, provenance
+|-- galaxy_file_input/     # intensity CSVs; neutralizing-antibody TSV and provenance
 |-- validator_input/       # the combined validator handoff bundle
-`-- tests/                 # pytest suites for the modules in this directory
+`-- tests/                 # unittest suites for the modules in this directory
 ```
 
-Command-line runs write `manifest.json` and append to `provenance_log.jsonl`. Existing valid files
-are reused. Use `--force` to download them again or `--destdir` to select another cache root. Run
-either script with `--help` for all options.
+The two fetch commands write `manifest.json` and append to `provenance_log.jsonl`. Existing valid
+files are reused. Use `--force` to download them again or `--destdir` to select another cache root.
+Run a program with `--help` for its complete options.

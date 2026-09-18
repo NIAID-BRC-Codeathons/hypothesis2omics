@@ -52,8 +52,8 @@ The step between "this dataset is eligible" and "the analysis has run" is only p
 automated. `data/extract_series_matrix.py` scans one or more `GSE*` dataset folders, reads
 GEO series-matrix files directly from `.txt` or `.txt.gz` format, and generates Galaxy-ready
 intensity CSV files in `data/galaxy_file_input/`. The design file naming each sample's group
-is still prepared per dataset by hand, and limma needs both. The stages on either side are
-scripted and provenance-backed.
+is still prepared per dataset by hand, and limma needs both. The extractor does not currently
+write provenance; retrieval and validator handoff do.
 
 ## Folder layout
 
@@ -81,59 +81,6 @@ hypothesis2omics/
 Detailed data commands and MCP setup are in `data/README.md` and `mcp/README.md`.
 The evidence layer is documented in `evidence_rules/README.md`.
 
-### GEO intensity matrix extraction
-
-`data/extract_series_matrix.py` converts GEO series-matrix files into Galaxy-ready intensity
-CSV files.
-
-In directory mode, the extractor:
-
-* identifies folders whose names begin with `GSE`
-* searches recursively within each GSE dataset folder
-* finds GEO series-matrix files
-* reads both `.txt` and compressed `.txt.gz` files directly
-* extracts the table between `!series_matrix_table_begin` and `!series_matrix_table_end`
-* renames the GEO `ID_REF` column to `probe_id`
-* writes the resulting intensity matrices to `data/galaxy_file_input/`
-
-No manual decompression of `.txt.gz` files is required.
-
-Example:
-
-```bash
-python data/extract_series_matrix.py --input-dir /path/to/GEO/datasets
-```
-
-For example, given:
-
-```text
-GEO_datasets/
-|-- GSE13485/
-|   `-- GSE13485_series_matrix.txt.gz
-|
-`-- GSE13699/
-    `-- GSE13699-GPL6104_series_matrix.txt.gz
-```
-
-the extractor generates:
-
-```text
-data/galaxy_file_input/
-|-- GSE13485_intensities.csv
-`-- GSE13699_GPL6104_intensities.csv
-```
-
-The extractor can also be called directly from another Python workflow:
-
-```python
-from data.extract_series_matrix import extract_geo_matrices
-
-extract_geo_matrices("/path/to/GEO/datasets")
-```
-
-This allows GEO retrieval code to trigger intensity-matrix generation immediately after
-datasets are downloaded.
-
 ## The benchmark
 
 The MVP evaluates the hypothesis that GCN2/EIF2AK4 activity is associated with the magnitude
@@ -145,21 +92,18 @@ measurements.
 | ------------- | ------------------------ | -------------------- | -------------: |
 | `SDY1264`     | `GSE13485`               | `GPL7567`            |             87 |
 | `SDY1289`     | `GSE13699`               | `GPL6104`, `GPL6883` |       126 + 16 |
+| `SDY1291`     | `GSE22768`               | `GPL10647`           |             50 |
 | `SDY1294`     | `GSE82152`               | `GPL21975`           |            109 |
 | `SDY1529`     | `GSE125921`, `GSE136163` | `GPL10558`           |       36 + 144 |
 
-The retrieval plan also resolves `GSE13486`, the SuperSeries containing `GSE13485`, but marks
-it `skip_superseries` to avoid duplicate expression data. `SDY1291` is fetched and parsed but
-does not currently produce a GEO analysis unit.
-
-The parser run creates six study/experiment/GSE/platform analysis units containing 518 linked
+The committed parser run creates seven study/experiment/GSE/platform units containing 568 linked
 samples. The `SDY1264` validator handoff extracts 87 expression values for the EIF2AK4 feature
 `Hs.412102_at` and 25 quantitative `Act CD8 T Cell Response` measurements, and returns
 `scientific_status: eligible`, `execution_status: ready`.
 
-Raw downloaded repository data and cache files are excluded from Git. Selected normalized
-and Galaxy-ready outputs used by the codeathon workflow may be retained in the repository,
-while the steps in `data/README.md` document how they are regenerated with provenance.
+This checkout retains selected benchmark cache, parsed, validator, and Galaxy-input artifacts.
+Treat new raw downloads as generated data and do not commit them. The regeneration commands and
+known provenance gaps are documented in `data/README.md`.
 
 Expected direction, predictor timepoint and cohort structure are documented in
 `docs/ground_truth.md`, taken from Querec et al. 2009 and Ravindran et al. 2014 and checked
