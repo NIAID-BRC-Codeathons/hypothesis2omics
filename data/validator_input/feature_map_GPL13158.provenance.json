@@ -1,0 +1,27 @@
+{
+  "schema": "feature_map/1",
+  "description": "Probe-set to gene mapping for GPL13158, so a predictor's feature_id is declared from a platform annotation rather than looked up after seeing a result table.",
+  "gpl_accession": "GPL13158",
+  "gpl_title": "[HT_HG-U133_Plus_PM] Affymetrix HT HG-U133+ PM Array Plate",
+  "derived_from": {
+    "file": "GSE120717_family.soft.gz",
+    "gse_accession": "GSE120717",
+    "sha256": "43ce091dd7e7fdcf8434222aed28a3d6cbbc87f53bd518d5c0ffaaecf100d423",
+    "platform_table_rows": 54715
+  },
+  "annotation_date": "Aug 20, 2010",
+  "columns": [
+    "gse_accession",
+    "gpl_accession",
+    "feature_id",
+    "gene",
+    "entrez_gene_id"
+  ],
+  "rows_written": 41796,
+  "probesets_without_gene_symbol_excluded": 12919,
+  "genes_total": 20741,
+  "genes_with_multiple_probesets": 10837,
+  "caveat": "A gene with more than one probeset has no single feature_id. Declare the set and combine it with an explicit rule; do not pick one after seeing the result table.",
+  "output_sha256": "e9aea59fcd1148456992500217224f19d31bc7ad260650b54f1f60e57930dbce",
+  "created_utc": "2026-09-18T16:45:22+00:00"
+}
