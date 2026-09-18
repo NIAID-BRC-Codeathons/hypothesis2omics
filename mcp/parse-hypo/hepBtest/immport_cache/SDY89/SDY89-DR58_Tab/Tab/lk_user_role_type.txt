@@ -1,0 +1,8 @@
+NAME	DESCRIPTION
+DU	DAIT user oversees specific grants/contract that use ImmPort.  He/she will notifies the DAIT BISC PO when new research grants/contracts are awarded
+FA	ImmPort Functional Administrator
+OS	Other Staff
+PI	Principal Investigator of contract/grants
+PM	Project Manager (New Role for DAIT-Funded)
+PO	DAIT BISC Project Officer oversees the BISC II project.  He/she performs system access control functions and/or delegates them to other DAIT employess for a Functional Administrator.
+SA	ImmPort System Administrator

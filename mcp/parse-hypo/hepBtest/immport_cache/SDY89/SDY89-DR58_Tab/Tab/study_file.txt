@@ -1,0 +1,2 @@
+STUDY_FILE_ACCESSION	DESCRIPTION	FILE_NAME	STUDY_ACCESSION	STUDY_FILE_TYPE	WORKSPACE_ID
+SFL19714	Study file describes the relationship of PERIOD and STUDY_GLOSSARY to a STUDY providing the content of the PERIOD, PLANNED_VISIT, and STUDY_GLOSSSARY table content for the given study	StudyFile.Obsolete.Period.StudyGlossary.ID4633-34.2799.SDY89.txt	SDY89	Study Data	2799

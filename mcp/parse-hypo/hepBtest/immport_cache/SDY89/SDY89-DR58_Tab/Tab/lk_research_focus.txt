@@ -1,0 +1,23 @@
+NAME	DESCRIPTION	LINK
+Cell Biology	The study of the internal workings of cells at the microscopic and molecular level.	http://purl.obolibrary.org/obo/NCIT_C17992
+Molecular Biology	The study of biology at a molecular level. It chiefly concerns itself with understanding the interactions between the various systems of a cell, including the interrelationship of DNA, RNA and protein synthesis and learning how these interactions are regulated. The field overlaps with other areas of biology, particularly genetics and biochemistry.	http://purl.obolibrary.org/obo/NCIT_C16872
+Psychopathology	The branch of pathology focusing on mental illness and abnormal behavior.	http://purl.obolibrary.org/obo/NCIT_C17035
+Atopy/Allergy	Atopy or Allergy research focus.	http://purl.obolibrary.org/obo/OBI_1110049
+Autoimmune	Autoimmune research focus.	http://purl.obolibrary.org/obo/OBI_1110054
+Immune Response	Immune Response research focus.	http://purl.obolibrary.org/obo/GO_0006955
+Infection Response	Infection Response research focus.	http://purl.obolibrary.org/obo/NCIT_C26726
+No Research Focus Specified	No Research Focus currently specified.	
+Transplantation	Transplantation research focus.	http://purl.obolibrary.org/obo/OBI_0000105
+Vaccine Response	Vaccine Response research focus.	http://www.ebi.ac.uk/efo/EFO_0004645
+Pregnancy	The state or condition of having a developing embryo or fetus in the body (uterus), after union of an ovum and spermatozoon, during the period from conception to birth.	http://purl.obolibrary.org/obo/NCIT_C25742
+Exposome	The measure of all the exposures of an individual from all sources, including environmental and occupational sources, in a lifetime and how those exposures relate to health. (from https://www.cdc.gov/niosh/topics/exposome/ on 06/06/2019) (MSH)	https://uts.nlm.nih.gov/uts/umls/concept/C5197919
+Vaccine Development	The entire process of introducing a new vaccine for use in VACCINATION including pre-clinical development, testing in CONTROLLED CLINICAL TRIAL, manufacturing, approval/licensing and distribution. (MSH)	https://uts.nlm.nih.gov/uts/umls/concept/C0597634
+Preterm Birth	Birth when a fetus is less than 37 weeks and 0 days gestational age.	http://purl.obolibrary.org/obo/NCIT_C92861
+Radiation Biology	The study of the mechanisms and biological effects of ionizing radiation, including repair processes.	http://purl.obolibrary.org/obo/NCIT_C17055
+Oncology	The study of tumors encompassing the physical, chemical, and biologic properties.	http://purl.obolibrary.org/obo/NCIT_C17837
+Development	Processes that involve and promote formation of more mature organs, organ systems, or organisms; general development.	http://purl.obolibrary.org/obo/NCIT_C18732
+Cardiovascular system disease	A disease of anatomical entity which occurs in the blood, heart, blood vessels or the lymphatic system that passes nutrients (such as amino acids and electrolytes), gases, hormones, blood cells or lymph to and from cells in the body to help fight diseases and help stabilize body temperature and pH to maintain homeostasis. [database_cross_reference: url:http://en.wikipedia.org/wiki/Circulatory_system][database_cross_reference: url:http://en.wikipedia.org/wiki/Circulatory_system][type: http://purl.obolibrary.org/obo/ECO_0007638][type: http://purl.obolibrary.org/obo/ECO_0007638]	http://purl.obolibrary.org/obo/DOID_1287
+Epidemiology	Field concerned with the determination of causes, incidence, and characteristic behavior of disease outbreaks affecting human populations. It includes the interrelationships of host, agent, and environment as related to the distribution and control of disease. (MSH)	https://uts.nlm.nih.gov/uts/umls/concept/C0014507
+Computational Modelling	The development of mathematical or computational models to mimic or study a biological phenomenon.(NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C5544479
+Method Development	An approach to develop novel, or enhance existing, scientific tools and methods for use in research. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C0178742
+Other	Different than the one(s) previously specified or mentioned. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C0205394

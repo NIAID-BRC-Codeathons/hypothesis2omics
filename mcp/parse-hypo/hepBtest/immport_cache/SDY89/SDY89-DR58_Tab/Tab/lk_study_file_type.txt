@@ -1,0 +1,27 @@
+NAME	DESCRIPTION	LINK
+Adverse Events	Study file type is Adverse Events.	http://purl.obolibrary.org/obo/NCIT_C41331
+Assessment Results	Study file type is Assessment Results.	http://purl.obolibrary.org/obo/NCIT_C25217
+Case Report Form	Study file type is Case Report Form.	http://purl.obolibrary.org/obo/NCIT_C40988
+Concomitant Medications	Study file type is Concomitant Medications.	http://purl.obolibrary.org/obo/NCIT_C49568
+Data Dictionary	A collection of descriptions of the data objects or items in a data model.	http://purl.obolibrary.org/obo/T4FS_0000073
+Demographics	Study file type is Demographics.	http://purl.obolibrary.org/obo/NCIT_C16495
+Interventions	Study file type is Interventions.	http://purl.obolibrary.org/obo/NCIT_C25218
+Lab Test Results	Study file type is Lab Test Results (e.g. CBC, chemistry, cytokine).	http://purl.obolibrary.org/obo/NCIT_C36292
+Study Data	Data associated with a study, but not arranged or included in any specific grouping. This is the default setting for data linked to a study.	http://purl.obolibrary.org/obo/NCIT_C64486
+Study Medication	Study file type is Study Medication.	http://purl.obolibrary.org/obo/NCIT_C459
+Study Summary Description	An abstract of a document detailed description which represents its most significant information	http://purl.obolibrary.org/obo/NCIT_C71141
+Substance Use	Study file type is Substance Use.	http://purl.obolibrary.org/obo/NCIT_C49615
+Family Member	Any of the individuals who are descended from a common progenitor, related by marriage or other legal tie, or by a feeling of closeness. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C0086282
+Screening Data	Study file type is Screening Data	http://purl.obolibrary.org/obo/NCIT_C48262
+Medical History Data	Study file type is Medical History Data	http://purl.obolibrary.org/obo/NCIT_C18772
+Protocol Deviation Data	Study file type is Protocol Deviation Data	http://purl.obolibrary.org/obo/NCIT_C50996
+Note	A brief written record. (NCI)	http://purl.obolibrary.org/obo/NCIT_C42619
+Image File	An electronic file containing imaging data.	http://purl.obolibrary.org/obo/NCIT_C175246
+JSON Summary Description	SeroNet JSON Summary Description	https://www.cancer.gov/research/key-initiatives/covid-19/coronavirus-research-initiatives/serological-sciences-network
+Software Script	A software script is software whose instructions can be executed using a software interpreter.	http://semanticscience.org/resource/SIO_000103
+Checksum	A fixed-size datum calculated (by using a hash function) for a molecular sequence or structure, typically for purposes of error detection or indexing	http://purl.obolibrary.org/obo/MI_1212
+Clinical Data	Data obtained through patient examination or treatment.	http://purl.obolibrary.org/obo/NCIT_C15783
+Case Report Form Data	Information collected from a subject and presented on a case report form. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C4684580
+Epidemiological Data	Identify post disaster needs (e.g., ongoing disaster-related health care needs, collection of epidemiological data, assessment of cause of disaster, steps for prevention of reoccurrence)	https://uts.nlm.nih.gov/uts/umls/concept/C0811339
+Patient Reported Outcome	Information collected directly from a patient that typically includes subjective feelings regarding symptoms, functions in daily life, physical, mental, emotional, spiritual, and social well being, and satisfaction with his/her health care. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C2987124
+Database cross-mapping	The cross-mapping is typically a table where each row is an accession number and each column is a database being cross-referenced. The cells give the accession number or identifier of the corresponding entry in a database. If a cell in the table is not filled then no mapping could be found for the database. Additional information might be given on version, date etc. A mapping of the accession numbers (or other database identifier) of entries between (typically) two biological or biomedical databases.	http://edamontology.org/data_0954

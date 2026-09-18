@@ -1,0 +1,25 @@
+NAME	DESCRIPTION	LINK
+Assay	Protocol used to assay or measure an experiment sample	
+Bio Sample Preparation	Biological Sample Preparation.	
+Bio Sample Treatment	Protocol used to prepare Biological Sample.	
+Biomaterial Transformation	Protocol used to prepare or modify a biological sample	
+Clinical	Clinical	
+Data Processing	Data Processing	
+Data Transformation	Protocol used to analyze or reformat data	
+Experiment	Protocol used in the Experiment.	
+Experimental Sample	Protocol used for Experimental Sample.	
+Not Specified	Protcol Type is not specified or not received. If no Protocol Type value is received, then this is the system default value.	
+Other	Other	
+Study Protocol	'Study_Protocol' Study design description.	
+Study Summary	'Study_Summary' Study review after a study is closed.	
+Subject Organism Treatment	Subject Organism Treatment	
+Clinical Trials Operational Procedure Manual	Documentation describing clinical trial-related work processes.	http://purl.obolibrary.org/obo/NCIT_C115764
+Institutional Review Board Independent Ethics Committee Informed Consent Document	Records approved by the Institutional Review Board (IRB)/Independent Ethics Committee (IEC), explaining study information to assist study volunteers in understanding the expectations and requirements of trial participation.	http://purl.obolibrary.org/obo/NCIT_C115697
+Clinical Trial Monitoring Plan	A proposed method to ensure the adequate monitoring of subjects during a clinical trial.	http://purl.obolibrary.org/obo/NCIT_C115753
+Laboratory Sample Manual	Documentation describing work processes and procedures for the collection, handling, and shipping of a sample.	http://purl.obolibrary.org/obo/NCIT_C115541
+Materials and Methods section	The materials and methods section is a document section containing a description of the materials and methods used in the study.	http://semanticscience.org/resource/SIO_000197
+Specimen Collection Protocol	The rule which guides how a specimen collection should be performed	http://purl.obolibrary.org/obo/NCIT_C164426
+Process Protocol	A standard operating procedure (SOP) that is a collection of activities and the rules that describe when each activity is performed to achieve a specific purpose or objective(s). [Definition Source: NCI]	http://purl.obolibrary.org/obo/NCIT_C164368
+Clinical Study Protocol	Clinical Study Protocol	http://purl.obolibrary.org/obo/NCIT_C25320
+Statistical Analysis Documentation	Statistical Analysis Documentation	http://purl.obolibrary.org/obo/NCIT_C115732
+Case Report Form	Case Report Form	http://purl.obolibrary.org/obo/NCIT_C40988

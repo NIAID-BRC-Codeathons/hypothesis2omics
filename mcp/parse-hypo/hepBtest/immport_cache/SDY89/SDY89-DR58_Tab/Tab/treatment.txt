@@ -1,0 +1,3 @@
+TREATMENT_ACCESSION	AMOUNT_UNIT	AMOUNT_VALUE	COMMENTS	DURATION_UNIT	DURATION_VALUE	NAME	TEMPERATURE_UNIT	TEMPERATURE_VALUE	WORKSPACE_ID
+TRT1113	Not Specified	Not_Specified		Not Specified	Not_Specified	None	Not Specified	Not_Specified	2799
+TRT2061	Not Specified	Not_Specified		Not Specified	Not_Specified	HIPC_P3_ENGX_NONE	Not Specified	Not_Specified	2799

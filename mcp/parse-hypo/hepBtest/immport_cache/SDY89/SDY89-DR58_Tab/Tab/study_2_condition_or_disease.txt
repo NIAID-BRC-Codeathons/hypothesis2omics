@@ -1,0 +1,3 @@
+STUDY_ACCESSION	CONDITION_REPORTED	CONDITION_PREFERRED
+SDY89	Vaccine responses in healthy adult population.	
+SDY89	hepatitis B	hepatitis B

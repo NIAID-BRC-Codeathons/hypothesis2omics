@@ -1,0 +1,25 @@
+NAME	COMMON_NAME	LINK	TAXONOMY_ID	TAXONOMY_ID_SUBSET
+Anas platyrhynchos	Mallard duck	http://purl.obolibrary.org/obo/NCBITaxon_8839	8839	8839
+Drosophila melanogaster	Fruit Fly	http://purl.obolibrary.org/obo/NCBITaxon_7227	7227	7227
+Gallus gallus	Chicken	http://purl.obolibrary.org/obo/NCBITaxon_9031	9031	9031
+Homo sapiens	Human	http://purl.obolibrary.org/obo/NCBITaxon_9606	9606	9606
+Macaca fascicularis	Macaca fascicularis	http://purl.obolibrary.org/obo/NCBITaxon_9541	9541	9606
+Macaca mulatta	Rhesus macaque	http://purl.obolibrary.org/obo/NCBITaxon_9544	9544	9606
+Mus musculus castaneus	Southeastern Asian house mouse	http://purl.obolibrary.org/obo/NCBITaxon_10091	10091	10090
+Mus musculus	Mouse	http://purl.obolibrary.org/obo/NCBITaxon_10090	10090	10090
+Mus spretus	Western wild mouse	http://purl.obolibrary.org/obo/NCBITaxon_10096	10096	10090
+Mustela putorius furo	domestic ferret	http://purl.obolibrary.org/obo/NCBITaxon_9669	9669	9669
+Rattus norvegicus	Rat	http://purl.obolibrary.org/obo/NCBITaxon_10116	10116	10116
+Rattus rattus	Rat - Brown	http://purl.obolibrary.org/obo/NCBITaxon_10117	10117	10117
+Sus scrofa domesticus	domestic pig	http://purl.obolibrary.org/obo/NCBITaxon_9825	9825	9825
+Chlorocebus sabaeus	Green monkey	http://purl.obolibrary.org/obo/NCBITaxon_60711	60711	9606
+Odocoileus virginianus	white-tailed deer	http://purl.obolibrary.org/obo/NCBITaxon_9874	9874	9874
+Canis lupus familiaris	dog	http://purl.obolibrary.org/obo/NCBITaxon_9615	9615	9615
+Mesocricetus auratus	golden hamster	http://purl.obolibrary.org/obo/NCBITaxon_10036	10036	10026
+Not Specified	Not Specified	Not Specified	Not Specif	Not Specif
+Other	Other	Other	Other	Other
+Neogale vison	American mink	http://purl.obolibrary.org/obo/NCBITaxon_452646	452646	452646
+Pan troglodytes	Chimpanzee	http://purl.obolibrary.org/obo/NCBITaxon_9598	9598	9606
+Cavia porcellus	guinea pig	http://purl.obolibrary.org/obo/NCBITaxon_10141	10141	10140
+Aotus nancymaae	Ma's night monkey	http://purl.obolibrary.org/obo/NCBITaxon_37293	37293	9606
+Sigmodon hispidus	Hispid Cotton Rat	http://purl.obolibrary.org/obo/NCBITaxon_42415	42415	42415

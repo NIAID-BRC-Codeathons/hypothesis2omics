@@ -1,0 +1,8 @@
+NAME	DESCRIPTION
+NIH ImmPort Share Active	NIH programs that note ImmPort in the data sharing guidelines are not expired.
+AGI	Non-Human Primate related contract: ***users on these contracts will view NHP query screen
+BISC	BISC related Contract
+NIH	NIAID Contract-Grant that will share data: ***makes Contract metadata viewable on Home page
+LSR	Life Science Researcher (LSR) Contract
+OTHER	Other or Miscellaneous Contract or Grant
+TEST	Test Contract or Grant: can be used for any testing purpose

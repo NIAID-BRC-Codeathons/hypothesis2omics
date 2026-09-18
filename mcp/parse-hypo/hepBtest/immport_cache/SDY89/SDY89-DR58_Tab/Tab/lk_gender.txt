@@ -1,0 +1,9 @@
+NAME	DESCRIPTION	LINK
+Female	Gender is Female.	http://purl.bioontology.org/ontology/SNOMEDCT/248152002
+Male	Gender is Male.	http://purl.bioontology.org/ontology/SNOMEDCT/248153007
+Not Specified	Gender is not specified or not received. If no gender value is received, then this is the system default value.	
+Other	Gender is Other. Value may be used to differeniate as neither Male or Female.	
+Unknown	Gender is Unknown. Value may be used to signify that gender is unknown at the time.	
+Transgender	A person whose gender identity or gender expression differs from their assigned sex.	http://purl.obolibrary.org/obo/NCIT_C154421
+Intersex	A person (one of unisexual specimens) who is born with genitalia and/or secondary sexual characteristics of indeterminate sex, or which combine features of both sexes.	https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C45908
+Prefer Not to Answer	A response indicating that an individual prefers or preferred not to answer.	https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&ns=ncit&code=C132222

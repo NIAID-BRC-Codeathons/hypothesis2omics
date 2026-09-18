@@ -1,0 +1,4 @@
+EXPERIMENT_ACCESSION	DESCRIPTION	MEASUREMENT_TECHNIQUE	NAME	STUDY_ACCESSION	WORKSPACE_ID
+EXP10671		Virus Neutralization	Engerix-B Neutralizing Ab titer	SDY89	2799
+EXP13592		Flow Cytometry	Engerix Flowcytometry	SDY89	2799
+EXP14136		Transcription profiling by array	Engerix Microarray PBMC gene expression (see companion experiment EXP13591)	SDY89	2799

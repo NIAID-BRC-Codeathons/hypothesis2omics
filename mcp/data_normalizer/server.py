@@ -115,6 +115,29 @@ def create_server(
         """Parse downloaded GEO matrices into bounded analysis units."""
         return pipeline.parse_geo_matrices()
 
+    @server.tool
+    def resolve_feature_and_outcome(
+        study_accession: str,
+        gene_symbol: str,
+        experiment_accession: str,
+        gse_accession: str,
+        gpl_accession: str,
+        predictor_search_terms: list[str],
+        outcome_search_terms: list[str],
+    ) -> dict[str, Any]:
+        """Resolve a predictor gene and outcome concept to real identifiers for one
+        parsed analysis unit; write feature_expression.tsv/quantitative_outcome.tsv
+        for whatever resolves, and a review file for whatever needs a human."""
+        return pipeline.resolve_feature_and_outcome(
+            study_accession,
+            gene_symbol,
+            experiment_accession,
+            gse_accession,
+            gpl_accession,
+            predictor_search_terms,
+            outcome_search_terms,
+        )
+
     return server
 
 

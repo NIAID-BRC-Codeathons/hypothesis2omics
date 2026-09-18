@@ -1,0 +1,33 @@
+{
+  "study_accession": "SDY1264",
+  "gene_symbol": "EIF2AK4",
+  "predictor_resolution": {
+    "concept": "EIF2AK4",
+    "status": "verified",
+    "method": "hgnc_bridge",
+    "evidence": "HGNC name/alias/former-name bridged to Description='Eukaryotic translation initiation factor 2 alpha kinase 4'; verification: 87 numeric values found for probe Hs.412102_at",
+    "candidates_considered": [],
+    "resolved_id": "Hs.412102_at",
+    "resolved_label": "Eukaryotic translation initiation factor 2 alpha kinase 4"
+  },
+  "outcome_resolution": {
+    "concept": "outcome",
+    "status": "verified",
+    "method": "search_terms",
+    "evidence": "matched lab_test_panel NAME_REPORTED='Act CD8 T Cell Response'; verification: 25 numeric outcome values found for panel LP30120",
+    "candidates_considered": [],
+    "resolved_id": "LP30120",
+    "resolved_label": "Act CD8 T Cell Response"
+  },
+  "written": {
+    "feature_expression_tsv": {
+      "path": "/Users/msadeck/Desktop/hypothesis2omics/data/resolved_input/SDY1264/feature_expression.tsv",
+      "rows": 87
+    },
+    "quantitative_outcome_tsv": {
+      "path": "/Users/msadeck/Desktop/hypothesis2omics/data/resolved_input/SDY1264/quantitative_outcome.tsv",
+      "rows": 25
+    }
+  },
+  "review_artifact": null
+}

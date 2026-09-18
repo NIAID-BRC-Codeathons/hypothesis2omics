@@ -1,0 +1,8 @@
+PERSONNEL_ID	EMAIL	FIRST_NAME	LAST_NAME	ORGANIZATION
+2	poland.gregory@mayo.edu	Gregory	Poland	Mayo Clinic
+789	karolinp@baylorhealth.edu	Karolina	Palucka	Baylor Institute for Immunology Research
+2475	ellis_reinherz@dfci.harvard.edu	Ellis	Reinherz	Dana Farber Cancer Institute
+2476	ken.stuart@seattlebiomed.org	Kenneth	Stuart	Seattle Biomedical Research Institute
+3101	bpulend@rmy.emory.edu	Bali	Pulendran	Emory Vaccine Center
+4223	mmdavis@stanford.edu	Mark	Davis	Stanford University
+4240	david.hafler@yale.edu	David	Hafler	Yale University

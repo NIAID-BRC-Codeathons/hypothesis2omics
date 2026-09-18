@@ -1,0 +1,2 @@
+PERSON_ACCESSION	EMAIL	FIRST_NAME	HONORIFIC	LAST_NAME	ORCID	ORGANIZATION	ROLE_IN_STUDY	SITE_NAME	STUDY_ACCESSION	SUFFIXES	TITLE_IN_STUDY	WORKSPACE_ID
+PSN210	rcoffman@dynavax.com	Robert		Coffman		Dynavax Technologies Corporation	Principal Investigator	Dynavax Technologies Corporation	SDY89	Ph.D.	Principal Investigator	2799

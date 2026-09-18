@@ -1,0 +1,2 @@
+STUDY_LINK_ID	NAME	STUDY_ACCESSION	TYPE	VALUE	WORKSPACE_ID
+1302	ClinicalTrials.gov	SDY89		https://clinicaltrials.gov/ct2/show/NCT02117934	2799

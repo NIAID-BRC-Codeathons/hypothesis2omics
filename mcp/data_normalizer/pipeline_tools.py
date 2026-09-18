@@ -14,9 +14,11 @@ from typing import Any, Sequence
 
 import pandas as pd
 
+from data.feature_outcome_resolver import resolve_and_write
 from data.geo_fetch_module import fetch_geo_datasets
 from data.geo_matrix_parse_module import parse_geo_matrices as run_geo_matrix_parser
 from data.geo_plan_module import plan_geo_downloads
+from data.immport_batch_parse import ImmportBatchParseError, discover_tab_sources
 from data.immport_batch_parse import run_batch as run_immport_batch_parser
 from data.immport_fetch_module import fetch_immport_datasets
 from data.list_directory import build_file_inventory
@@ -273,4 +275,77 @@ class PipelineTools:
             "units": units,
             "manifest_path": str(self.geo_parsed / GEO_PARSE_MANIFEST_FILENAME),
             "duration_sec": provenance["duration_sec"],
+        }
+
+    def resolve_feature_and_outcome(
+        self,
+        study_accession: str,
+        gene_symbol: str,
+        experiment_accession: str,
+        gse_accession: str,
+        gpl_accession: str,
+        predictor_search_terms: list[str],
+        outcome_search_terms: list[str],
+    ) -> dict[str, Any]:
+        """Resolve a predictor gene and outcome concept to real identifiers for one
+        parsed analysis unit, and write feature_expression.tsv /
+        quantitative_outcome.tsv if both resolve. See
+        data/feature_outcome_resolver.py for the resolution rules (deterministic;
+        escalates to a review file rather than guessing on genuine ambiguity).
+
+        Targets the analysis unit parse_geo_matrices already produced -- run this
+        after it, for one (experiment_accession, gse_accession, gpl_accession) at
+        a time. Writes to data/resolved_input/<study_accession>/, a location of
+        its own, not data/validator_input/: that path is owned by
+        validator_handoff_parse_module.py and read by evidence_rules'
+        validator_bundle.py, and this method must not risk writing something that
+        could disagree with it there.
+        """
+        family_soft_path = self.geo_cache / gse_accession / f"{gse_accession}_family.soft.gz"
+        if not family_soft_path.is_file():
+            raise PipelineToolError(f"GEO family SOFT file not found: {family_soft_path}")
+
+        series_matrix_path = (
+            self.geo_parsed / study_accession / experiment_accession
+            / f"{gse_accession}_{gpl_accession}" / "expression.tsv.gz"
+        )
+        if not series_matrix_path.is_file():
+            raise PipelineToolError(f"parsed expression matrix not found: {series_matrix_path}")
+
+        try:
+            tab_sources = discover_tab_sources(self.immport_cache)
+        except ImmportBatchParseError as exc:
+            raise PipelineToolError(str(exc)) from exc
+        source = tab_sources.get(study_accession.upper())
+        if source is None:
+            raise PipelineToolError(f"no ImmPort Tab source found for {study_accession}")
+        _release, tab_path = source
+        if not tab_path.is_file() or tab_path.suffix.lower() != ".zip":
+            raise PipelineToolError(
+                f"{study_accession}'s Tab source is not a zip file ({tab_path}); "
+                "feature_outcome_resolver reads Tab.zip archives only, not extracted directories"
+            )
+
+        if not self.immport_manifest.is_file():
+            raise PipelineToolError(f"sample manifest not found: {self.immport_manifest}")
+
+        output_dir = self.data_root / "resolved_input" / study_accession
+        provenance = resolve_and_write(
+            study_accession=study_accession,
+            gene_symbol=gene_symbol,
+            predictor_search_terms=predictor_search_terms,
+            outcome_search_terms=outcome_search_terms,
+            family_soft_path=family_soft_path,
+            series_matrix_path=series_matrix_path,
+            tab_zip_path=tab_path,
+            sample_manifest_path=self.immport_manifest,
+            output_dir=output_dir,
+        )
+        return {
+            "operation": "resolve_feature_and_outcome",
+            "predictor_status": provenance["predictor_resolution"]["status"],
+            "outcome_status": provenance["outcome_resolution"]["status"],
+            "written": provenance["written"],
+            "review_artifact": provenance["review_artifact"],
+            "output_dir": str(output_dir),
         }

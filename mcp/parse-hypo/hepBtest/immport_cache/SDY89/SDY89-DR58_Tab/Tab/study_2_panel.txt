@@ -1,0 +1,7 @@
+STUDY_ACCESSION	PANEL_NAME
+SDY89	arm or cohorts
+SDY89	demographics
+SDY89	documentation
+SDY89	mechassays
+SDY89	subject
+SDY89	summary

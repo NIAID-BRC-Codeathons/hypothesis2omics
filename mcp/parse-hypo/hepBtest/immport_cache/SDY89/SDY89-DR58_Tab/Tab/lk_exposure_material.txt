@@ -1,0 +1,103 @@
+NAME	EXPOSURE_MATERIAL_ID	DESCRIPTION	LINK
+Johnson & Johnson COVID-19 vaccine	VO:0005159	A SARS-CoV-2 recombinant viral vector vaccine composed of Ad26 vector expressing S protein, Ad26COVS1; JNJ-78436735	http://purl.obolibrary.org/obo/VO_0005159
+NVX-CoV2373	VO:0005155	A SARS-CoV 2 (rSARS-CoV-2) subunit vaccine made of nanoparticles composed of a trimeric full-length SARS-CoV-2 spike glycoprotein and Matrix-M1 adjuvant	http://purl.obolibrary.org/obo/VO_0005155
+SARS Coronavirus 2 BA.2	UMLS_CUI:C5670041	WHO Name: Omicron. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 25/27 and amino acid substitutions T19I, L24S, G142D, V213G, G339D, S371F, S373P, S375F, T376A, D405N, R408S, K417N, N440K, S477N, T478K, E484A, Q493R, Q498R, N501Y, Y505H, D614G, H655Y, N679K, P681H, N764K, D796Y, Q954H and N969K. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C5670041
+SARS Coronavirus 2 BA.3	UMLS_CUI:C5706967	WHO Name: Omicron. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 69/70, 143/145 and 212 and amino acid substitutions A67V, G142D, N211I, D614G, H655Y, N679K, P681H, N764K, D796Y, Q954H and N969K. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C5706967
+Moderna COVID-19 vaccine	VO:0005157	A SARS-CoV2 RNA vaccine made of lipid nanoparticle with mRNA which encodes the S-2P antigen, made of the SARS-CoV-2 glycoprotein with a transmembrane anchor and intact S1-S2 cleavage site	http://purl.obolibrary.org/obo/VO_0005157
+Oxford AstraZeneca COVID-19 vaccine	VO:0005158	A SARS-CoV2 recombinat vector vaccine made of a chimpanzee adenovirus-vectored vaccine expressing the SARS-CoV-2 spike protein	http://purl.obolibrary.org/obo/VO_0005158
+Pfizer BioNTech COVID-19 vaccine	VO:0004987	A SARS-CoV-2 RNA vaccine formed from a lipid nanoparticle-formulated trimerized SARS-CoV-2 receptor-binding domain	http://purl.obolibrary.org/obo/VO_0004987
+CureVac AG	VO:0005208	CureVac AG	http://purl.obolibrary.org/obo/VO_0005208
+SARS Coronavirus 2 BA.4	UMLS_CUI:C5706966	WHO Name: Omicron. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 25/27 and 69/70 and amino acid substitutions T19I, L24S, G142D, V213G, G339D, S371F, S373P, S375F, T376A, D405N, R408S, K417N, N440K, L452R, S477N, T478K, E484A, F486V, Q498R, N501Y, Y505H, D614G, H655Y, N679K, P681H, N764K, D796Y, Q954H and N969K. This variant has two novel amino acid variations, a D61L substitution in the ORF6 protein and a L11F in the ORF7b protein. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C5706966
+SARS Coronavirus 2 BA.5	UMLS_CUI:C5706965	WHO Name: Omicron. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 25/27 and 69/70 and amino acid substitutions T19I, L24S, G142D, V213G, G339D, S371F, S373P, S375F, T376A, D405N, R408S, K417N, N440K, L452R, S477N, T478K, E484A, F486V, Q498R, N501Y, Y505H, D614G, H655Y, N679K, P681H, N764K, D796Y, Q954H and N969K. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C5706965
+SARS-CoV-2 Mu variants	UMLS_CUI:C5564751	A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: an amino acid insertion 146N and amino acid substitutions T95I, Y144T, Y145S, R346K, E484K, N501Y, D614G, P681H and D950N. (NCI). Also known as SARS-CoV-2 B.1.621.	https://uts.nlm.nih.gov/uts/umls/concept/C5564751
+SARS Coronavirus 2 C.37	UMLS_CUI:C5556619	WHO Name: Lambda. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 247-253 and amino acid substitutions G75V, T76I, L452Q, F490S, D614G and T859N. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C5556619
+SARS-CoV-2 D614G variant	UMLS_CUI:C5433391	Known as SARS-CoV-2 USA-WA1/2020. https://www.ncbi.nlm.nih.gov/biosample/SAMN18527778	https://uts.nlm.nih.gov/uts/umls/concept/C5433391
+SARS Coronavirus 2 B.1.1.529	UMLS_CUI:C5564753	WHO Name: Omicron. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 69/70, 143/145 and 212 and amino acid substitutions A67V, T95I, G142D, N211I, G339D, S371L, S373P, S375F, S477N, T478K, E484A, Q493R, G496S, Q498R, N501Y, Y505H, T547K, D614G, H655Y, N679K, P681H, D796Y, N856K, Q954H, N969K and L981F. (NCI)	https://uts.nlm.nih.gov/uts/umls/concept/C5564753
+SARS-CoV-2 P.2 variant	UMLS_CUI:C5433392	WHO Name: Zeta. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: amino acid substitutions E484K, D614G and V1176F. The substitution F565L has also been detected in some but not all sequences for this lineage. (NCI).	https://uts.nlm.nih.gov/uts/umls/concept/C5433392
+Chlamydia trachomatis	NCBITaxon:813	Chlamydia trachomatis	https://ontobee.org/ontology/NCBITaxon?iri=http://purl.obolibrary.org/obo/NCBITaxon_813
+quadrivalent inactivated influenza vaccine	VO_0010196	quadrivalent inactivated influenza vaccine	https://www.ebi.ac.uk/ols4/ontologies/vo/classes/http%253A%252F%252Fpurl.obolibrary.org%252Fobo%252FVO_0010196
+BCG Vaccine	VO:0000771	BCG Vaccine is a Mycobacterium tuberculosis vaccine that is a live attenuated strain of Mycobacterium bovis (Bacillus Calmette Guerin; BCG).	http://purl.obolibrary.org/obo/VO_0000771
+PfSPZ Vaccine	VO:0004910	a malaria vaccine that protects against malaria caused by Plasmodium falciparum	http://purl.obolibrary.org/obo/VO_0004910
+Dengue virus	NCBITaxon:12637	Dengue virus	http://purl.obolibrary.org/obo/NCBITaxon_12637
+Dengue virus 1	NCBITaxon:11053	Dengue virus 1	http://purl.obolibrary.org/obo/NCBITaxon_11053
+Dengue virus 2	NCBITaxon:11060	Dengue virus 2	http://purl.obolibrary.org/obo/NCBITaxon_11060
+Human alphaherpesvirus 3	NCBITaxon:10335	Human alphaherpesvirus 3	http://purl.obolibrary.org/obo/NCBITaxon_10335
+Influenza A H1N1 2009 Monovalent Vaccine Novartis	VO:0000081	Influenza A (H1N1) 2009 Monovalent Vaccine (Novartis)	http://purl.obolibrary.org/obo/VO_0000081
+Influenza A virus	NCBITaxon:11320	Influenza A virus	http://purl.obolibrary.org/obo/NCBITaxon_11320
+Mycobacterium tuberculosis	NCBITaxon:1773	Mycobacterium tuberculosis	http://purl.obolibrary.org/obo/NCBITaxon_1773
+Meningococcal Polysaccharide Vaccine, Groups A & C, Menomune A/C	VO:0010725	Meningococcal Polysaccharide Vaccine, Groups A & C, Menomune A/C	http://purl.obolibrary.org/obo/VO_0010725
+Varicella-zoster virus vaccine	VO:0000669	a Herpesvirus vaccine that is used against Varicella-zoster virus infection.	http://purl.obolibrary.org/obo/VO_0000669
+West Nile virus	NCBITaxon:11082	West Nile virus	http://purl.obolibrary.org/obo/NCBITaxon_11082
+Borreliella burgdorferi	NCBITaxon:139	Borreliella burgdorferi	http://purl.obolibrary.org/obo/NCBITaxon_139
+PfSPZ-CVac	VO:0004911	a malaria vaccine that protects against malaria caused by Plasmodium falciparum	http://purl.obolibrary.org/obo/VO_0004911
+PfSPZ-GA1	VO:0004912	a malaria vaccine that protects against malaria caused by Plasmodium falciparum	http://purl.obolibrary.org/obo/VO_0004912
+Shigella flexneri 2a	NCBITaxon:42897	Shigella flexneri, serovar 2a. Extended spectrum beta-lactamase producing Shigella flexneri serovar 2a (133131000112102) SNOMEDCT_US	http://purl.obolibrary.org/obo/NCBITaxon_42897
+Shigella sonnei	NCBITaxon:624	A lactose-fermenting bacterium causing dysentery	http://purl.obolibrary.org/obo/NCBITaxon_624
+Sputnik V	VO:0005163	A SARS-CoV-2 recombinant viral vector vaccine composed of Ad26 and Ad5 vectors expressing S protein that lyophilised.	http://purl.obolibrary.org/obo/VO_0005163
+Sinopharm (BBIBP-CorV)	VO:0005166	A SARS-CoV-2 inactivated whole virus vaccine that produced in Vero cells that is developed by the Beijing Institute of Biological Products.	http://purl.obolibrary.org/obo/VO_0005166
+Other	Other	Other	Other
+AdCOVID	VO_0005153	AdCOVID	http://purl.obolibrary.org/obo/VO_0005153
+Ad35.CS.01 malaria vaccine	VO:0004993	A P. falciparum malaria vaccine that is formed by tull length CS-expressing replication-deficient recombinant human adenovirus 35.	http://purl.obolibrary.org/obo/VO_0004993
+P. falciparum RTS,S/AS01	VO:0003093	A malaria vaccine that consists of hepatitis B surface antigen virus-like particles, incorporating a portion of the Plasmodium falciparum-derived circumsporozoite protein and a liposome-based adjuvant.	http://purl.obolibrary.org/obo/VO_0003093
+Ionizing Radiation	NCIT:C17052	High-energy radiation capable of producing ionization in substances through which it passes.	http://purl.obolibrary.org/obo/NCIT_C17052
+Chikungunya virus	NCBITaxon:37124	Found from reported data using NCBI Taxomony Dump: 37124	http://purl.obolibrary.org/obo/NCBITaxon_37124
+Dengue virus 3	NCBITaxon:11069	Found from reported data using NCBI Taxomony Dump: 11069	http://purl.obolibrary.org/obo/NCBITaxon_11069
+Hepacivirus C	NCBITaxon:11103	Found from reported data using NCBI Taxomony Dump: 11103	http://purl.obolibrary.org/obo/NCBITaxon_11103
+Human rhinovirus A16	NCBITaxon:31708	Found from reported data using NCBI Taxomony Dump: 31708	http://purl.obolibrary.org/obo/NCBITaxon_31708
+Plasmodium coatneyi	NCBITaxon:208452	Found from reported data using NCBI Taxomony Dump: 208452	http://purl.obolibrary.org/obo/NCBITaxon_208452
+Plasmodium cynomolgi strain B	NCBITaxon:1120755	Found from reported data using NCBI Taxomony Dump: 1120755	http://purl.obolibrary.org/obo/NCBITaxon_1120755
+Plasmodium cynomolgi strain Ceylon	NCBITaxon:5829	Found from reported data using NCBI Taxomony Dump: 5829	http://purl.obolibrary.org/obo/NCBITaxon_5829
+Plasmodium vivax	NCBITaxon:5855	Found from reported data using NCBI Taxomony Dump: 5855	http://purl.obolibrary.org/obo/NCBITaxon_5855
+Schistosoma mansoni	NCBITaxon:6183	Found from reported data using NCBI Taxomony Dump: 6183	http://purl.obolibrary.org/obo/NCBITaxon_6183
+unidentified	NCBITaxon:32644	Found from reported data using NCBI Taxomony Dump: 32644	http://purl.obolibrary.org/obo/NCBITaxon_32644
+Zika virus	NCBITaxon:64320	Found from reported data using NCBI Taxomony Dump: 64320	http://purl.obolibrary.org/obo/NCBITaxon_64320
+Influenza A virus (A/California/7/2009(H1N1))	NCBITaxon:1316510	Found from reported data using NCBI Taxomony Dump: 1316510	http://purl.obolibrary.org/obo/NCBITaxon_1316510
+Influenza A virus (A/reassortant/FluMist(California/07/2009 x Ann Arbor/6/1960)(H1N1))	NCBITaxon:1701435	Found from reported data using NCBI Taxomony Dump: 1701435	http://purl.obolibrary.org/obo/NCBITaxon_1701435
+Vaccinia virus LC16M8	NCBITaxon:10248	Found from reported data using NCBI Taxomony Dump: 10248	http://purl.obolibrary.org/obo/NCBITaxon_10248
+Plasmodium falciparum	NCBITaxon:5833	malaria parasite P. falciparum	http://purl.obolibrary.org/obo/NCBITaxon_5833
+Dryvax	VO:0000035	a vaccinia virus vaccine that is a freeze-dried calf lymph smallpox vaccine, specifically, Dryvax is a live-virus preparation of vaccinia prepared from calf lymph.	http://purl.obolibrary.org/obo/VO_0000035
+FluMist	VO:0000044	FluMist	http://purl.obolibrary.org/obo/VO_0000044
+Fluarix	VO:0000045	Fluarix	http://purl.obolibrary.org/obo/VO_0000045
+Fluvirin	VO:0000046	Fluvirin	http://purl.obolibrary.org/obo/VO_0000046
+Fluzone	VO:0000047	Fluzone	http://purl.obolibrary.org/obo/VO_0000047
+Menactra	VO:0000071	Menactra	http://purl.obolibrary.org/obo/VO_0000071
+Plasmodium falciparum vaccine	VO:0000087	a malaria vaccine that protects against malaria caused by Plasmodium falciparum.	http://purl.obolibrary.org/obo/VO_0000087
+Pneumovax 23	VO:0000088	Pneumovax 23	http://purl.obolibrary.org/obo/VO_0000088
+YF-Vax	VO:0000121	YF-Vax	http://purl.obolibrary.org/obo/VO_0000121
+Yellow fever 17D vaccine vector	VO:0000122	a viral vaccine vector that uses Yellow fever vaccine strain 17D as the vector.	http://purl.obolibrary.org/obo/VO_0000122
+Zostavax	VO:0000124	Zostavax	http://purl.obolibrary.org/obo/VO_0000124
+Influenza virus vaccine	VO:0000642	A viral vaccine that protects against infection with influenza virus.	http://purl.obolibrary.org/obo/VO_0000642
+Menveo	VO:0001246	Menveo	http://purl.obolibrary.org/obo/VO_0001246
+MVA85A	VO:0003120	MVA85A	http://purl.obolibrary.org/obo/VO_0003120
+MRKAd5 HIV-1 gag/pol/nef	VO:0003133	The MRK adenovirus type 5 human immunodeficiency virus type 1 clade B gag/pol/nef vaccine is a replication-incompetent adenovirus type 5-vectored vaccine that elicits cell-mediated immunity against conserved human immunodeficiency virus proteins.	http://purl.obolibrary.org/obo/VO_0003133
+ACWY Vax	VO:0003138	ACWY Vax	http://purl.obolibrary.org/obo/VO_0003138
+Stamaril	VO:0003139	It is live attenuated YFV vaccine strain 17D manufactured in China, France, Senegal, and the USA. In powder and solvent for suspension for injection in pre-filled syringe.	http://purl.obolibrary.org/obo/VO_0003139
+HEPLISAV-B	VO:0003152	A Hepatitis B surface antigen viral vaccine that utilizes a cytidine-phosphate-guanosine oligodeoxynucleotide (CpGODN) 1018, as an adjuvant.	http://purl.obolibrary.org/obo/VO_0003152
+LC16m8	VO:0004091	LC16m8	http://purl.obolibrary.org/obo/VO_0004091
+rVSV-EBOV	VO:0004660	An Ebola virus vaccine that uses a recombinant vesicular stomatitis virus (rVSV) vector expressing an Ebola filovirus glycoprotein	http://purl.obolibrary.org/obo/VO_0004660
+2008-2009 trivalent influenza vaccine	VO:0004809	2008-2009 trivalent influenza vaccine	http://purl.obolibrary.org/obo/VO_0004809
+Engerix-B	VO:0010711	Engerix-B	http://purl.obolibrary.org/obo/VO_0010711
+Cytomegalovirus	NCBITaxon:10358	Cytomegalovirus	http://purl.obolibrary.org/obo/NCBITaxon_10358
+Human gammaherpesvirus 4 (Epstein-Barr virus)	NCBITaxon:10376	Human gammaherpesvirus 4 (Epstein-Barr virus)	http://purl.obolibrary.org/obo/NCBITaxon_10376
+SARS-CoV-2	NCBITaxon:2697049	Severe acute respiratory syndrome coronavirus 2, equivalent: 2019-nCoV	http://purl.obolibrary.org/obo/NCBITaxon_2697049
+Hepatitis B virus	NCBITaxon:10407	Hepatitis B virus	http://purl.obolibrary.org/obo/NCBITaxon_10407
+diphtheria, tetanus and whole cell pertussis vaccine	VO:0003106	diphtheria, tetanus and whole cell pertussis vaccine	http://purl.obolibrary.org/obo/VO_0003106
+Diphtheria-Tetanus-Pertussis vaccine	VO:0000738	Diphtheria-Tetanus-Pertussis vaccine	http://purl.obolibrary.org/obo/VO_0000738
+Alternaria alternata	NCBITaxon:5599	species, ascomycetes	http://purl.obolibrary.org/obo/NCBITaxon_5599
+2011-2012 trivalent inactivated vaccine (A/California/7/09 (H1N1), A/Perth /16/2009 (H3N2), and B/Brisbane/60/2008)	VO:0004810	2011-2012 trivalent inactivated vaccine (A/California/7/09 (H1N1), A/Perth /16/2009 (H3N2), and B/Brisbane/60/2008)	http://purl.obolibrary.org/obo/VO_0004810
+Staphylococcus aureus	NCBITaxon:1280	Staphylococcus aureus is a Gram-positive, round-shaped bacterium that is a member of the Firmicutes, and it is a usual member of the microbiota of the body, frequently found in the upper respiratory tract and on the skin.	http://purl.obolibrary.org/obo/NCBITaxon_1280
+Respiratory syncytial virus	NCBITaxon:12814	Respiratory syncytial (sin-SISH-uhl) virus, or RSV, is a common respiratory virus that usually causes mild, cold-like symptoms. Most people recover in a week or two, but RSV can be serious, especially for infants and older adults.	http://purl.obolibrary.org/obo/NCBITaxon_12814
+Hepatitis B Surface Antigen Vaccine Injection [Heplisav-B]	VO_0003270	Hepatitis B Surface Antigen Vaccine Injection [Heplisav-B]	http://purl.obolibrary.org/obo/VO_0003270
+Hepatitis B Surface Antigen Vaccine Prefilled Syringe [Engerix-B]	VO_0003258	Hepatitis B Surface Antigen Vaccine Prefilled Syringe [Engerix-B]	http://purl.obolibrary.org/obo/VO_0003258
+Hepatitis B surface antigen vaccine	VO_0003150	A Hepatitis B virus vaccine that uses recombinant Hepatitis B surface antigen as the antigen	http://purl.obolibrary.org/obo/VO_0003150
+Hepatitis B virus vaccine	VO_0000644	A viral vaccine that protects against infection with Hepatitis B virus.	http://purl.obolibrary.org/obo/VO_0000644
+Influvac	VO_0000867	Influvac is an Influenza virus vaccine that is manufactured by Solvay Pharma.	http://purl.obolibrary.org/obo/VO_0000867
+human immunodeficiency virus infectious disease	DOID:526	A viral infectious disease that results in destruction of immune system, leading to life-threatening opportunistic infections and cancers, has_material_basis_in Human immunodeficiency virus 1 or has_material_basis_in Human immunodeficiency virus 2, which are transmitted by sexual contact, transmitted by transfer of blood, semen, vaginal fluid, pre-ejaculate, or breast milk, transmitted by congenital method, and transmitted by contaminated needles. The virus infects helper T cells (CD4+ T cells) which are directly or indirectly destroyed, macrophages, and dendritic cells. The infection has symptom diarrhea, has symptom fatigue, has symptom fever, has symptom vaginal yeast infection, has symptom headache, has symptom mouth sores, has symptom muscle aches, has symptom sore throat, and has symptom swollen lymph glands.	http://purl.obolibrary.org/obo/DOID_526
+human immunodeficiency virus vaccine	VO_0000295	A viral vaccine that protects against infection with human immunodeficiency virus that causes AIDS.	http://purl.obolibrary.org/obo/VO_0000295
+inactivated influenza vaccine	VO_0001176	inactivated influenza vaccine is an inactivated viral vaccine that targets at influenza viral infections.	http://purl.obolibrary.org/obo/VO_0001176
+live attenuated influenza vaccine	VO_0001178	live attenuated influenza vaccine is a live attenuated vaccine that protects against influenza viral infection.	http://purl.obolibrary.org/obo/VO_0001178
+SARS-CoV-2 B.1.1.7 variant	UMLS_CUI:C5433393	A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 69, 70 and 144 and amino acid substitutions N501Y, A570D, D614G, P681H, T716I, S982A and D1118H. The substitutions E484K, S494P and K1191N have also been detected in some but not all sequences for this lineage. (NCI). Also known as B.1.1.7, 20I/501Y.V1, VOC - 202012/01, and UK variant (LNC)	https://uts.nlm.nih.gov/uts/umls/concept/C5433393
+SARS-CoV-2 B.1.351 variant	UMLS_CUI:C5433395	A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 241-242 and amino acid substitutions D80A, D215G, K417N, E484K, N501Y, D614G and A701V. (NCI). Also known as B.1.351, 501Y.V2, and South Africa variant (LNC)	https://uts.nlm.nih.gov/uts/umls/concept/C5433395
+SARS-CoV-2 P.1 variant	UMLS_CUI:C5433398	A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: amino acid substitutions L18F, T20N, P26S, D138Y, R190S, K417T, E484K, N501Y, D614G, H655Y, T1027I and V1176F. (NCI). Also known as SARS-CoV-2 Gamma; P.1	https://uts.nlm.nih.gov/uts/umls/concept/C5433398
+SARS-CoV-2 B.1.617.2 lineage	UMLS_CUI:C5548982	Also known as WHO Delta variant (LNC)	https://uts.nlm.nih.gov/uts/umls/concept/C5548982
+SARS Coronavirus 2 BA.1	UMLS_CUI:C5706968	WHO Name: Omicron. A variant lineage of SARS coronavirus 2 where the following variations in the spike glycoprotein sequence have been identified: deletions of the amino acids at positions 69/70, 143/145 and 212 and amino acid substitutions A67V, T95I, G142D, N211I, G339D, S371L, S373P, S375F, S477N, T478K, E484A, Q493R, G496S, Q498R, N501Y, Y505H, T547K, D614G, H655Y, N679K, P681H, N764K, D796Y, N856K, Q954H, N969K and L981F. (NCI).	https://uts.nlm.nih.gov/uts/umls/concept/C5706968

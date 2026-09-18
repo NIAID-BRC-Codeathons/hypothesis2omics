@@ -1,0 +1,600 @@
+FILE_INFO_ID	DETAIL	FILESIZE_BYTES	NAME	ORIGINAL_FILE_NAME	WORKSPACE_ID
+570866	Flow cytometry result	26658315	002_V1_051612_B cell.570866.fcs	002_V1_051612_B cell.fcs	2799
+570867	Flow cytometry compensation or control	1051230	CST_051612_LOT#18360.570867.fcs	CST_051612_LOT#18360.fcs	2799
+570868	Flow cytometry compensation or control	303069	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_Unstained Control.570868.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_Unstained Control.fcs	2799
+570869	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_IgD FITC Stained Control.570869.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_IgD FITC Stained Control.fcs	2799
+570870	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD14 PE Stained Control.570870.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD14 PE Stained Control.fcs	2799
+570871	Flow cytometry compensation or control	303094	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD19 ECD Stained Control.570871.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+570872	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD20 PE-Cy5 Stained Control.570872.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+570873	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD40 PE-Cy5 Stained Control.570873.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+570874	Flow cytometry compensation or control	303104	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CXCR3 PE-Cy5 Stained Control.570874.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+570875	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD38 PE-Cy7 Stained Control.570875.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+570876	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD1c PE-Cy7 Stained Control.570876.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+570877	Flow cytometry compensation or control	303091	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD8 APC Stained Control.570877.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD8 APC Stained Control.fcs	2799
+570878	Flow cytometry compensation or control	303116	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.570878.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+570879	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD27 APC-H7 Stained Control.570879.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+570880	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD16 APC-H7 Stained Control.570880.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+570881	Flow cytometry compensation or control	303103	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD11c APC-H7 Stained Control.570881.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+570882	Flow cytometry compensation or control	303097	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD4 APC-H7 Stained Control.570882.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+570883	Flow cytometry compensation or control	303112	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD86 Pacific Blue Stained Control.570883.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+570884	Flow cytometry compensation or control	303112	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_PD-1 Pacific Blue Stained Control.570884.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+570885	Flow cytometry compensation or control	303114	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD3 Pacific Orange Stained Control.570885.fcs	ExVivo_PBMC_Phenotyping_PT2--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+570886	Flow cytometry result	53265738	002_V1_051612_Mono.570886.fcs	002_V1_051612_Mono.fcs	2799
+570887	Flow cytometry result	54278710	002_V1_051612_DC.570887.fcs	002_V1_051612_DC.fcs	2799
+570888	Flow cytometry result	24920769	002_V1_051612_TFH.570888.fcs	002_V1_051612_TFH.fcs	2799
+570889	Flow cytometry result	16400657	002_V2_051612_Tube_001.570889.fcs	002_V2_051612_Tube_001.fcs	2799
+570890	Flow cytometry result	37196962	002_V2_051612_Tube_002.570890.fcs	002_V2_051612_Tube_002.fcs	2799
+570891	Flow cytometry result	37476676	002_V2_051612_Tube_003.570891.fcs	002_V2_051612_Tube_003.fcs	2799
+570892	Flow cytometry result	10741994	002_V2_051612_Tube_004.570892.fcs	002_V2_051612_Tube_004.fcs	2799
+570893	Flow cytometry result	22345277	002_V3_051612_Tube_001.570893.fcs	002_V3_051612_Tube_001.fcs	2799
+570894	Flow cytometry result	44032462	002_V3_051612_Tube_002.570894.fcs	002_V3_051612_Tube_002.fcs	2799
+570895	Flow cytometry result	42826636	002_V3_051612_Tube_003.570895.fcs	002_V3_051612_Tube_003.fcs	2799
+570896	Flow cytometry result	17285174	002_V3_051612_Tube_004.570896.fcs	002_V3_051612_Tube_004.fcs	2799
+570897	Flow cytometry result	14918897	002_V4_051612_Tube_001.570897.fcs	002_V4_051612_Tube_001.fcs	2799
+570898	Flow cytometry result	34182202	002_V4_051612_Tube_002.570898.fcs	002_V4_051612_Tube_002.fcs	2799
+570899	Flow cytometry result	34313236	002_V4_051612_Tube_003.570899.fcs	002_V4_051612_Tube_003.fcs	2799
+570900	Flow cytometry result	15463214	002_V4_051612_Tube_004.570900.fcs	002_V4_051612_Tube_004.fcs	2799
+570901	Flow cytometry result	20578818	002_V5_051612_Tube_001.570901.fcs	002_V5_051612_Tube_001.fcs	2799
+570902	Flow cytometry result	38087783	002_V5_051612_Tube_002.570902.fcs	002_V5_051612_Tube_002.fcs	2799
+570903	Flow cytometry result	39205337	002_V5_051612_Tube_003.570903.fcs	002_V5_051612_Tube_003.fcs	2799
+570904	Flow cytometry result	12591675	002_V5_051612_Tube_004.570904.fcs	002_V5_051612_Tube_004.fcs	2799
+570905	Flow cytometry result	20528418	002_V6_051612_Tube_001.570905.fcs	002_V6_051612_Tube_001.fcs	2799
+570906	Flow cytometry result	42102983	002_V6_051612_Tube_002.570906.fcs	002_V6_051612_Tube_002.fcs	2799
+570907	Flow cytometry result	46313957	002_V6_051612_Tube_003.570907.fcs	002_V6_051612_Tube_003.fcs	2799
+570908	Flow cytometry result	20188215	002_V6_051612_Tube_004.570908.fcs	002_V6_051612_Tube_004.fcs	2799
+570909	Flow cytometry result	23727558	002_V7_051612_Tube_001.570909.fcs	002_V7_051612_Tube_001.fcs	2799
+570910	Flow cytometry result	47048363	002_V7_051612_Tube_002.570910.fcs	002_V7_051612_Tube_002.fcs	2799
+570911	Flow cytometry result	50379977	002_V7_051612_Tube_003.570911.fcs	002_V7_051612_Tube_003.fcs	2799
+570912	Flow cytometry result	20369655	002_V7_051612_Tube_004.570912.fcs	002_V7_051612_Tube_004.fcs	2799
+570913	Flow cytometry result	27631038	002_V8_051612_Tube_001.570913.fcs	002_V8_051612_Tube_001.fcs	2799
+570914	Flow cytometry result	56859263	002_V8_051612_Tube_002.570914.fcs	002_V8_051612_Tube_002.fcs	2799
+570915	Flow cytometry result	58072577	002_V8_051612_Tube_003.570915.fcs	002_V8_051612_Tube_003.fcs	2799
+570916	Flow cytometry result	25598655	002_V8_051612_Tube_004.570916.fcs	002_V8_051612_Tube_004.fcs	2799
+570917	Flow cytometry result	37159155	004_V1_052212_B cell.570917.fcs	004_V1_052212_B cell.fcs	2799
+570918	Flow cytometry compensation or control	1133431	CST_052212_LOT#18360.570918.fcs	CST_052212_LOT#18360.fcs	2799
+570919	Flow cytometry compensation or control	303069	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_Unstained Control.570919.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_Unstained Control.fcs	2799
+570920	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_IgD FITC Stained Control.570920.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_IgD FITC Stained Control.fcs	2799
+570921	Flow cytometry compensation or control	303091	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD14 PE Stained Control.570921.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD14 PE Stained Control.fcs	2799
+570922	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD19 ECD Stained Control.570922.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+570923	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD20 PE-Cy5 Stained Control.570923.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+570924	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD40 PE-Cy5 Stained Control.570924.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+570925	Flow cytometry compensation or control	303106	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CXCR3 PE-Cy5 Stained Control.570925.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+570926	Flow cytometry compensation or control	303098	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD38 PE-Cy7 Stained Control.570926.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+570927	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD1c PE-Cy7 Stained Control.570927.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+570928	Flow cytometry compensation or control	303091	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD8 APC Stained Control.570928.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD8 APC Stained Control.fcs	2799
+570929	Flow cytometry compensation or control	303114	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.570929.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+570930	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD27 APC-H7 Stained Control.570930.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+570931	Flow cytometry compensation or control	303102	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD16 APC-H7 Stained Control.570931.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+570932	Flow cytometry compensation or control	303103	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD11c APC-H7 Stained Control.570932.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+570933	Flow cytometry compensation or control	303097	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD4 APC-H7 Stained Control.570933.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+570934	Flow cytometry compensation or control	303112	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD86 Pacific Blue Stained Control.570934.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+570935	Flow cytometry compensation or control	303112	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_PD-1 Pacific Blue Stained Control.570935.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+570936	Flow cytometry compensation or control	303113	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD3 Pacific Orange Stained Control.570936.fcs	ExVivo_PBMC_Phenotyping_PT4--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+570937	Flow cytometry result	78809538	004_V1_052212_Mono.570937.fcs	004_V1_052212_Mono.fcs	2799
+570938	Flow cytometry result	92689330	004_V1_052212_DC.570938.fcs	004_V1_052212_DC.fcs	2799
+570939	Flow cytometry result	28799049	004_V1_052212_TFH.570939.fcs	004_V1_052212_TFH.fcs	2799
+570940	Flow cytometry result	47584228	004_V2_052212_Tube_001.570940.fcs	004_V2_052212_Tube_001.fcs	2799
+570941	Flow cytometry result	98490933	004_V2_052212_Tube_002.570941.fcs	004_V2_052212_Tube_002.fcs	2799
+570942	Flow cytometry result	78854776	004_V2_052212_Tube_003.570942.fcs	004_V2_052212_Tube_003.fcs	2799
+570943	Flow cytometry result	50889854	004_V2_052212_Tube_004.570943.fcs	004_V2_052212_Tube_004.fcs	2799
+570944	Flow cytometry result	30830357	004_V3_052212_Tube_001.570944.fcs	004_V3_052212_Tube_001.fcs	2799
+570945	Flow cytometry result	84153382	004_V3_052212_Tube_002.570945.fcs	004_V3_052212_Tube_002.fcs	2799
+570946	Flow cytometry result	82873216	004_V3_052212_Tube_003.570946.fcs	004_V3_052212_Tube_003.fcs	2799
+570947	Flow cytometry result	35142674	004_V3_052212_Tube_004.570947.fcs	004_V3_052212_Tube_004.fcs	2799
+570948	Flow cytometry result	47125577	004_V4_052212_Tube_001.570948.fcs	004_V4_052212_Tube_001.fcs	2799
+570949	Flow cytometry result	64979662	004_V4_052212_Tube_002.570949.fcs	004_V4_052212_Tube_002.fcs	2799
+570950	Flow cytometry result	68877616	004_V4_052212_Tube_003.570950.fcs	004_V4_052212_Tube_003.fcs	2799
+570951	Flow cytometry result	33099494	004_V4_052212_Tube_004.570951.fcs	004_V4_052212_Tube_004.fcs	2799
+570952	Flow cytometry result	27172409	004_V5_052212_Tube_001.570952.fcs	004_V5_052212_Tube_001.fcs	2799
+570953	Flow cytometry result	51741143	004_V5_052212_Tube_002.570953.fcs	004_V5_052212_Tube_002.fcs	2799
+570954	Flow cytometry result	65447777	004_V5_052212_Tube_003.570954.fcs	004_V5_052212_Tube_003.fcs	2799
+570955	Flow cytometry result	27757035	004_V5_052212_Tube_004.570955.fcs	004_V5_052212_Tube_004.fcs	2799
+570956	Flow cytometry result	42032298	004_V6_052212_Tube_001.570956.fcs	004_V6_052212_Tube_001.fcs	2799
+570957	Flow cytometry result	107107523	004_V6_052212_Tube_002.570957.fcs	004_V6_052212_Tube_002.fcs	2799
+570958	Flow cytometry result	106686557	004_V6_052212_Tube_003.570958.fcs	004_V6_052212_Tube_003.fcs	2799
+570959	Flow cytometry result	46993455	004_V6_052212_Tube_004.570959.fcs	004_V6_052212_Tube_004.fcs	2799
+570960	Flow cytometry result	32337078	004_V7_052212_Tube_001.570960.fcs	004_V7_052212_Tube_001.fcs	2799
+570961	Flow cytometry result	83684543	004_V7_052212_Tube_002.570961.fcs	004_V7_052212_Tube_002.fcs	2799
+570962	Flow cytometry result	72193457	004_V7_052212_Tube_003.570962.fcs	004_V7_052212_Tube_003.fcs	2799
+570963	Flow cytometry result	39009315	004_V7_052212_Tube_004.570963.fcs	004_V7_052212_Tube_004.fcs	2799
+570964	Flow cytometry result	74659938	004_V8_052212_Tube_001.570964.fcs	004_V8_052212_Tube_001.fcs	2799
+570965	Flow cytometry result	92402423	004_V8_052212_Tube_002.570965.fcs	004_V8_052212_Tube_002.fcs	2799
+570966	Flow cytometry result	68142257	004_V8_052212_Tube_003.570966.fcs	004_V8_052212_Tube_003.fcs	2799
+570967	Flow cytometry result	44386345	004_V8_052212_Tube_004.570967.fcs	004_V8_052212_Tube_004.fcs	2799
+570968	Flow cytometry result	6804069	009_V1_041712_Tube_001.570968.fcs	009_V1_041712_Tube_001.fcs	2799
+570969	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_Alexa Fluor 700 Stained Control.570969.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_Alexa Fluor 700 Stained Control.fcs	2799
+570970	Flow cytometry compensation or control	302988	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_APC Stained Control.570970.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_APC Stained Control.fcs	2799
+570971	Flow cytometry compensation or control	602986	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_PE Stained Control.570971.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_PE Stained Control.fcs	2799
+570972	Flow cytometry compensation or control	303017	Compensation Controls_CCR7 PE-Cy7 Stained Control.570972.fcs	Compensation Controls_CCR7 PE-Cy7 Stained Control.fcs	2799
+570973	Flow cytometry compensation or control	303020	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD11c APC-H7 Stained Control.570973.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+570974	Flow cytometry compensation or control	303016	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD16 APC-H7 Stained Control.570974.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+570975	Flow cytometry compensation or control	303017	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD1c PE-Cy7 Stained Control.570975.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+570976	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD20 PE-Cy5 Stained Control.570976.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+570977	Flow cytometry compensation or control	303014	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD27 APC-H7 Stained Control.570977.fcs	ExVivo_PBMC_Phenotyping_PT9--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+570978	Flow cytometry result	11389641	009_V1_041712_Tube_002.570978.fcs	009_V1_041712_Tube_002.fcs	2799
+570979	Flow cytometry result	10952676	009_V1_041712_Tube_003.570979.fcs	009_V1_041712_Tube_003.fcs	2799
+570980	Flow cytometry result	12784609	009_V1_041712_Tube_004.570980.fcs	009_V1_041712_Tube_004.fcs	2799
+570981	Flow cytometry result	15190961	009_V2_41712_Tube_001.570981.fcs	009_V2_41712_Tube_001.fcs	2799
+570982	Flow cytometry result	14990989	009_V2_41712_Tube_002.570982.fcs	009_V2_41712_Tube_002.fcs	2799
+570983	Flow cytometry result	32414954	009_V2_41712_Tube_003.570983.fcs	009_V2_41712_Tube_003.fcs	2799
+570984	Flow cytometry result	13819678	009_V2_41712_Tube_004.570984.fcs	009_V2_41712_Tube_004.fcs	2799
+570985	Flow cytometry result	6199536	009_V3_41712_Tube_001.570985.fcs	009_V3_41712_Tube_001.fcs	2799
+570986	Flow cytometry result	10536049	009_V3_41712_Tube_002.570986.fcs	009_V3_41712_Tube_002.fcs	2799
+570987	Flow cytometry result	9891375	009_V3_41712_Tube_003.570987.fcs	009_V3_41712_Tube_003.fcs	2799
+570988	Flow cytometry result	13823102	009_V3_41712_Tube_004.570988.fcs	009_V3_41712_Tube_004.fcs	2799
+570989	Flow cytometry result	9012400	009_V4_41712_Tube_001.570989.fcs	009_V4_41712_Tube_001.fcs	2799
+570990	Flow cytometry result	11850714	009_V4_41712_Tube_002.570990.fcs	009_V4_41712_Tube_002.fcs	2799
+570991	Flow cytometry result	27619574	009_V4_41712_Tube_003.570991.fcs	009_V4_41712_Tube_003.fcs	2799
+570992	Flow cytometry result	12296279	009_V4_41712_Tube_004.570992.fcs	009_V4_41712_Tube_004.fcs	2799
+570993	Flow cytometry result	9340722	009_V5_41712_Tube_001.570993.fcs	009_V5_41712_Tube_001.fcs	2799
+570994	Flow cytometry result	11354394	009_V5_41712_Tube_002.570994.fcs	009_V5_41712_Tube_002.fcs	2799
+570995	Flow cytometry result	10153814	009_V5_41712_Tube_003.570995.fcs	009_V5_41712_Tube_003.fcs	2799
+570996	Flow cytometry result	9310023	009_V5_41712_Tube_004.570996.fcs	009_V5_41712_Tube_004.fcs	2799
+570997	Flow cytometry result	4160680	009_V6_41712_Tube_001.570997.fcs	009_V6_41712_Tube_001.fcs	2799
+570998	Flow cytometry result	8364105	009_V6_41712_Tube_002.570998.fcs	009_V6_41712_Tube_002.fcs	2799
+570999	Flow cytometry result	8038034	009_V6_41712_Tube_003.570999.fcs	009_V6_41712_Tube_003.fcs	2799
+571000	Flow cytometry result	7228623	009_V6_41712_Tube_004.571000.fcs	009_V6_41712_Tube_004.fcs	2799
+571001	Flow cytometry result	2993262	009_V7_41712_Tube_001.571001.fcs	009_V7_41712_Tube_001.fcs	2799
+571002	Flow cytometry result	4313276	009_V7_41712_Tube_002.571002.fcs	009_V7_41712_Tube_002.fcs	2799
+571003	Flow cytometry result	4267518	009_V7_41712_Tube_003.571003.fcs	009_V7_41712_Tube_003.fcs	2799
+571004	Flow cytometry result	4419833	009_V7_41712_Tube_004.571004.fcs	009_V7_41712_Tube_004.fcs	2799
+571005	Flow cytometry result	17639258	009_V8_41712_Tube_001.571005.fcs	009_V8_41712_Tube_001.fcs	2799
+571006	Flow cytometry result	5015335	009_V8_41712_Tube_002.571006.fcs	009_V8_41712_Tube_002.fcs	2799
+571007	Flow cytometry result	12186435	009_V8_41712_Tube_003.571007.fcs	009_V8_41712_Tube_003.fcs	2799
+571008	Flow cytometry result	12457082	009_V8_41712_Tube_004.571008.fcs	009_V8_41712_Tube_004.fcs	2799
+571009	Flow cytometry result	17497398	012_V1_041812_Tube_001.571009.fcs	012_V1_041812_Tube_001.fcs	2799
+571010	Flow cytometry compensation or control	302988	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Alexa Fluor 700 Stained Control.571010.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Alexa Fluor 700 Stained Control.fcs	2799
+571011	Flow cytometry compensation or control	302966	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_APC Stained Control.571011.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_APC Stained Control.fcs	2799
+571012	Flow cytometry compensation or control	602962	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_PE Stained Control.571012.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_PE Stained Control.fcs	2799
+571013	Flow cytometry compensation or control	302994	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD11c APC-H7 Stained Control.571013.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571014	Flow cytometry compensation or control	302992	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD16 APC-H7 Stained Control.571014.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571015	Flow cytometry compensation or control	302989	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD1c PE-Cy7 Stained Control.571015.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571016	Flow cytometry compensation or control	302990	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD20 PE-Cy5 Stained Control.571016.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571017	Flow cytometry compensation or control	302990	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD27 APC-H7 Stained Control.571017.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571018	Flow cytometry compensation or control	302991	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD38 PE-Cy7 Stained Control.571018.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571019	Flow cytometry compensation or control	302988	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD4 APC-H7 Stained Control.571019.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571020	Flow cytometry compensation or control	302990	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD40 PE-Cy5 Stained Control.571020.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571021	Flow cytometry compensation or control	303002	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CXC3CR1 PE-Cy5 Stained Control.571021.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_CXC3CR1 PE-Cy5 Stained Control.fcs	2799
+571022	Flow cytometry compensation or control	602964	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_ECD Stained Control.571022.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_ECD Stained Control.fcs	2799
+571023	Flow cytometry compensation or control	634733	CST_041812_Tube_001.571023.fcs	CST_041812_Tube_001.fcs	2799
+571024	Flow cytometry compensation or control	302966	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_FITC Stained Control.571024.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_FITC Stained Control.fcs	2799
+571025	Flow cytometry compensation or control	302982	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Pacific Blue Stained Control.571025.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Pacific Blue Stained Control.fcs	2799
+571026	Flow cytometry compensation or control	302986	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Pacific Orange Stained Control.571026.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Pacific Orange Stained Control.fcs	2799
+571027	Flow cytometry compensation or control	302960	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Unstained Control.571027.fcs	ExVivo_PBMC_Phenotyping_PT12--Compensation Controls_Unstained Control.fcs	2799
+571028	Flow cytometry result	19356363	012_V1_041812_Tube_002.571028.fcs	012_V1_041812_Tube_002.fcs	2799
+571029	Flow cytometry result	26803760	012_V1_041812_Tube_003.571029.fcs	012_V1_041812_Tube_003.fcs	2799
+571030	Flow cytometry result	18401608	012_V1_041812_Tube_004.571030.fcs	012_V1_041812_Tube_004.fcs	2799
+571031	Flow cytometry result	22396217	012_V2_41812_Tube_001.571031.fcs	012_V2_41812_Tube_001.fcs	2799
+571032	Flow cytometry result	25958704	012_V2_41812_Tube_002.571032.fcs	012_V2_41812_Tube_002.fcs	2799
+571033	Flow cytometry result	33434421	012_V2_41812_Tube_003.571033.fcs	012_V2_41812_Tube_003.fcs	2799
+571034	Flow cytometry result	26721870	012_V2_41812_Tube_004.571034.fcs	012_V2_41812_Tube_004.fcs	2799
+571035	Flow cytometry result	13172719	012_V3_41812_Tube_001.571035.fcs	012_V3_41812_Tube_001.fcs	2799
+571036	Flow cytometry result	36036906	012_V3_41812_Tube_002.571036.fcs	012_V3_41812_Tube_002.fcs	2799
+571037	Flow cytometry result	57061879	012_V3_41812_Tube_003.571037.fcs	012_V3_41812_Tube_003.fcs	2799
+571038	Flow cytometry result	29885366	012_V3_41812_Tube_004.571038.fcs	012_V3_41812_Tube_004.fcs	2799
+571039	Flow cytometry result	18833356	012_V4_41812_Tube_001.571039.fcs	012_V4_41812_Tube_001.fcs	2799
+571040	Flow cytometry result	22553645	012_V4_41812_Tube_002.571040.fcs	012_V4_41812_Tube_002.fcs	2799
+571041	Flow cytometry result	19730840	012_V4_41812_Tube_003.571041.fcs	012_V4_41812_Tube_003.fcs	2799
+571042	Flow cytometry result	17884708	012_V4_41812_Tube_004.571042.fcs	012_V4_41812_Tube_004.fcs	2799
+571043	Flow cytometry result	17845036	012_V5_41812_Tube_001.571043.fcs	012_V5_41812_Tube_001.fcs	2799
+571044	Flow cytometry result	24168426	012_V5_41812_Tube_002.571044.fcs	012_V5_41812_Tube_002.fcs	2799
+571045	Flow cytometry result	41418921	012_V5_41812_Tube_003.571045.fcs	012_V5_41812_Tube_003.fcs	2799
+571046	Flow cytometry result	17826327	012_V5_41812_Tube_004.571046.fcs	012_V5_41812_Tube_004.fcs	2799
+571047	Flow cytometry result	15410116	012_V6_41812_Tube_001.571047.fcs	012_V6_41812_Tube_001.fcs	2799
+571048	Flow cytometry result	17773803	012_V6_41812_Tube_002.571048.fcs	012_V6_41812_Tube_002.fcs	2799
+571049	Flow cytometry result	35053521	012_V6_41812_Tube_003.571049.fcs	012_V6_41812_Tube_003.fcs	2799
+571050	Flow cytometry result	14929469	012_V6_41812_Tube_004.571050.fcs	012_V6_41812_Tube_004.fcs	2799
+571051	Flow cytometry result	17242577	012_V7_41812_Tube_001.571051.fcs	012_V7_41812_Tube_001.fcs	2799
+571052	Flow cytometry result	17498945	012_V7_41812_Tube_002.571052.fcs	012_V7_41812_Tube_002.fcs	2799
+571053	Flow cytometry result	33902961	012_V7_41812_Tube_003.571053.fcs	012_V7_41812_Tube_003.fcs	2799
+571054	Flow cytometry result	17024248	012_V7_41812_Tube_004.571054.fcs	012_V7_41812_Tube_004.fcs	2799
+571055	Flow cytometry result	15000259	012_V8_41812_Tube_001.571055.fcs	012_V8_41812_Tube_001.fcs	2799
+571056	Flow cytometry result	13401603	012_V8_41812_Tube_002.571056.fcs	012_V8_41812_Tube_002.fcs	2799
+571057	Flow cytometry result	34038139	012_V8_41812_Tube_003.571057.fcs	012_V8_41812_Tube_003.fcs	2799
+571058	Flow cytometry result	16089809	012_V8_41812_Tube_004.571058.fcs	012_V8_41812_Tube_004.fcs	2799
+571059	Flow cytometry result	17327906	013_V1_051812_B cell.571059.fcs	013_V1_051812_B cell.fcs	2799
+571060	Flow cytometry compensation or control	1229190	CST_051812_LOT#18360.571060.fcs	CST_051812_LOT#18360.fcs	2799
+571061	Flow cytometry compensation or control	303071	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_Unstained Control.571061.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_Unstained Control.fcs	2799
+571062	Flow cytometry compensation or control	303093	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_IgD FITC Stained Control.571062.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_IgD FITC Stained Control.fcs	2799
+571063	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD14 PE Stained Control.571063.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD14 PE Stained Control.fcs	2799
+571064	Flow cytometry compensation or control	303094	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD19 ECD Stained Control.571064.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+571065	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD20 PE-Cy5 Stained Control.571065.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571066	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD40 PE-Cy5 Stained Control.571066.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571067	Flow cytometry compensation or control	303107	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CXCR3 PE-Cy5 Stained Control.571067.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+571068	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD38 PE-Cy7 Stained Control.571068.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571069	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD1c PE-Cy7 Stained Control.571069.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571070	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD8 APC Stained Control.571070.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD8 APC Stained Control.fcs	2799
+571071	Flow cytometry compensation or control	303116	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.571071.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+571072	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD27 APC-H7 Stained Control.571072.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571073	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD16 APC-H7 Stained Control.571073.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571074	Flow cytometry compensation or control	303104	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD11c APC-H7 Stained Control.571074.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571075	Flow cytometry compensation or control	303093	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD4 APC-H7 Stained Control.571075.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571076	Flow cytometry compensation or control	303113	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD86 Pacific Blue Stained Control.571076.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+571077	Flow cytometry compensation or control	303113	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_PD-1 Pacific Blue Stained Control.571077.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+571078	Flow cytometry compensation or control	303114	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD3 Pacific Orange Stained Control.571078.fcs	ExVivo_PBMC_Phenotyping_PT13--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+571079	Flow cytometry result	30982650	013_V1_051812_Mono.571079.fcs	013_V1_051812_Mono.fcs	2799
+571080	Flow cytometry result	33891922	013_V1_051812_DC.571080.fcs	013_V1_051812_DC.fcs	2799
+571081	Flow cytometry result	20741360	013_V1_051812_TFH.571081.fcs	013_V1_051812_TFH.fcs	2799
+571082	Flow cytometry result	22059148	013_V2_051812_Tube_001.571082.fcs	013_V2_051812_Tube_001.fcs	2799
+571083	Flow cytometry result	53954913	013_V2_051812_Tube_002.571083.fcs	013_V2_051812_Tube_002.fcs	2799
+571084	Flow cytometry result	54429869	013_V2_051812_Tube_003.571084.fcs	013_V2_051812_Tube_003.fcs	2799
+571085	Flow cytometry result	27589465	013_V2_051812_Tube_004.571085.fcs	013_V2_051812_Tube_004.fcs	2799
+571086	Flow cytometry result	32752948	013_V3_051812_Tube_001.571086.fcs	013_V3_051812_Tube_001.fcs	2799
+571087	Flow cytometry result	76117112	013_V3_051812_Tube_002.571087.fcs	013_V3_051812_Tube_002.fcs	2799
+571088	Flow cytometry result	69625829	013_V3_051812_Tube_003.571088.fcs	013_V3_051812_Tube_003.fcs	2799
+571089	Flow cytometry result	24813624	013_V3_051812_Tube_004.571089.fcs	013_V3_051812_Tube_004.fcs	2799
+571090	Flow cytometry result	18846328	013_V4_051812_Tube_001.571090.fcs	013_V4_051812_Tube_001.fcs	2799
+571091	Flow cytometry result	41632054	013_V4_051812_Tube_002.571091.fcs	013_V4_051812_Tube_002.fcs	2799
+571092	Flow cytometry result	39931527	013_V4_051812_Tube_003.571092.fcs	013_V4_051812_Tube_003.fcs	2799
+571093	Flow cytometry result	14624065	013_V4_051812_Tube_004.571093.fcs	013_V4_051812_Tube_004.fcs	2799
+571094	Flow cytometry result	21653608	013_V5_051812_Tube_001.571094.fcs	013_V5_051812_Tube_001.fcs	2799
+571095	Flow cytometry result	51539434	013_V5_051812_Tube_002.571095.fcs	013_V5_051812_Tube_002.fcs	2799
+571096	Flow cytometry result	37486350	013_V5_051812_Tube_003.571096.fcs	013_V5_051812_Tube_003.fcs	2799
+571097	Flow cytometry result	24448767	013_V5_051812_Tube_004.571097.fcs	013_V5_051812_Tube_004.fcs	2799
+571098	Flow cytometry result	14417428	013_V6_051812_Tube_001.571098.fcs	013_V6_051812_Tube_001.fcs	2799
+571099	Flow cytometry result	34937495	013_V6_051812_Tube_002.571099.fcs	013_V6_051812_Tube_002.fcs	2799
+571100	Flow cytometry result	26043450	013_V6_051812_Tube_003.571100.fcs	013_V6_051812_Tube_003.fcs	2799
+571101	Flow cytometry result	18171803	013_V6_051812_Tube_004.571101.fcs	013_V6_051812_Tube_004.fcs	2799
+571102	Flow cytometry result	17806829	013_V7_051812_Tube_001.571102.fcs	013_V7_051812_Tube_001.fcs	2799
+571103	Flow cytometry result	41541394	013_V7_051812_Tube_002.571103.fcs	013_V7_051812_Tube_002.fcs	2799
+571104	Flow cytometry result	36236731	013_V7_051812_Tube_003.571104.fcs	013_V7_051812_Tube_003.fcs	2799
+571105	Flow cytometry result	23893886	013_V7_051812_Tube_004.571105.fcs	013_V7_051812_Tube_004.fcs	2799
+571106	Flow cytometry result	27365189	013_V8_051812_Tube_001.571106.fcs	013_V8_051812_Tube_001.fcs	2799
+571107	Flow cytometry result	64094734	013_V8_051812_Tube_002.571107.fcs	013_V8_051812_Tube_002.fcs	2799
+571108	Flow cytometry result	57025587	013_V8_051812_Tube_003.571108.fcs	013_V8_051812_Tube_003.fcs	2799
+571109	Flow cytometry result	25720886	013_V8_051812_Tube_004.571109.fcs	013_V8_051812_Tube_004.fcs	2799
+571110	Flow cytometry result	23033175	031_V1_051712_B cell.571110.fcs	031_V1_051712_B cell.fcs	2799
+571111	Flow cytometry compensation or control	15778111	CST_051712_LOT#18360.571111.fcs	CST_051712_LOT#18360.fcs	2799
+571112	Flow cytometry compensation or control	364990	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_Unstained Control.571112.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_Unstained Control.fcs	2799
+571113	Flow cytometry compensation or control	377193	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_IgD FITC Stained Control.571113.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_IgD FITC Stained Control.fcs	2799
+571114	Flow cytometry compensation or control	359192	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD14 PE Stained Control.571114.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD14 PE Stained Control.fcs	2799
+571115	Flow cytometry compensation or control	358654	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD19 ECD Stained Control.571115.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+571116	Flow cytometry compensation or control	356320	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD20 PE-Cy5 Stained Control.571116.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571117	Flow cytometry compensation or control	355300	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD40 PE-Cy5 Stained Control.571117.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571118	Flow cytometry compensation or control	358185	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CXCR3 PE-Cy5 Stained Control.571118.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+571119	Flow cytometry compensation or control	354460	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD38 PE-Cy7 Stained Control.571119.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571120	Flow cytometry compensation or control	358060	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD1c PE-Cy7 Stained Control.571120.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571121	Flow cytometry compensation or control	354993	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD8 APC Stained Control.571121.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD8 APC Stained Control.fcs	2799
+571122	Flow cytometry compensation or control	353696	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.571122.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+571123	Flow cytometry compensation or control	365621	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD27 APC-H7 Stained Control.571123.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571124	Flow cytometry compensation or control	359740	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD16 APC-H7 Stained Control.571124.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571125	Flow cytometry compensation or control	370184	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD11c APC-H7 Stained Control.571125.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571126	Flow cytometry compensation or control	362138	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD4 APC-H7 Stained Control.571126.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571127	Flow cytometry compensation or control	355972	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD86 Pacific Blue Stained Control.571127.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+571128	Flow cytometry compensation or control	353153	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_PD-1 Pacific Blue Stained Control.571128.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+571129	Flow cytometry compensation or control	363115	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD3 Pacific Orange Stained Control.571129.fcs	ExVivo_PBMC_Phenotyping_PT31--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+571130	Flow cytometry result	52874898	031_V1_051712_Mono.571130.fcs	031_V1_051712_Mono.fcs	2799
+571131	Flow cytometry result	53916610	031_V1_051712_DC.571131.fcs	031_V1_051712_DC.fcs	2799
+571132	Flow cytometry result	24983469	031_V1_051712_TFH.571132.fcs	031_V1_051712_TFH.fcs	2799
+571133	Flow cytometry result	38417897	031_V2_051712_Tube_001.571133.fcs	031_V2_051712_Tube_001.fcs	2799
+571134	Flow cytometry result	66906502	031_V2_051712_Tube_002.571134.fcs	031_V2_051712_Tube_002.fcs	2799
+571135	Flow cytometry result	75112876	031_V2_051712_Tube_003.571135.fcs	031_V2_051712_Tube_003.fcs	2799
+571136	Flow cytometry result	49828334	031_V2_051712_Tube_004.571136.fcs	031_V2_051712_Tube_004.fcs	2799
+571137	Flow cytometry result	34669397	031_V3_051712_Tube_001.571137.fcs	031_V3_051712_Tube_001.fcs	2799
+571138	Flow cytometry result	82263382	031_V3_051712_Tube_002.571138.fcs	031_V3_051712_Tube_002.fcs	2799
+571139	Flow cytometry result	82377976	031_V3_051712_Tube_003.571139.fcs	031_V3_051712_Tube_003.fcs	2799
+571140	Flow cytometry result	36595334	031_V3_051712_Tube_004.571140.fcs	031_V3_051712_Tube_004.fcs	2799
+571141	Flow cytometry result	38932937	031_V4_051712_Tube_001.571141.fcs	031_V4_051712_Tube_001.fcs	2799
+571142	Flow cytometry result	72760102	031_V4_051712_Tube_002.571142.fcs	031_V4_051712_Tube_002.fcs	2799
+571143	Flow cytometry result	85772716	031_V4_051712_Tube_003.571143.fcs	031_V4_051712_Tube_003.fcs	2799
+571144	Flow cytometry result	44694554	031_V4_051712_Tube_004.571144.fcs	031_V4_051712_Tube_004.fcs	2799
+571145	Flow cytometry result	49881378	031_V5_051712_Tube_001.571145.fcs	031_V5_051712_Tube_001.fcs	2799
+571146	Flow cytometry result	46854203	031_V5_051712_Tube_002.571146.fcs	031_V5_051712_Tube_002.fcs	2799
+571147	Flow cytometry result	101869457	031_V5_051712_Tube_003.571147.fcs	031_V5_051712_Tube_003.fcs	2799
+571148	Flow cytometry result	36634995	031_V5_051712_Tube_004.571148.fcs	031_V5_051712_Tube_004.fcs	2799
+571149	Flow cytometry result	36375498	031_V6_051712_Tube_001.571149.fcs	031_V6_051712_Tube_001.fcs	2799
+571150	Flow cytometry result	75786803	031_V6_051712_Tube_002.571150.fcs	031_V6_051712_Tube_002.fcs	2799
+571151	Flow cytometry result	78695837	031_V6_051712_Tube_003.571151.fcs	031_V6_051712_Tube_003.fcs	2799
+571152	Flow cytometry result	43522095	031_V6_051712_Tube_004.571152.fcs	031_V6_051712_Tube_004.fcs	2799
+571153	Flow cytometry result	43713438	031_V7_051712_Tube_001.571153.fcs	031_V7_051712_Tube_001.fcs	2799
+571154	Flow cytometry result	100179443	031_V7_051712_Tube_002.571154.fcs	031_V7_051712_Tube_002.fcs	2799
+571155	Flow cytometry result	107607917	031_V7_051712_Tube_003.571155.fcs	031_V7_051712_Tube_003.fcs	2799
+571156	Flow cytometry result	45152655	031_V7_051712_Tube_004.571156.fcs	031_V7_051712_Tube_004.fcs	2799
+571157	Flow cytometry result	46413558	031_V8_051712_Tube_001.571157.fcs	031_V8_051712_Tube_001.fcs	2799
+571158	Flow cytometry result	142788623	031_V8_051712_Tube_002.571158.fcs	031_V8_051712_Tube_002.fcs	2799
+571159	Flow cytometry result	111101717	031_V8_051712_Tube_003.571159.fcs	031_V8_051712_Tube_003.fcs	2799
+571160	Flow cytometry result	48178815	031_V8_051712_Tube_004.571160.fcs	031_V8_051712_Tube_004.fcs	2799
+571161	Flow cytometry result	22069360	034_V1_041912_Tube_001.571161.fcs	034_V1_041912_Tube_001.fcs	2799
+571162	Flow cytometry compensation or control	303013	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Alexa Fluor 700 Stained Control.571162.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Alexa Fluor 700 Stained Control.fcs	2799
+571163	Flow cytometry compensation or control	302989	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_APC Stained Control.571163.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_APC Stained Control.fcs	2799
+571164	Flow cytometry compensation or control	302987	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_PE Stained Control.571164.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_PE Stained Control.fcs	2799
+571165	Flow cytometry compensation or control	303019	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD11c APC-H7 Stained Control.571165.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571166	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD16 APC-H7 Stained Control.571166.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571167	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD1c PE-Cy7 Stained Control.571167.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571168	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD20 PE-Cy5 Stained Control.571168.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571169	Flow cytometry compensation or control	303016	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD27 APC-H7 Stained Control.571169.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571170	Flow cytometry compensation or control	303016	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD38 PE-Cy7 Stained Control.571170.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571171	Flow cytometry compensation or control	303013	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD4 APC-H7 Stained Control.571171.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571172	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD40 PE-Cy5 Stained Control.571172.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571173	Flow cytometry compensation or control	303024	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CXC3CR1 PE-Cy5 Stained Control.571173.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_CXC3CR1 PE-Cy5 Stained Control.fcs	2799
+571174	Flow cytometry compensation or control	302989	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_ECD Stained Control.571174.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_ECD Stained Control.fcs	2799
+571175	Flow cytometry compensation or control	671595	CST_041912_Tube_001.571175.fcs	CST_041912_Tube_001.fcs	2799
+571176	Flow cytometry compensation or control	302991	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_FITC Stained Control.571176.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_FITC Stained Control.fcs	2799
+571177	Flow cytometry compensation or control	303007	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Pacific Blue Stained Control.571177.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Pacific Blue Stained Control.fcs	2799
+571178	Flow cytometry compensation or control	303012	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Pacific Orange Stained Control.571178.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Pacific Orange Stained Control.fcs	2799
+571179	Flow cytometry compensation or control	302986	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Unstained Control.571179.fcs	ExVivo_PBMC_Phenotyping_PT34--Compensation Controls_Unstained Control.fcs	2799
+571180	Flow cytometry result	22784340	034_V1_041912_Tube_002.571180.fcs	034_V1_041912_Tube_002.fcs	2799
+571181	Flow cytometry result	33226294	034_V1_041912_Tube_003.571181.fcs	034_V1_041912_Tube_003.fcs	2799
+571182	Flow cytometry result	25452595	034_V1_041912_Tube_004.571182.fcs	034_V1_041912_Tube_004.fcs	2799
+571183	Flow cytometry result	12532118	034_V2_41912_Tube_001.571183.fcs	034_V2_41912_Tube_001.fcs	2799
+571184	Flow cytometry result	15486956	034_V2_41912_Tube_002.571184.fcs	034_V2_41912_Tube_002.fcs	2799
+571185	Flow cytometry result	26639256	034_V2_41912_Tube_003.571185.fcs	034_V2_41912_Tube_003.fcs	2799
+571186	Flow cytometry result	15351236	034_V2_41912_Tube_004.571186.fcs	034_V2_41912_Tube_004.fcs	2799
+571187	Flow cytometry result	17336561	034_V3_41912_Tube_001.571187.fcs	034_V3_41912_Tube_001.fcs	2799
+571188	Flow cytometry result	23066579	034_V3_41912_Tube_002.571188.fcs	034_V3_41912_Tube_002.fcs	2799
+571189	Flow cytometry result	44355212	034_V3_41912_Tube_003.571189.fcs	034_V3_41912_Tube_003.fcs	2799
+571190	Flow cytometry result	22145156	034_V3_41912_Tube_004.571190.fcs	034_V3_41912_Tube_004.fcs	2799
+571191	Flow cytometry result	19767039	034_V4_41912_Tube_001.571191.fcs	034_V4_41912_Tube_001.fcs	2799
+571192	Flow cytometry result	19460399	034_V4_41912_Tube_002.571192.fcs	034_V4_41912_Tube_002.fcs	2799
+571193	Flow cytometry result	38404236	034_V4_41912_Tube_003.571193.fcs	034_V4_41912_Tube_003.fcs	2799
+571194	Flow cytometry result	20684636	034_V4_41912_Tube_004.571194.fcs	034_V4_41912_Tube_004.fcs	2799
+571195	Flow cytometry result	23311600	034_V5_41912_Tube_001.571195.fcs	034_V5_41912_Tube_001.fcs	2799
+571196	Flow cytometry result	22098720	034_V5_41912_Tube_002.571196.fcs	034_V5_41912_Tube_002.fcs	2799
+571197	Flow cytometry result	51942575	034_V5_41912_Tube_003.571197.fcs	034_V5_41912_Tube_003.fcs	2799
+571198	Flow cytometry result	26574357	034_V5_41912_Tube_004.571198.fcs	034_V5_41912_Tube_004.fcs	2799
+571199	Flow cytometry result	21139418	034_V6_41912_Tube_001.571199.fcs	034_V6_41912_Tube_001.fcs	2799
+571200	Flow cytometry result	17171279	034_V6_41912_Tube_002.571200.fcs	034_V6_41912_Tube_002.fcs	2799
+571201	Flow cytometry result	36716255	034_V6_41912_Tube_003.571201.fcs	034_V6_41912_Tube_003.fcs	2799
+571202	Flow cytometry result	20762937	034_V6_41912_Tube_004.571202.fcs	034_V6_41912_Tube_004.fcs	2799
+571203	Flow cytometry result	19881400	034_V7_41912_Tube_001.571203.fcs	034_V7_41912_Tube_001.fcs	2799
+571204	Flow cytometry result	17743798	034_V7_41912_Tube_002.571204.fcs	034_V7_41912_Tube_002.fcs	2799
+571205	Flow cytometry result	44787693	034_V7_41912_Tube_003.571205.fcs	034_V7_41912_Tube_003.fcs	2799
+571206	Flow cytometry result	21241617	034_V7_41912_Tube_004.571206.fcs	034_V7_41912_Tube_004.fcs	2799
+571207	Flow cytometry result	21555877	034_V8_41912_Tube_001.571207.fcs	034_V8_41912_Tube_001.fcs	2799
+571208	Flow cytometry result	18928980	034_V8_41912_Tube_002.571208.fcs	034_V8_41912_Tube_002.fcs	2799
+571209	Flow cytometry result	31929578	034_V8_41912_Tube_003.571209.fcs	034_V8_41912_Tube_003.fcs	2799
+571210	Flow cytometry result	22320237	034_V8_41912_Tube_004.571210.fcs	034_V8_41912_Tube_004.fcs	2799
+571211	Flow cytometry result	7905364	039_V1_042012_Tube_001.571211.fcs	039_V1_042012_Tube_001.fcs	2799
+571212	Flow cytometry compensation or control	303013	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Alexa Fluor 700 Stained Control.571212.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Alexa Fluor 700 Stained Control.fcs	2799
+571213	Flow cytometry compensation or control	302989	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_APC Stained Control.571213.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_APC Stained Control.fcs	2799
+571214	Flow cytometry compensation or control	302987	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_PE Stained Control.571214.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_PE Stained Control.fcs	2799
+571215	Flow cytometry compensation or control	303022	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD11c APC-H7 Stained Control.571215.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571216	Flow cytometry compensation or control	303017	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD16 APC-H7 Stained Control.571216.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571217	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD1c PE-Cy7 Stained Control.571217.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571218	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD20 PE-Cy5 Stained Control.571218.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571219	Flow cytometry compensation or control	303016	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD27 APC-H7 Stained Control.571219.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571220	Flow cytometry compensation or control	303015	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD38 PE-Cy7 Stained Control.571220.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571221	Flow cytometry compensation or control	303013	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD4 APC-H7 Stained Control.571221.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571222	Flow cytometry compensation or control	303014	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD40 PE-Cy5 Stained Control.571222.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571223	Flow cytometry compensation or control	303025	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CXC3CR1 PE-Cy5 Stained Control.571223.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_CXC3CR1 PE-Cy5 Stained Control.fcs	2799
+571224	Flow cytometry compensation or control	302988	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_ECD Stained Control.571224.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_ECD Stained Control.fcs	2799
+571225	Flow cytometry compensation or control	1173120	CST_042012_Tube_001.571225.fcs	CST_042012_Tube_001.fcs	2799
+571226	Flow cytometry compensation or control	302991	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_FITC Stained Control.571226.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_FITC Stained Control.fcs	2799
+571227	Flow cytometry compensation or control	303006	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Pacific Blue Stained Control.571227.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Pacific Blue Stained Control.fcs	2799
+571228	Flow cytometry compensation or control	303011	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Pacific Orange Stained Control.571228.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Pacific Orange Stained Control.fcs	2799
+571229	Flow cytometry compensation or control	302989	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Unstained Control.571229.fcs	ExVivo_PBMC_Phenotyping_PT39--Compensation Controls_Unstained Control.fcs	2799
+571230	Flow cytometry result	9357639	039_V1_042012_Tube_002.571230.fcs	039_V1_042012_Tube_002.fcs	2799
+571231	Flow cytometry result	16069611	039_V1_042012_Tube_003.571231.fcs	039_V1_042012_Tube_003.fcs	2799
+571232	Flow cytometry result	8723940	039_V1_042012_Tube_004.571232.fcs	039_V1_042012_Tube_004.fcs	2799
+571233	Flow cytometry result	11211897	039_V2_42012_Tube_001.571233.fcs	039_V2_42012_Tube_001.fcs	2799
+571234	Flow cytometry result	13606240	039_V2_42012_Tube_002.571234.fcs	039_V2_42012_Tube_002.fcs	2799
+571235	Flow cytometry result	24526010	039_V2_42012_Tube_003.571235.fcs	039_V2_42012_Tube_003.fcs	2799
+571236	Flow cytometry result	13651016	039_V2_42012_Tube_004.571236.fcs	039_V2_42012_Tube_004.fcs	2799
+571237	Flow cytometry result	12089103	039_V3_42012_Tube_001.571237.fcs	039_V3_42012_Tube_001.fcs	2799
+571238	Flow cytometry result	12516639	039_V3_42012_Tube_002.571238.fcs	039_V3_42012_Tube_002.fcs	2799
+571239	Flow cytometry result	15999950	039_V3_42012_Tube_003.571239.fcs	039_V3_42012_Tube_003.fcs	2799
+571240	Flow cytometry result	11643720	039_V3_42012_Tube_004.571240.fcs	039_V3_42012_Tube_004.fcs	2799
+571241	Flow cytometry result	12310862	039_V4_42012_Tube_001.571241.fcs	039_V4_42012_Tube_001.fcs	2799
+571242	Flow cytometry result	18012581	039_V4_42012_Tube_002.571242.fcs	039_V4_42012_Tube_002.fcs	2799
+571243	Flow cytometry result	22791292	039_V4_42012_Tube_003.571243.fcs	039_V4_42012_Tube_003.fcs	2799
+571244	Flow cytometry result	14606169	039_V4_42012_Tube_004.571244.fcs	039_V4_42012_Tube_004.fcs	2799
+571245	Flow cytometry result	11762643	039_V5_42012_Tube_001.571245.fcs	039_V5_42012_Tube_001.fcs	2799
+571246	Flow cytometry result	15251981	039_V5_42012_Tube_002.571246.fcs	039_V5_42012_Tube_002.fcs	2799
+571247	Flow cytometry result	10676629	039_V5_42012_Tube_003.571247.fcs	039_V5_42012_Tube_003.fcs	2799
+571248	Flow cytometry result	5462585	039_V5_42012_Tube_004.571248.fcs	039_V5_42012_Tube_004.fcs	2799
+571249	Flow cytometry result	7090684	039_V6_42012_Tube_001.571249.fcs	039_V6_42012_Tube_001.fcs	2799
+571250	Flow cytometry result	16046322	039_V6_42012_Tube_002.571250.fcs	039_V6_42012_Tube_002.fcs	2799
+571251	Flow cytometry result	32777510	039_V6_42012_Tube_003.571251.fcs	039_V6_42012_Tube_003.fcs	2799
+571252	Flow cytometry result	14364009	039_V6_42012_Tube_004.571252.fcs	039_V6_42012_Tube_004.fcs	2799
+571253	Flow cytometry result	14386444	039_V7_42012_Tube_001.571253.fcs	039_V7_42012_Tube_001.fcs	2799
+571254	Flow cytometry result	13939658	039_V7_42012_Tube_002.571254.fcs	039_V7_42012_Tube_002.fcs	2799
+571255	Flow cytometry result	31966432	039_V7_42012_Tube_003.571255.fcs	039_V7_42012_Tube_003.fcs	2799
+571256	Flow cytometry result	10681992	039_V7_42012_Tube_004.571256.fcs	039_V7_42012_Tube_004.fcs	2799
+571257	Flow cytometry result	13933200	039_V8_42012_Tube_001.571257.fcs	039_V8_42012_Tube_001.fcs	2799
+571258	Flow cytometry result	14732250	039_V8_42012_Tube_002.571258.fcs	039_V8_42012_Tube_002.fcs	2799
+571259	Flow cytometry result	31190752	039_V8_42012_Tube_003.571259.fcs	039_V8_42012_Tube_003.fcs	2799
+571260	Flow cytometry result	12763085	039_V8_42012_Tube_004.571260.fcs	039_V8_42012_Tube_004.fcs	2799
+571261	Flow cytometry result	17413695	046_V1_052112_B cell.571261.fcs	046_V1_052112_B cell.fcs	2799
+571262	Flow cytometry compensation or control	2104115	CST_052112_LOT#18360.571262.fcs	CST_052112_LOT#18360.fcs	2799
+571263	Flow cytometry compensation or control	361810	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_Unstained Control.571263.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_Unstained Control.fcs	2799
+571264	Flow cytometry compensation or control	362613	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_IgD FITC Stained Control.571264.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_IgD FITC Stained Control.fcs	2799
+571265	Flow cytometry compensation or control	366152	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD14 PE Stained Control.571265.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD14 PE Stained Control.fcs	2799
+571266	Flow cytometry compensation or control	368434	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD19 ECD Stained Control.571266.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+571267	Flow cytometry compensation or control	371440	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD20 PE-Cy5 Stained Control.571267.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571268	Flow cytometry compensation or control	364180	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD40 PE-Cy5 Stained Control.571268.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571269	Flow cytometry compensation or control	372285	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CXCR3 PE-Cy5 Stained Control.571269.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+571270	Flow cytometry compensation or control	356980	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD38 PE-Cy7 Stained Control.571270.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571271	Flow cytometry compensation or control	368620	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD1c PE-Cy7 Stained Control.571271.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571272	Flow cytometry compensation or control	367652	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD8 APC Stained Control.571272.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD8 APC Stained Control.fcs	2799
+571273	Flow cytometry compensation or control	373616	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.571273.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+571274	Flow cytometry compensation or control	376001	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD27 APC-H7 Stained Control.571274.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571275	Flow cytometry compensation or control	372581	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD16 APC-H7 Stained Control.571275.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571276	Flow cytometry compensation or control	376004	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD11c APC-H7 Stained Control.571276.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571277	Flow cytometry compensation or control	372519	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD4 APC-H7 Stained Control.571277.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571278	Flow cytometry compensation or control	362993	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD86 Pacific Blue Stained Control.571278.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+571279	Flow cytometry compensation or control	361733	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_PD-1 Pacific Blue Stained Control.571279.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+571280	Flow cytometry compensation or control	382134	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD3 Pacific Orange Stained Control.571280.fcs	ExVivo_PBMC_Phenotyping_PT46--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+571281	Flow cytometry result	85770378	046_V1_052112_Mono.571281.fcs	046_V1_052112_Mono.fcs	2799
+571282	Flow cytometry result	79414330	046_V1_052112_DC.571282.fcs	046_V1_052112_DC.fcs	2799
+571283	Flow cytometry result	35985309	046_V1_052112_TFH.571283.fcs	046_V1_052112_TFH.fcs	2799
+571284	Flow cytometry result	33071609	046_V2_052112_Tube_001.571284.fcs	046_V2_052112_Tube_001.fcs	2799
+571285	Flow cytometry result	85258233	046_V2_052112_Tube_002.571285.fcs	046_V2_052112_Tube_002.fcs	2799
+571286	Flow cytometry result	77334376	046_V2_052112_Tube_003.571286.fcs	046_V2_052112_Tube_003.fcs	2799
+571287	Flow cytometry result	45438374	046_V2_052112_Tube_004.571287.fcs	046_V2_052112_Tube_004.fcs	2799
+571288	Flow cytometry result	48644777	046_V3_052112_Tube_001.571288.fcs	046_V3_052112_Tube_001.fcs	2799
+571289	Flow cytometry result	140629882	046_V3_052112_Tube_002.571289.fcs	046_V3_052112_Tube_002.fcs	2799
+571290	Flow cytometry result	125465056	046_V3_052112_Tube_003.571290.fcs	046_V3_052112_Tube_003.fcs	2799
+571291	Flow cytometry result	57037454	046_V3_052112_Tube_004.571291.fcs	046_V3_052112_Tube_004.fcs	2799
+571292	Flow cytometry result	51195557	046_V4_052112_Tube_001.571292.fcs	046_V4_052112_Tube_001.fcs	2799
+571293	Flow cytometry result	106235362	046_V4_052112_Tube_002.571293.fcs	046_V4_052112_Tube_002.fcs	2799
+571294	Flow cytometry result	42318856	046_V4_052112_Tube_003.571294.fcs	046_V4_052112_Tube_003.fcs	2799
+571295	Flow cytometry result	99343754	046_V4_052112_Tube_004.571295.fcs	046_V4_052112_Tube_004.fcs	2799
+571296	Flow cytometry result	35906718	046_V5_052112_Tube_001.571296.fcs	046_V5_052112_Tube_001.fcs	2799
+571297	Flow cytometry result	71695283	046_V5_052112_Tube_002.571297.fcs	046_V5_052112_Tube_002.fcs	2799
+571298	Flow cytometry result	66878777	046_V5_052112_Tube_003.571298.fcs	046_V5_052112_Tube_003.fcs	2799
+571299	Flow cytometry result	35407755	046_V5_052112_Tube_004.571299.fcs	046_V5_052112_Tube_004.fcs	2799
+571300	Flow cytometry result	44548038	046_V6_052112_Tube_001.571300.fcs	046_V6_052112_Tube_001.fcs	2799
+571301	Flow cytometry result	92107763	046_V6_052112_Tube_002.571301.fcs	046_V6_052112_Tube_002.fcs	2799
+571302	Flow cytometry result	90633197	046_V6_052112_Tube_003.571302.fcs	046_V6_052112_Tube_003.fcs	2799
+571303	Flow cytometry result	53472255	046_V6_052112_Tube_004.571303.fcs	046_V6_052112_Tube_004.fcs	2799
+571304	Flow cytometry result	41096118	046_V7_052112_Tube_001.571304.fcs	046_V7_052112_Tube_001.fcs	2799
+571305	Flow cytometry result	90727523	046_V7_052112_Tube_002.571305.fcs	046_V7_052112_Tube_002.fcs	2799
+571306	Flow cytometry result	44605757	046_V7_052112_Tube_003.571306.fcs	046_V7_052112_Tube_003.fcs	2799
+571307	Flow cytometry result	42545235	046_V7_052112_Tube_004.571307.fcs	046_V7_052112_Tube_004.fcs	2799
+571308	Flow cytometry result	47003778	046_V8_052112_Tube_001.571308.fcs	046_V8_052112_Tube_001.fcs	2799
+571309	Flow cytometry result	127292183	046_V8_052112_Tube_002.571309.fcs	046_V8_052112_Tube_002.fcs	2799
+571310	Flow cytometry result	99597437	046_V8_052112_Tube_003.571310.fcs	046_V8_052112_Tube_003.fcs	2799
+571311	Flow cytometry result	53030055	046_V8_052112_Tube_004.571311.fcs	046_V8_052112_Tube_004.fcs	2799
+571312	Flow cytometry result	10214065	050_V1_052312_B cell.571312.fcs	050_V1_052312_B cell.fcs	2799
+571313	Flow cytometry compensation or control	1094722	CST_052312_LOT#18360.571313.fcs	CST_052312_LOT#18360.fcs	2799
+571314	Flow cytometry compensation or control	303071	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_Unstained Control.571314.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_Unstained Control.fcs	2799
+571315	Flow cytometry compensation or control	303094	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_IgD FITC Stained Control.571315.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_IgD FITC Stained Control.fcs	2799
+571316	Flow cytometry compensation or control	303091	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD14 PE Stained Control.571316.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD14 PE Stained Control.fcs	2799
+571317	Flow cytometry compensation or control	303096	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD19 ECD Stained Control.571317.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+571318	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD20 PE-Cy5 Stained Control.571318.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571319	Flow cytometry compensation or control	303104	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD40 PE-Cy5 Stained Control.571319.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571320	Flow cytometry compensation or control	303107	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CXCR3 PE-Cy5 Stained Control.571320.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+571321	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD38 PE-Cy7 Stained Control.571321.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571322	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD1c PE-Cy7 Stained Control.571322.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571323	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD8 APC Stained Control.571323.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD8 APC Stained Control.fcs	2799
+571324	Flow cytometry compensation or control	303116	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.571324.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+571325	Flow cytometry compensation or control	303102	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD27 APC-H7 Stained Control.571325.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571326	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD16 APC-H7 Stained Control.571326.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571327	Flow cytometry compensation or control	303106	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD11c APC-H7 Stained Control.571327.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571328	Flow cytometry compensation or control	303098	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD4 APC-H7 Stained Control.571328.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571329	Flow cytometry compensation or control	303113	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD86 Pacific Blue Stained Control.571329.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+571330	Flow cytometry compensation or control	303115	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_PD-1 Pacific Blue Stained Control.571330.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+571331	Flow cytometry compensation or control	303114	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD3 Pacific Orange Stained Control.571331.fcs	ExVivo_PBMC_Phenotyping_PT50--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+571332	Flow cytometry result	17341889	050_V1_052312_Mono.571332.fcs	050_V1_052312_Mono.fcs	2799
+571333	Flow cytometry result	37436361	050_V1_052312_DC.571333.fcs	050_V1_052312_DC.fcs	2799
+571334	Flow cytometry result	20032039	050_V1_052312_TFH.571334.fcs	050_V1_052312_TFH.fcs	2799
+571335	Flow cytometry result	15514827	050_V2_052312_Tube_001.571335.fcs	050_V2_052312_Tube_001.fcs	2799
+571336	Flow cytometry result	31524212	050_V2_052312_Tube_002.571336.fcs	050_V2_052312_Tube_002.fcs	2799
+571337	Flow cytometry result	35447967	050_V2_052312_Tube_003.571337.fcs	050_V2_052312_Tube_003.fcs	2799
+571338	Flow cytometry result	13267824	050_V2_052312_Tube_004.571338.fcs	050_V2_052312_Tube_004.fcs	2799
+571339	Flow cytometry result	17867847	050_V3_052312_Tube_001.571339.fcs	050_V3_052312_Tube_001.fcs	2799
+571340	Flow cytometry result	56399134	050_V3_052312_Tube_002.571340.fcs	050_V3_052312_Tube_002.fcs	2799
+571341	Flow cytometry result	63637827	050_V3_052312_Tube_003.571341.fcs	050_V3_052312_Tube_003.fcs	2799
+571342	Flow cytometry result	32727144	050_V3_052312_Tube_004.571342.fcs	050_V3_052312_Tube_004.fcs	2799
+571343	Flow cytometry result	39022288	050_V4_052312_Tube_001.571343.fcs	050_V4_052312_Tube_001.fcs	2799
+571344	Flow cytometry result	49558831	050_V4_052312_Tube_002.571344.fcs	050_V4_052312_Tube_002.fcs	2799
+571345	Flow cytometry result	54127708	050_V4_052312_Tube_003.571345.fcs	050_V4_052312_Tube_003.fcs	2799
+571346	Flow cytometry result	44839224	050_V4_052312_Tube_004.571346.fcs	050_V4_052312_Tube_004.fcs	2799
+571347	Flow cytometry result	21280588	050_V5_052312_Tube_001.571347.fcs	050_V5_052312_Tube_001.fcs	2799
+571348	Flow cytometry result	47859514	050_V5_052312_Tube_002.571348.fcs	050_V5_052312_Tube_002.fcs	2799
+571349	Flow cytometry result	45809067	050_V5_052312_Tube_003.571349.fcs	050_V5_052312_Tube_003.fcs	2799
+571350	Flow cytometry result	28703904	050_V5_052312_Tube_004.571350.fcs	050_V5_052312_Tube_004.fcs	2799
+571351	Flow cytometry result	29777549	050_V6_052312_Tube_001.571351.fcs	050_V6_052312_Tube_001.fcs	2799
+571352	Flow cytometry result	57671254	050_V6_052312_Tube_002.571352.fcs	050_V6_052312_Tube_002.fcs	2799
+571353	Flow cytometry result	57731189	050_V6_052312_Tube_003.571353.fcs	050_V6_052312_Tube_003.fcs	2799
+571354	Flow cytometry result	45048925	050_V6_052312_Tube_004.571354.fcs	050_V6_052312_Tube_004.fcs	2799
+571355	Flow cytometry result	74997149	050_V7_052312_Tube_001.571355.fcs	050_V7_052312_Tube_001.fcs	2799
+571356	Flow cytometry result	40927474	050_V7_052312_Tube_002.571356.fcs	050_V7_052312_Tube_002.fcs	2799
+571357	Flow cytometry result	63128789	050_V7_052312_Tube_003.571357.fcs	050_V7_052312_Tube_003.fcs	2799
+571358	Flow cytometry result	79385485	050_V7_052312_Tube_004.571358.fcs	050_V7_052312_Tube_004.fcs	2799
+571359	Flow cytometry result	75059125	050_V8_052312_Tube_001.571359.fcs	050_V8_052312_Tube_001.fcs	2799
+571360	Flow cytometry result	75266134	050_V8_052312_Tube_002.571360.fcs	050_V8_052312_Tube_002.fcs	2799
+571361	Flow cytometry result	68869230	050_V8_052312_Tube_003.571361.fcs	050_V8_052312_Tube_003.fcs	2799
+571362	Flow cytometry result	86360723	050_V8_052312_Tube_004.571362.fcs	050_V8_052312_Tube_004.fcs	2799
+571363	Flow cytometry result	75670406	051_V1_052412_B cell.571363.fcs	051_V1_052412_B cell.fcs	2799
+571364	Flow cytometry compensation or control	1239150	CST_052412_LOT#18360.571364.fcs	CST_052412_LOT#18360.fcs	2799
+571365	Flow cytometry compensation or control	303070	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_Unstained Control.571365.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_Unstained Control.fcs	2799
+571366	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_IgD FITC Stained Control.571366.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_IgD FITC Stained Control.fcs	2799
+571367	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD14 PE Stained Control.571367.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD14 PE Stained Control.fcs	2799
+571368	Flow cytometry compensation or control	303096	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD19 ECD Stained Control.571368.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+571369	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD20 PE-Cy5 Stained Control.571369.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571370	Flow cytometry compensation or control	303102	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD40 PE-Cy5 Stained Control.571370.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571371	Flow cytometry compensation or control	303107	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CXCR3 PE-Cy5 Stained Control.571371.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+571372	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD38 PE-Cy7 Stained Control.571372.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571373	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD1c PE-Cy7 Stained Control.571373.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571374	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD8 APC Stained Control.571374.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD8 APC Stained Control.fcs	2799
+571375	Flow cytometry compensation or control	303116	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.571375.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+571376	Flow cytometry compensation or control	303104	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD27 APC-H7 Stained Control.571376.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571377	Flow cytometry compensation or control	303103	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD16 APC-H7 Stained Control.571377.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571378	Flow cytometry compensation or control	303106	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD11c APC-H7 Stained Control.571378.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571379	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD4 APC-H7 Stained Control.571379.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571380	Flow cytometry compensation or control	303113	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD86 Pacific Blue Stained Control.571380.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+571381	Flow cytometry compensation or control	303116	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_PD-1 Pacific Blue Stained Control.571381.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+571382	Flow cytometry compensation or control	303115	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD3 Pacific Orange Stained Control.571382.fcs	ExVivo_PBMC_Phenotyping_PT51--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+571383	Flow cytometry result	115378709	051_V1_052412_Mono.571383.fcs	051_V1_052412_Mono.fcs	2799
+571384	Flow cytometry result	167117480	051_V1_052412_DC.571384.fcs	051_V1_052412_DC.fcs	2799
+571385	Flow cytometry result	72479480	051_V1_052412_TFH.571385.fcs	051_V1_052412_TFH.fcs	2799
+571386	Flow cytometry result	23227947	051_V2_052412_Tube_001.571386.fcs	051_V2_052412_Tube_001.fcs	2799
+571387	Flow cytometry result	35421633	051_V2_052412_Tube_002.571387.fcs	051_V2_052412_Tube_002.fcs	2799
+571388	Flow cytometry result	41653347	051_V2_052412_Tube_003.571388.fcs	051_V2_052412_Tube_003.fcs	2799
+571389	Flow cytometry result	22289903	051_V2_052412_Tube_004.571389.fcs	051_V2_052412_Tube_004.fcs	2799
+571390	Flow cytometry result	45977908	051_V3_052412_Tube_001.571390.fcs	051_V3_052412_Tube_001.fcs	2799
+571391	Flow cytometry result	93272311	051_V3_052412_Tube_002.571391.fcs	051_V3_052412_Tube_002.fcs	2799
+571392	Flow cytometry result	99487887	051_V3_052412_Tube_003.571392.fcs	051_V3_052412_Tube_003.fcs	2799
+571393	Flow cytometry result	46998503	051_V3_052412_Tube_004.571393.fcs	051_V3_052412_Tube_004.fcs	2799
+571394	Flow cytometry result	42599846	051_V4_052412_Tube_001.571394.fcs	051_V4_052412_Tube_001.fcs	2799
+571395	Flow cytometry result	98973990	051_V4_052412_Tube_002.571395.fcs	051_V4_052412_Tube_002.fcs	2799
+571396	Flow cytometry result	97589427	051_V4_052412_Tube_003.571396.fcs	051_V4_052412_Tube_003.fcs	2799
+571397	Flow cytometry result	42638904	051_V4_052412_Tube_004.571397.fcs	051_V4_052412_Tube_004.fcs	2799
+571398	Flow cytometry result	49994668	051_V5_052412_Tube_001.571398.fcs	051_V5_052412_Tube_001.fcs	2799
+571399	Flow cytometry result	75358114	051_V5_052412_Tube_002.571399.fcs	051_V5_052412_Tube_002.fcs	2799
+571400	Flow cytometry result	113090247	051_V5_052412_Tube_003.571400.fcs	051_V5_052412_Tube_003.fcs	2799
+571401	Flow cytometry result	59891785	051_V5_052412_Tube_004.571401.fcs	051_V5_052412_Tube_004.fcs	2799
+571402	Flow cytometry result	56860529	051_V6_052412_Tube_001.571402.fcs	051_V6_052412_Tube_001.fcs	2799
+571403	Flow cytometry result	106946791	051_V6_052412_Tube_002.571403.fcs	051_V6_052412_Tube_002.fcs	2799
+571404	Flow cytometry result	112395025	051_V6_052412_Tube_003.571404.fcs	051_V6_052412_Tube_003.fcs	2799
+571405	Flow cytometry result	29901445	051_V6_052412_Tube_004.571405.fcs	051_V6_052412_Tube_004.fcs	2799
+571406	Flow cytometry result	68093069	051_V7_052412_Tube_001.571406.fcs	051_V7_052412_Tube_001.fcs	2799
+571407	Flow cytometry result	113514755	051_V7_052412_Tube_002.571407.fcs	051_V7_052412_Tube_002.fcs	2799
+571408	Flow cytometry result	158671055	051_V7_052412_Tube_003.571408.fcs	051_V7_052412_Tube_003.fcs	2799
+571409	Flow cytometry result	74575767	051_V7_052412_Tube_004.571409.fcs	051_V7_052412_Tube_004.fcs	2799
+571410	Flow cytometry result	86660188	051_V8_052412_Tube_001.571410.fcs	051_V8_052412_Tube_001.fcs	2799
+571411	Flow cytometry result	144792094	051_V8_052412_Tube_002.571411.fcs	051_V8_052412_Tube_002.fcs	2799
+571412	Flow cytometry result	127033290	051_V8_052412_Tube_003.571412.fcs	051_V8_052412_Tube_003.fcs	2799
+571413	Flow cytometry result	67740865	051_V8_052412_Tube_004.571413.fcs	051_V8_052412_Tube_004.fcs	2799
+571414	Flow cytometry result	15817270	054_V1_051412_B cell.571414.fcs	054_V1_051412_B cell.fcs	2799
+571415	Flow cytometry compensation or control	303072	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_Unstained Control.571415.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_Unstained Control.fcs	2799
+571416	Flow cytometry compensation or control	1584393	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_IgD FITC Stained Control.571416.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_IgD FITC Stained Control.fcs	2799
+571417	Flow cytometry compensation or control	303092	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD14 PE Stained Control.571417.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD14 PE Stained Control.fcs	2799
+571418	Flow cytometry compensation or control	303094	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD19 ECD Stained Control.571418.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD19 ECD Stained Control.fcs	2799
+571419	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD20 PE-Cy5 Stained Control.571419.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD20 PE-Cy5 Stained Control.fcs	2799
+571420	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD40 PE-Cy5 Stained Control.571420.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD40 PE-Cy5 Stained Control.fcs	2799
+571421	Flow cytometry compensation or control	303104	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CXCR3 PE-Cy5 Stained Control.571421.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CXCR3 PE-Cy5 Stained Control.fcs	2799
+571422	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD38 PE-Cy7 Stained Control.571422.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD38 PE-Cy7 Stained Control.fcs	2799
+571423	Flow cytometry compensation or control	303100	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD1c PE-Cy7 Stained Control.571423.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD1c PE-Cy7 Stained Control.fcs	2799
+571424	Flow cytometry compensation or control	303093	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD8 APC Stained Control.571424.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD8 APC Stained Control.fcs	2799
+571425	Flow cytometry compensation or control	303116	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.571425.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD3 Alexa Fluor 700 Stained Control.fcs	2799
+571426	Flow cytometry compensation or control	303102	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD27 APC-H7 Stained Control.571426.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD27 APC-H7 Stained Control.fcs	2799
+571427	Flow cytometry compensation or control	303101	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD16 APC-H7 Stained Control.571427.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD16 APC-H7 Stained Control.fcs	2799
+571428	Flow cytometry compensation or control	303105	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD11c APC-H7 Stained Control.571428.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD11c APC-H7 Stained Control.fcs	2799
+571429	Flow cytometry compensation or control	303099	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD4 APC-H7 Stained Control.571429.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD4 APC-H7 Stained Control.fcs	2799
+571430	Flow cytometry compensation or control	303114	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD86 Pacific Blue Stained Control.571430.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD86 Pacific Blue Stained Control.fcs	2799
+571431	Flow cytometry compensation or control	303114	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_PD-1 Pacific Blue Stained Control.571431.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_PD-1 Pacific Blue Stained Control.fcs	2799
+571432	Flow cytometry compensation or control	303115	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD3 Pacific Orange Stained Control.571432.fcs	ExVivo_PBMC_Phenotyping_PT54--Compensation Controls_CD3 Pacific Orange Stained Control.fcs	2799
+571433	Flow cytometry result	29011393	054_V1_051412_Mono.571433.fcs	054_V1_051412_Mono.fcs	2799
+571434	Flow cytometry result	30000019	054_V1_051412_DC.571434.fcs	054_V1_051412_DC.fcs	2799
+571435	Flow cytometry result	19582152	054_V1_051412_TFH.571435.fcs	054_V1_051412_TFH.fcs	2799
+571436	Flow cytometry result	22098366	054_V2_051412_Tube_001.571436.fcs	054_V2_051412_Tube_001.fcs	2799
+571437	Flow cytometry result	29397486	054_V2_051412_Tube_002.571437.fcs	054_V2_051412_Tube_002.fcs	2799
+571438	Flow cytometry result	39048203	054_V2_051412_Tube_003.571438.fcs	054_V2_051412_Tube_003.fcs	2799
+571439	Flow cytometry result	22902682	054_V2_051412_Tube_004.571439.fcs	054_V2_051412_Tube_004.fcs	2799
+571440	Flow cytometry result	22822866	054_V3_051412_Tube_001.571440.fcs	054_V3_051412_Tube_001.fcs	2799
+571441	Flow cytometry result	51185405	054_V3_051412_Tube_002.571441.fcs	054_V3_051412_Tube_002.fcs	2799
+571442	Flow cytometry result	56204544	054_V3_051412_Tube_003.571442.fcs	054_V3_051412_Tube_003.fcs	2799
+571443	Flow cytometry result	27184642	054_V3_051412_Tube_004.571443.fcs	054_V3_051412_Tube_004.fcs	2799
+571444	Flow cytometry result	28407183	054_V4_051412_Tube_001.571444.fcs	054_V4_051412_Tube_001.fcs	2799
+571445	Flow cytometry result	48487627	054_V4_051412_Tube_002.571445.fcs	054_V4_051412_Tube_002.fcs	2799
+571446	Flow cytometry result	67197503	054_V4_051412_Tube_003.571446.fcs	054_V4_051412_Tube_003.fcs	2799
+571447	Flow cytometry result	20743885	054_V4_051412_Tube_004.571447.fcs	054_V4_051412_Tube_004.fcs	2799
+571448	Flow cytometry result	24438186	054_V5_051412_Tube_001.571448.fcs	054_V5_051412_Tube_001.fcs	2799
+571449	Flow cytometry result	57887348	054_V5_051412_Tube_002.571449.fcs	054_V5_051412_Tube_002.fcs	2799
+571450	Flow cytometry result	54122427	054_V5_051412_Tube_003.571450.fcs	054_V5_051412_Tube_003.fcs	2799
+571451	Flow cytometry result	27905303	054_V5_051412_Tube_004.571451.fcs	054_V5_051412_Tube_004.fcs	2799
+571452	Flow cytometry result	31571228	054_V6_051412_Tube_001.571452.fcs	054_V6_051412_Tube_001.fcs	2799
+571453	Flow cytometry result	75872286	054_V6_051412_Tube_002.571453.fcs	054_V6_051412_Tube_002.fcs	2799
+571454	Flow cytometry result	68565567	054_V6_051412_Tube_003.571454.fcs	054_V6_051412_Tube_003.fcs	2799
+571455	Flow cytometry result	39019827	054_V6_051412_Tube_004.571455.fcs	054_V6_051412_Tube_004.fcs	2799
+571456	Flow cytometry result	24046267	054_V7_051412_Tube_001.571456.fcs	054_V7_051412_Tube_001.fcs	2799
+571457	Flow cytometry result	52835946	054_V7_051412_Tube_002.571457.fcs	054_V7_051412_Tube_002.fcs	2799
+571458	Flow cytometry result	64623147	054_V7_051412_Tube_003.571458.fcs	054_V7_051412_Tube_003.fcs	2799
+571459	Flow cytometry result	23187566	054_V7_051412_Tube_004.571459.fcs	054_V7_051412_Tube_004.fcs	2799
+571460	Flow cytometry result	24767046	054_V8_051412_Tube_001.571460.fcs	054_V8_051412_Tube_001.fcs	2799
+571461	Flow cytometry result	49428968	054_V8_051412_Tube_002.571461.fcs	054_V8_051412_Tube_002.fcs	2799
+571462	Flow cytometry result	48925588	054_V8_051412_Tube_003.571462.fcs	054_V8_051412_Tube_003.fcs	2799
+571463	Flow cytometry result	20442743	054_V8_051412_Tube_004.571463.fcs	054_V8_051412_Tube_004.fcs	2799
+703253	Illumina BeadArray	455129588	SDY89_EXP14136_microarray.703253.tsv	SDY89_EXP14136_microarray.tsv	2799

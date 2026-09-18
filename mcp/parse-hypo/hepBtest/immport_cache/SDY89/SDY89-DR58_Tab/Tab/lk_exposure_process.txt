@@ -1,0 +1,20 @@
+NAME	DESCRIPTION	LINK
+administering substance in vivo	A planned process by which a material is intentionally given to an organism resulting in exposure of the organism to that substance.	http://purl.obolibrary.org/obo/OBI_0600007
+vaccination	Adminstering a vaccine to an organism with the intention of inducing immunity against antigen components of the vaccine.	
+infectious challenge	Administering an infectious agent to an organism in order to test if and how an infection will occur.	http://purl.obolibrary.org/obo/OBI_0000712
+transplantation or transfusion	Transfering a solid tissue (transplant) or bodily fluid (transfusion) to an organism.	http://purl.obolibrary.org/obo/OBI_0000105
+occurrence of disease	The process in which a disease unfolds.	http://purl.obolibrary.org/obo/OGMS_0000063
+occurrence of infectious disease	The process in which an infectious disease unfolds.	http://purl.obolibrary.org/obo/OBI_1110008
+occurrence of autoimmune disease	The process in which an autoimmune disease unfolds.	http://purl.obolibrary.org/obo/OBI_1110054
+occurrence of cancer	The process in which cancer unfolds	http://purl.obolibrary.org/obo/OBI_1110053
+exposure to substance without evidence for disease	An unplanned process in which an organism comes into contact with a substance without evidence for a disease caused by that exposure.	
+occurrence of asymptomatic infection	A process in which an infectious agent is in or on the body of an organism without causing detectable disease .	
+exposure with existing immune reactivity without evidence for disease	A process in which an organism is exposed to a material entity which is evident by a detectable immune reactivity against it.	http://purl.obolibrary.org/obo/OBI_1110061
+documented exposure without evidence for disease	A process in which an organism is exposed to a substance which is evident from that process having been observed or documented.	
+environmental exposure to endemic/ubiquitous agent without evidence for disease	A process in which an organism's  exposure to a material entity is assumed from that material being commonly present in the environment of the organism.	
+no exposure	An organism's lifspan which does not include exposure to a substance of interest.	
+unknown	An organism's lifespan for which there is no available information on an exposure to a material entity of interest.	
+transfusion	A planned process in which a bodily fluid is transferred into an organism	https://ontology.iedb.org/ontology/ONTIE_0003312
+occurrence of cancer associated with virus	An occurence of cancer where there is evidence for the presence of a cancer causing oncovirus in the tumor.	https://ontology.iedb.org/ontology/ONTIE_0003313
+solid tissue transplantation	A planned process in which solid tissue is transferred to an organism	https://ontology.iedb.org/ontology/ONTIE_0003311
+occurrence of allergic disease	The process in which an allergic disease unfolds.	http://purl.obolibrary.org/obo/OBI_1110012

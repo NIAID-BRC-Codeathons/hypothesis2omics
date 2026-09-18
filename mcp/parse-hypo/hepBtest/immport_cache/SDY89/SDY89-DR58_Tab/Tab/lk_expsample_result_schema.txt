@@ -1,0 +1,18 @@
+NAME	DESCRIPTION	TABLE_NAME
+ELISA	ELISA results data stored inELISA_RESULT table.	ELISA_RESULT
+ELISPOT	ELISPOT results data stored in ELISPOT_RESULT table.	ELISPOT_RESULT
+FCM	FCM results data stored in FCS_ANALYZED_RESULT table.	FCS_ANALYZED_RESULT
+GE AFFY	Gene Expression Affymetrix results data.	NONE
+ASSESSMENT	Assessment results	NONE
+GT AFFY	Genotyping Affymetrix results data.	NONE
+GT ILLUMINA	Genotyping Illumina results data.	NONE
+HAI	Hemagluttination Inhibition results data stored in HAI_RESULT table.	HAI_RESULT
+HLA TYPING	HLA_TYPING results data stored in HLA_TYPING_RESULT table.	HLA_TYPING_RESULT
+KIR TYPING	KIR results data stored in KIR_TYPING_RESULT table (future use).	KIR_TYPING_RESULT
+MBAA	MBAA results data stored in MBAA_RESULT table.	MBAA_RESULT
+OTHER	Result schema is OTHER and no specific Results table exists for this data. Result files are archived only, and Upld_Rslt_Status is always Not_Parsed.	NONE
+PUBLIC REPOSITORY	Results data stored in EXPSAMPLE_PUBLIC_REPOSITORY table.	EXPSAMPLE_PUBLIC_REPOSITORY
+Q-PCR	FCM results data stored in PCR_RESULT table.	PCR_RESULT
+VIRUS NEUTRALIZATION	Virus Neutralization results data stored in NEUT_AB_TITER_RESULT table.	NEUT_AB_TITER_RESULT
+MASS SPECTROMETRY	Mass Spectrometry of Metabolites and Proteins.	MASS_SPECTROMETRY_RESULT
+RNA SEQ	RNA Sequencing results data stored in RNA_SEQ_RESULT table.	RNA_SEQ_RESULT

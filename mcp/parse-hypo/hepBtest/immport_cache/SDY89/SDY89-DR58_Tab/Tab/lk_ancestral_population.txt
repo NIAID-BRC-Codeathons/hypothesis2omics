@@ -1,0 +1,16 @@
+NAME	ABBREVIATION	DESCRIPTION	LINK
+Unknown	Unk	A proper value is applicable, but not known.((HL7V3.0)	https://uts.nlm.nih.gov/uts/umls/concept/C0439673
+Central Asia	CAS	Kazakhstan, Uzbekistan, Kyrgyzstan, Tajikistan, Turkmenistan and Afghanistan	https://www.allelefrequencies.net/datasets.asp#tag_4
+South Asia	SAS	Pakistan, India, Sri Lanka and Bangladesh.	https://www.allelefrequencies.net/datasets.asp#tag_4
+Western Asia	WAS	Cyprus, Turkey (and associated islands), Georgia, Armenia, Azerbaijan, Syria, Lebanon, Israel, the Palestinian Territories, Jordan, the Saudi peninsula, Iraq, Kuwait and Iran.	http://www.allelefrequencies.net/datasets.asp#tag_4
+Australia	AUS	Australia and all of its islands (for example, Groote Eylandt, Tasmania, etc).	http://www.allelefrequencies.net/datasets.asp#tag_4
+Europe	EUR	An area bounded by Franz Joseph Land, Svalbard, Iceland, the northern coast of the Mediterranean and Black Seas, and those areas of Russia west of the Caspian Sea and Kazakhstan. Includes Mediterranean islands that are part of European nations, with the exception of Cyprus and islands that are part of Turkey. 	http://www.allelefrequencies.net/datasets.asp#tag_4
+None of the Above	NTA	The population area is unknown.	http://www.allelefrequencies.net/datasets.asp#tag_4
+North Africa	NAF	Nations on the African continent north of a line drawn between Nouadhibou in Mauritania and Djiubouti. Includes all of Western Sahara, Morocco, Algeria, Lyibia, Egypt, Eritrea, and Djibouti and northern areas of Mauritania, Mali, Niger, Chad, Sudan, and Ethiopia. 	http://www.allelefrequencies.net/datasets.asp#tag_4
+North America	NAM	Canada, the United States, Mexico, the Aleutian islands and Greenland.	http://www.allelefrequencies.net/datasets.asp#tag_4
+North-East Asia	NEA	Russia north (and associated islands), Mongolia, China east and east of the Gulf of Chihli, the Korean peninsula, and the islands of Japan.	http://www.allelefrequencies.net/datasets.asp#tag_4
+Oceania	OCE	An area of the Pacific bounded by the Hawaiian Islands, Easter Island, the islands of New Zealand, the Sunda Islands, Madagascar, those areas of Borneo not part of Malaysia, and the Phillipines.	http://www.allelefrequencies.net/datasets.asp#tag_4
+Other	OTH	This category is for populations derived from more than one of the other regions defined here. 	http://www.allelefrequencies.net/datasets.asp#tag_4
+South America	SAM	All of the South American and the Central American nations and associated islands, and the Caribbean.	http://www.allelefrequencies.net/datasets.asp#tag_4
+South-East Asia	SEA	China West, Taiwan, Nepal, Bhutan, Vietnam, Myanmar (Burma), Laos, Cambodia, Thailand, Malaysia (including the Malaysian area of Borneo) and Singapore.	http://www.allelefrequencies.net/datasets.asp#tag_4
+Sub-Saharan Africa	SSA	The area on the African continent south of the Sahara, defined by a line drawn between Nouadhibou in Mauritania and Djiubouti, and the islands associated with the nations of that area. Includes the southern areas of Mauritania, Mali, Niger, Chad, Sudan, and Ethiopia. Madagascar is not included in this region.	http://www.allelefrequencies.net/datasets.asp#tag_4

@@ -1,0 +1,13 @@
+{
+  "source": "https://storage.googleapis.com/public-download-files/hgnc/tsv/tsv/hgnc_complete_set.txt",
+  "fetched_utc": "2026-09-18T16:17:17Z",
+  "filter": "locus_group == protein-coding gene",
+  "columns_kept": [
+    "symbol",
+    "name",
+    "alias_symbol",
+    "prev_symbol",
+    "prev_name"
+  ],
+  "note": "Pinned snapshot, not a live query. Re-fetch and replace to update."
+}

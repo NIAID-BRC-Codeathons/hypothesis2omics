@@ -1,0 +1,51 @@
+SUBJECT_ACCESSION	ANCESTRAL_POPULATION	DESCRIPTION	ETHNICITY	GENDER	RACE	RACE_SPECIFY	SPECIES	STRAIN	STRAIN_CHARACTERISTICS	WORKSPACE_ID
+SUB114737			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114738			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114739			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114740			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114741			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114742			Not Hispanic or Latino	Male	American Indian or Alaska Native		Homo sapiens			2799
+SUB114743			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114744			Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114745			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114746			Not Hispanic or Latino	Male	Black or African American		Homo sapiens			2799
+SUB114747			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114748			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114749			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114750			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114751			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114752			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114753			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114754			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114755			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114756			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114757			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114758			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114759			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114760			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114761			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114762			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114763			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114764			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114765			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114766			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114767			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114768			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114769			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114770			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114771			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114772			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114773			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114774			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114775			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114776			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114777			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114778			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114779			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114780			Not Hispanic or Latino	Male	White		Homo sapiens			2799
+SUB114781			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114782			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114783			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114784			Not Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114785			Hispanic or Latino	Female	White		Homo sapiens			2799
+SUB114786			Not Hispanic or Latino	Female	White		Homo sapiens			2799

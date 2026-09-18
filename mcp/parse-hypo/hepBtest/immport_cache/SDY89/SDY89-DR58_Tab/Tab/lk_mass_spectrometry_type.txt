@@ -1,0 +1,4 @@
+NAME	DESCRIPTION	LINK
+Glycomics	The systematic study of the structure and function of the complete set of glycans (the glycome) produced in a single organism and identification of all the genes that encode glycoproteins.(MSH)	https://uts.nlm.nih.gov/uts/umls/concept/C1512223
+Metabolomics	Metabolites can be measured (identified, quantified or classified) mass spectrometry	https://en.wikipedia.org/wiki/Metabolomics
+Proteomics	Protein mass spectrometry refers to the application of mass spectrometry to the study of proteins	https://en.wikipedia.org/wiki/Protein_mass_spectrometry
