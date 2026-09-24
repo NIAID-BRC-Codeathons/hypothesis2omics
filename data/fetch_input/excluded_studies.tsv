@@ -1,0 +1,3 @@
+sdy_id	tab_zip_path	has_expsample_public_repository	geo_linked_sample_count	has_study_link	study_link_targets	ready	reason
+SDY15	/private/tmp/claude-505/-Users-msadeck-Desktop-h2o-scratch/fac21ea9-fed3-4e14-8202-3ad14fb96f40/scratchpad/readiness_check_cache/SDY15/SDY15-DR58_Tab.zip	False	0	True	ClinicalTrials.gov -> http://clinicaltrials.gov/ct2/show/study/NCT00723489	False	no expsample_public_repository.txt in Tab.zip
+SDY271	/private/tmp/claude-505/-Users-msadeck-Desktop-h2o-scratch/fac21ea9-fed3-4e14-8202-3ad14fb96f40/scratchpad/readiness_check_cache/SDY271/SDY271-DR58_Tab.zip	False	0	True	Emory Vaccine Center -> http://www.vaccines.emory.edu/	False	no expsample_public_repository.txt in Tab.zip

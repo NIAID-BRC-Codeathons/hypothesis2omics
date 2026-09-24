@@ -1,0 +1,23 @@
+{
+  "run_started_at_utc": "2026-09-17T19:10:27.247311+00:00",
+  "tool": "study_readiness_module",
+  "tool_version": "0.1.0",
+  "studies_checked": 7,
+  "ready": [
+    "SDY1264",
+    "SDY1294",
+    "SDY1289",
+    "SDY1291",
+    "SDY1529"
+  ],
+  "excluded": [
+    "SDY15",
+    "SDY271"
+  ],
+  "outputs": {
+    "study_readiness_tsv": "runs/READINESS_HYP001/study_readiness.tsv",
+    "ready_studies_txt": "runs/READINESS_HYP001/ready_studies.txt",
+    "excluded_studies_tsv": "runs/READINESS_HYP001/excluded_studies.tsv"
+  },
+  "duration_sec": 14.635
+}
